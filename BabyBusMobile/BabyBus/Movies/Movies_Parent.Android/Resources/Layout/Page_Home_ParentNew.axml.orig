@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical"
+    android:background="@color/bb_gray3">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:id="@+id/parent_gm"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="0dp"
+            android:layout_height="150dp">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <babybus.droid.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:padding="2dp"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/parent_classnotice"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@android:color/white">
+            <TextView
+                android:textSize="18.0sp"
+                android:textColor="@color/bb_orange"
+                android:gravity="center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+<<<<<<< HEAD
+                android:text="家庭作业" />
+=======
+                local:MvxBind="Text ClassNoticeTitle"
+                android:text="班级作业" />
+>>>>>>> 2a66ddf806186bdc18fd7fd0355a4a76de6fa5db
+            <TextView
+                android:textSize="13dp"
+                android:gravity="center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:layout_marginLeft="10dp"
+                local:MvxBind="Text ClassNoticeContent"
+                android:text="Apple Watch提供了NFC功能。通过近场通讯，Apple Watch可以使用Apple Pay功能，这样用户在支付环节时，就不用可以掏出手机，使用手腕上的手表碰触POS机即可完成支付。" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/parent_kgnotice"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="10dp"
+            android:background="@android:color/white">
+            <TextView
+                android:textSize="18.0sp"
+                android:textColor="@color/bb_orange"
+                android:gravity="center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxBind="Text KindergartenNoticeTitle"
+                android:text="园区通知" />
+            <TextView
+                android:textSize="13dp"
+                android:gravity="center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:layout_marginLeft="10dp"
+                local:MvxBind="Text KindergartenNoticeContent"
+                android:text="Apple Watch提供了NFC功能。通过近场通讯，Apple Watch可以使用Apple Pay功能，这样用户在支付环节时，就不用可以掏出手机，使用手腕上的手表碰触POS机即可完成支付。" />
+        </LinearLayout>
+        <GridView
+            android:id="@+id/parent_grid"
+            android:layout_width="fill_parent"
+            android:layout_height="270dp"
+            android:columnWidth="115dp"
+            android:numColumns="3"
+            android:paddingTop="10dp"
+            android:verticalSpacing="0dp"
+            android:stretchMode="columnWidth"
+            android:gravity="bottom"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/white" />
+    </LinearLayout>
+</ScrollView>

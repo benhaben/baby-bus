@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>参数配置</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if IE 8]>
+        <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- Page specific plugins -->
+    <!-- Charts -->
+    <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+    <!-- Forms -->
+    <script type="text/javascript" src="plugins/typeahead/typeahead.min.js"></script> <!-- AutoComplete -->
+    <script type="text/javascript" src="plugins/autosize/jquery.autosize.min.js"></script>
+    <script type="text/javascript" src="plugins/inputlimiter/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="plugins/uniform/jquery.uniform.min.js"></script> <!-- Styled radio and checkboxes -->
+    <script type="text/javascript" src="plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="plugins/select2/select2.min.js"></script> <!-- Styled select boxes -->
+    <script type="text/javascript" src="plugins/fileinput/fileinput.js"></script>
+    <script type="text/javascript" src="plugins/duallistbox/jquery.duallistbox.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+    <!-- Globalize -->
+    <script type="text/javascript" src="plugins/globalize/globalize.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.de-DE.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.ja-JP.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/testQuestion.js"></script>
+    <!-- Slim Progress Bars -->
+    <script type="text/javascript" src="plugins/nprogress/nprogress.js"></script>
+
+    <!-- Demo JS -->
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/demo/form_components.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+
+    <script type="text/x-handlebars-template" id="ageNormalInfoId">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="ageTypeId{{AgeType}}" style="display:block">
+                    {{AgeType}}岁组
+                    <button class="btn" style="position:relative;left:80%" onclick="('{{AgeType}}')">添加方案</button>
+                    <i style="float:right;width:95%;height:40px;position:relative;left:2%;bottom:5px" onclick="displayAgeNormal('{{AgeType}}')">
+                        <i id="types{{AgeType}}" style="float:right;position:relative;right:10px;bottom:20px">
+                            ▼
+                        </i>
+                    </i>
+                </h3>
+            </div>
+
+            <div id="collapse{{AgeType}}" class="panel-collapse collapse in" style="height: auto;position:relative;bottom:5%">
+                <div id="ageContent{{AgeType}}" style="display:none;position:relative;left : 7%">
+                </div>
+            </div>
+
+        </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="panelNormalInfoId" >
+        <div class="panel panel-default" style="width:800px;position:relative;right:5%;">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="panelId{{GenderNormGroupAgeTypeId}}" style="display:block">
+                    方案{{Panel}}
+                   <!-- <i style="float:right;width:35%;height:40px;position:relative;left:2%;bottom:5px" onclick="noneClass('{{classId}}')">
+                        <i id="types{{GenderNormGroupAgeTypeId}}" style="float:right;position:relative;right:10px;top:10px">
+                            ▼
+                        </i>
+                    </i>
+                    <input type="radio" id="choicePanel{{GenderNormGroupAgeTypeId}}" name="choicePanel{{ageType}}" style="float:right"/>
+                    <i style="float:right">启用</i>-->
+                </h3>
+            </div>
+
+            <div id="collapse{{GenderNormGroupAgeTypeId}}" class="panel-collapse collapse in" style="height: auto;">
+                <div id="panelContent{{GenderNormGroupAgeTypeId}}" style="display:block;height:140px;position:relative;left : 7%">
+                    <table border="1" style="width:700px;height:120px;position:relative;left:2%;top:5%" id="NormalInfoTableId{{GenderNormGroupAgeTypeId}}">
+                        <tr>
+                            <td style="text-align:center">性别</td>
+                            <td style="text-align:center">类型</td>
+                            <td style="text-align:center">言语语言</td>
+                            <td style="text-align:center">数理逻辑</td>
+                            <td style="text-align:center">视觉空间</td>
+                            <td style="text-align:center">身体动觉</td>
+                            <td style="text-align:center">音乐节奏</td>
+                            <td style="text-align:center">人际交往</td>
+                            <td style="text-align:center">自知自省</td>
+                            <td style="text-align:center">自然观察</td>
+                            <td style="text-align:center">总 分</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </script>
+
+    
+    <script type="text/x-handlebars-template" id="detailNormalOnceInfoId">
+        <tr>
+            <td rowspan="2" style="text-align:center">{{Gender}}</td>
+            <td style="text-align:center">{{EvaluationType}}</td>
+            <td style="text-align:center">{{SpeechLanguage}}</td>
+            <td style="text-align:center">{{MathematicalLogic}}</td>
+            <td style="text-align:center">{{VisualSpace}}</td>
+            <td style="text-align:center">{{Kinesthetic}}</td>
+            <td style="text-align:center">{{RhythmMusic}}</td>
+            <td style="text-align:center">{{Communication}}</td>
+            <td style="text-align:center">{{Intrapersonal}}</td>
+            <td style="text-align:center">{{NaturalObservation}}</td>
+            <td style="text-align:center">{{TotalScore}}</td>
+        </tr>
+    </script>
+
+    <script type="text/x-handlebars-template" id="detailNormalSecondInfoId">
+        <tr>
+            <td style="text-align:center">{{EvaluationType}}</td>
+            <td style="text-align:center">{{SpeechLanguage}}</td>
+            <td style="text-align:center">{{MathematicalLogic}}</td>
+            <td style="text-align:center">{{VisualSpace}}</td>
+            <td style="text-align:center">{{Kinesthetic}}</td>
+            <td style="text-align:center">{{RhythmMusic}}</td>
+            <td style="text-align:center">{{Communication}}</td>
+            <td style="text-align:center">{{Intrapersonal}}</td>
+            <td style="text-align:center">{{NaturalObservation}}</td>
+            <td style="text-align:center">{{TotalScore}}</td>
+        </tr>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            TestQuestion.GenentEvaluationNormalInfo();
+
+        });
+        function submit() {
+            //TestQuestion.GenentInputQuestionInfo();
+        }
+        function displayAgeNormal(id) {
+            var ageId = document.getElementById("ageContent" + id).style.display.valueOf();
+            if (ageId == "none") {
+                $("#ageContent" + id).css({ display: "block" });
+                $("#types" + id).text("▲");
+            } else {
+                $("#ageContent" + id).css({ "display": "none" });
+                $("#types" + id).text("▼");
+            }
+        }
+        function submitUse() {
+            TestQuestion.GenentUsedBtnNormalInfo();
+        }
+    </script>
+
+
+</head>
+<body id="bodyonline">
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+    <div class="widget invoice">
+        <div class="widget-header">
+            <div class="pull-left">
+                <h2>参数配置</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="widget box">
+                <div class="widget-header">
+                    <h4><i class="icon-reorder"></i> 参数配置</h4>
+                   <!-- <button class="btn btn- btn-primary" id="edit_user_info" onclick="submit()" style="margin:2px;position:relative;left:69%">参数配置</button>
+                    <button class="btn btn- btn-primary" id="useNormalId" onclick="submitUse()" style="margin:2px;position:relative;left:69%">提交启用方案</button>-->
+                </div>
+                <div class="widget-content">
+                    <form class="form-horizontal row-border" action="#" style="position:relative;">
+                        <div class="alert alert-info fade in">
+                            <i class="icon-remove close" data-dismiss="alert"></i>
+                            您可以在此页面对多元智力题目的参数进行配置……
+                        </div>
+                       <!-- <div class="form-group">
+                            <table border="1" style="width:95%;position:relative;left:2%" id="NormalInfoTableId">
+                                <tr>
+                                    <td style="text-align:center">年龄组</td>
+                                    <td style="text-align:center">方案</td>
+                                    <td style="text-align:center">性别</td>
+                                    <td style="text-align:center">类型</td>
+                                    <td style="text-align:center">言语语言</td>
+                                    <td style="text-align:center">数理逻辑</td>
+                                    <td style="text-align:center">视觉空间</td>
+                                    <td style="text-align:center">身体动觉</td>
+                                    <td style="text-align:center">音乐节奏</td>
+                                    <td style="text-align:center">人际交往</td>
+                                    <td style="text-align:center">自知自省</td>
+                                    <td style="text-align:center">自然观察</td>
+                                    <td style="text-align:center">总 分</td>
+                                </tr>
+                            </table>
+                        </div>-->
+                        <div class="form-group" style="position:relative;top:20px">
+                            <div class="tab-pane" id="tab_1_2">
+                                <div class="widget">
+                                    <div class="widget-content">
+                                        <div class="panel-group" id="allClassContent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

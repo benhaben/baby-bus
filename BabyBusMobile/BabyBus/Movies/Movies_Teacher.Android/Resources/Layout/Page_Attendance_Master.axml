@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:id="@+id/linearLayout1"
+            android:background="@color/bb_blue">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/lightyellow"
+                android:gravity="center_vertical"
+                android:id="@+id/no_net_lable"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/icon_easyicon_net"
+                    android:layout_marginLeft="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="世界上最远的距离就是没有网，检查设置"
+                    android:textColor="@color/bb_black1" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="74.0dp"
+            android:id="@+id/linearLayout2">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="65.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout3"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal|center_vertical">
+                <TextView
+                    android:text="-"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/label_attence"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:text="到园"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="75.5dp"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout4"
+                android:gravity="center"
+                android:layout_weight="3" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="65.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout5"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal|center_vertical">
+                <TextView
+                    android:text="-"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/label_unattence"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:text="缺勤"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="73.5dp"
+            android:id="@+id/linearLayout6"
+            android:gravity="center_horizontal|center_vertical">
+            <TextView
+                android:text="本日还未进行考勤，请点击上方的按钮开始考勤"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                local:MvxBind="Text AttenceHint"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+        <FrameLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="59.5dp"
+            android:id="@+id/frameLayout1">
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_gravity="center" />
+            <TextView
+                android:text="今日请假幼儿"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:layout_gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                local:MvxBind="Text ChildListHint"
+                android:background="@android:color/white" />
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_circle"
+        android:layout_marginTop="60dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_attence"
+            local:MvxBind="Click ShowDetailCommand"
+            android:layout_margin="2dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="320dp"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <ListView
+            android:id="@+id/unattendance_child_list"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#19000000"
+            android:dividerHeight="1dp"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:smoothScrollbar="true"
+            android:layout_marginTop="0.0dp" />
+    </LinearLayout>
+</RelativeLayout>

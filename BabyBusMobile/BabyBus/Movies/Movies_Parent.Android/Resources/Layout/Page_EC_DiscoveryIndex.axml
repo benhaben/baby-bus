@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bb_gray3">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/lightyellow"
+        android:gravity="center_vertical"
+        android:id="@+id/no_net_lable"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/icon_easyicon_net"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="世界上最远的距离就是没有网，检查设置"
+            android:textColor="@color/bb_black1" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/parent_gm"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="150dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bar_slide_1" />
+        <babybus.droid.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:padding="2dp"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" />
+    </LinearLayout>
+    <GridView
+        android:id="@+id/index_grid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="100dp"
+        android:numColumns="4"
+        android:paddingTop="5dp"
+        android:stretchMode="columnWidth" />
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/recommendation_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#19000000"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true" />
+</LinearLayout>

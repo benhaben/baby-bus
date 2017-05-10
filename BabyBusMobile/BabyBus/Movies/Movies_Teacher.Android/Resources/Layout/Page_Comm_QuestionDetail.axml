@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@android:id/tabcontent"
+        android:layout_weight="1">
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingBottom="62dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true">
+                <TextView
+                    android:id="@+id/config_hidden"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:visibility="gone" />
+                <LinearLayout
+                    android:id="@+id/question_titlebar"
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@android:color/white"
+                    android:padding="10dp">
+                    <TextView
+                        local:MvxBind="Text Question.Content"
+                        android:textColor="@color/bb_black1"
+                        android:textSize="20sp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="信息反馈" />
+                    <TextView
+                        android:id="@+id/leavetime"
+                        android:layout_marginTop="5dp"
+                        local:MvxBind="Text Question.BeginDateToEndDate"
+                        android:textColor="@color/bb_gray1"
+                        android:textSize="18sp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="显示时间" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:textSize="16sp"
+                            android:textColor="@color/bb_gray1"
+                            local:MvxBind="Text Question.ChildName"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="ChildName"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:textSize="16sp"
+                            android:textColor="@color/bb_gray1"
+                            local:MvxBind="Text Question.CreateTime, Converter=DateTimeOffset"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="DateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/textView1" />
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bb_black1" />
+                <ListView
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="390dp"
+                    android:id="@+id/answer_list" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/lightyellow"
+            android:gravity="center_vertical"
+            android:id="@+id/no_net_lable"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/icon_easyicon_net"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="世界上最远的距离就是没有网，检查设置"
+                android:textColor="@color/bb_black1" />
+        </LinearLayout>
+    </FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_send_answer"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:background="@color/white"
+        android:focusableInTouchMode="true">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="请输入内容"
+            local:MvxBind="Text Answer"
+            android:maxLength="200"
+            android:id="@+id/editText1" />
+        <Button
+            android:text="发送"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_question_answer"
+            local:MvxBind="Click SendAnswerCommand"
+            android:textSize="14sp" />
+    </LinearLayout>
+</RelativeLayout>

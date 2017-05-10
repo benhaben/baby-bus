@@ -1,0 +1,184 @@
+﻿using System;
+using Android.App;
+using Android.Content;
+using Android.Content.PM;
+using Android.OS;
+using Android.Views;
+using Android.Widget;
+using AndroidHUD;
+using BabyBus.Droid.Adapters;
+using BabyBus.Droid.Utils;
+using BabyBus.Droid.Views.Common;
+using BabyBus.Droid.Views.Common.Album;
+using BabyBus.Models.Enums;
+using BabyBus.ViewModels.Communication;
+
+namespace BabyBus.Droid.Views.Communication
+{
+	[Activity(Theme = "@style/CustomTheme")]
+    public class SendNoticeView : ViewBase<SendNoticeViewModel>
+    {
+        private const int DefaultGridHeight = CustomConfig.DefaultThumbImageGridHeight;
+        private SelectedImageGridAdapter adapter;
+        private EditText title;
+        private EditText content;
+        private LinearLayout send;
+
+        //Default Image Grid Height, One Column
+
+        private GridView noScrollgridview;
+        private float dp;
+        protected override void OnCreate(Bundle bundle) {
+            base.OnCreate(bundle);
+
+			SetCustomTitleWithBack (Resource.Layout.Page_Comm_SendNotice,GetTitleResourceId ());
+
+//			bool requestWindowFeature = false;
+//			requestWindowFeature = RequestWindowFeature (WindowFeatures.CustomTitle); 
+//
+//            SetContentView(Resource.Layout.Page_Comm_SendNotice);
+//
+//			if (requestWindowFeature) {
+//				this.Window.SetFeatureInt (WindowFeatures.CustomTitle, Resource.Layout.Bar_Default_WithBack);
+//				var btnBack = FindViewById<LinearLayout> (Resource.Id.ll_back);
+//				btnBack.Click += (object sender, EventArgs e) => {
+//					var newEvent = new KeyEvent(KeyEventActions.Down,Keycode.Back);
+//					OnKeyDown(Keycode.Back,newEvent);
+//				};
+//				var topTitle = FindViewById<TextView> (Resource.Id.title);
+//				topTitle.Text = Resources.GetString(GetTitleResourceId ());
+//			}
+
+            SetTitle(GetTitleResourceId());
+            title = FindViewById<EditText>(Resource.Id.notice_title_text);
+            content = FindViewById<EditText>(Resource.Id.notice_content_text);
+            send = FindViewById<LinearLayout>(Resource.Id.notice_sendto_layout);
+            
+            Init();
+
+            dp = (float)Resources.DisplayMetrics.Density/2;
+
+			ViewModel.SendImagesResultEventHandler += (successlist, failurelist) => RunOnUiThread(()=>{
+				if (failurelist.Count > 0) {
+					var result = string.Format("上传成功{0}张图片，失败{1}张图片。", successlist.Count, failurelist.Count);
+					new AlertDialog.Builder(this)
+						.SetTitle("错误")
+						.SetMessage(result)
+						.SetPositiveButton("重新发送", (sender, args) => {
+							ViewModel.SendNoticeAndImage(failurelist);
+						})
+						.SetNegativeButton("放弃发送", (sender, args) => {
+							this.HideInfo();
+							ViewModel.ClearDataAfterGiveUpSendNotice();
+						})
+						.Show();
+				}
+			});
+        }
+
+        private void Init() {
+            
+
+            noScrollgridview = FindViewById<GridView>(Resource.Id.noScrollgridview);
+            adapter = new SelectedImageGridAdapter(this);
+
+
+//            ViewModel.ClearImageCollection += (sender, args) => ImageCollection.ClearImage();
+
+            noScrollgridview.ItemClick += (sender, args) => {
+                if (args.Position == ImageCollection.BmpList.Count) //Add new Image
+                {
+                    var intent = new Intent(this, typeof (ImageGridView));
+                    StartActivity(intent);
+                }
+                else //Display selected Image
+                {
+//                    var intent = new Intent(this, typeof (GalleryView));
+//                    StartActivity(intent);
+                }
+            };
+
+            if (ViewModel.NoticeType == NoticeType.GrowMemory) {
+                title.Hint = "写下这一刻的想法...";
+                content.Visibility = ViewStates.Gone;
+                send.Visibility = ViewStates.Gone;
+            }
+            else {
+                content.Hint = ViewModel.ContentHolder;
+            }
+        }
+
+
+        protected override void OnResume() {
+            base.OnResume();
+            //Refresh Images GridView
+            adapter.Update();
+            noScrollgridview.Adapter = adapter;
+//            ViewModel.BytesList = ImageCollection.GetBytesList();
+			ViewModel.ImagesUrl = ImageCollection.PthList;
+            //Autofit Grid Height
+            ViewGroup.LayoutParams layoutParams = noScrollgridview.LayoutParameters;
+            if (ImageCollection.Max < 4) //One Column
+            {
+                layoutParams.Height = Convert.ToInt32( DefaultGridHeight * dp);
+                noScrollgridview.LayoutParameters = layoutParams;
+            }
+            else if (ImageCollection.Max < 8) //Two Column
+            {
+                layoutParams.Height = Convert.ToInt32( (DefaultGridHeight*2 - 20) * dp);
+                noScrollgridview.LayoutParameters = layoutParams;
+            }
+            else //Three Column
+            {
+                layoutParams.Height = Convert.ToInt32((DefaultGridHeight*3 - 40)*dp);
+                noScrollgridview.LayoutParameters = layoutParams;
+            }
+        }
+
+        private int GetTitleResourceId() {
+            switch (ViewModel.NoticeType) {
+                case NoticeType.ClassCommon:
+                    return Resource.String.comm_label_sendnotice;
+                case NoticeType.ClassHomework:
+                    return Resource.String.comm_label_sendhomework;
+                case NoticeType.GrowMemory:
+                    return Resource.String.comm_label_sendphoto;
+                case NoticeType.KindergartenAll:
+                    return Resource.String.comm_label_kindergartenall;
+                case NoticeType.KindergartenStaff:
+                    return Resource.String.comm_label_kindergartenstaff;
+			case NoticeType.KindergartenRecipe:
+				return Resource.String.comm_label_kindergartenrecipe;
+                default:
+                    return -1;
+            }
+        }
+
+        protected override void OnPause() {
+            base.OnPause();
+            ImageCollection.ClearImage();
+        }
+
+		public override bool OnKeyDown (Keycode keyCode, KeyEvent e)
+		{
+			if (keyCode == Keycode.Back) {
+				if ((ViewModel.NoticeType != NoticeType.GrowMemory && !string.IsNullOrEmpty (ViewModel.Content))
+					|| (ViewModel.NoticeType == NoticeType.GrowMemory && ViewModel.ImagesUrl.Count > 0)) {
+					var dlg = new AlertDialog.Builder (this);
+					dlg.SetTitle (Resource.String.common_label_return);
+					dlg.SetMessage (Resource.String.comm_label_abortreturn);
+					dlg.SetPositiveButton (Resource.String.common_label_enter, (o, args1) => {
+						Finish ();
+					});
+					dlg.SetNegativeButton (Resource.String.common_label_cancel, (o, args1) => {
+					});
+					dlg.Show ();
+				} else {
+					Finish ();
+				}
+				return false;
+			}
+			return base.OnKeyDown (keyCode, e);
+		}
+    }
+}

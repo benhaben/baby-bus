@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>第1幼儿园 发送信息量</title>
+
+	<!--=== CSS ===-->
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- jQuery UI -->
+	<!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+	<![endif]-->
+
+	<!-- Theme -->
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+	<![endif]-->
+
+	<!--=== JavaScript ===-->
+
+	<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="assets/js/libs/html5shiv.js"></script>
+	<![endif]-->
+
+	<!-- Smartphone Touch Events -->
+	<script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+	<!-- General -->
+	<script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+	<script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+		Utilities.DrawHeader();
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+		Utilities.GenertFeedback();
+	});
+	</script>
+</head>
+
+<body>
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+
+	<div id="container">
+		<div id="sidebar" class="sidebar-fixed">
+			<div id="sidebar-content">
+
+                <!-- siderbar search -->
+                <form class="sidebar-search">
+					<div class="input-box">
+						<button type="submit" class="submit">
+							<i class="icon-search"></i>
+						</button>
+						<span>
+							<input type="text" placeholder="Search...">
+						</span>
+					</div>
+				</form>
+                <!-- /siderbar search -->
+
+				<!--=== Left Navigation Bar ===-->
+				<ul id="nav">					
+	                <li class="open">
+						<a href="javascript:void(0);">							
+						第1幼儿园
+					    <i class="arrow icon-angle-left"></i></a>
+					    <ul class="sub-menu" style="display: block;">
+							<li>
+								<a href="kindergarden_active_info.html">
+								<i class="icon-angle-right"></i>
+								幼儿园简介
+								</a>
+							</li>
+							<li>
+								<a href="kindergarden_active_user_amount.html">
+								<i class="icon-angle-right"></i>
+								用户数量
+								</a>
+							</li>
+							<li>
+								<a href="kindergarden_active_exam.html">
+								<i class="icon-angle-right"></i>
+								体测情况
+								</a>
+							</li>
+							<li class="current">
+								<a href="kindergarden_active_messages.html">
+								<i class="icon-angle-right"></i>
+								发送信息量
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">						
+							第2幼儿园
+						</a>
+					</li>
+					<li>
+						<a href="#">						
+							第...幼儿园
+						</a>
+					</li>
+					<li>
+						<a href="#">						
+							第50幼儿园
+						</a>
+					</li>
+				</ul>
+				<!-- /Left Navigation Bar -->
+			</div>
+
+				<!-- Sidebar -->
+				<div id="divider" class="resizeable"></div>
+				<!-- /Sidebar -->
+		</div>		
+
+		<div id="content">
+			<div class="container">
+
+			    <!--=== Page Header ===-->
+                <div class="widget invoice">
+					<div class="widget-header">
+						<div class="pull-left">
+							<h2>幼儿园发送信息量</h2>
+							<h2><small>第1幼儿园</small></h2>
+						</div>
+						
+					</div>
+				</div>	
+				
+			    <!-- /Page Header -->
+
+				<!--=== Page Content ===-->
+				<div style="padding-left: 80px">                    							
+					<img src="images/active_kindergarden_messages_chart.jpg"><br>
+					<img src="images/active_kindergarden_messages_table.jpg">				
+				</div>
+				<!-- /Page Content -->
+
+			</div>
+			<!-- /.container -->
+
+		</div>
+	</div>
+
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

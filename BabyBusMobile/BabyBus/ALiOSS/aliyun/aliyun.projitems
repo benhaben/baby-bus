@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{2F400A2A-9E0C-4099-80B7-8B34EC47A953}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>aliyun</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\AbortMultipartUploadCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\CompleteMultipartUploadCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\CopyObjectCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\CreateBucketCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DeleteBucketCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DeleteBucketCorsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DeleteBucketLoggingCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DeleteBucketWebsiteCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DeleteObjectCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DeleteObjectsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\GetBucketAclCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\GetBucketCorsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\GetBucketLoggingCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\GetBucketRefererCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\GetBucketWebsiteCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\GetObjectCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\GetObjectMetadataCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\InitiateMultipartUploadCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ListBucketsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ListMultipartUploadsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ListObjectsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ListPartsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\OssCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\PutObjectCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\SetBucketAclCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\SetBucketCorsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\SetBucketLoggingCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\SetBucketRefererCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\SetBucketWebsiteCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\UploadPartCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\UploadPartCopyCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Authentication\HmacSHA1Signature.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Authentication\IRequestSigner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Authentication\ServiceSignature.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\ExecutionContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\HttpMethod.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\IServiceClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\RetryableServiceClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\ServiceClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\ServiceClientImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\ServiceMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\ServiceRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Communication\ServiceResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Handlers\IResponseHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Handlers\ResponseHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Transform\IDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Transform\ISerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Transform\RequestSerializationException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Transform\ResponseDeserializationException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Transform\XmlStreamDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Transform\XmlStreamSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Utilities\AsyncResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Utilities\DateUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Utilities\EnumUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Utilities\HttpHeaders.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Utilities\HttpUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Utilities\IOUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Utilities\StringValueAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\AbortMultipartUploadRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\AccessControlList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Bucket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\BucketLoggingResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\BucketWebsiteResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\CompleteMultipartUploadRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\CompleteMultipartUploadResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\CopyObjectRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\CopyObjectResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\CORSRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\DeleteObjectsRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\DeleteObjectsResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\GeneratePresignedUriRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\GetObjectRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Grant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\GroupGrantee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\IGrantee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\InitiateMultipartUploadRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\InitiateMultipartUploadResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ListBucketsRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ListBucketsResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ListMultipartUploadsRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ListObjectsRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ListPartsRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\MultipartUpload.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\MultipartUploadListing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ObjectListing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ObjectMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\OssObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\OssObjectSummary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\OssResources.Designer.cs">
+      <DependentUpon>..\..\Movies\aliyun_dotnet_sdk_20150115 2\src\Domain\OssResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Owner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Part.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\PartEtag.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\PartListing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\PutObjectResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\RefererConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ResponseHeaderOverrides.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\SetBucketAclRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\SetBucketCorsRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\SetBucketLoggingRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\SetBucketRefererRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\SetBucketWebsiteRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\UploadPartCopyRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\UploadPartCopyResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\UploadPartRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\UploadPartResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\CannedAccessControlList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Permission.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\SignHttpMethod.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\AccessControlPolicy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CompleteMultipartUploadRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CompleteMultipartUploadResultModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\CopyObjectResultModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\DeleteObjectsRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ErrorResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\InitiateMultipartResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ListAllMyBucketsResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ListBucketResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ListMultipartUploadsResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ListPartsResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SetBucketCorsRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SetBucketLoggingRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SetBucketWebsiteRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\UploadPartCopyRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\CompleteMultipartUploadRequestSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\CompleteMultipartUploadResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\CopyObjectResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\DeleteObjectsRequestSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\DeleteObjectsResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\DeserializerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\GetAclResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\GetBucketLoggingResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\GetBucketWebSiteResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\GetCorsResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\GetObjectMetadataResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\GetObjectResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\InitiateMultipartUploadResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\ListBucketsResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\ListMultipartUploadsResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\ListObjectsResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\ListPartsResultDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\PutObjectResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\RequestSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\ResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\SerializerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\SetBucketCorsRequestSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\SetBucketLoggingRequestSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\SetBucketRefererRequestSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\SetBucketWebsiteRequestSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\SimpleResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\UploadPartCopyResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform\UploadPartResponseDeserializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ErrorResponseHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ExceptionFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ExecutionContextBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\OssHeaders.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\OssRequestSigner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\OssUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ServiceClientFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\SignUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ClientConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GlobalSuppressions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IOss.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OssClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OssErrorCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OssException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceCredentials.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResString.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Domain\OssResources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OssResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)aliyun_sdk_net.snk" />
+    <None Include="$(MSBuildThisFileDirectory)oss_comments_include.xml" />
+  </ItemGroup>
+</Project>

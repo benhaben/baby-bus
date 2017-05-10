@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>多元智力题目分类</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/js/jqueryMobile/jquery.mobile.custom.structure.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/js/jqueryMobile/jquery.mobile.custom.theme.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if IE 8]>
+        <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function () {
+            $.mobile.page.prototype.options.keepNative = "select";
+        });
+    </script>
+
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- Page specific plugins -->
+    <!-- Charts -->
+    <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+    <!-- Forms -->
+    <script type="text/javascript" src="plugins/typeahead/typeahead.min.js"></script> <!-- AutoComplete -->
+    <script type="text/javascript" src="plugins/autosize/jquery.autosize.min.js"></script>
+    <script type="text/javascript" src="plugins/inputlimiter/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="plugins/uniform/jquery.uniform.min.js"></script> <!-- Styled radio and checkboxes -->
+    <script type="text/javascript" src="plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="plugins/select2/select2.min.js"></script> <!-- Styled select boxes -->
+    <script type="text/javascript" src="plugins/fileinput/fileinput.js"></script>
+    <script type="text/javascript" src="plugins/duallistbox/jquery.duallistbox.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+    <!-- Globalize -->
+    <script type="text/javascript" src="plugins/globalize/globalize.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.de-DE.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.ja-JP.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/testQuestion.js"></script>
+    <!-- Slim Progress Bars -->
+    <script type="text/javascript" src="plugins/nprogress/nprogress.js"></script>
+
+    <!-- Demo JS -->
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/demo/form_components.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/jqueryMobile/jquery.mobile.custom.min.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function () {
+            $.mobile.page.prototype.options.keepNative = "select";
+        });
+    </script>
+
+    <script type="text/x-handlebars-template" id="parentQuestionTile">
+            {{#each this}}
+            
+        <a onclick="parentQuestionInfo('{{QuestionType}}', '{{QuestionTypeName}}')" id="question{{questiontype}}">
+            <div class="thumbnail col-md-3" id="monthItemHtml" style="background-image: url({{ImageUrl}}); width: 100%; height: 600px; background-position: center; background-repeat: no-repeat;">
+                <div style="background-color: #b0e0e6; text-align: center; position: absolute; left: 0; bottom: 0; width: 100%; height: 100px; font-size: 70px;opacity: 0.9;color:#ffffff ">
+                    {{QuestionTypeName}}
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            //Utilities.DrawHeader();
+            
+            var obox = document.getElementById("box1");
+            var oBox = document.getElementById("Mybox1");
+            obox.style.display = "block";
+            oBox.style.display = "block";
+
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            TestQuestion.GenetParentQuestionType();
+
+            Utilities.GenertFeedback();
+        });
+        function parentQuestionInfo(testType,questionName) {
+            $.cookie("testQuestiongsType", testType, { expires: 1, path: '/' });
+            $.cookie("testQuestiongsName", questionName, { expires: 1, path: '/' });
+            /* var obox = document.getElementById("box1");
+            var oBox = document.getElementById("Mybox1");
+            obox.style.display = "block";
+            oBox.style.display = "block";*/
+            if ($.cookie("sorceTeacher") == "Parent") {
+                
+                Utilities.Redirect("ParentTestQuestionDetail.html");
+            }
+            if ($.cookie("sorceTeacher") == "Teach") {
+                Utilities.Redirect("TeachTestQuestionDetail.html");
+            }
+        }
+        function sorce(e) {
+            var obox = document.getElementById("box1");
+            var oBox = document.getElementById("Mybox1");
+            obox.style.display = "none";
+            oBox.style.display = "none";
+            if ($(e).attr("value") == 1) {
+                var testType = "Teach";
+                $.cookie("sorceTeacher", testType, { expires: 1, path: '/' });;
+            }else
+                if ($(e).attr("value") == 2) {
+                var testType = "Parent";
+                $.cookie("sorceTeacher", testType, { expires: 1, path: '/' });;
+            }
+            function html() {
+                Utilities.Redirect("statistics.html");
+            }
+        }
+    </script>
+
+    <style>
+        .IntelligenceSorceHeader {
+            background-color: #b0e0e6;
+            text-align: center;
+            font-size: 60px;
+            height: 100px;
+            color:#ffffff;
+            line-height:100px;
+            font-weight:200;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: .8;
+            z-index: 1000;
+            display: none;
+        }
+
+        #Mybox1 {
+            position: absolute;
+            top: 13%;
+            left: 35%;
+            width: 40%;
+            height: 6%;
+            background: #fff;
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body id="bodyonline">
+
+    <a onclick="html()" style="text-decoration: none;height: 70px; width: 5%; float: left; color: #ffffff; position: relative; top: 10px; left: 5%">
+        <p style="font-size: 50px">
+            <
+        </p>
+    </a>
+
+    <header id="drawHeader" class="IntelligenceSorceHeader">多元智力测评表</header>
+
+  <!--  <label style="float:right;">
+        <input type="radio" name=" radio" value="1" />
+        <img src="images/teacherSorce.png" />
+    </label>
+    <label style="float:right;">
+        <input type="radio" name="radio" value="1" />
+        <img src="images/parentSorce.png" />
+    </label>-->
+
+
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <div class="widget box">
+                <div class="widget-content">
+                    <form class="form-horizontal row-border" action="#">
+                        <!--<div class="alert alert-info fade in">
+                            <i class="icon-remove close" data-dismiss="alert"></i>
+                            您可以在此页面录入多元智力题目……
+                        </div>-->
+                        <div class="form-group">
+                            <div class="col-md-10" style="position:relative;left:0%;text-align:center" id="questionType-id">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="box1">
+        <div id="Mybox1">
+            <button class="btn"  onclick="sorce(this)" name="1" style="background-color: #3af8c4; position: relative; top: 1%; height: 47%" value="1">
+                <p style="font-size:50px" id="llll">
+                    教师版
+                    </p>
+            </button>
+            <button class="btn" onclick="sorce(this)" name="2" style="background-color:#3af8c4;margin-top:10px;position:relative;top:2%;height:43%" value="2">
+                <p style="font-size:50px" id="llll">
+                    家长版
+                </p>
+            </button>
+        </div>
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+    </div>
+</body>
+</html>

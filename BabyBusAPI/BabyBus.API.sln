@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyBus.API", "BabyBus.API\BabyBus.API.csproj", "{386CB5C9-3CFF-4289-A167-0FEE7FBA6D27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyBus.Core", "BabyBus.Core\BabyBus.Core.csproj", "{EF5C87DD-BAC1-4454-9E74-1A045C9F06C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyBus.Data", "BabyBus.Data\BabyBus.Data.csproj", "{4F53A0D3-11E4-42D7-8B19-4551A4C9024D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyBus.Model", "BabyBus.Model\BabyBus.Model.csproj", "{0BB5B6E1-29C8-44BB-8AA4-9914093B9E9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyBus.Service", "BabyBus.Service\BabyBus.Service.csproj", "{BF22DE49-16B7-4D3D-8649-9D4FA7344D2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B5024057-97EF-4D65-AF3B-B6707968338C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptTest", "EncryptTest\EncryptTest.csproj", "{33276D21-457D-4ABD-9DEF-E55996F9A78A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cn.jpush.api", "cn.jpush.api\cn.jpush.api.csproj", "{E281D457-F259-4F0B-8608-16C81D8AE97B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdministratorManagement", "AdministratorManagement\AdministratorManagement.csproj", "{A5D7BE48-E11C-4069-B59B-2C78BCED28E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkTest", "EntityFrameworkTest\EntityFrameworkTest.csproj", "{9A03BDC9-FED4-4D87-9996-AD32F37073BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyBus.AutoModel", "BabyBus.AutoModel\BabyBus.AutoModel.csproj", "{7CFDBDEF-D915-4223-AE2C-517F0F06DF00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPOIHelper", "NPOIHelper\NPOIHelper.csproj", "{82970A13-EABF-47D9-A7D4-2F0D1E286B7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{386CB5C9-3CFF-4289-A167-0FEE7FBA6D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386CB5C9-3CFF-4289-A167-0FEE7FBA6D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386CB5C9-3CFF-4289-A167-0FEE7FBA6D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386CB5C9-3CFF-4289-A167-0FEE7FBA6D27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF5C87DD-BAC1-4454-9E74-1A045C9F06C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5C87DD-BAC1-4454-9E74-1A045C9F06C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5C87DD-BAC1-4454-9E74-1A045C9F06C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5C87DD-BAC1-4454-9E74-1A045C9F06C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F53A0D3-11E4-42D7-8B19-4551A4C9024D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F53A0D3-11E4-42D7-8B19-4551A4C9024D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F53A0D3-11E4-42D7-8B19-4551A4C9024D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F53A0D3-11E4-42D7-8B19-4551A4C9024D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB5B6E1-29C8-44BB-8AA4-9914093B9E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB5B6E1-29C8-44BB-8AA4-9914093B9E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB5B6E1-29C8-44BB-8AA4-9914093B9E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB5B6E1-29C8-44BB-8AA4-9914093B9E9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF22DE49-16B7-4D3D-8649-9D4FA7344D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF22DE49-16B7-4D3D-8649-9D4FA7344D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF22DE49-16B7-4D3D-8649-9D4FA7344D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF22DE49-16B7-4D3D-8649-9D4FA7344D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33276D21-457D-4ABD-9DEF-E55996F9A78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33276D21-457D-4ABD-9DEF-E55996F9A78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33276D21-457D-4ABD-9DEF-E55996F9A78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33276D21-457D-4ABD-9DEF-E55996F9A78A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E281D457-F259-4F0B-8608-16C81D8AE97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E281D457-F259-4F0B-8608-16C81D8AE97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E281D457-F259-4F0B-8608-16C81D8AE97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E281D457-F259-4F0B-8608-16C81D8AE97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5D7BE48-E11C-4069-B59B-2C78BCED28E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D7BE48-E11C-4069-B59B-2C78BCED28E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D7BE48-E11C-4069-B59B-2C78BCED28E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D7BE48-E11C-4069-B59B-2C78BCED28E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A03BDC9-FED4-4D87-9996-AD32F37073BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A03BDC9-FED4-4D87-9996-AD32F37073BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A03BDC9-FED4-4D87-9996-AD32F37073BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A03BDC9-FED4-4D87-9996-AD32F37073BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CFDBDEF-D915-4223-AE2C-517F0F06DF00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CFDBDEF-D915-4223-AE2C-517F0F06DF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CFDBDEF-D915-4223-AE2C-517F0F06DF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CFDBDEF-D915-4223-AE2C-517F0F06DF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82970A13-EABF-47D9-A7D4-2F0D1E286B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82970A13-EABF-47D9-A7D4-2F0D1E286B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82970A13-EABF-47D9-A7D4-2F0D1E286B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82970A13-EABF-47D9-A7D4-2F0D1E286B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

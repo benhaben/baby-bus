@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: Y:\Downloads\aliyun_dotnet_sdk_20140626 (1)\bin\Aliyun.OpenServices.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{670927D7-836D-413F-B6BF-0E89CDDD0CAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Aliyun.OpenServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ApplicationVersion>1.0.5290.21916</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Aliyun.OpenServices</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ServiceException.cs" />
+    <Compile Include="ClientConfiguration.cs" />
+    <Compile Include="ServiceCredentials.cs" />
+    <Compile Include="Common\Utilities\AsyncResult.cs" />
+    <Compile Include="Common\Utilities\AsyncResult`1.cs" />
+    <Compile Include="Common\Authentication\ServiceSignature.cs" />
+    <Compile Include="Common\Authentication\HmacSHA1Signature.cs" />
+    <Compile Include="Common\Communication\ExecutionContext.cs" />
+    <Compile Include="Common\Communication\RetryableServiceClient.cs" />
+    <Compile Include="Common\Communication\RetryableAsyncResult.cs" />
+    <Compile Include="Common\Communication\ServiceClient.cs" />
+    <Compile Include="Common\Communication\ServiceClientImpl.cs" />
+    <Compile Include="Common\Communication\ServiceMessage.cs" />
+    <Compile Include="Common\Communication\ServiceResponse.cs" />
+    <Compile Include="Common\Communication\HttpFactory.cs" />
+    <Compile Include="Common\Communication\HttpExtensions.cs" />
+    <Compile Include="Common\Communication\ServiceRequest.cs" />
+    <Compile Include="Common\Handlers\ResponseHandler.cs" />
+    <Compile Include="Common\Transform\RequestSerializationException.cs" />
+    <Compile Include="Common\Transform\ResponseDeserializationException.cs" />
+    <Compile Include="Common\Transform\XmlStreamDeserializer.cs" />
+    <Compile Include="Common\Transform\XmlStreamSerializer.cs" />
+    <Compile Include="Common\Utilities\DateUtils.cs" />
+    <Compile Include="Common\Utilities\EnumUtils.cs" />
+    <Compile Include="Common\Utilities\HttpUtils.cs" />
+    <Compile Include="Common\Utilities\IOUtils.cs" />
+    <Compile Include="Common\Utilities\StringValueAttribute.cs" />
+    <Compile Include="OpenStorageService\AbortMultipartUploadRequest.cs" />
+    <Compile Include="OpenStorageService\AccessControlList.cs" />
+    <Compile Include="OpenStorageService\Bucket.cs" />
+    <Compile Include="OpenStorageService\CompleteMultipartUploadRequest.cs" />
+    <Compile Include="OpenStorageService\CompleteMultipartUploadResult.cs" />
+    <Compile Include="OpenStorageService\CopyObjectRequest.cs" />
+    <Compile Include="OpenStorageService\CopyObjectResult.cs" />
+    <Compile Include="OpenStorageService\CORSRule.cs" />
+    <Compile Include="OpenStorageService\GeneratePresignedUriRequest.cs" />
+    <Compile Include="OpenStorageService\GetObjectRequest.cs" />
+    <Compile Include="OpenStorageService\Grant.cs" />
+    <Compile Include="OpenStorageService\GroupGrantee.cs" />
+    <Compile Include="OpenStorageService\InitiateMultipartUploadRequest.cs" />
+    <Compile Include="OpenStorageService\InitiateMultipartUploadResult.cs" />
+    <Compile Include="OpenStorageService\ListMultipartUploadsRequest.cs" />
+    <Compile Include="OpenStorageService\ListObjectsRequest.cs" />
+    <Compile Include="OpenStorageService\ListPartsRequest.cs" />
+    <Compile Include="OpenStorageService\MultipartUpload.cs" />
+    <Compile Include="OpenStorageService\MultipartUploadListing.cs" />
+    <Compile Include="OpenStorageService\ObjectListing.cs" />
+    <Compile Include="OpenStorageService\ObjectMetadata.cs" />
+    <Compile Include="OpenStorageService\OptionsRequest.cs" />
+    <Compile Include="OpenStorageService\OssClient.cs" />
+    <Compile Include="OpenStorageService\OssException.cs" />
+    <Compile Include="OpenStorageService\OssObject.cs" />
+    <Compile Include="OpenStorageService\OssObjectSummary.cs" />
+    <Compile Include="OpenStorageService\OssResources.Designer.cs" />
+    <Compile Include="OpenStorageService\Owner.cs" />
+    <Compile Include="OpenStorageService\Part.cs" />
+    <Compile Include="OpenStorageService\PartEtag.cs" />
+    <Compile Include="OpenStorageService\PartListing.cs" />
+    <Compile Include="OpenStorageService\PutObjectResult.cs" />
+    <Compile Include="OpenStorageService\ResponseHeaderOverrides.cs" />
+    <Compile Include="OpenStorageService\SetBucketCorsRequest.cs" />
+    <Compile Include="OpenStorageService\SetBucketLoggingRequest.cs" />
+    <Compile Include="OpenStorageService\SetBucketWebsiteRequest.cs" />
+    <Compile Include="OpenStorageService\UploadPartRequest.cs" />
+    <Compile Include="OpenStorageService\UploadPartResult.cs" />
+    <Compile Include="OpenStorageService\Commands\OssCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\OssCommand`1.cs" />
+    <Compile Include="OpenStorageService\Commands\AbortMultipartUploadCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\CompleteMultipartUploadCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\CopyObjectCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\CreateBucketCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\DeleteBucketCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\DeleteBucketCorsCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\DeleteBucketLoggingCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\DeleteBucketWebsiteCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\DeleteObjectCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\GetBucketAclCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\GetBucketCorsCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\GetBucketLoggingCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\GetBucketWebsiteCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\GetObjectCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\GetObjectMetadataCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\InitiateMultipartUploadCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\ListBucketsCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\ListMultipartUploadsCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\ListObjectsCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\ListPartsCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\OptionsObjectCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\PutObjectCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\SetBucketAclCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\SetBucketCorsCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\SetBucketLoggingCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\SetBucketWebsiteCommand.cs" />
+    <Compile Include="OpenStorageService\Commands\UploadPartCommand.cs" />
+    <Compile Include="OpenStorageService\Model\AccessControlPolicy.cs" />
+    <Compile Include="OpenStorageService\Model\CompleteMultipartUploadRequestModel.cs" />
+    <Compile Include="OpenStorageService\Model\CompleteMultipartUploadResultModel.cs" />
+    <Compile Include="OpenStorageService\Model\CopyObjectResultModel.cs" />
+    <Compile Include="OpenStorageService\Model\ErrorResult.cs" />
+    <Compile Include="OpenStorageService\Model\InitiateMultipartResult.cs" />
+    <Compile Include="OpenStorageService\Model\ListAllMyBucketsResult.cs" />
+    <Compile Include="OpenStorageService\Model\ListBucketResult.cs" />
+    <Compile Include="OpenStorageService\Model\ListBucketResultContents.cs" />
+    <Compile Include="OpenStorageService\Model\ListBucketResultCommonPrefixes.cs" />
+    <Compile Include="OpenStorageService\Model\ListMultipartUploadsResult.cs" />
+    <Compile Include="OpenStorageService\Model\ListPartsResult.cs" />
+    <Compile Include="OpenStorageService\Transform\RequestSerializer.cs" />
+    <Compile Include="OpenStorageService\Transform\CompleteMultipartUploadRequestSerializer.cs" />
+    <Compile Include="OpenStorageService\Transform\ResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\CompleteMultipartUploadResultDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\CopyObjectResultDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\DeserializerFactory.cs" />
+    <Compile Include="OpenStorageService\Transform\XmlDeserializerFactory.cs" />
+    <Compile Include="OpenStorageService\Transform\GetAclResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\GetBucketLoggingResultDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\GetBucketWebSiteResultDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\GetCorsResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\GetObjectMetadataResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\GetObjectResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\InitiateMultipartUploadResultDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\ListBucketResultDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\ListMultipartUploadsResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\ListObjectsResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\ListPartsResultDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\PutObjectResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\SerializerFactory.cs" />
+    <Compile Include="OpenStorageService\Transform\XmlSerializerFactory.cs" />
+    <Compile Include="OpenStorageService\Transform\SetBucketCorsRequestSerializer.cs" />
+    <Compile Include="OpenStorageService\Transform\SetBucketLoggingRequestSerializer.cs" />
+    <Compile Include="OpenStorageService\Transform\SetBucketWebsiteRequestSerializer.cs" />
+    <Compile Include="OpenStorageService\Transform\SimpleResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Transform\UploadPartResponseDeserializer.cs" />
+    <Compile Include="OpenStorageService\Utilities\ErrorResponseHandler.cs" />
+    <Compile Include="OpenStorageService\Utilities\ExceptionFactory.cs" />
+    <Compile Include="OpenStorageService\Utilities\ExecutionContextBuilder.cs" />
+    <Compile Include="OpenStorageService\Utilities\OssRequestSigner.cs" />
+    <Compile Include="OpenStorageService\Utilities\OssUtils.cs" />
+    <Compile Include="OpenStorageService\Utilities\ServiceClientFactory.cs" />
+    <Compile Include="OpenStorageService\Utilities\SignUtils.cs" />
+    <Compile Include="OpenTableService\ColumnValue.cs" />
+    <Compile Include="OpenTableService\RowQueryCriteria.cs" />
+    <Compile Include="OpenTableService\OffsetRowQueryCriteria.cs" />
+    <Compile Include="OpenTableService\OtsClient.cs" />
+    <Compile Include="OpenTableService\OtsException.cs" />
+    <Compile Include="OpenTableService\OtsExceptions.Designer.cs" />
+    <Compile Include="OpenTableService\PartitionKeyValue.cs" />
+    <Compile Include="OpenTableService\PrimaryKeyRange.cs" />
+    <Compile Include="OpenTableService\PrimaryKeyValue.cs" />
+    <Compile Include="OpenTableService\RangeRowQueryCriteria.cs" />
+    <Compile Include="OpenTableService\Row.cs" />
+    <Compile Include="OpenTableService\RowChange.cs" />
+    <Compile Include="OpenTableService\RowDeleteChange.cs" />
+    <Compile Include="OpenTableService\RowPutChange.cs" />
+    <Compile Include="OpenTableService\SingleRowQueryCriteria.cs" />
+    <Compile Include="OpenTableService\TableMeta.cs" />
+    <Compile Include="OpenTableService\ViewMeta.cs" />
+    <Compile Include="OpenTableService\Commands\OtsCommand.cs" />
+    <Compile Include="OpenTableService\Commands\OtsCommand`1.cs" />
+    <Compile Include="OpenTableService\Commands\AbortTransactionCommand.cs" />
+    <Compile Include="OpenTableService\Commands\BatchModifyDataCommand.cs" />
+    <Compile Include="OpenTableService\Commands\CommitTransactionCommand.cs" />
+    <Compile Include="OpenTableService\Commands\CreateTableCommand.cs" />
+    <Compile Include="OpenTableService\Commands\CreateTableGroupCommand.cs" />
+    <Compile Include="OpenTableService\Commands\DeleteDataCommand.cs" />
+    <Compile Include="OpenTableService\Commands\DeleteTableCommand.cs" />
+    <Compile Include="OpenTableService\Commands\DeleteTableGroupCommand.cs" />
+    <Compile Include="OpenTableService\Commands\GetRowCommand.cs" />
+    <Compile Include="OpenTableService\Commands\GetRowsByOffsetCommand.cs" />
+    <Compile Include="OpenTableService\Commands\GetRowsByRangeCommand.cs" />
+    <Compile Include="OpenTableService\Commands\GetTableMetaCommand.cs" />
+    <Compile Include="OpenTableService\Commands\ListTableCommand.cs" />
+    <Compile Include="OpenTableService\Commands\ListTableGroupCommand.cs" />
+    <Compile Include="OpenTableService\Commands\PutDataCommand.cs" />
+    <Compile Include="OpenTableService\Commands\StartTransactionCommand.cs" />
+    <Compile Include="OpenTableService\Model\OpenTableServiceResult.cs" />
+    <Compile Include="OpenTableService\Model\AbortTransactionResult.cs" />
+    <Compile Include="OpenTableService\Model\BatchModifyDataResult.cs" />
+    <Compile Include="OpenTableService\Model\CommitTransactionResult.cs" />
+    <Compile Include="OpenTableService\Model\CreateTableGroupResult.cs" />
+    <Compile Include="OpenTableService\Model\CreateTableResult.cs" />
+    <Compile Include="OpenTableService\Model\DeleteDataResult.cs" />
+    <Compile Include="OpenTableService\Model\DeleteTableGroupResult.cs" />
+    <Compile Include="OpenTableService\Model\DeleteTableResult.cs" />
+    <Compile Include="OpenTableService\Model\GetRowResult.cs" />
+    <Compile Include="OpenTableService\Model\GetRowsByRangeResult.cs" />
+    <Compile Include="OpenTableService\Model\GetRowsByOffsetResult.cs" />
+    <Compile Include="OpenTableService\Model\SqlQueryResult.cs" />
+    <Compile Include="OpenTableService\Model\InternalTableRow.cs" />
+    <Compile Include="OpenTableService\Model\InternalTableColumn.cs" />
+    <Compile Include="OpenTableService\Model\GetTableMetaResult.cs" />
+    <Compile Include="OpenTableService\Model\InternalTableMeta.cs" />
+    <Compile Include="OpenTableService\Model\InternalViewMeta.cs" />
+    <Compile Include="OpenTableService\Model\ListTableGroupResult.cs" />
+    <Compile Include="OpenTableService\Model\ListTableResult.cs" />
+    <Compile Include="OpenTableService\Model\PutDataResult.cs" />
+    <Compile Include="OpenTableService\Model\StartTransactionResult.cs" />
+    <Compile Include="OpenTableService\Utilities\DeserializerFactory.cs" />
+    <Compile Include="OpenTableService\Utilities\EntityDictionary.cs" />
+    <Compile Include="OpenTableService\Utilities\1EntityDictionary.cs" />
+    <Compile Include="OpenTableService\Utilities\EntityNameList.cs" />
+    <Compile Include="OpenTableService\Utilities\EnumTypeStringMap.cs" />
+    <Compile Include="OpenTableService\Utilities\1EnumTypeStringMap.cs" />
+    <Compile Include="OpenTableService\Utilities\2EnumTypeStringMap.cs" />
+    <Compile Include="OpenTableService\Utilities\3EnumTypeStringMap.cs" />
+    <Compile Include="OpenTableService\Utilities\ExceptionFactory.cs" />
+    <Compile Include="OpenTableService\Utilities\OtsExceptionHandler.cs" />
+    <Compile Include="OpenTableService\Utilities\OtsRequestSigner.cs" />
+    <Compile Include="OpenTableService\Utilities\OtsUtility.cs" />
+    <Compile Include="OpenTableService\Utilities\ServiceClientFactory.cs" />
+    <Compile Include="OpenTableService\Utilities\TableValueExtension.cs" />
+    <Compile Include="OpenTableService\Utilities\ValidationResponseHandler.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Common\Authentication\IRequestSigner.cs" />
+    <Compile Include="Common\Communication\HttpMethod.cs" />
+    <Compile Include="Common\Communication\IServiceClient.cs" />
+    <Compile Include="Common\Handlers\IResponseHandler.cs" />
+    <Compile Include="Common\Transform\IDeserializer`2.cs" />
+    <Compile Include="Common\Transform\ISerializer`2.cs" />
+    <Compile Include="Common\Utilities\HttpHeaders.cs" />
+    <Compile Include="OpenStorageService\BucketLoggingResult.cs" />
+    <Compile Include="OpenStorageService\BucketWebsiteResult.cs" />
+    <Compile Include="OpenStorageService\CannedAccessControlList.cs" />
+    <Compile Include="OpenStorageService\IGrantee.cs" />
+    <Compile Include="OpenStorageService\IOss.cs" />
+    <Compile Include="OpenStorageService\OssErrorCode.cs" />
+    <Compile Include="OpenStorageService\Permission.cs" />
+    <Compile Include="OpenStorageService\SignHttpMethod.cs" />
+    <Compile Include="OpenStorageService\Model\BucketModel.cs" />
+    <Compile Include="OpenStorageService\Model\SetBucketCorsRequestModel.cs" />
+    <Compile Include="OpenStorageService\Model\SetBucketLoggingRequestModel.cs" />
+    <Compile Include="OpenStorageService\Model\SetBucketWebsiteRequestModel.cs" />
+    <Compile Include="OpenStorageService\Utilities\OssHeaders.cs" />
+    <Compile Include="OpenTableService\CheckingMode.cs" />
+    <Compile Include="OpenTableService\ColumnType.cs" />
+    <Compile Include="OpenTableService\IOts.cs" />
+    <Compile Include="OpenTableService\OtsErrorCode.cs" />
+    <Compile Include="OpenTableService\PartitionKeyType.cs" />
+    <Compile Include="OpenTableService\PrimaryKeyType.cs" />
+    <Compile Include="OpenTableService\Model\ErrorResult.cs" />
+    <Compile Include="OpenTableService\Model\InternalTableColumnValue.cs" />
+    <Compile Include="OpenTableService\Model\PrimaryKey.cs" />
+    <Compile Include="OpenTableService\Model\ViewColumn.cs" />
+    <Compile Include="OpenTableService\Utilities\OtsConstants.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OpenStorageService\OssResources.resx" />
+    <EmbeddedResource Include="OpenTableService\OtsExceptions.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

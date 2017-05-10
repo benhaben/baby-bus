@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\BabyBus.Logic.Shared\BabyBus.Logic.Shared.projitems" Label="Shared" Condition="Exists('..\..\BabyBus.Logic.Shared\BabyBus.Logic.Shared.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C47B9802-4D17-4BDA-A2D0-C6C555D1B496}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BabyBus</RootNamespace>
+    <AssemblyName>BabyBus_Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>d2b8d5f9</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;MONOTOUCH;__Android__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Android_Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Android_Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;__Android__;CODE_ANALYSIS;MONOTOUCH</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Localize.cs" />
+    <Compile Include="Manager\UpdateManager.cs" />
+    <Compile Include="Message\CheckoutMessage.cs" />
+    <Compile Include="Message\ChildMessage.cs" />
+    <Compile Include="Message\JPushMessage.cs" />
+    <Compile Include="Message\QuestionMessage.cs" />
+    <Compile Include="Models\Account\CheckOutModel.cs" />
+    <Compile Include="Models\Attendance\AttendanceMasterModel.cs" />
+    <Compile Include="Models\Communication\AnswerModel.cs" />
+    <Compile Include="Models\Communication\NoticeModel.cs" />
+    <Compile Include="Models\Communication\QuestionModel.cs" />
+    <Compile Include="Models\Enums\AttenceType.cs" />
+    <Compile Include="Models\Enums\AuditType.cs" />
+    <Compile Include="Models\Enums\CheckoutType.cs" />
+    <Compile Include="Models\Enums\NoticeType.cs" />
+    <Compile Include="Models\Enums\NoticeViewType.cs" />
+    <Compile Include="Models\Enums\RoleType.cs" />
+    <Compile Include="Models\VersionModel.cs" />
+    <Compile Include="Net\Attendance\AttendanceService.cs" />
+    <Compile Include="Net\Communication\NoticeService.cs" />
+    <Compile Include="Net\Communication\QuestionService.cs" />
+    <Compile Include="Net\Main\ChildService.cs" />
+    <Compile Include="Net\Setting\CheckoutService.cs" />
+    <Compile Include="Net\Setting\ICheckoutService.cs" />
+    <Compile Include="Resx\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ResxTextProvider.cs" />
+    <Compile Include="Utilities\BabyBusContext.cs" />
+    <Compile Include="Utilities\CacheKey.cs" />
+    <Compile Include="Utilities\Color.cs" />
+    <Compile Include="Utilities\Enum\AppType.cs" />
+    <Compile Include="Utilities\SmartFileImageSource.cs" />
+    <Compile Include="Utilities\TaskUtils.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="Models\AnalysisData.cs" />
+    <Compile Include="Models\ChildEx\ChildEx.cs" />
+    <Compile Include="Models\Communication\TextMessage.cs" />
+    <Compile Include="Models\GroupMemory\Article.cs" />
+    <Compile Include="Models\Main\ChildAllInfo.cs" />
+    <Compile Include="Models\Main\ChildInfo.cs" />
+    <Compile Include="Models\Main\NoticeInfo.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Services\IEnvironmentService.cs" />
+    <Compile Include="SQLite\DataService.cs" />
+    <Compile Include="SQLite\IDataService.cs" />
+    <Compile Include="SQLite\OrmExample.cs" />
+    <Compile Include="ViewModels\Attendance\AttendanceDetailViewModel.cs" />
+    <Compile Include="ViewModels\Attendance\AttendanceMasterViewModel.cs" />
+    <Compile Include="ViewModels\Attendance\ChildAttendanceViewModel.cs" />
+    <Compile Include="ViewModels\Attendance\UnattenceChildrenViewModel.cs" />
+    <Compile Include="ViewModels\Communication\NoticeDetailViewModel.cs" />
+    <Compile Include="ViewModels\Communication\QuestionDetailViewModel.cs" />
+    <Compile Include="ViewModels\Communication\QuestionIndexViewModel.cs" />
+    <Compile Include="ViewModels\Communication\SendNoticeViewModel.cs" />
+    <Compile Include="ViewModels\Communication\SendQuestionViewModel.cs" />
+    <Compile Include="ViewModels\Content\FeedBackViewModel.cs" />
+    <Compile Include="ViewModels\LoginMvxAppStart.cs" />
+    <Compile Include="ViewModels\MessageType.cs" />
+    <Compile Include="ViewModels\Setting\CheckoutIndexViewModel.cs" />
+    <Compile Include="ViewModels\Setting\ChildInfoViewModel.cs" />
+    <Compile Include="ViewModels\Setting\ChildrenViewModel.cs" />
+    <Compile Include="ViewModels\Test\Test1BaseViewModel.cs" />
+    <Compile Include="ViewModels\Test\Test2BaseViewModel.cs" />
+    <Compile Include="ViewModels\TipsType.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="Models\TestRecorder.cs" />
+    <Compile Include="Models\Account\User.cs" />
+    <Compile Include="Net\Login\IUserInfoService.cs" />
+    <Compile Include="Net\Login\UserInfoService.cs" />
+    <Compile Include="Models\Communication\CommModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ApiResponser.cs" />
+    <Compile Include="Utilities\ApiResult.cs" />
+    <Compile Include="Net\ChildEx\ChildExService.cs" />
+    <Compile Include="Net\ChildEx\IChildExService.cs" />
+    <Compile Include="Net\GrowMemory\GrowMemoryService.cs" />
+    <Compile Include="Net\GrowMemory\IGrowMemoryService.cs" />
+    <Compile Include="Net\Login\ILoginService.cs" />
+    <Compile Include="Net\Login\LoginService.cs" />
+    <Compile Include="Utilities\RestHelper.cs" />
+    <Compile Include="Net\Main\IMainService.cs" />
+    <Compile Include="Net\Main\MainService.cs" />
+    <Compile Include="Services\IPhotoCompressService.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\ChildExDetailViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\ChildExMainViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\ChildExSubViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\TabbedPageDemoViewModel.cs" />
+    <Compile Include="ViewModels\Main\RePasswordViewModel.cs" />
+    <Compile Include="ViewModels\MainTabbedViewModel.cs" />
+    <Compile Include="Models\Main\ClassInfo.cs" />
+    <Compile Include="UIString.cs" />
+    <Compile Include="Models\Account\CityModel.cs" />
+    <Compile Include="Models\Account\KindergartenClassModel.cs" />
+    <Compile Include="Models\Account\GenderModel.cs" />
+    <Compile Include="Models\Account\KindergartenModel.cs" />
+    <Compile Include="Models\Account\ChildModel.cs" />
+    <Compile Include="Models\KeyValueInterface.cs" />
+    <Compile Include="Models\UIModel.cs" />
+    <Compile Include="ViewModels\ViewModelStatus.cs" />
+    <Compile Include="ViewModels\Login\RegisterDetailViewModel.cs" />
+    <Compile Include="ViewModels\Login\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Login\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Main\MainViewModel.cs" />
+    <Compile Include="ViewModels\Main\ParentHomeViewModel.cs" />
+    <Compile Include="ViewModels\Main\TeacherHomeViewModel.cs" />
+    <Compile Include="ViewModels\Setting\InfoViewModel.cs" />
+    <Compile Include="ViewModels\Setting\SettingViewModel.cs" />
+    <Compile Include="ViewModels\Main\MasterHomeViewModel.cs" />
+    <Compile Include="ViewModels\Communication\SelectChildrenViewModel.cs" />
+    <Compile Include="ViewModels\Communication\CommIndexViewModel.cs" />
+    <Compile Include="ViewModels\Communication\NoticeIndexViewModel.cs" />
+    <Compile Include="ViewModels\Communication\MemoryIndexViewModel.cs" />
+    <Compile Include="Message\JPushNotificationMessage.cs" />
+    <Compile Include="Converters\Converters" />
+    <Compile Include="Utilities\ImageSendHelper.cs" />
+    <Compile Include="ViewModels\Communication\NewSendNoticeViewModel.cs" />
+    <Compile Include="Net\Main\ChildSummaryInfo.cs" />
+    <Compile Include="Models\Communication\CommentModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\CrossCore\Cirrious.CrossCore\Cirrious.CrossCore.csproj">
+      <Project>{CFF6F25A-3C3B-44EE-A54C-2ED4AAFF3ADB}</Project>
+      <Name>Cirrious.CrossCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\Cirrious\Cirrious.MvvmCross\Cirrious.MvvmCross.csproj">
+      <Project>{B6E27475-E7D0-448C-A5CC-5097DCA1E2DD}</Project>
+      <Name>Cirrious.MvvmCross</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\Cirrious\Cirrious.MvvmCross.Binding\Cirrious.MvvmCross.Binding.csproj">
+      <Project>{64DCD397-9019-41E8-A928-E5F5C5DF185B}</Project>
+      <Name>Cirrious.MvvmCross.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\Cirrious\Cirrious.MvvmCross.Localization\Cirrious.MvvmCross.Localization.csproj">
+      <Project>{D89351C1-D48F-4AD0-A0B9-353A93425AB7}</Project>
+      <Name>Cirrious.MvvmCross.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\Plugins\Cirrious\Messenger\Cirrious.MvvmCross.Plugins.Messenger\Cirrious.MvvmCross.Plugins.Messenger.csproj">
+      <Project>{299C250C-50E4-4522-AADC-C31B9AAC62D3}</Project>
+      <Name>Cirrious.MvvmCross.Plugins.Messenger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\Plugins\Cirrious\PictureChooser\Cirrious.MvvmCross.Plugins.PictureChooser\Cirrious.MvvmCross.Plugins.PictureChooser.csproj">
+      <Project>{A6C9F4EF-F26E-4D54-A0D6-49A6373CB0D2}</Project>
+      <Name>Cirrious.MvvmCross.Plugins.PictureChooser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\CrossUI\CrossUI.Core\CrossUI.Core.csproj">
+      <Project>{D9CBBFFE-57E8-4E97-9E16-C34BC4C52827}</Project>
+      <Name>CrossUI.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusNewtonsoft.Json.Portable\Src\Newtonsoft.Json\Newtonsoft.Json.Portable.csproj">
+      <Project>{959F7F85-C98B-4876-971A-9036224578E4}</Project>
+      <Name>Newtonsoft.Json.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabyBusMvvmCross\Plugins\Cirrious\Sqlite\Cirrious.MvvmCross.Plugins.Sqlite\Cirrious.MvvmCross.Plugins.Sqlite.csproj">
+      <Project>{72654B8A-5F78-4BDF-BFBB-057DDDF314F1}</Project>
+      <Name>Cirrious.MvvmCross.Plugins.Sqlite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\BabuyBusSQLiteNetExtensions\MvvmCross\SQLiteNetExtensions-MvvmCross\SQLiteNetExtensions-MvvmCross.csproj">
+      <Project>{5042AA25-BA34-44C4-B3F4-4173713B0070}</Project>
+      <Name>SQLiteNetExtensions-MvvmCross</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resx\Resources.zh-Hant.resx">
+      <LastGenOutput>Resource.zh-Hant.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resx\Resources.zh-Hans.resx">
+      <LastGenOutput>Resource.zh-Hans.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resx\Resources.de.resx" />
+    <EmbeddedResource Include="Resx\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Aliyun.OpenServices">
+      <HintPath>..\..\ReferenceLibs\Aliyun.OpenServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Validation">
+      <HintPath>..\..\packages\Validation.2.0.5.14286\lib\portable-windows8+net40+sl5+wp8+wpa81+wp81+MonoAndroid+MonoTouch\Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto.Abstractions">
+      <HintPath>..\..\packages\PCLCrypto.0.5.2.14286\lib\portable-net40+sl50+win+wpa81+wp80\PCLCrypto.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto">
+      <HintPath>..\..\packages\PCLCrypto.0.5.2.14286\lib\portable-net40+sl50+win+wpa81+wp80\PCLCrypto.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

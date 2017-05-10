@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:gravity="center_horizontal|left"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="2.0dip"
+        android:layout_marginRight="12.0dip"
+        android:isScrollContainer="true"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/bt_alpay">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/icon_shareapp_logo"
+            android:layout_margin="5dp"
+            android:layout_weight="1" />
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal|left"
+            android:layout_weight="4">
+            <TextView
+                android:text="朋友圈"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:id="@+id/text_app_name" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:text="将精彩的内容分享到朋友圈"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:layout_marginLeft="5.0dip"
+                android:id="@+id/text_share_abstract" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="15dp"
+            android:gravity="center_vertical|right"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/paytype"
+                android:id="@+id/icon_alpay_select" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_paytype_unselected"
+                android:id="@+id/icon_alpay_unselect"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

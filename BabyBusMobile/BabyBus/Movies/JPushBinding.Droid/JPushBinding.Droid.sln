@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPushBinding.Droid", "JPushBinding.Droid\JPushBinding.Droid.csproj", "{9C8EC14E-7360-4445-9C44-F280EDC8994D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPushBindingTest", "TestJPushBinding\JPushBindingTest.csproj", "{CF6D55D3-2C04-4EE5-9144-B969CE76719F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C8EC14E-7360-4445-9C44-F280EDC8994D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8EC14E-7360-4445-9C44-F280EDC8994D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C8EC14E-7360-4445-9C44-F280EDC8994D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8EC14E-7360-4445-9C44-F280EDC8994D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6D55D3-2C04-4EE5-9144-B969CE76719F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6D55D3-2C04-4EE5-9144-B969CE76719F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6D55D3-2C04-4EE5-9144-B969CE76719F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CF6D55D3-2C04-4EE5-9144-B969CE76719F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6D55D3-2C04-4EE5-9144-B969CE76719F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = TestJPushBinding\JPushBindingTest.csproj
+	EndGlobalSection
+EndGlobal

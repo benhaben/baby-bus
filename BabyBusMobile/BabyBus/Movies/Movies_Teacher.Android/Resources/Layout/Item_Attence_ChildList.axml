@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_margin="1dp"
+        android:scaleType="centerCrop"
+        android:maxHeight="40dp"
+        android:id="@+id/head_image"
+        android:src="@drawable/Child_headImage"
+        android:layout_weight="1" />
+    <TextView
+        android:text="ChildName"
+        android:id="@+id/child_name"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        local:MvxBind="Text ChildName"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_weight="1" />
+    <TextView
+        android:text="请假"
+        android:id="@+id/text_icon_askforleave"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:textSize="18sp"
+        local:MvxBind="Text ChildName"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:textColor="@android:color/background_light"
+        android:layout_weight="1" />
+    <TextView
+        android:text="缺勤"
+        android:id="@+id/text_icon_unattence"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:textSize="18sp"
+        local:MvxBind="Text ChildName"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_weight="1" />
+    <ImageView
+        android:src="@android:drawable/ic_dialog_email"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:id="@+id/image_icon_massage"
+        android:minHeight="30dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp" />
+    <ImageView
+        android:src="@android:drawable/sym_action_call"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/image_icon_phone"
+        android:layout_gravity="center"
+        android:layout_weight="1" />
+</LinearLayout>

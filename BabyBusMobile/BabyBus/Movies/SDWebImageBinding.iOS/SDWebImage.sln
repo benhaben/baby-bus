@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDWebImage.Unified", "SDWebImage.Unified\SDWebImage.Unified.csproj", "{2DF7EC8B-FED7-4BAA-83E1-21157BF9F81E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDWebImage.Classic", "SDWebImage.Classic\SDWebImage.Classic.csproj", "{70A36213-F308-42B0-97DF-90AD3AF08158}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DF7EC8B-FED7-4BAA-83E1-21157BF9F81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF7EC8B-FED7-4BAA-83E1-21157BF9F81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF7EC8B-FED7-4BAA-83E1-21157BF9F81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF7EC8B-FED7-4BAA-83E1-21157BF9F81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70A36213-F308-42B0-97DF-90AD3AF08158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70A36213-F308-42B0-97DF-90AD3AF08158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70A36213-F308-42B0-97DF-90AD3AF08158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70A36213-F308-42B0-97DF-90AD3AF08158}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

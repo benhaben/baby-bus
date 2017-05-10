@@ -1,0 +1,217 @@
+@charset "utf-8";
+/*CSS重置*/
+*{
+	font-size:100%; 
+	font-family:"微软雅黑"; 
+	margin:0; 
+	padding:0;
+	}
+img{ 
+	max-width:100%;
+	border:0;
+	}
+a{ 
+	text-decoration:none;
+	}
+li{ 
+	list-style:none;
+	}
+h1,h2,h3,h4,h5,h6{ 
+	font-weight:normal;
+	}
+html {
+    -webkit-text-size-adjust: none;
+	}
+/*body*/
+body{ 
+	width:100%;
+	margin:0 auto;
+	font: normal 100% Helvetica, Arial, sans-serif;
+	}
+/*cantainer*/
+.cantainer{ 
+	width:100%;
+	margin:0 auto;
+	}
+.cantact01{
+	border-bottom:1px #d6d6d6 solid; 
+	overflow:hidden;
+	}
+.cantact01 h1{ 
+	background-color:#f2f2f2;
+	color:#787878;
+	font-size:1.2em;
+	font-weight:bold;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	border-bottom:1px #d6d6d6 solid;
+	}
+.cantact01 img{
+	max-width:100%;
+	height:auto;
+	width: auto\9; /* ie8 */
+	float:left; 
+	padding:20px;
+	}
+.cantact01 .pBox{ 
+	float:right;
+	padding-right:20px;
+	}
+.cantact01 p{
+	color:#0b0c06;
+	line-height:52px;
+	}
+.cantact01 .name{
+	margin-top:30px;
+	}
+.cantact01 .school{
+	margin-right:10px;
+	}
+.cantact02 h1{
+	background-color:#f2f2f2;
+	color:#787878;
+	font-size:1.2em;
+	font-weight:bold;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	border-bottom:1px #d6d6d6 solid;
+	}
+.cantact02 .teacher{ 
+	color:#787878;
+	overflow:hidden;
+	margin-top:20px;
+	}
+.cantact02 .name{ 
+	padding-left:20px;
+	font-weight:bold; 
+	float:left;
+	}
+.cantact02 .time{ 
+	padding-right:20px;
+	float:right;
+	}
+.cantact02 h2{ 
+	color:#505050;
+	margin-left:20px;
+	padding-top:10px;
+	
+	}
+.cantact02 ol{
+	text-indent:10px; 
+	color:#000000;
+	margin-left:20px;
+	margin-right:20px;
+	line-height:28px;
+	padding-bottom:10px;
+	}
+.cantact02 .picBox{ 
+	margin-left:20px;
+	}
+.cantact02 img{ 
+	max-width:30%;
+	height: auto;
+    width: auto\9; /* ie8 */
+	border:1px #b8b7b7 solid;
+	margin-right:3px;
+	}
+.cantact02 .lastImg{ 
+	margin-right:0;
+	}
+.cantact03 h1{
+	background-color:#f2f2f2;
+	color:#787878;
+	font-size:1.2em;
+	font-weight:bold;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	border-bottom:1px #d6d6d6 solid;
+	}
+.cantact03 .teacher{ 
+	color:#787878;
+	padding-top:20px;
+	overflow:hidden;
+	}
+.cantact03 .name{ 
+	font-weight:bold;
+	padding-left:20px;
+	float:left;
+	}
+.cantact03 .time{ 
+	color:#787878;
+	padding-right:20px;
+	float:right;
+	}
+.cantact03 h2{ 
+	color:#505050; 
+	margin-left:20px;
+	padding-top:10px;
+	}
+.cantact03 ol{ 
+	color:#000000;
+	margin-left:20px;
+	margin-right:20px;
+	line-height:28px;
+	text-indent:10px;
+	margin-bottom:10px;
+	}
+.cantact03 .picBox{ 
+	margin-left:20px;
+	}
+.cantact03 img{ 
+	max-width:30%;
+	height: auto;
+    width: auto\9; /* ie8 */
+	border:1px #b8b7b7 solid;
+	margin-right:3px;
+	}
+.cantact03 .lastImg{ 
+	margin-right:0;
+	}
+.cantact04 h1{
+	background-color:#f2f2f2;
+	color:#787878;
+	font-size:1.2em;
+	font-weight:bold;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	border-bottom:1px #d6d6d6 solid;
+	}
+.cantact04 .ttBox{
+	color:#787878;
+	margin-top:25px;
+	padding-bottom:20px;
+	margin-left:20px;
+	margin-right:20px; 
+	border-bottom:1px #c8c8c8 solid;
+	overflow:hidden;
+	}
+.cantact04 .name{
+	font-size:1.0em;
+	float:left;
+	}
+.cantact04 .time{ 
+	float:right;
+	}
+.cantact04 h2{ 
+	font-size:0.8em;
+	color:#323232;
+	margin:20px;
+	}
+.cantact04 .picBox{
+	margin-left:20px;
+	}	
+.cantact04 img{ 
+	max-width:30%;
+	height: auto;
+    width: auto\9; /* ie8 */
+	border:1px #b8b7b7 solid;
+	margin-right:3px;
+	}
+.cantact04 .lastImg{
+	margin-right:0px;
+	}
+

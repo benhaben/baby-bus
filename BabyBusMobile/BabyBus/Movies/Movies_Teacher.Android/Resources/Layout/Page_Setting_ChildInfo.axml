@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1.0">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:paddingBottom="10.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="60.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_bba"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="ChildName"
+                    local:MvxBind="Text ChildName"
+                    android:layout_weight="1.0" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_parentname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_mi"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_childname"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    local:MvxBind="Text ChildName"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_parentname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_class"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="班级"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    local:MvxBind="Text ClassName"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_parentname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_gender"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="性别"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    local:MvxBind="Text GenderName"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_parentname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_birthday"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="生日"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    local:MvxBind="Text BirthdayString"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_parentname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_parent"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="家长姓名"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    local:MvxBind="Text ParentName"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_phone"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="电话"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:id="@+id/setting_info_phone"
+                    android:textSize="18.0sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    local:MvxBind="Text PhoneNumber"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_parentname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_adress"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="地址"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    local:MvxBind="Text Address"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttongroup"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:orientation="horizontal">
+            <Button
+                android:text="审批通过"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkout_approve"
+                android:layout_weight="1"
+                android:layout_margin="5dp" />
+            <Button
+                android:text="拒绝"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkout_refuse"
+                android:layout_weight="1"
+                android:layout_margin="5dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

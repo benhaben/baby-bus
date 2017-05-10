@@ -1,0 +1,4 @@
+<metadata>
+  <remove-node path="/api/package[@name='com.alipay.sdk.protocol']/class[@name='MiniWindowFrame']" />
+  <remove-node path="/api/package[@name='com.alipay.mobilesecuritysdk.deviceID']/class[@name='DeviceMetaData']/implements[@name='android.provider.BaseColumns']" />
+</metadata>

@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>体质检测</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if IE 8]>
+        <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+    <!-- Page specific plugins -->
+    <!-- Charts -->
+    <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+    <!-- Forms -->
+    <script type="text/javascript" src="plugins/typeahead/typeahead.min.js"></script> <!-- AutoComplete -->
+    <script type="text/javascript" src="plugins/autosize/jquery.autosize.min.js"></script>
+    <script type="text/javascript" src="plugins/inputlimiter/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="plugins/uniform/jquery.uniform.min.js"></script> <!-- Styled radio and checkboxes -->
+    <script type="text/javascript" src="plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="plugins/select2/select2.min.js"></script> <!-- Styled select boxes -->
+    <script type="text/javascript" src="plugins/fileinput/fileinput.js"></script>
+    <script type="text/javascript" src="plugins/duallistbox/jquery.duallistbox.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+    <!-- Globalize -->
+    <script type="text/javascript" src="plugins/globalize/globalize.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.de-DE.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.ja-JP.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/testQuestion.js"></script>
+    <script type="text/javascript" src="assets/js/physicalExamination.js"></script>
+    <!-- Slim Progress Bars -->
+    <script type="text/javascript" src="plugins/nprogress/nprogress.js"></script>
+
+    <!-- Demo JS -->
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/demo/form_components.js"></script>
+
+    <script type="text/x-handlebars-template" id="addIndividualStandarInfoHtml">
+        <tr style="text-align:center;height:30px">
+            <td style="width:100px">项&nbsp;目</td>
+            <td>1分下限</td>
+            <td>1分上限</td>
+            <td>2分下限</td>
+            <td>2分下限</td>
+            <td>3分下限</td>
+            <td>3分上限</td>
+            <td>4分下限</td>
+            <td>4分上限</td>
+            <td>5分下限</td>
+            <td>5分上限</td>
+        </tr>
+        {{#each this}}
+        <tr id="inputDetailInfoId" style="text-align: center; height: 30px">
+            <td><input id="individualProjectType{{type}}" type="hidden" style="color:#3e3939" disabled="disabled" class="inputWeightData" value="{{type}}" />{{TypeName}}</td>
+           <!-- <td><input id="fat1OffId{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="genderid{{type}}" type="text" class="inputWeightData" /></td>-->
+            <td><input id="oneLower{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="oneOnLine{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="twoLower{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="twoOnLine{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="threeLower{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="threeOnLine{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="fourLower{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="fourOnLine{{type}}" type="text" class="inputWeightData" /></td>
+            <td><input id="fiveLower{{type}}" type="text" class="inputWeightData" /></td>
+            <td style="width:10%">
+                <select id="fiveOnLine{{type}}" style="border:none;width:90%">
+                    <option value="0">以下</option>
+                    <option value="1">以上</option>
+                </select>
+            </td>
+
+        </tr>
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="individualStAgeHtml">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="ageType{{Age}}" style="display:block">
+                    {{Age}}岁宝贝其他单项指标评分标准
+                    <i style="float:right;width:105%;height:40px;position:relative;left:2%;bottom:25px;cursor:pointer;" onclick="displayAgeNormal('{{AgeId}}')">
+                        <i id="types{{AgeId}}" style="float:right;position:relative;right:10px;top:10px">
+                            ▼
+                        </i>
+                    </i>
+                </h3>
+            </div>
+
+            <div id="gender{{AgeId}}" class="panel-collapse collapse in" style="height: auto;position:relative;bottom:5%;top:10px;margin:10px">
+                <div id="ageContent{{AgeId}}" style="display:none;position:relative;left : 0%">
+                </div>
+            </div>
+
+        </div>
+    </script>
+    <script type="text/x-handlebars-template" id="individualStGenderHtml">
+        <div>
+          <!--  <div class="panel-heading">
+                <h3 class="panel-title" id="gender{{GenderType}}" style="display:block">
+                   
+                </h3>
+            </div>-->
+
+            <div id="gender{{GenderGenderType}}" class="panel-collapse collapse in" style="position:relative;bottom:5%;padding:10px">
+                <div id="gender{{GenderGenderType}}" style="display:block;position:relative;left : 0%">
+                    <table id="individualStandardId{{AgeType}}{{GenderType}}" border="1" style="position:relative;left:2%;width:96%;">
+                        <tr style="text-align:center;height:30px">
+                            <td>项&nbsp;目</td>
+                            <td>年龄</td>
+                            <td>性别</td>
+                            <td>1分下限</td>
+                            <td>1分上限</td>
+                            <td>2分下限</td>
+                            <td>2分下限</td>
+                            <td>3分下限</td>
+                            <td>3分上限</td>
+                            <td>4分下限</td>
+                            <td>4分上限</td>
+                            <td>5分下限</td>
+                            <td>5分上限</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            </div>
+        <hr />
+    </script>
+
+    <script type="text/x-handlebars-template" id="individuaStDataHtml">
+        {{#each this}}
+        <tr style="text-align:center;height:30px">
+            <td>{{PhysicalExaEIems}}</td>
+            <td>{{Age}}</td>
+            <td>{{Gender}}</td>
+            <td>{{OnePointsLower}}</td>
+            <td>{{OnePointsOnLine}}</td>
+            <td>{{TwoPointsLower}}</td>
+            <td>{{TwoPointsOnLine}}</td>
+            <td>{{ThreePointsLower}}</td>
+            <td>{{ThreePointsOnLine}}</td>
+            <td>{{FourPointsLower}}</td>
+            <td>{{FourPointsOnLine}}</td>
+            <td>{{FivePointsLower}}</td>
+            <td>{{FivePointsOnLine}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="selectAgeTypeHtml">
+        {{#each this}}
+        <option value="{{type}}">{{AgeType}}岁</option>
+        {{/each}}
+    </script>
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            PhysicalExamination.GenertDetailIndividualInfo();
+            PhysicalExamination.GenertIndividualStandardInfo();
+
+        });
+        function addData() {
+            $("#addWeigherHeighDataId").load();
+            var obox = document.getElementById("box1");
+            var oBox = document.getElementById("Mybox1");
+            obox.style.display = "block";
+            oBox.style.display = "block";
+        }
+        function submit() {
+
+            PhysicalExamination.GenertSendAddIndividualStDetailInfo();
+
+        }
+        function calcen() {
+            var obox = document.getElementById("box1");
+            var oBox = document.getElementById("Mybox1");
+            obox.style.display = "none";
+            oBox.style.display = "none";
+        }
+        function onchangeDetail(e) {
+            PhysicalExamination.GenertIndividualStandardInfo(e);
+        }
+        function displayAgeNormal(id) {
+            var clsIdVal = document.getElementById("ageContent" + id).style.display.valueOf();
+            if (clsIdVal == "none") {
+                PhysicalExamination.GenerateOneDisCls(id);
+            } else {
+                $("#ageContent" + id).css({ "display": "none" });
+                $("#types" + id).html("<a style='text-decoration: none;'>▼</a>");
+            }
+        }
+    </script>
+
+    <style>
+        #box1 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: .9;
+            z-index: 1000;
+            display: none;
+        }
+
+        #Mybox1 {
+            position: absolute;
+            top: 23%;
+            left: 18%;
+            width: 65%;
+            height: 60%;
+            background: #fff;
+            display: none;
+        }
+
+        .inputWeightData {
+            width: 98%;
+            height: 25px;
+            border: none;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+<body id="bodyonline">
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+    <div class="widget invoice">
+        <div class="widget-header">
+            <div class="pull-left">
+                <h2>单项标准参数录入</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="widget box">
+                <div class="widget-header">
+                    <h4><i class="icon-reorder"></i> 单项标准参数录入</h4>
+                    <button class="btn btn- btn-primary" id="edit_user_info" onclick="addData()" style="margin:2px;position:relative;left:70%">添加参数</button>
+                </div>
+                <div class="widget-content">
+                    <div class="alert alert-info fade in">
+                        <i class="icon-remove close" data-dismiss="alert"></i>
+                        您可以在此页面录入单项评分标准参数……
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label style="position:relative;left:2%;font-weight:400">年&nbsp;龄：</label>
+                            <select id="selectTypeId" style="width:8%;position:relative;left:3%" onchange="onchangeDetail()">
+                                <option value="-1">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="individualStandDetailInfoId">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="box1">
+            <div id="Mybox1">
+                <div style="margin-top:2%">
+                    <div style="margin-left:2%;margin-bottom:10px">
+                        <label style="position:relative;left:2%;">年&nbsp;龄：</label>
+                        <select id="addIndividualStInfoId" style="margin-left:3%">
+                            <option value="-1">请选择年龄</option>
+                        </select>
+                        <div style="float:right;margin-right:30%">
+                            <label>性&nbsp;别：</label>
+                            <label>
+                                <input type="radio" value="0" id="selectGender1" name="selectGender" checked="checked"/>&nbsp;女
+                            </label>
+                            <label style="margin-left:20px;float:right">
+                                <input type="radio" value="1" id="selectGender2" name="selectGender" />&nbsp;男
+                            </label>
+                        </div>
+                    </div>
+                    <table id="addWeigherHeighDataId" border="1" style="position:relative;left:4%;width:93%">
+                        
+                        
+                    </table>
+                    <button class="btn btn- btn-primary" style="margin-top: 15px; float: right; position: relative; right: 13%; height: 32px" onclick="submit()">添 加</button>
+                    <button class="btn btn- btn-primary" style="margin-top: 15px; float:left;margin-left:90%;height:32px;position:relative;bottom:47px" onclick="calcen()">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

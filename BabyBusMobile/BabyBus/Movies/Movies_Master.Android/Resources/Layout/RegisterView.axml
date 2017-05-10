@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_login">
+<!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+    <TextView
+        android:id="@+id/login_user_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="20.0dip"
+        android:layout_marginRight="10.0dip"
+        local:MvxBind="Text Information" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="7.0dip"
+        android:layout_marginRight="10.0dip"
+        android:isScrollContainer="true">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/setting_info_childname"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <EditText
+                android:id="@+id/username_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxBind="Text Phone"
+                android:hint="@string/register_label_username"
+                android:layout_marginLeft="20.0dip"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="text" />
+        </LinearLayout>
+        <View
+            android:background="@drawable/shape_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/setting_info_childname"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_label_pwd"
+                local:MvxBind="Text Password"
+                android:layout_marginLeft="20.0dip"
+                android:password="true"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="textPassword" />
+        </LinearLayout>
+        <View
+            android:background="@drawable/shape_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/setting_info_childname"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_label_confirmpwd"
+                local:MvxBind="Text ComfirmedPassword"
+                android:layout_marginLeft="20.0dip"
+                android:password="true"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="textPassword" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="7.0dip"
+        android:layout_marginRight="10.0dip"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <Button
+            android:id="@+id/signin_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_label_register"
+            local:MvxBind="Click DetialRegisterCommand" />
+    </LinearLayout>
+</LinearLayout>

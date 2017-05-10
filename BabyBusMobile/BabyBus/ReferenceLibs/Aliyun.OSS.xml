@@ -1,0 +1,3398 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aliyun.OSS</name>
+    </assembly>
+    <members>
+        <member name="T:Aliyun.OpenServices.ClientConfiguration">
+            <summary>
+            表示访问阿里云服务的配置信息。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.ClientConfiguration.ConnectionLimit">
+            <summary>
+            HttpWebRequest最大的并发连接数目。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.ClientConfiguration.SetCustomEpochTicks(System.Int64)">
+            <summary>
+            <para>设置自定义基准时间。</para>
+            <para>
+            由于OSS的token校验是时间相关的，可能会因为终端系统时间不准导致无法访问OSS服务。
+            通过该接口设置自定义Epoch秒数，SDK计算出本机当前时间与自定义时间的差值，之后的
+            每次请求时间均加上该差值，以达到时间校验的目的。
+            </para>
+            </summary>
+            <param name="epochTicks">自定义Epoch秒数。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.ClientConfiguration.Clone">
+            <summary>
+            获取该实例的拷贝。
+            </summary>
+            <returns>该实例的拷贝。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.ClientConfiguration.GetDefaultUserAgent">
+            <summary>
+            获取User-Agent信息。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.UserAgent">
+            <summary>
+            获取访问请求的User-Agent。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.ProxyHost">
+            <summary>
+            获取或设置代理服务器的地址。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.ProxyPort">
+            <summary>
+            获取或设置代理服务器的端口。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.ProxyUserName">
+            <summary>
+            获取或设置用户名。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.ProxyPassword">
+            <summary>
+            获取或设置密码。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.ProxyDomain">
+            <summary>
+            获取或设置代理服务器授权用户所在的域。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.ConnectionTimeout">
+            <summary>
+            获取或设置连接超时时间，单位为毫秒。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.MaxErrorRetry">
+            <summary>
+            获取或设置请求发生错误时最大的重试次数。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.Protocol">
+            <summary>
+            获取或设置请求OSS服务时采用的通信协议。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.RootDomainList">
+            <summary>
+            获取或设置根域名列表，如果用户请求的Host未包含在该列表内，
+            则表明采用了自定义域名绑定功能，否则未开启该功能。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.ClientConfiguration.TickOffset">
+            <summary>
+            获取自定义基准时间与本地时间的时差值，单位为秒。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Commands.SetBucketRefererCommand">
+            <summary>
+            Description of SetBucketRefererCommand.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Communication.ExecutionContext._responseHandlers">
+            <summary>
+            List of HTTP response handlers. 
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ExecutionContext.Signer">
+            <summary>
+            Gets or sets the request signer.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ExecutionContext.Credentials">
+            <summary>
+            Gets or sets the credentials.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ExecutionContext.ResponseHandlers">
+            <summary>
+            Gets the list of <see cref="T:Aliyun.OpenServices.Common.Handlers.IResponseHandler"/>.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ExecutionContext.Command">
+            <summary>
+            Gets or sets a concrete command associate with this context.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ServiceMessage.Headers">
+            <summary>
+            Gets the dictionary of HTTP headers.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ServiceMessage.Content">
+            <summary>
+            Gets or sets the content stream.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Communication.HttpMethod">
+            <summary>
+            Represents a HTTP method.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Communication.HttpMethod.Get">
+            <summary>
+            Represents HTTP GET. Default value.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Communication.HttpMethod.Delete">
+            <summary>
+            Represents HTTP DELETE.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Communication.HttpMethod.Head">
+            <summary>
+            Represents HTTP HEAD.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Communication.HttpMethod.Post">
+            <summary>
+            Represents HTTP POST.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Communication.HttpMethod.Put">
+            <summary>
+            Represents HTTP PUT.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Communication.HttpMethod.Options">
+            <summary>
+            Represents HTTP OPTIONS.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Communication.IServiceClient">
+            <summary>
+            Represent the channel that communicates with an Aliyun Open Service.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Communication.IServiceClient.Send(Aliyun.OpenServices.Common.Communication.ServiceRequest,Aliyun.OpenServices.Common.Communication.ExecutionContext)">
+            <summary>
+            Sends a request to the service.
+            </summary>
+            <param name="request">The request data.</param>
+            <param name="context">The execution context.</param>
+            <returns>The response data.</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Communication.IServiceClient.BeginSend(Aliyun.OpenServices.Common.Communication.ServiceRequest,Aliyun.OpenServices.Common.Communication.ExecutionContext,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins to send a request to the service asynchronously.
+            </summary>
+            <param name="request">The request data.</param>
+            <param name="context">The execution context.</param>
+            <param name="callback">User callback.</param>
+            <param name="state">User state.</param>
+            <returns>An instance of <see cref="T:System.IAsyncResult"/>.</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Communication.IServiceClient.EndSend(System.IAsyncResult)">
+            <summary>
+            Ends the asynchronous operation.
+            </summary>
+            <param name="asyncResult">An instance of <see cref="T:System.IAsyncResult"/>.</param>
+            <returns>The response data.</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Communication.ServiceRequest.BuildRequestUri">
+            <summary>
+            Build the request URI from the request message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ServiceRequest.Endpoint">
+            <summary>
+            Gets or sets the endpoint.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ServiceRequest.ResourcePath">
+            <summary>
+            Gets or sets the resource path of the request URI.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ServiceRequest.Method">
+            <summary>
+            Gets or sets the HTTP method.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ServiceRequest.Parameters">
+            <summary>
+            Gets the dictionary of the request parameters.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Communication.ServiceRequest.IsRepeatable">
+            <summary>
+            Gets whether the request can be repeated.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Communication.ServiceResponse.EnsureSuccessful">
+            <summary>
+            Throws the exception from communication if the status code is not 2xx.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Communication.RetryableServiceClient">
+            <summary>
+            Implementation of <see cref="T:Aliyun.OpenServices.Common.Communication.IServiceClient"/> that will auto-retry HTTP requests 
+            when encountering some specific exceptions or failures.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Utilities.AsyncResult`1">
+            <summary>
+            Represents the status of an async operation.
+            It also holds the result of the operation.
+            </summary>
+            <typeparam name="T">Type of the operation result.</typeparam>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Utilities.AsyncResult">
+            <summary>
+            The implementation of <see cref="T:System.IAsyncResult"/>
+            that represents the status of an async operation.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult.#ctor(System.AsyncCallback,System.Object)">
+            <summary>
+            Initializes an instance of <see cref="T:Aliyun.OpenServices.Common.Utilities.AsyncResult"/>.
+            </summary>
+            <param name="callback">The callback method when the async operation completes.</param>
+            <param name="state">A user-defined object that qualifies or contains information about an asynchronous operation.</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult.Complete(System.Exception)">
+            <summary>
+            Completes the async operation with an exception.
+            </summary>
+            <param name="ex">Exception from the async operation.</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult.WaitForCompletion">
+            <summary>
+            When called in the dervied classes, wait for completion.
+            It throws exception if the async operation ends with an exception.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult.NotifyCompletion">
+            <summary>
+            When called in the derived classes, notify operation completion
+            by setting <see cref="P:AsyncWaitHandle"/> and calling the user callback.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult.Dispose">
+            <summary>
+            Disposes the object and release resource.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult.Dispose(System.Boolean)">
+            <summary>
+            When overrided in the derived classes, release resources.
+            </summary>
+            <param name="disposing">Whether the method is called <see cref="M:Dispose"/></param>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Utilities.AsyncResult.AsyncState">
+            <summary>
+            Gets a user-defined object that qualifies or contains information about an asynchronous operation.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Utilities.AsyncResult.AsyncWaitHandle">
+            <summary>
+            Gets a <see cref="T:System.Threading.WaitHandle"/> that is used to wait for an asynchronous operation to complete. 
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Utilities.AsyncResult.CompletedSynchronously">
+            <summary>
+            Gets a value that indicates whether the asynchronous operation completed synchronously.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.Common.Utilities.AsyncResult.IsCompleted">
+            <summary>
+            Gets a value that indicates whether the asynchronous operation has completed.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.Common.Utilities.AsyncResult`1._result">
+            <summary>
+            The result of the async operation.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult`1.#ctor(System.AsyncCallback,System.Object)">
+            <summary>
+            Initializes an instance of <see cref="T:Aliyun.OpenServices.Common.Utilities.AsyncResult`1"/>.
+            </summary>
+            <param name="callback">The callback method when the async operation completes.</param>
+            <param name="state">A user-defined object that qualifies or contains information about an asynchronous operation.</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult`1.GetResult">
+            <summary>
+            Gets result and release resources.
+            </summary>
+            <returns>The instance of result.</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.AsyncResult`1.Complete(`0)">
+            <summary>
+            Sets result and notify completion.
+            </summary>
+            <param name="result">The instance of result.</param>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Communication.ServiceClientImpl">
+            <summary>
+            The default  implementation of <see cref="T:Aliyun.OpenServices.Common.Communication.ServiceClient"/> that
+            used to communicate with Aliyun OSS via HTTP protocol.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Communication.ServiceClient">
+            <summary>
+            The default implementation of <see cref="T:Aliyun.OpenServices.Common.Communication.IServiceClient"/>.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Communication.ServiceClientImpl.HttpAsyncResult">
+            <summary>
+            Represents the async operation of requests in <see cref="T:Aliyun.OpenServices.Common.Communication.ServiceClientImpl"/>.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Communication.ServiceClientImpl.ResponseImpl">
+            <summary>
+            Represents the response data of <see cref="T:Aliyun.OpenServices.Common.Communication.ServiceClientImpl"/> requests.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Transform.XmlStreamSerializer`1">
+            <summary>
+            Serialize an object of type TRequest to XML stream.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.Common.Transform.XmlStreamDeserializer`1">
+            <summary>
+            Deserialize an object of type T from XML stream.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Transform.XmlStreamDeserializer`1.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserialize an object of type T, then close the underlying stream.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.DateUtils.FormatRfc822Date(System.DateTime)">
+            <summary>
+            Format an instance of <see cref="T:System.DateTime"/> to a GMT format string.
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.DateUtils.ParseRfc822Date(System.String)">
+            <summary>
+            Format a GMT format string to an instance of <see cref="T:System.DateTime"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.Common.Utilities.DateUtils.FormatIso8601Date(System.DateTime)">
+            <summary>
+            Format an instance of <see cref="T:System.DateTime"/> to string in iso-8601 format.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.RuleStatus">
+            <summary>
+            Lifecycle规则状态。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.LifecycleRule">
+            <summary>
+            表示一条Lifecycle规则。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ListBucketsResult">
+            <summary>
+            列举Bucket的请求结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsResult.Prefix">
+            <summary>
+            获取一个值，限定返回的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的Key必须以该值作为前缀。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsResult.Marker">
+            <summary>
+            获取一个值，用户设定结果从该值之后按字母排序的第一个开始返回。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsResult.MaxKeys">
+            <summary>
+            获取一个值，用于限定此次返回bucket的最大数。
+            如果不设定，默认为100。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsResult.IsTruncated">
+            <summary>
+            获取一个值，指明是否所有的结果都已经返回。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsResult.NextMaker">
+            <summary>
+            获取一个值，指明下一个Marker。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsResult.Buckets">
+            <summary>
+            获取一个值，指明Bucket请求列表。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ListBucketsRequest">
+            <summary>
+            包含获取<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>列表的请求信息。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsRequest.Prefix">
+            <summary>
+            获取或设置一个值，限定返回的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的Key必须以该值作为前缀。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsRequest.Marker">
+            <summary>
+            获取或设置一个值，用户设定结果从该值之后按字母排序的第一个开始返回。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListBucketsRequest.MaxKeys">
+            <summary>
+            获取或设置一个值，用于限定此次返回bucket的最大数。
+            如果不设定，默认为100。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.MatchMode">
+            <summary>
+            Conditions匹配方式。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.TupleType">
+            <summary>
+            Conditions元组类型，目前支持二元组（{ ... }）、三元组（[ ... ]）。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.AbstractConditionItem">
+            <summary>
+            抽象Condition项。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.EqualConditionItem">
+            <summary>
+            Equal类型条件项。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.StartWithConditionItem">
+            <summary>
+            StartWith类型条件项。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.RangeConditionItem">
+            <summary>
+            ContentLengthRange类型条件项。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.PolicyConditions">
+            <summary>
+            Conditions列表，用于指定 Post 请求表单域的合法值。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.PolicyConditions.AddConditionItem(System.String,System.String)">
+            <summary>
+            采用默认匹配方式（精确匹配）添加Conditions项。
+            </summary>
+            <param name="name">Condition名称。</param>
+            <param name="value">Condition数值。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.PolicyConditions.AddConditionItem(Aliyun.OpenServices.OpenStorageService.MatchMode,System.String,System.String)">
+            <summary>
+            采用指定匹配模式添加Conditions项。
+            </summary>
+            <param name="matchMode">Conditions匹配方式。</param>
+            <param name="name">Condition名称。</param>
+            <param name="value">Condition数值。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.PolicyConditions.AddConditionItem(System.String,System.Int64,System.Int64)">
+            <summary>
+            采用范围匹配模式添加Conditions项。
+            </summary>
+            <param name="name">Condition名称。</param>
+            <param name="min">范围最小值。</param>
+            <param name="max">范围最大值。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.SetBucketLifecycleRequest.AddLifecycleRule(Aliyun.OpenServices.OpenStorageService.LifecycleRule)">
+            <summary>
+            添加一条LifecycleRule。
+            </summary>
+            <param name="lifecycleRule"></param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketLifecycleRequest.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketLifecycleRequest.LifecycleRules">
+            <summary>
+            Lifecycle规则列表，每个bucket最多允许1000条规则。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Protocol">
+            <summary>
+            表示请求OSS服务时采用的通信协议，默认值为HTTP。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.OssErrorCode">
+            <summary>
+            表示来自开放存储服务（Open Storage Service，OSS）的错误代码。 
+            </summary>
+            <seealso cref="P:OssException.ErrorCode" />。
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.AccessDenied">
+            <summary>
+            访问被拒绝。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.BucketAlreadyExists">
+            <summary>
+            Bucket已经存在。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.BucketNotEmtpy">
+            <summary>
+            Bucket不为空。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.EntityTooLarge">
+            <summary>
+            实体过大。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.EntityTooSmall">
+            <summary>
+            实体过小。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.FileGroupTooLarge">
+            <summary>
+            文件组过大。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidLinkName">
+            <summary>
+            Object Link 与指向的 Object 同名。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.LinkPartNotExist">
+            <summary>
+            Object Link 中指向的 Object 不存在。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.ObjectLinkTooLarge">
+            <summary>
+            Object Link 中 Object 个数过多。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.FieldItemTooLong">
+            <summary>
+            Post 请求中表单域过大。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.FilePartInterity">
+            <summary>
+            文件 Part 已改变。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.FilePartNotExist">
+            <summary>
+            文件 Part 不存在。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.FilePartStale">
+            <summary>
+            文件 Part 过时。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.IncorrectNumberOfFilesInPOSTRequest">
+            <summary>
+            Post 请求中文件个数非法
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidArgument">
+            <summary>
+            参数格式错误。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidAccessKeyId">
+            <summary>
+            Access ID不存在
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidBucketName">
+            <summary>
+            无效的Bucket名字。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidDigest">
+            <summary>
+            无效的摘要。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidTargetBucketForLogging">
+            <summary>
+            Logging 操作中有无效的目标 bucket。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidObjectName">
+            <summary>
+            无效的Object名字。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidPart">
+            <summary>
+            无效的 Part。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidPartOrder">
+            <summary>
+            无效的 Part 顺序。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidPolicyDocument">
+            <summary>
+            无效的 Policy 文档。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InternalError">
+            <summary>
+            OSS内部错误。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.MalformedXML">
+            <summary>
+            XML格式非法。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.MalformedPOSTRequest">
+            <summary>
+            Post 请求的 body 格式非法。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.MaxPOSTPreDataLengthExceededError">
+            <summary>
+            Post 请求上传文件内容之外的 body过大。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.MethodNotAllowed">
+            <summary>
+            不支持的方法。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.MissingArgument">
+            <summary>
+            缺少参数。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.MissingContentLength">
+            <summary>
+            缺少内容长度。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.NoSuchBucket">
+            <summary>
+            Bucket不存在。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.NoSuchKey">
+            <summary>
+            文件不存在。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.NoSuchUpload">
+            <summary>
+            Multipart Upload ID不存在。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.NotImplemented">
+            <summary>
+            无法处理的方法。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.PreconditionFailed">
+            <summary>
+            预处理错误
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.RequestTimeTooSkewed">
+            <summary>
+            发起请求的时间和服务器时间超出15分钟。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.RequestTimeout">
+            <summary>
+            请求超时。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.RequestIsNotMultiPartContent">
+            <summary>
+            Post 请求 content-type 非法。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.SignatureDoesNotMatch">
+            <summary>
+            签名错误。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.TooManyBuckets">
+            <summary>
+            用户的Bucket数目超过限制。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.InvalidEncryptionAlgorithmError">
+            <summary>
+            指定的熵编码加密算法错误。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.NoSuchWebsiteConfiguration">
+            <summary>
+            源Bucket未设置静态网站托管功能
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.NoSuchCORSConfiguration">
+            <summary>
+            CORS规则不存在。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.OssErrorCode.NotModified">
+            <summary>
+            304未修改。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest">
+            <summary>
+            设置指定Bucket的Referer白名单和是否允许referer字段为空的请求。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest.#ctor(System.String)">
+            <summary>
+            使用空的referer列表、允许referer为空的请求访问的构造函数。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest.#ctor(System.String,System.Collections.Generic.IList{System.String})">
+            <summary>
+            使用指定的referer列表、允许referer为空的请求访问的构造函数。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/></param>
+            <param name="refererList">referer列表</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            使用指定的referer列表、是否允许referer为空的请求访问的构造函数。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/></param>
+            <param name="refererList">referer列表</param>
+            <param name="allowEmptyReferer">是否允许referer为空的请求访问</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest.ClearRefererList">
+            <summary>
+            清空referer列表。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest.BucketName">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest.AllowEmptyReferer">
+            <summary>
+            指定是否允许referer字段为空的请求访问。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest.RefererList">
+            <summary>
+            获取或者设置需要删除的referer列表。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest">
+            <summary>
+            指定完成Delete Multiple Objects的请求参数。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest.#ctor(System.String,System.Collections.Generic.IList{System.String})">
+            <summary>
+            使用静默方式的构造函数。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/></param>
+            <param name="keys">预删除的Object列表</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest.#ctor(System.String,System.Collections.Generic.IList{System.String},System.Boolean)">
+            <summary>
+            使用指定的请求结果返回模式的构造函数。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/></param>
+            <param name="keys">预删除的Object列表</param>
+            <param name="quiet">true表示静默模式，false表示详细模式</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest.BucketName">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest.Quiet">
+            <summary>
+            获取或设置请求结果的返回模式（详细模式或静默模式）。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest.Keys">
+            <summary>
+            获取或者设置需要删除的key列表。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.DeleteObjectsResult">
+            <summary>
+            Description of DeleteObjectsResult.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketAclRequest.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketAclRequest.ACL">
+            <summary>
+            获取用户访问权限。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest">
+            <summary>
+            指定以某一Object作为上传某分块数据源的请求。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.TargetBucket">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.TargetKey">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.UploadId">
+            <summary>
+            获取或设置上传Multipart上传事件的Upload ID。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.PartNumber">
+            <summary>
+            获取或设置返回上传分块（Part）的标识号码（Part Number）。
+            每一个上传分块（Part）都有一个标识它的号码（范围1~10000）。
+            对于同一个Upload ID，该号码不但唯一标识这一块数据，也标识了这块数据在整个文件中的
+            相对位置。如果你用同一个Part号码上传了新的数据，那么OSS上已有的这个号码的Part数据将被覆盖。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.PartSize">
+            <summary>
+            获取或设置返回分块（Part）数据的字节数。
+            除最后一个Part外，其他Part最小为5MB。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.Md5Digest">
+            <summary>
+            获取或设置分块（Part）数据的MD5校验值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.SourceKey">
+            <summary>
+            获取或设置拷贝源Object。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.SourceBucket">
+            <summary>
+            获取或设置拷贝源Bucket。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.BeginIndex">
+            <summary>
+            获取或设置拷贝源Object的起始位置。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.MatchingETagConstraints">
+            <summary>
+            如果源Object的ETAG值和用户提供的ETAG相等，则执行拷贝操作；
+            否则返回412 HTTP错误码（预处理失败）。
+            </summary>        
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.NonmatchingETagConstraints">
+            <summary>
+            如果源Object的ETAG值和用户提供的ETAG不相等，则执行拷贝操作；
+            否则返回412 HTTP错误码（预处理失败）。
+            </summary>       
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.UnmodifiedSinceConstraint">
+            <summary>
+            如果传入参数中的时间等于或者晚于文件实际修改时间，则正常传输文件，并返回200 OK；
+            否则返回412 precondition failed错误
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest.ModifiedSinceConstraint">
+            <summary>
+            如果源Object自从用户指定的时间以后被修改过，则执行拷贝操作；
+            否则返回412 HTTP错误码（预处理失败）。    
+            </summary>   
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.UploadPartCopyResult">
+            <summary>
+            获取以某一Object作为上传某分块数据源的结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyResult.ETag">
+            <summary>
+            获取一个值表示与Object相关的hex编码的128位MD5摘要。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyResult.PartNumber">
+            <summary>
+            获取一个值表示分块的标识
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyResult.PartETag">
+            <summary>
+            获取包含Part标识号码和ETag值的<see cref="P:Aliyun.OpenServices.OpenStorageService.UploadPartCopyResult.PartETag"/>对象
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.AbortMultipartUploadRequest">
+            <summary>
+            指定中止Multipart Upload事件的请求参数
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.AbortMultipartUploadRequest.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.AbortMultipartUploadRequest.Key">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.AbortMultipartUploadRequest.UploadId">
+            <summary>
+            获取或者设置需要取消的UploadId。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.AccessControlList">
+            <summary>
+            表示OSS的访问控制列表（Access Control List， ACL），
+            包含了一组为指定被授权者<see cref="T:Aliyun.OpenServices.OpenStorageService.IGrantee"/>
+            分配特定权限<see cref="T:Aliyun.OpenServices.OpenStorageService.Permission"/>的集合。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.AccessControlList.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.AccessControlList.GrantPermission(Aliyun.OpenServices.OpenStorageService.IGrantee,Aliyun.OpenServices.OpenStorageService.Permission)">
+            <summary>
+            为指定<see cref="T:Aliyun.OpenServices.OpenStorageService.IGrantee"/>授予特定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Permission"/>。
+            目前只支持被授权者为<see cref="P:Aliyun.OpenServices.OpenStorageService.GroupGrantee.AllUsers"/>。
+            </summary>
+            <param name="grantee">被授权者。</param>
+            <param name="permission">被授予的权限。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.AccessControlList.RevokeAllPermissions(Aliyun.OpenServices.OpenStorageService.IGrantee)">
+            取消指定{@link Grantee}已分配的所有权限。
+            @param grantee
+                      被授权者。目前只支持被授权者为{@link GroupGrantee#AllUsers}。
+            <summary>
+            取消指定<see cref="T:Aliyun.OpenServices.OpenStorageService.IGrantee"/>已分配的所有权限。
+            </summary>
+            <param name="grantee">被授权者。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.AccessControlList.ToString">
+            返回该对象的字符串表示。
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.AccessControlList.Grants">
+            <summary>
+            获取所有<see cref="T:Aliyun.OpenServices.OpenStorageService.Grant"/>实例的枚举。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.AccessControlList.Owner">
+            <summary>
+            获取或设置所有者。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Bucket">
+            <summary>
+            Bucket是OSS上的命名空间。
+            </summary>
+             <remarks>
+            <para>
+            Bucket名在整个 OSS 中具有全局唯一性，且不能修改；存储在OSS上的每个Object必须都包含在某个Bucket中。
+            一个应用，例如图片分享网站，可以对应一个或多个 Bucket。一个用户最多可创建 10 个Bucket，
+            但每个Bucket 中存放的Object的数量和大小总和没有限制，用户不需要考虑数据的可扩展性。
+            </para>
+            <para>
+            Bucket 命名规范
+            <list type="">
+             <item>只能包括小写字母，数字和短横线（-）</item>
+             <item>必须以小写字母或者数字开头</item>
+             <item>长度必须在 3-63 字节之间</item>
+            </list>
+            </para>
+             </remarks>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.Bucket.#ctor(System.String)">
+            <summary>
+            使用指定的Bucket名称构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>实例。
+            </summary>
+            <param name="name">Bucket的名称。</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Bucket.Location">
+            <summary>
+            获取/设置Bucket的Location。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Bucket.Name">
+            <summary>
+            获取/设置Bucket的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Bucket.Owner">
+            <summary>
+            获取/设置Bucket的<see cref="P:Aliyun.OpenServices.OpenStorageService.Bucket.Owner"/>
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Bucket.CreationDate">
+            <summary>
+            获取/设置Bucket的创建时间。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.BucketLoggingResult">
+            <summary>
+            Get Bucket Logging 的请求结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.BucketLoggingResult.TargetBucket">
+            <summary>
+            访问日志记录要存入的bucket。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.BucketLoggingResult.TargetPrefix">
+            <summary>
+            存储访问日志记录的object名字前缀，可以为空。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.BucketWebsiteResult">
+            <summary>
+            Get Bucket Website 的请求结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.BucketWebsiteResult.IndexDocument">
+            <summary>
+            索引页面
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.BucketWebsiteResult.ErrorDocument">
+            <summary>
+            错误页面
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.CannedAccessControlList">
+            <summary>
+            表示一组常用的用户访问权限。
+            <para>
+            这一组常用权限相当于给所有用户指定权限的快捷方法。
+            </para>
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadRequest">
+            <summary>
+            指定完成Multipart Upload的请求参数。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadRequest.BucketName">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadRequest.Key">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadRequest.UploadId">
+            <summary>
+            获取或设置上传Multipart上传事件的Upload ID。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadRequest.PartETags">
+            <summary>
+            获取或者设置标识Part上传结果的<see cref="T:Aliyun.OpenServices.OpenStorageService.PartETag"/>对象列表。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadResult">
+            <summary>
+            Complete Multipart Upload的请求结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadResult.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadResult.Key">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadResult.Location">
+            <summary>
+            获取新创建Object的URL。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadResult.ETag">
+            <summary>
+            获取新创建的Object的ETag
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest">
+            <summary>
+            指定拷贝Object的请求参数
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest"/> 实例
+            </summary>
+            <param name="sourceBucketName">需要拷贝的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在的Bucket</param>
+            <param name="sourceKey">需要拷贝的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>名称</param>
+            <param name="destinationBucketName">要拷贝到的目的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在的Bucket</param>
+            <param name="destinationKey">要拷贝到的目的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的名称</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.SourceBucketName">
+            <summary>
+            获取或者设置源Object所在的Bucket的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.SourceKey">
+            <summary>
+            获取或者设置源Object的Key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.DestinationBucketName">
+            <summary>
+            获取或者设置目标Object所在的Bucket的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.DestinationKey">
+            <summary>
+            获取或者设置目标Object的Key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.NewObjectMetaData">
+            <summary>
+            已过期。请使用属性字段NewObjectMetadata。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.NewObjectMetadata">
+            <summary>
+            获取或者设置目标Object的Metadata信息。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.MatchingETagConstraints">
+            <summary>
+            如果源Object的ETAG值和用户提供的ETAG相等，则执行拷贝操作；否则返回412 HTTP错误码（预处理失败）。
+            </summary>        
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.NonmatchingETagConstraints">
+            <summary>
+            如果源Object的ETAG值和用户提供的ETAG不相等，则执行拷贝操作；否则返回412 HTTP错误码（预处理失败）。
+            </summary>       
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.UnmodifiedSinceConstraint">
+            <summary>
+            如果传入参数中的时间等于或者晚于文件实际修改时间，则正常传输文件，并返回200 OK；
+            否则返回412 precondition failed错误
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectRequest.ModifiedSinceConstraint">
+            <summary>
+            如果源Object自从用户指定的时间以后被修改过，则执行拷贝操作；
+            否则返回412 HTTP错误码（预处理失败）。    
+            </summary>   
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.CopyObjectResult">
+            <summary>
+            拷贝Object的请求结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectResult.LastModified">
+            <summary>
+            获取新Object最后更新时间。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CopyObjectResult.ETag">
+            <summary>
+            获取新Object的ETag值。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.CORSRule">
+            <summary>
+            表示一条CORS规则。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.CORSRule.AddAllowedOrigin(System.String)">
+            <summary>
+            添加一条AllowedOrigin。
+            </summary>
+            <param name="allowedOrigin"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.CORSRule.AddAllowedMethod(System.String)">
+            <summary>
+            添加一条AllowedMethod。
+            </summary>
+            <param name="allowedMethod"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.CORSRule.AddAllowedHeader(System.String)">
+            <summary>
+            添加一条AllowedHeader。
+            </summary>
+            <param name="allowedHeader"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.CORSRule.AddExposeHeader(System.String)">
+            <summary>
+            添加一条ExposeHeader。
+            </summary>
+            <param name="exposedHeader"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.CORSRule.CountOfAsterisk(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            获取*通配符的个数。
+            </summary>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CORSRule.AllowedOrigins">
+            <summary>
+            指定允许的跨域请求的来源，允许使用多个元素来指定多个允许的来源。
+            允许使用最多一个*通配符。如果指定为“ *”则表示允许所有的来源的跨域请求。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CORSRule.AllowedMethods">
+            <summary>
+            指定允许的跨域请求方法（GET,PUT,DELETE,POST,HEAD）。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CORSRule.AllowedHeaders">
+            <summary>
+            控制在 OPTIONS 预取指令中 Access-Control-Request-Headers 头中指定的 header
+            是否允许。在 Access-Control-Request-Headers 中指定的每个 header 都必须在
+            AllowedHeader 中有一条对应的项。允许使用最多一个*通配符。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CORSRule.ExposeHeaders">
+            <summary>
+            指定允许用户从应用程序中访问的响应头（例如一个 Javascript 的
+            XMLHttpRequest 对象。不允许使用 *通配符。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.CORSRule.MaxAgeSeconds">
+            <summary>
+            指定浏览器对特定资源的预取（ OPTIONS）请求返回结果的缓存时间，单位为秒，
+            最大值不超过999999999，且一个 CORSRule 里面最多允许出现一个。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest">
+            <summary>
+            指定生成URL预签名的请求参数。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.AddUserMetadata(System.String,System.String)">
+            <summary>
+            添加用户Meta项。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.AddQueryParam(System.String,System.String)">
+            <summary>
+            添加用户参数。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.Method">
+            <summary>
+            获取或者设置HttpMethod。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.BucketName">
+            <summary>
+            获取或者设置Object所在Bucket的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.Key">
+            <summary>
+            获取或者设置Object的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.ContentType">
+            <summary>
+            获取或设置签名URL对应的文件类型。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.ContentMd5">
+            <summary>
+            获取或设置签名URL对应的文件MD5。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.Expiration">
+            <summary>
+            获取或者设置过期时间。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.ResponseHeaders">
+            <summary>
+            获取或者设置要重载的返回请求头。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.UserMetadata">
+            <summary>
+            获取或者设置用户自定义的元数据，表示以x-oss-meta-为前缀的请求头。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest.QueryParams">
+            <summary>
+            获取或者设置用户请求参数。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.GetObjectRequest">
+            <summary>
+            指定从OSS下载Object的请求参数。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.#ctor(System.String,System.String)">
+            <summary>
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.GetObjectRequest"/>实例。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:OssObject.Key"/>。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.SetRange(System.Int64,System.Int64)">
+            <summary>
+            设置一个值表示请求应当返回Object内容的字节范围（可选）。
+            </summary>
+            <param name="start">
+            范围的起始值。
+            <para>
+            当值大于或等于0时，表示起始的字节位置。
+            当值为-1时，表示不设置起始的字节位置，此时end参数不能-1，
+            例如end为100，Range请求头的值为bytes=-100，表示获取最后100个字节。
+            </para>
+            </param>
+            <param name="end">
+            范围的结束值，应当小于内容的字节数。（最大为内容的字节数-1）
+            <para>
+            当值小于或等于0时，表示结束的字节位或最后的字节数。
+            当值为-1时，表示不设置结束的字节位置，此时start参数不能为-1，
+            例如start为99，Range请求头的值为bytes=99-，表示获取第100个字节及
+            以后的所有内容。
+            </para>
+            </param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.BucketName">
+            <summary>
+            获取或设置<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.Key">
+            <summary>
+            获取或设置要下载<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.Range">
+            <summary>
+            获取表示请求应当返回<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>内容的字节范围。
+            </summary>
+            <remarks>
+            调用<see cref="M:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.SetRange(System.Int64,System.Int64)"/>方法进行设置，如果没有设置，则返回null。
+            </remarks>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.UnmodifiedSinceConstraint">
+            <summary>
+            获取或设置“If-Unmodified-Since”参数。
+            </summary>
+            <remarks>
+            该参数表示：如果传入参数中的时间等于或者晚于文件实际修改时间，则传送文件；
+            如果早于实际修改时间，则返回错误。
+            </remarks>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.ModifiedSinceConstraint">
+            <summary>
+            获取或设置“If-Modified-Since”参数。
+            </summary>
+            <remarks>
+            该参数表示：如果指定的时间早于实际修改时间，则正常传送文件，并返回 200 OK；
+            如果参数中的时间和实际修改时间一样或者更晚，会返回错误。
+            </remarks>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.MatchingETagConstraints">
+            <summary>
+            获取一个列表表示：如果传入期望的ETag和<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的ETag匹配，则正常的发送文件。
+            如果不符合，返回错误。
+            对应“If-Match”参数，
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.NonmatchingETagConstraints">
+            <summary>
+            获取一个列表表示：如果传入期望的ETag和<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的ETag不匹配，则正常的发送文件。
+            如果符合，返回错误。
+            对应“If-None-Match”参数，
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GetObjectRequest.ResponseHeaders">
+            <summary>
+            获取的返回请求头重载<see cref="T:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides"/>实例。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Grant">
+            <summary>
+            访问控制的授权信息。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.Grant.#ctor(Aliyun.OpenServices.OpenStorageService.IGrantee,Aliyun.OpenServices.OpenStorageService.Permission)">
+            <summary>
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.Grant"/>实体。
+            </summary>
+            <param name="grantee">被授权者。目前只支持<see cref="P:Aliyun.OpenServices.OpenStorageService.GroupGrantee.AllUsers"/>。</param>
+            <param name="permission">权限。</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Grant.Grantee">
+            <summary>
+            获取被授权者信息。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Grant.Permission">
+            <summary>
+            获取被授权的权限。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.GroupGrantee">
+            <summary>
+            定义了可以被授权的一组OSS用户。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.IGrantee">
+            <summary>
+            表示被授权者的信息。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.IGrantee.Identifier">
+            <summary>
+            获取或设置被授权者的标识。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GroupGrantee.Identifier">
+            <summary>
+            获取被授权者的标识。
+            </summary>
+            <remarks>
+            不支持set操作，否则会抛出<see cref="T:System.NotSupportedException"/>。
+            </remarks>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.GroupGrantee.AllUsers">
+            <summary>
+            表示为OSS的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>或<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>指定匿名访问的权限。
+            任何用户都可以根据被授予的权限进行访问。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadRequest">
+            <summary>
+            指定初始化Multipart Upload的请求参数。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadRequest.BucketName">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadRequest.Key">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadRequest.ObjectMetaData">
+            <summary>
+            已过时。请使用属性字段ObjectMetadata。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadRequest.ObjectMetadata">
+            <summary>
+            获取或设置<see cref="T:Aliyun.OpenServices.OpenStorageService.ObjectMetadata"/>
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadResult">
+            <summary>
+            表示初始化MultipartUpload的结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadResult.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadResult.Key">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadResult.UploadId">
+            <summary>
+            获取上传Id
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.IOss">
+            <summary>
+            阿里云开放存储服务（Open Storage Service， OSS）的访问接口。
+            </summary>
+            <remarks>
+            <para>
+            阿里云存储服务（Open Storage Service，简称OSS），是阿里云对外提供的海量，安全，低成本，
+            高可靠的云存储服务。用户可以通过简单的REST接口，在任何时间、任何地点上传和下载数据，
+            也可以使用WEB页面对数据进行管理。
+            基于OSS，用户可以搭建出各种多媒体分享网站、网盘、个人企业数据备份等基于大规模数据的服务。
+            </para>
+            <para>
+            OSS的访问地址： http://oss.aliyuncs.com
+            </para>
+            <para>
+            OSS的web体验地址：http://oss.aliyun.com/
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SwitchCredentials(Aliyun.OpenServices.Common.Authentication.ICredentials)">
+            <summary>
+            更换用户账号信息。
+            </summary>
+            <param name="creds">用户账号信息。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetEndpoint(System.Uri)">
+            <summary>
+            设置访问OSS的Endpoint。
+            </summary>
+            <param name="endpoint"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.CreateBucket(System.String)">
+            <summary>
+            在OSS中创建一个新的Bucket。
+            </summary>
+            <param name="bucketName">要创建的Bucket的名称。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>对象。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.CreateBucketSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DeleteBucket(System.String)">
+            <summary>
+            在OSS中删除一个Bucket。
+            </summary>
+            <param name="bucketName">要删除的Bucket的名称。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.ListBuckets">
+            <summary>
+            返回请求者拥有的所有<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的列表。
+            </summary>
+            <returns>请求者拥有的所有<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的列表。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.ListBuckets(Aliyun.OpenServices.OpenStorageService.ListBucketsRequest)">
+            <summary>
+            分页返回请求者拥有的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的列表。
+            </summary>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.ListBucketsResult"/>。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetBucketAcl(System.String,Aliyun.OpenServices.OpenStorageService.CannedAccessControlList)">
+            <summary>
+            设置指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的访问控制列表<see cref="T:Aliyun.OpenServices.OpenStorageService.AccessControlList"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="acl"><see cref="T:Aliyun.OpenServices.OpenStorageService.CannedAccessControlList"/>枚举中的访问控制列表。</param>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.SetBucketAclSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetBucketAcl(Aliyun.OpenServices.OpenStorageService.SetBucketAclRequest)">
+            <summary>
+            设置指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的访问控制列表<see cref="T:Aliyun.OpenServices.OpenStorageService.AccessControlList"/>。
+            </summary>
+            <param name="setBucketAclRequest"></param>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.SetBucketAclSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetBucketAcl(System.String)">
+            <summary>
+            获取指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的访问控制列表<see cref="T:Aliyun.OpenServices.OpenStorageService.AccessControlList"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <returns>访问控制列表<see cref="T:Aliyun.OpenServices.OpenStorageService.AccessControlList"/>的实例。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetBucketCors(Aliyun.OpenServices.OpenStorageService.SetBucketCorsRequest)">
+            <summary>
+            设置指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的跨域资源共享(CORS)的规则，并覆盖原先所有的CORS规则。
+            </summary>
+            <param name="setBucketCorsRequest"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetBucketCors(System.String)">
+            <summary>
+            获取指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的CORS规则。
+            </summary>
+            <param name="bucketName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DeleteBucketCors(System.String)">
+            <summary>
+            关闭指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>对应的CORS功能并清空所有规则。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetBucketLogging(Aliyun.OpenServices.OpenStorageService.SetBucketLoggingRequest)">
+            <summary>
+            设置<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的访问日志记录功能。
+            这个功能开启后，OSS将自动记录访问这个<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>请求的详细信息，并按照用户指定的规则，
+            以小时为单位，将访问日志作为一个Object写入用户指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="setBucketLoggingRequest"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetBucketLogging(System.String)">
+            <summary>
+            查看<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的访问日志配置。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DeleteBucketLogging(System.String)">
+            <summary>
+            关闭<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的访问日志记录功能。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetBucketWebsite(Aliyun.OpenServices.OpenStorageService.SetBucketWebsiteRequest)">
+            <summary>
+            将一个<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>设置成静态网站托管模式。
+            </summary>
+            <param name="setBucketWebSiteRequest"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetBucketWebsite(System.String)">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的静态网站托管状态。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DeleteBucketWebsite(System.String)">
+            <summary>
+            关闭<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的静态网站托管模式。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetBucketReferer(Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest)">
+            <summary>
+            设置<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的Referer访问白名单和是否允许referer字段为空。
+            </summary>
+            <param name="setBucketRefererRequest"></param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetBucketReferer(System.String)">
+            <summary>
+            查看<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的Referer配置。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.SetBucketLifecycle(Aliyun.OpenServices.OpenStorageService.SetBucketLifecycleRequest)">
+            <summary>
+            设置<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的Lifecycle规则。
+            </summary>
+            <param name="setBucketLifecycleRequest">请求参数。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetBucketLifecycle(System.String)">
+            <summary>
+            查看<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的Lifecycle规则列表。
+            </summary>
+            <returns>Lifecycle规则列表。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DoesBucketExist(System.String)">
+            <summary>
+            判断指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>是否存在。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <returns>
+            当Bucket存在且当前用户为该Bucket的拥有者，返回True；
+            当Bucket存在且当前用户不是该Bucket的拥有者，返回True；
+            否则返回False。
+            </returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.ListObjects(System.String)">
+            <summary>
+            列出指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>下<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的摘要信息<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的列表信息。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginListObjects(System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步列出指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>下<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的摘要信息<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的列表信息。</returns>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.ListObjects(System.String,System.String)">
+            <summary>
+            列出指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>下其Key以prefix为前缀<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>
+            的摘要信息<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="prefix">限定返回的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>必须以此作为前缀。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的列表信息。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginListObjects(System.String,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步列出指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>下其Key以prefix为前缀<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>
+            的摘要信息<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="prefix">限定返回的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>必须以此作为前缀。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的列表信息。</returns>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.ListObjects(Aliyun.OpenServices.OpenStorageService.ListObjectsRequest)">
+            <summary>
+            列出指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>下<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的摘要信息<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>。
+            </summary>
+            <param name="listObjectsRequest">请求参数。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的列表信息。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginListObjects(Aliyun.OpenServices.OpenStorageService.ListObjectsRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步列出指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>下<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的摘要信息<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>。
+            </summary>
+            <param name="listObjectsRequest">请求参数。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的列表信息。</returns>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.EndListObjects(System.IAsyncResult)">
+            <summary>
+            等待挂起的异步列出指定<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的摘要信息<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>操作的完成。
+            </summary>
+            <param name="asyncResult">对所等待的挂起异步请求的引用。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.ObjectListing"/>对象。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.PutObject(System.String,System.String,System.IO.Stream)">
+            <summary>
+            上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="content"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Content"/>。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult"/>实例。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginPutObject(System.String,System.String,System.IO.Stream,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="content"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Content"/>。</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.PutObject(System.String,System.String,System.IO.Stream,Aliyun.OpenServices.OpenStorageService.ObjectMetadata)">
+            <summary>
+            上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="content"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Content"/>。</param>
+            <param name="metadata"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的元信息。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult"/>实例。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginPutObject(System.String,System.String,System.IO.Stream,Aliyun.OpenServices.OpenStorageService.ObjectMetadata,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="content"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Content"/>。</param>
+            <param name="metadata"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的元信息。</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.PutObject(System.String,System.String,System.String)">
+            <summary>
+            上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="fileToUpload">指定上传文件的路径。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult"/>实例。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginPutObject(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="fileToUpload">指定上传文件的路径。</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.PutObject(System.String,System.String,System.String,Aliyun.OpenServices.OpenStorageService.ObjectMetadata)">
+            <summary>
+            上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="fileToUpload">指定上传文件的路径。</param>
+            <param name="metadata"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的元信息。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult"/>实例。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginPutObject(System.String,System.String,System.String,Aliyun.OpenServices.OpenStorageService.ObjectMetadata,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>。
+            </summary>
+            <param name="bucketName">指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。</param>
+            <param name="key"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <param name="fileToUpload">指定上传文件的路径。</param>
+            <param name="metadata"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的元信息。</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+            <!-- 未找到下列包含标记的匹配元素 --><include file="oss_comments_include.xml" path="Comments/Member[@name=&quot;OSS.SampleCode.PutObjectSample&quot;]/*"/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.EndPutObject(System.IAsyncResult)">
+            <summary>
+             等待挂起的异步上传指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>到指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>操作的完成。
+            </summary>
+            <param name="asyncResult">对所等待的挂起异步请求的引用。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult"/>对象。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.PutObject(System.Uri,System.String)">
+            <summary>
+            使用URL签名方式上传指定文件。
+            </summary>
+            <param name="signedUrl">PUT请求类型的URL签名。</param>
+            <param name="fileToUpload">上传文件的路径。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult"/>实例。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.PutObject(System.Uri,System.IO.Stream)">
+            <summary>
+            使用URL签名方式上传指定输入流。
+            </summary>
+            <param name="signedUrl">PUT请求类型的URL签名。</param>
+            <param name="content">请求输入流。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult"/>实例。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetObject(System.String,System.String)">
+            <summary>
+            从指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>中获取指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>。
+            </summary>
+            <param name="bucketName">要获取的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="key">要获取的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>实例。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetObject(System.Uri)">
+            <summary>
+            使用URL签名方式获取指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>
+            </summary>
+            <param name="signedUrl">GET请求类型的URL签名</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>实例。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetObject(Aliyun.OpenServices.OpenStorageService.GetObjectRequest)">
+            <summary>
+            从指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>中获取满足请求参数<see cref="T:Aliyun.OpenServices.OpenStorageService.GetObjectRequest"/>的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>。
+            </summary>
+            <param name="getObjectRequest">请求参数。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>实例。使用后需要释放此对象以释放HTTP连接。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginGetObject(Aliyun.OpenServices.OpenStorageService.GetObjectRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            开始从指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>中异步获取满足请求参数<see cref="T:Aliyun.OpenServices.OpenStorageService.GetObjectRequest"/>的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>。
+            </summary>
+            <param name="getObjectRequest">请求参数。</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.EndGetObject(System.IAsyncResult)">
+            <summary>
+            等待挂起的异步获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>操作的完成。
+            </summary>
+            <param name="asyncResult">对所等待的挂起异步请求的引用。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>对象。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetObject(Aliyun.OpenServices.OpenStorageService.GetObjectRequest,System.IO.Stream)">
+            <summary>
+            从指定的OSS<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>中获取指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>，
+            并导出到指定的输出流。
+            </summary>
+            <param name="getObjectRequest">请求参数。</param>
+            <param name="output">输出流。</param>
+            <returns>导出<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的元信息。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GetObjectMetadata(System.String,System.String)">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的元信息。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="key"><see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的元信息。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DeleteObject(System.String,System.String)">
+            <summary>
+            删除指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="key"><see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DeleteObjects(Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest)">
+            <summary>
+            批量删除指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>。
+            </summary>
+            <param name="deleteObjectsRequest">请求参数</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.CopyObject(Aliyun.OpenServices.OpenStorageService.CopyObjectRequest)">
+            <summary>
+            复制一个Object。
+            </summary>
+            <param name="copyObjectRequst">请求参数</param>
+            <returns>返回的结果</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginCopyObject(Aliyun.OpenServices.OpenStorageService.CopyObjectRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步复制一个Object。
+            </summary>
+            <param name="copyObjectRequst">请求参数</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.EndCopyResult(System.IAsyncResult)">
+            <summary>
+            等待挂起的异步复制指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>操作的完成。
+            </summary>
+            <param name="asyncResult">对所等待的挂起异步请求的引用。</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.CopyObjectResult"/>对象。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.DoesObjectExist(System.String,System.String)">
+            <summary>
+            判断指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>下是否存在指定的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+            <param name="key"><see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key"/>。</param>
+            <returns>如果存在则返回True，否则返回False。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GeneratePresignedUri(Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest)">
+            <summary>
+            生成一个签名的Uri。
+            </summary>
+            <param name="request">请求参数</param>
+            <returns>访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GeneratePresignedUri(System.String,System.String)">
+            <summary>
+            使用默认过期时间（自现在起15分钟后）生成一个用HTTP GET方法访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。
+            </summary>
+            <param name="bucketName">Bucket名称。</param>
+            <param name="key">Object的Key</param>
+            <returns>访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GeneratePresignedUri(System.String,System.String,System.DateTime)">
+            <summary>
+            使用指定过期时间生成一个用HTTP GET方法访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。
+            </summary>
+            <param name="bucketName">Bucket名称。</param>
+            <param name="key">Object的Key</param>
+            <param name="expiration">Uri的超时时间。</param>
+            <returns>访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GeneratePresignedUri(System.String,System.String,Aliyun.OpenServices.OpenStorageService.SignHttpMethod)">
+            <summary>
+            使用默认过期时间（自现在起15分钟后）生成一个用指定方法访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。
+            </summary>
+            <param name="bucketName">Bucket名称。</param>
+            <param name="key">Object的Key</param>
+            <param name="method">访问Uri的方法</param>
+            <returns>访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GeneratePresignedUri(System.String,System.String,System.DateTime,Aliyun.OpenServices.OpenStorageService.SignHttpMethod)">
+            <summary>
+            使用指定过期时间生成一个用指定方法访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。
+            </summary>
+            <param name="bucketName">Bucket名称。</param>
+            <param name="key">Object的Key</param>
+            <param name="expiration">Uri的超时时间。</param>
+            <param name="method">访问Uri的方法</param>
+            <returns>访问<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Uri。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.GeneratePostPolicy(System.DateTime,Aliyun.OpenServices.OpenStorageService.PolicyConditions)">
+            <summary>
+            生成Post请求的policy表单域。
+            </summary>
+            <param name="expiration">policy过期时间。</param>
+            <param name="conds">policy条件列表。</param>
+            <returns>policy字符串。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.ListMultipartUploads(Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest)">
+            <summary>
+            列出所有执行中的Multipart Upload事件
+            </summary>
+            <param name="listMultipartUploadsRequest">请求参数</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing"/>的列表信息。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.InitiateMultipartUpload(Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadRequest)">
+            <summary>
+            初始化一个Multipart Upload事件
+            </summary>
+            <param name="initiateMultipartUploadRequest">请求参数</param>
+            <returns>初始化结果</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.AbortMultipartUpload(Aliyun.OpenServices.OpenStorageService.AbortMultipartUploadRequest)">
+            <summary>
+            中止一个Multipart Upload事件
+            </summary>
+            <param name="abortMultipartUploadRequest">请求参数</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.UploadPart(Aliyun.OpenServices.OpenStorageService.UploadPartRequest)">
+            <summary>
+            上传某分块的数据
+            </summary>
+            <param name="uploadPartRequest">请求参数</param>
+            <returns>分块上传结果</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginUploadPart(Aliyun.OpenServices.OpenStorageService.UploadPartRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            开始异步上传某分块的数据。
+            </summary>
+            <param name="uploadPartRequest">请求参数</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.EndUploadPart(System.IAsyncResult)">
+            <summary>
+            等待挂起的异步上传某分块的数据操作的完成。
+            </summary>
+            <param name="asyncResult">对所等待的挂起异步请求的引用。</param>
+            <returns>分块上传结果</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.UploadPartCopy(Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest)">
+            <summary>
+            从某一已存在的Object中拷贝数据来上传某分块。
+            </summary>
+            <param name="uploadPartCopyRequest">请求参数</param>
+            <returns>分块上传结果。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.BeginUploadPartCopy(Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest,System.AsyncCallback,System.Object)">
+            <summary>
+            开始以某一已存在的Object中异步拷贝数据来上传某分块。
+            </summary>
+            <param name="uploadPartCopyRequest">请求参数</param>
+            <param name="callback">用户自定义委托对象。</param>
+            <param name="state">用户自定义状态对象。</param>
+            <returns>异步请求的对象引用。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.EndUploadPartCopy(System.IAsyncResult)">
+            <summary>
+            等待挂起的异步拷贝某分块的数据操作的完成。
+            </summary>
+            <param name="asyncResult">对所等待的挂起异步请求的引用。</param>
+            <returns>分块上传结果。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.ListParts(Aliyun.OpenServices.OpenStorageService.ListPartsRequest)">
+            <summary>
+            列出已经上传成功的Part
+            </summary>
+            <param name="listPartsRequest">请求参数</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.PartListing"/>的列表信息。</returns>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.IOss.CompleteMultipartUpload(Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadRequest)">
+            <summary>
+            完成分块上传
+            </summary>
+            <param name="completeMultipartUploadRequest">请求参数</param>
+            <returns><see cref="T:Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadResult"/>的列表信息。</returns>        
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest">
+            <summary>
+            包含获取<see cref="T:Aliyun.OpenServices.OpenStorageService.MultipartUpload"/>列表的请求信息。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest.Delimiter">
+            <summary>
+            获取或设置一个值
+            用来对返回结果进行分组
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest.MaxUploads">
+            <summary>
+            获取或设置一个值
+            限定此次返回Multipart Uploads事件的最大数目
+            如果不设定，默认为1000
+            max-keys取值不能大于1000
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest.KeyMarker">
+            <summary>
+            获取或设置一个值
+            与upload-id-marker参数一同使用来指定返回结果的起始位置。
+            如果upload-id-marker参数未设置，查询结果中包含：
+                所有Object名字的字典序大于key-marker参数值的Multipart事件。
+            如果upload-id-marker参数被设置，查询结果中包含：
+                所有Object名字的字典序大于key-marker参数值的Multipart事件和Object名字等于key-marker参数值，
+                但是Upload ID比upload-id-marker参数值大的Multipart Uploads事件。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest.Prefix">
+            <summary>
+            获取或设置一个值
+            限定返回的object key必须以prefix作为前缀。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest.UploadIdMarker">
+            <summary>
+            获取或设置一个值
+            与key-marker参数一同使用来指定返回结果的起始位置。
+            如果key-marker参数未设置，则OSS忽略upload-id-marker参数。
+            如果key-marker参数被设置，查询结果中包含：
+                所有Object名字的字典序大于key-marker参数值的Multipart事件和Object名字等于key-marker参数值，
+                但是Upload ID比upload-id-marker参数值大的Multipart Uploads事件。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest">
+            <summary>
+            包含获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>列表的请求信息。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest.#ctor(System.String)">
+            <summary>
+            使用给定的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest"/>实体。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest.Prefix">
+            <summary>
+            获取或设置一个值，限定返回的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的Key必须以该值作为前缀。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest.Marker">
+            <summary>
+            获取或设置一个值，用户设定结果从该值之后按字母排序的第一个开始返回。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest.MaxKeys">
+            <summary>
+            获取或设置一个值，用于限定此次返回object的最大数。
+            如果不设定，默认为100。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListObjectsRequest.Delimiter">
+            <summary>
+            获取或设置用于对<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>按Key进行分组的字符。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ListPartsRequest">
+            <summary>
+            指定列出指定Upload ID所属的所有已经上传成功Part的请求参数。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListPartsRequest.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListPartsRequest.Key">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListPartsRequest.MaxParts">
+            <summary>
+            获取或者设置响应中的最大Part数目。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListPartsRequest.PartNumberMarker">
+            <summary>
+            获取或者设置List的起始位置，只有Part Number数目大于该参数的Part会被列出。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ListPartsRequest.UploadId">
+            <summary>
+            获取或者设置UploadId。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.Name">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.Prefix">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.Marker">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.MaxKeys">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.Delimiter">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.IsTruncated">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.NextMarker">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.Contents">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResult.CommonPrefixes">
+            <remarks/>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents.Key">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents.LastModified">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents.ETag">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents.Type">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents.Size">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents.StorageClass">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultContents.Owner">
+            <remarks/>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultCommonPrefixes">
+            <remarks/>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Model.ListBucketResultCommonPrefixes.Prefix">
+            <remarks/>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.RefererConfiguration">
+            <summary>
+            Referer反盗链相关配置。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.RefererConfiguration.AllowEmptyReferer">
+            <summary>
+            指定是否允许referer字段为空的请求访问。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.RefererConfiguration.RefererList">
+            <summary>
+            保存referer访问白名单列表。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.MultipartUpload">
+            <summary>
+            获取MultipartUpload事件的信息。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.MultipartUpload.ToString">
+            <summary>
+            获取该实例的字符串表示。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUpload.Key">
+            <summary>
+            获取Object的key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUpload.UploadId">
+            <summary>
+            获取上传Id。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUpload.StorageClass">
+            <summary>
+            获取Object的存储类别。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUpload.Initiated">
+            <summary>
+            Multipart Upload事件初始化的时间。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing">
+            <summary>
+            获取List Multipart Upload的请求结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.BucketName">
+            <summary>
+            获取Object所在的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.KeyMarker">
+            <summary>
+            获取请求参数<see cref="P:ListMultipartUploadsRequest.KeyMarker" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.Delimiter">
+            <summary>
+            获取请求参数<see cref="P:ListMultipartUploadsRequest.Delimiter" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.Prefix">
+            <summary>
+            获取请求参数<see cref="P:ListMultipartUploadsRequest.Prefix" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.UploadIdMarker">
+            <summary>
+            获取请求参数<see cref="P:ListMultipartUploadsRequest.UploadIdMarker" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.MaxUploads">
+            <summary>
+            获取请求参数<see cref="P:ListMultipartUploadsRequest.MaxUploads" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.IsTruncated">
+            <summary>
+            标明是否本次返回的Multipart Upload结果列表被截断。
+            “true”表示本次没有返回全部结果；
+            “false”表示本次已经返回了全部结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.NextKeyMarker">
+            <summary>
+            列表的起始Object位置。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.NextUploadIdMarker">
+            <summary>
+            如果本次没有返回全部结果，响应请求中将包含NextUploadMarker元素，
+            用于标明接下来请求的UploadMarker值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.MultipartUploads">
+            <summary>
+            所有Multipart Upload事件
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.MultipartUploadListing.CommonPrefixes">
+            <summary>
+            获取返回结果中的CommonPrefixes部分。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ObjectListing">
+            <summary>
+            包含获取OSS的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>中<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>列表的信息。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ObjectListing.#ctor(System.String)">
+            <summary>
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.ObjectListing"/>实例。
+            </summary>
+            <param name="bucketName"><see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.NextMarker">
+            <summary>
+            获取一个值表示用于下一个<see cref="P:ListObjectRequest.Marker" />以读取
+            结果列表的下一页。
+            如果结果列表没有被截取掉，则该属性返回null。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.Marker">
+            <summary>
+            获取请求参数<see cref="P:ListObjectRequest.Marker" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.MaxKeys">
+            <summary>
+            获取请求参数<see cref="P:ListObjectRequest.MaxKeys" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.Prefix">
+            <summary>
+            获取请求参数<see cref="P:ListObjectRequest.Prefix" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.Delimiter">
+            <summary>
+            获取请求参数<see cref="P:ListObjectRequest.Delimiter" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.ObjectSummaries">
+            <summary>
+            枚举满足查询条件的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectListing.CommonPrefixes">
+            <summary>
+            获取返回结果中的CommonPrefixes部分。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ObjectMetadata">
+            <summary>
+            OSS中Object的元数据。
+            <para>
+            包含了用户自定义的元数据，也包含了OSS发送的标准HTTP头(如Content-Length, ETag等）。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.#ctor">
+            <summary>
+            初始化一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.ObjectMetadata"/>实例。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.Populate(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Populates the request header dictionary with the metdata and user metadata.
+            </summary>
+            <param name="requestHeaders"></param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.UserMetadata">
+            <summary>
+            获取用户自定义的元数据。
+            </summary>
+            <remarks>
+            OSS内部保存用户自定义的元数据时，会以x-oss-meta-为请求头的前缀。
+            但用户通过该接口处理用户自定义元数据里，不需要加上前缀“x-oss-meta-”。
+            同时，元数据字典的键名是不区分大小写的，并且在从服务器端返回时会全部以小写形式返回，
+            即使在设置时给定了大写字母。比如键名为：MyUserMeta，通过GetObjectMetadata接口
+            返回时键名会变为：myusermeta。
+            </remarks>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.LastModified">
+            <summary>
+            获取Last-Modified请求头的值，表示Object最后一次修改的时间。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.ExpirationTime">
+            <summary>
+            获取Expires请求头，表示Object的过期时间。
+            如果Object没有定义过期时间，则返回null。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.ContentLength">
+            <summary>
+            获取Content-Length请求头，表示Object内容的大小。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.ContentType">
+            <summary>
+            获取或设置Content-Type请求头，表示Object内容的类型，为标准的MIME类型。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.ContentEncoding">
+            <summary>
+            获取或设置Content-Encoding请求头，表示Object内容的编码方式。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.CacheControl">
+            <summary>
+            获取或设置Cache-Control请求头，表示用户指定的HTTP请求/回复链的缓存行为。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.ContentDisposition">
+            <summary>
+            获取Content-Disposition请求头，表示MIME用户代理如何显示附加的文件。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ObjectMetadata.ETag">
+            <summary>
+            获取或设置一个值表示与Object相关的hex编码的128位MD5摘要。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.OssClient">
+            <summary>
+            访问阿里云开放存储服务（Open Storage Service， OSS）的入口类。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.String,System.String)">
+            <summary>
+            由默认的OSS访问地址(http://oss-cn-hangzhou.aliyuncs.com)、阿里云颁发的Access Id/Access Key
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="accessId">OSS的访问ID。</param>
+            <param name="accessKey">OSS的访问密钥。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            由用户指定的OSS访问地址、阿里云颁发的Access Id/Access Key构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="accessId">OSS的访问ID。</param>
+            <param name="accessKey">OSS的访问密钥。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            由用户指定的OSS访问地址、STS提供的临时Token信息(Access Id/Access Key/Security Token)
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="accessId">STS提供的临时访问ID。</param>
+            <param name="accessKey">STS提供的访问密钥。</param>
+            <param name="securityToken">STS提供的安全令牌。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.Uri,System.String,System.String)">
+            <summary>
+            由用户指定的OSS访问地址、阿里云颁发的Access Id/Access Key构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="accessId">OSS的访问ID。</param>
+            <param name="accessKey">OSS的访问密钥。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.Uri,System.String,System.String,System.String)">
+            <summary>
+            由用户指定的OSS访问地址、STS提供的临时Token信息(Access Id/Access Key/Security Token)
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="accessId">STS提供的临时访问ID。</param>
+            <param name="accessKey">STS提供的临时访问密钥。</param>
+            <param name="securityToken">STS提供的安全令牌。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.Uri,System.String,System.String,Aliyun.OpenServices.ClientConfiguration)">
+            <summary>
+            由用户指定的OSS访问地址、、阿里云颁发的Access Id/Access Key、客户端配置
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="accessId">OSS的访问ID。</param>
+            <param name="accessKey">OSS的访问密钥。</param>
+            <param name="configuration">客户端配置。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.Uri,System.String,System.String,System.String,Aliyun.OpenServices.ClientConfiguration)">
+            <summary>
+            由用户指定的OSS访问地址、、STS提供的临时Token信息(Access Id/Access Key/Security Token)、
+            客户端配置构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="accessId">STS提供的临时访问ID。</param>
+            <param name="accessKey">STS提供的临时访问密钥。</param>
+            <param name="securityToken">STS提供的安全令牌。</param>
+            <param name="configuration">客户端配置。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.Uri,Aliyun.OpenServices.Common.Authentication.ICredentialsProvider)">
+            <summary>
+            由用户指定的OSS访问地址、Credentials提供者构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="credsProvider">Credentials提供者。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.#ctor(System.Uri,Aliyun.OpenServices.Common.Authentication.ICredentialsProvider,Aliyun.OpenServices.ClientConfiguration)">
+            <summary>
+            由用户指定的OSS访问地址、Credentials提供者、客户端配置构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssClient"/>实例。
+            </summary>
+            <param name="endpoint">OSS的访问地址。</param>
+            <param name="credsProvider">Credentials提供者。</param>
+            <param name="configuration">客户端配置。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SwitchCredentials(Aliyun.OpenServices.Common.Authentication.ICredentials)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetEndpoint(System.Uri)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.CreateBucket(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DeleteBucket(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.ListBuckets">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.ListBuckets(Aliyun.OpenServices.OpenStorageService.ListBucketsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetBucketAcl(System.String,Aliyun.OpenServices.OpenStorageService.CannedAccessControlList)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetBucketAcl(Aliyun.OpenServices.OpenStorageService.SetBucketAclRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetBucketAcl(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetBucketCors(Aliyun.OpenServices.OpenStorageService.SetBucketCorsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetBucketCors(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DeleteBucketCors(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetBucketLogging(Aliyun.OpenServices.OpenStorageService.SetBucketLoggingRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetBucketLogging(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DeleteBucketLogging(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetBucketWebsite(Aliyun.OpenServices.OpenStorageService.SetBucketWebsiteRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetBucketWebsite(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DeleteBucketWebsite(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetBucketReferer(Aliyun.OpenServices.OpenStorageService.SetBucketRefererRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetBucketReferer(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.SetBucketLifecycle(Aliyun.OpenServices.OpenStorageService.SetBucketLifecycleRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetBucketLifecycle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DoesBucketExist(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.ListObjects(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.ListObjects(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.ListObjects(Aliyun.OpenServices.OpenStorageService.ListObjectsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.PutObject(System.String,System.String,System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.PutObject(System.String,System.String,System.IO.Stream,Aliyun.OpenServices.OpenStorageService.ObjectMetadata)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.PutObject(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.PutObject(System.String,System.String,System.String,Aliyun.OpenServices.OpenStorageService.ObjectMetadata)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.PutObject(System.Uri,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.PutObject(System.Uri,System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetObject(System.Uri)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetObject(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.BeginGetObject(System.String,System.String,System.AsyncCallback,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetObject(Aliyun.OpenServices.OpenStorageService.GetObjectRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.BeginGetObject(Aliyun.OpenServices.OpenStorageService.GetObjectRequest,System.AsyncCallback,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.EndGetObject(System.IAsyncResult)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetObject(Aliyun.OpenServices.OpenStorageService.GetObjectRequest,System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GetObjectMetadata(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DeleteObject(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DeleteObjects(Aliyun.OpenServices.OpenStorageService.DeleteObjectsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.CopyObject(Aliyun.OpenServices.OpenStorageService.CopyObjectRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.BeginCopyObject(Aliyun.OpenServices.OpenStorageService.CopyObjectRequest,System.AsyncCallback,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.EndCopyResult(System.IAsyncResult)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.DoesObjectExist(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GeneratePresignedUri(System.String,System.String)">
+            <inheritdoc/>        
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GeneratePresignedUri(System.String,System.String,System.DateTime)">
+            <inheritdoc/> 
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GeneratePresignedUri(System.String,System.String,Aliyun.OpenServices.OpenStorageService.SignHttpMethod)">
+            <inheritdoc/>        
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GeneratePresignedUri(System.String,System.String,System.DateTime,Aliyun.OpenServices.OpenStorageService.SignHttpMethod)">
+            <inheritdoc/>  
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GeneratePresignedUri(Aliyun.OpenServices.OpenStorageService.GeneratePresignedUriRequest)">
+            <inheritdoc/>        
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.GeneratePostPolicy(System.DateTime,Aliyun.OpenServices.OpenStorageService.PolicyConditions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.ListMultipartUploads(Aliyun.OpenServices.OpenStorageService.ListMultipartUploadsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.InitiateMultipartUpload(Aliyun.OpenServices.OpenStorageService.InitiateMultipartUploadRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.AbortMultipartUpload(Aliyun.OpenServices.OpenStorageService.AbortMultipartUploadRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.UploadPart(Aliyun.OpenServices.OpenStorageService.UploadPartRequest)">
+            <inheritdoc/>        
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.BeginUploadPart(Aliyun.OpenServices.OpenStorageService.UploadPartRequest,System.AsyncCallback,System.Object)">
+            <inheritdoc/>        
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.EndUploadPart(System.IAsyncResult)">
+            <inheritdoc/>        
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.UploadPartCopy(Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.BeginUploadPartCopy(Aliyun.OpenServices.OpenStorageService.UploadPartCopyRequest,System.AsyncCallback,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.EndUploadPartCopy(System.IAsyncResult)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.ListParts(Aliyun.OpenServices.OpenStorageService.ListPartsRequest)">
+            <inheritdoc/>                
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssClient.CompleteMultipartUpload(Aliyun.OpenServices.OpenStorageService.CompleteMultipartUploadRequest)">
+            <inheritdoc/>                
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.OssException">
+            <summary>
+            该异常在对开放存储服务（Open Storage Service）访问失败时抛出。
+            </summary>
+            <seealso cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ServiceException">
+            <summary>
+            <para>
+            表示阿里云服务返回的错误消息。
+            </para>
+            <para>
+            <see cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>用于处理阿里云服务返回的错误消息。
+            比如，用于身份验证的AccessKeyID不存在，则会抛出<see cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>。
+            异常中包含了错误代码，用于让调用者进行特定的处理。
+            </para>
+            <para>
+            <see cref="T:System.Net.WebException"/>表示的则是在向阿里云服务发送请求时出现的错误。
+            例如，在发送请求时网络连接不可用，则会抛出<see cref="T:System.Net.WebException"/>的异常。
+            </para>
+            <para>
+            <see cref="T:System.InvalidOperationException"/>表示客户端代码无法处理或解析返回结果。这种情况
+            有可能是服务器返回的结果不完整，或不再符合SDK设计时的规范。如果持续遇到该错误，请考虑升级
+            SDK版本，或联系我们。
+            </para>
+            通常来讲，调用者只需要处理<see cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>。因为该异常表明请求被服务处理，
+            但处理的结果表明存在错误。异常中包含了细节的信息，特别是错误代码，可以帮助调用者进行处理。
+            <para>
+            
+            </para>
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ServiceException.#ctor">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>实例。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ServiceException.#ctor(System.String)">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>实例。
+            </summary>
+            <param name="message">解释异常原因的错误信息。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ServiceException.#ctor(System.String,System.Exception)">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>实例。
+            </summary>
+            <param name="message">解释异常原因的错误信息。</param>
+            <param name="innerException">导致当前异常的异常。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ServiceException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.ServiceException"/>实例。
+            </summary>
+            <param name="info">保存序列化对象数据的对象。</param>
+            <param name="context">有关源或目标的上下文信息。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.ServiceException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            重载<see cref="M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)"/>方法。
+            </summary>
+            <param name="info"><see cref="T:System.Runtime.Serialization.SerializationInfo"/>，它存有有关所引发异常的序列化的对象数据。</param>
+            <param name="context"><see cref="T:System.Runtime.Serialization.StreamingContext"/>，它包含有关源或目标的上下文信息。</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ServiceException.ErrorCode">
+            <summary>
+            获取错误代码。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ServiceException.RequestId">
+            <summary>
+            获取Request ID。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ServiceException.HostId">
+            <summary>
+            获取Host ID。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssException.#ctor">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssException"/>实例。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssException.#ctor(System.String)">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssException"/>实例。
+            </summary>
+            <param name="message">解释异常原因的错误信息。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssException"/>实例。
+            </summary>
+            <param name="info">保存序列化对象数据的对象。</param>
+            <param name="context">有关源或目标的上下文信息。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssException.#ctor(System.String,System.Exception)">
+            <summary>
+            初始化新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssException"/>实例。
+            </summary>
+            <param name="message">解释异常原因的错误信息。</param>
+            <param name="innerException">导致当前异常的异常。</param>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            重载<see cref="M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)"/>方法。
+            </summary>
+            <param name="info"><see cref="T:System.Runtime.Serialization.SerializationInfo"/>，它存有有关所引发异常的序列化的对象数据。</param>
+            <param name="context"><see cref="T:System.Runtime.Serialization.StreamingContext"/>，它包含有关源或目标的上下文信息。</param>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.OssObject">
+            <summary>
+            表示OSS中的Object。
+            </summary>
+            <remarks>
+            <para>
+            在 OSS 中，用户的每个文件都是一个 Object，每个文件需小于 5G。
+            Object包含key、data和user meta。其中，key是Object 的名字；
+            data是Object 的数据；user meta是用户对该object的描述。
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssObject.#ctor">
+            <summary>
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>实例。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssObject.#ctor(System.String)">
+            <summary>
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>实例。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssObject.Dispose">
+            <summary>
+            释放<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObject.Content"/>。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObject.Key">
+            <summary>
+            获取或设置Object的Key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObject.BucketName">
+            <summary>
+            获取或设置Object所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObject.Metadata">
+            <summary>
+            获取Object的元数据。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObject.Content">
+            <summary>
+            获取或设置Object内容的数据流。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary">
+            <summary>
+            <see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的摘要信息。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.#ctor">
+            <summary>
+            初始化一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObjectSummary"/>实例。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.ToString">
+            <summary>
+            获取该实例的字符串表示。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.BucketName">
+            <summary>
+            获取Object所在的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.Key">
+            <summary>
+            获取Object的Key。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.ETag">
+            <summary>
+            获取一个值表示与Object相关的hex编码的128位MD5摘要。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.Size">
+            <summary>
+            获取Object的文件字节数。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.LastModified">
+            <summary>
+            获取最后修改时间。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.StorageClass">
+            <summary>
+            获取Object的存储类别。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.Owner">
+            <summary>
+            获取Object的<see cref="P:Aliyun.OpenServices.OpenStorageService.OssObjectSummary.Owner"/>。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Owner">
+            <summary>
+            表示OSS实体的所有者。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.Owner.#ctor">
+            <summary>
+            构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.Owner"/>实例。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.Owner.#ctor(System.String,System.String)">
+            <summary>
+            使用给定的所有者ID和显示名称构造一个新的<see cref="T:Aliyun.OpenServices.OpenStorageService.Owner"/>实例。
+            </summary>
+            <param name="id">所有者的ID。</param>
+            <param name="displayName">所有者的显示名称。</param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Owner.Id">
+            <summary>
+            获取或设置所有者的ID。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Owner.DisplayName">
+            <summary>
+            获取或设置所有者的显示名称。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Part">
+            <summary>
+            获取Multipart Upload事件中某块数据的信息。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.Part.ToString">
+            <summary>
+            获取该实例的字符串表示。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Part.PartNumber">
+            <summary>
+            获取分块的编号
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Part.LastModified">
+            <summary>
+            获取分块上传的时间
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Part.ETag">
+            <summary>
+            获取分块内容的ETag
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Part.Size">
+            <summary>
+            获取分块的大小，单位字节
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.Part.PartETag">
+            <summary>
+            获取包含Part标识号码和ETag值的<see cref="P:Aliyun.OpenServices.OpenStorageService.Part.PartETag"/>对象
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.PartETag">
+            <summary>
+            某块PartNumber和ETag的信息，用于Complete Multipart Upload请求参数的设置。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartETag.PartNumber">
+            <summary>
+            获取或者设置一个值表示表示分块的标识
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartETag.ETag">
+            <summary>
+            获取或者设置一个值表示与Object相关的hex编码的128位MD5摘要。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.PartListing">
+            <summary>
+            获取List Parts的结果.
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.BucketName">
+            <summary>
+            获取Object所在的<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.Key">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.UploadId">
+            <summary>
+            获取请求参数<see cref="P:ListPartsRequest.UploadId" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.PartNumberMarker">
+            <summary>
+            获取请求参数<see cref="P:ListPartsRequest.PartNumberMarker" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.NextPartNumberMarker">
+            <summary>
+            如果本次没有返回全部结果，响应请求中将包含NextPartNumberMarker元素，
+            用于标明接下来请求的PartNumberMarker值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.MaxParts">
+            <summary>
+            获取请求参数<see cref="P:ListPartsRequest.MaxParts" />的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.IsTruncated">
+            <summary>
+            标明是否本次返回的List Part结果列表被截断。
+            “true”表示本次没有返回全部结果；“false”表示本次已经返回了全部结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PartListing.Parts">
+            <summary>
+            获取所有的Part
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.Permission">
+            <summary>
+            表示访问控制权限。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.Permission.Read">
+            <summary>
+            只读权限。
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.Permission.FullControl">
+            <summary>
+            完全控制权限，即可读可写。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.PutObjectResult">
+            <summary>
+            表示上传<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>时的请求结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.PutObjectResult.ETag">
+            <summary>
+            获取一个值表示与Object相关的hex编码的128位MD5摘要。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides">
+            <summary>
+            包含了在发送OSS GET请求时可以重载的返回请求头。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides.ContentType">
+            <summary>
+            获取或设置重载的Content-Type返回请求头。如果未指定，则返回null。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides.ContentLanguage">
+            <summary>
+            获取或设置返回重载的Content-Language返回请求头。如果未指定，则返回null。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides.Expires">
+            <summary>
+            获取或设置返回重载的Expires返回请求头。如果未指定，则返回null。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides.CacheControl">
+            <summary>
+            获取或设置返回重载的Cache-Control返回请求头。如果未指定，则返回null。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides.ContentDisposition">
+            <summary>
+            获取或设置返回重载的Content-Disposition返回请求头。如果未指定，则返回null。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.ResponseHeaderOverrides.ContentEncoding">
+            <summary>
+            获取或设置返回重载的Content-Encoding返回请求头。如果未指定，则返回null。
+            </summary>
+        </member>
+        <member name="M:Aliyun.OpenServices.OpenStorageService.SetBucketCorsRequest.AddCORSRule(Aliyun.OpenServices.OpenStorageService.CORSRule)">
+            <summary>
+            添加一条CORSRule。
+            </summary>
+            <param name="corsRule"></param>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketCorsRequest.BucketName">
+            <summary>
+            获取<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketCorsRequest.CORSRules">
+            <summary>
+            CORS规则的容器，每个bucket最多允许10条规则。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketLoggingRequest.BucketName">
+            <summary>
+            获取或设置<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketLoggingRequest.TargetBucket">
+            <summary>
+            获取或设置存放访问日志的Bucket。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketLoggingRequest.TargetPrefix">
+            <summary>
+            获取或设置存放访问日志的文件名前缀。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketWebsiteRequest.BucketName">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketWebsiteRequest.IndexDocument">
+            <summary>
+            索引页面
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.SetBucketWebsiteRequest.ErrorDocument">
+            <summary>
+            错误页面
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.SignHttpMethod">
+            <summary>
+            用于预签名URL的请求方法.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.SignHttpMethod.Get">
+            <summary>
+            Represents HTTP GET. Default value.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.SignHttpMethod.Delete">
+            <summary>
+            Represents HTTP DELETE.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.SignHttpMethod.Head">
+            <summary>
+            Represents HTTP HEAD.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.SignHttpMethod.Post">
+            <summary>
+            Represents HTTP POST.
+            </summary>
+        </member>
+        <member name="F:Aliyun.OpenServices.OpenStorageService.SignHttpMethod.Put">
+            <summary>
+            Represents HTTP PUT.
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.UploadPartRequest">
+            <summary>
+            指定上传某分块的请求。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartRequest.BucketName">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>所在<see cref="T:Aliyun.OpenServices.OpenStorageService.Bucket"/>的名称。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartRequest.Key">
+            <summary>
+            获取或者设置<see cref="T:Aliyun.OpenServices.OpenStorageService.OssObject"/>的值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartRequest.UploadId">
+            <summary>
+            获取或设置上传Multipart上传事件的Upload ID。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartRequest.PartNumber">
+            <summary>
+            获取或设置返回上传分块（Part）的标识号码（Part Number）。
+            每一个上传分块（Part）都有一个标识它的号码（范围1~10000）。
+            对于同一个Upload ID，该号码不但唯一标识这一块数据，也标识了这块数据在整个文件中的相对位置。
+            如果你用同一个Part号码上传了新的数据，那么OSS上已有的这个号码的Part数据将被覆盖。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartRequest.PartSize">
+            <summary>
+            获取或设置返回分块（Part）数据的字节数。
+            除最后一个Part外，其他Part最小为5MB。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartRequest.Md5Digest">
+            <summary>
+            获取或设置分块（Part）数据的MD5校验值。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartRequest.InputStream">
+            <summary>
+            获取或设置包含上传分块内容的数据流。
+            </summary>
+        </member>
+        <member name="T:Aliyun.OpenServices.OpenStorageService.UploadPartResult">
+            <summary>
+            获取上传某分块的结果。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartResult.ETag">
+            <summary>
+            获取一个值表示与Object相关的hex编码的128位MD5摘要。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartResult.PartNumber">
+            <summary>
+            获取一个值表示分块的标识
+            </summary>
+        </member>
+        <member name="P:Aliyun.OpenServices.OpenStorageService.UploadPartResult.PartETag">
+            <summary>
+            获取包含Part标识号码和ETag值的<see cref="P:Aliyun.OpenServices.OpenStorageService.UploadPartResult.PartETag"/>对象
+            </summary>
+        </member>
+        <member name="T:Aliyun.OSS.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.BucketNameInvalid">
+             <summary>
+               查找类似 Bucket名称无效。Bucket 命名规范：
+            1)只能包括小写字母，数字和短横线（-）；
+            2)开头、结尾必须是小写字母或者数字；
+            3)长度必须在 3-63 字节之间。 的本地化字符串。
+             </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.EndpointNotSupportedProtocal">
+            <summary>
+              查找类似 不支持终结点给定的协议。仅支持HTTP/HTTPS协议，即终结点必须以&quot;http://&quot;或&quot;https://&quot;开头。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.ExceptionEndOperationHasBeenCalled">
+            <summary>
+              查找类似 以前使用 asyncResult调用过此方法。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.ExceptionIfArgumentStringIsNullOrEmpty">
+            <summary>
+              查找类似 参数为空引用或值为长度是零的字符串。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.ExceptionInvalidResponse">
+            <summary>
+              查找类似 返回结果无法解析。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.ExceptionUnknownError">
+            <summary>
+              查找类似 服务器返回未知错误。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Aliyun.OSS.Properties.Resources.ObjectKeyInvalid">
+            <summary>
+              查找类似 Object Key无效，长度必须大于0且不超过1023个字节。 的本地化字符串。
+            </summary>
+        </member>
+    </members>
+</doc>

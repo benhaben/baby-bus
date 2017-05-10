@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>ECLImagePicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>ELCImagePickerDemo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>debug of multipleImagePicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>multipleImagePicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1D6058900D05DD3D006BFB54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F58FB571A2991EA00C71825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F58FB611A2991EA00C71825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F9F74A51A2488EA001B1E91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F9F74AF1A2488EA001B1E91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F9F74C31A248B3B001B1E91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F9F74CD1A248B3B001B1E91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

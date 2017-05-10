@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>添加幼儿园信息</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/kindergarten.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            Utilities.DrawHeader();
+            Utilities.GenertFeedback();
+
+        });
+        var checkKinName = function () {
+            var kinName = $("#kinName").val();
+            var city = $("#city").val();
+            var ans = true;
+            if (kinName == null || kinName.trim() == "") {
+                $("#checkInformation").css({ "color": "#FF0000" });
+                $("#checkInformation").text("幼儿园名称忘记填写了..");
+                ans = false;
+            }
+            if (city == null || city.trim() == "") {
+                $("#checkCityInformation").css({ "color": "#FF0000" });
+                $("#checkCityInformation").text("幼儿园地址忘记填写了..");
+                ans = false;
+            }
+            if (!ans) {
+                return ans;
+            }
+            $("#checkInformation").text("");
+            $("#checkCityInformation").text("");
+            ans = true;
+            return ans;
+        }
+        function _submit() {
+            var kinName = $("#kinName").val();
+            var city = $("#city").val();
+            var description = $("#description").val();
+            var isOk = checkKinName();
+            if (isOk) {
+                Kindergarten.CreateKindergarten(kinName, city, description);
+            }
+        }
+        function goBack() {
+            Utilities.Redirect("presidentInfo.html");
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+
+    <div id="container">
+        <div class="col-md-6">
+            <div class="widget box" style="position:relative;top:100px;left:50%">
+                <div class="widget-header">
+                    <h4><i class="icon-reorder"></i> 添加幼儿园信息</h4>
+                    <div class="pull-right">
+                        <input type="submit" value="保存" class="btn btn- btn-primary" id="create_kindergarten_info" style="margin:2px;" onclick="_submit()" />
+                        <input type="submit" value="返回" class="btn btn- btn-primary" id="back" style="margin:2px;" onclick="goBack()" />
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <form id="createKindergarten" class="form-horizontal row-border" action="#" method="post">
+                        
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>幼儿园名称：</nobr></label>
+                            <div class="col-md-10">
+                                <input id="kinName" name="kinName" type="text" class="form-control" style="width:200px">
+                                <label id="checkInformation"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>幼儿园地址：</nobr></label>
+                            <div class="col-md-10">
+                                <input id="city" name="city" type="text" class="form-control" style="width:200px">
+                                <label id="checkCityInformation"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr>幼儿园描述：</nobr></label>
+                            <div class="col-md-10">
+                                <textarea id="description" name="Description" rows="4" cols="45">
+
+                                </textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

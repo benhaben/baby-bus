@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="110dp"
+        android:orientation="vertical"
+        android:id="@+id/Item_SelectTestChild">
+        <ImageView
+            android:id="@+id/child_Image"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/empty_contact" />
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-68.5dp"
+            android:src="@drawable/round" />
+        <TextView
+            android:id="@+id/completeness"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:paddingLeft="6dp"
+            android:paddingTop="10dp"
+            android:text="3/11"
+            android:background="@drawable/back"
+            android:layout_marginTop="-15dp"
+            android:textSize="11sp"
+            android:layout_marginLeft="25dp" />
+        <TextView
+            android:id="@+id/child_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:lines="1"
+            android:text="杨翠花" />
+        <TextView
+            android:id="@+id/non_paying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|left"
+            android:layout_marginLeft="6dp"
+            android:textSize="11sp"
+            android:text="已付费"
+            android:padding="3dp"
+            android:textColor="@color/apptheme_color"
+            android:background="@color/bb_green"
+            android:layout_marginTop="-50dp" />
+    </LinearLayout>
+</LinearLayout>

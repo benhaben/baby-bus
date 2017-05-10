@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/AssessName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="背诵和记忆能力"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:padding="5dp"
+        android:textColor="@color/bb_blue" />
+    <ListView
+        android:id="@+id/testquestion"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:background="@color/bb_orange">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/lightyellow"
+            android:gravity="center_vertical"
+            android:id="@+id/no_net_lable"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/icon_easyicon_net"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="世界上最远的距离就是没有网，检查设置"
+                android:textColor="@color/bb_black1" />
+        </LinearLayout>
+        <TextView
+            android:text="2015年6月20日"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/attendance_date"
+            local:MvxBind="Text AttendanceDate"
+            android:textColor="@android:color/background_light" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="孩子总人数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1.0" />
+            <TextView
+                android:text="0"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                local:MvxBind="Text TotalTotal"
+                android:layout_weight="1.0" />
+            <TextView
+                android:text="未考勤人数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1.0" />
+            <TextView
+                android:text="0"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                local:MvxBind="Text TotalUnattence"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="到校总人数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1.0" />
+            <TextView
+                android:text="0"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                local:MvxBind="Text TotalAttence"
+                android:layout_weight="1.0" />
+            <TextView
+                android:text="缺席总人数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1.0" />
+            <TextView
+                android:text="0"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                local:MvxBind="Text TotalAbsence"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+        <View
+            android:background="@drawable/shape_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@android:id/tabcontent"
+        android:layout_weight="1"
+        android:paddingTop="102dp"
+        android:paddingBottom="10dp">
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/list_attences" />
+    </FrameLayout>
+</RelativeLayout>

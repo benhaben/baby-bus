@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>多元智力测评</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/js/jqueryMobile/jquery.mobile.custom.structure.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/js/jqueryMobile/jquery.mobile.custom.theme.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if IE 8]>
+        <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- Page specific plugins -->
+    <!-- Charts -->
+    <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+    <!-- Forms -->
+    <script type="text/javascript" src="plugins/typeahead/typeahead.min.js"></script> <!-- AutoComplete -->
+    <script type="text/javascript" src="plugins/autosize/jquery.autosize.min.js"></script>
+    <script type="text/javascript" src="plugins/inputlimiter/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="plugins/uniform/jquery.uniform.min.js"></script> <!-- Styled radio and checkboxes -->
+    <script type="text/javascript" src="plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="plugins/select2/select2.min.js"></script> <!-- Styled select boxes -->
+    <script type="text/javascript" src="plugins/fileinput/fileinput.js"></script>
+    <script type="text/javascript" src="plugins/duallistbox/jquery.duallistbox.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+    <!-- Globalize -->
+    <script type="text/javascript" src="plugins/globalize/globalize.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.de-DE.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.ja-JP.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/testQuestion.js"></script>
+    <!-- Slim Progress Bars -->
+    <script type="text/javascript" src="plugins/nprogress/nprogress.js"></script>
+
+    <!-- Demo JS -->
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/demo/form_components.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/jqueryMobile/jquery.mobile.custom.min.js"></script>
+
+
+    <script type="text/x-handlebars-template" id="parentTestQuestionHtml">
+        {{#each this}}
+        <a onclick="childTest('{{IntelligenceQuestionId}}')" style="text-decoration: none;">
+            <dd style="position: relative; left: 8%; margin-bottom: 15px">
+                <div style="float:left;color: #808080;font-size:50px">●&nbsp;</div>
+                <div>
+                    <div class="testQuestion" >  {{QuestionContent}}</div>
+                </div>
+            </dd>
+        </a>
+        {{/each}}
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+           // Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            $("#questionDetailTitleId").text($.cookie("testQuestiongsName") + "测评");
+            TestQuestion.GenertParentIntelligenceQuestionDetail();
+        });
+        function childTest(IntelligenceId) {
+            $.cookie("testIntelligenceId", IntelligenceId, { expires: 1, path: '/' });
+            Utilities.Redirect("ChildIntelligenceQuestionInfo.html");
+        }
+        function html() {
+            Utilities.Redirect("ParentsIntelligenceQuestion.html");
+        }
+    </script>
+    <style>
+        .IntelligenceSorceHeader {
+            background-color: #b0e0e6;
+            text-align: center;
+            font-size: 60px;
+            height: 100px;
+            color: #ffffff;
+            line-height: 100px;
+            font-weight: 200;
+        }
+        .testQuestion {
+            white-space: normal;
+            word-break: break-all;
+            overflow: hidden;
+            font-size: 30px;
+            font-weight:400;
+            color: #808080;
+        }
+    </style>
+
+</head>
+<body id="bodyonline">
+
+    <a onclick="html()" style="text-decoration: none;height: 70px; width: 5%; float: left; color: #ffffff; position: relative; top: 10px; left: 5%">
+        <p style="font-size: 50px">
+            <
+        </p>
+    </a>
+
+    <header id="drawHeader" class="IntelligenceSorceHeader">多元智力测试</header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+    <div class="widget invoice">
+        <div class="widget-header">
+            <div class="pull-left">
+                <h2></h2>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="position:relative;top:40px">
+        <div class="form-group">
+            <dl id="parentIntelligenceQuestionTableId" style="width:90%">
+                <dt id="questionDetailTitleId" style="color: #33A1C9; font-weight: 700; font-size: 70px; text-align: center; margin-bottom: 5%;text-align:center"></dt>
+            </dl>
+        </div>
+    </div>
+</body>
+</html>

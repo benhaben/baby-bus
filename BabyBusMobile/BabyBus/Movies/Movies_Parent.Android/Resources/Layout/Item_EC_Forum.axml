@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:id="@+id/item_forum_show">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|left"
+                    android:text="大宝就是好，谁用就知道"
+                    android:id="@+id/post_title"
+                    android:singleLine="true"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="5dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="大宝就是好，谁用就知道"
+                    android:textSize="12dp"
+                    android:id="@+id/post_abstract"
+                    android:textColor="@color/bb_gray1"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:layout_marginLeft="5dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="39分钟以前"
+                        android:textSize="14dp"
+                        android:id="@+id/createtime"
+                        android:layout_weight="1" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical|right">
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/icon_lg_praise"
+                            android:layout_marginRight="5dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/forum_favorite"
+                            android:text="36"
+                            android:textSize="14dp"
+                            android:layout_marginRight="15dp"
+                            android:textColor="@color/bb_gray1" />
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/icon_lg_message"
+                            android:layout_marginRight="5dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/forum_comment"
+                            android:text="223"
+                            android:textColor="@color/bb_gray1"
+                            android:textSize="12dp"
+                            android:layout_marginRight="15dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icon_course"
+                android:layout_marginRight="5dp"
+                android:id="@+id/image_post" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

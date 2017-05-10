@@ -1,0 +1,26 @@
+﻿<Properties StartupItem="Movies/Babybus.Teacher.Touch/BabyBus.Teacher.Touch.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.9.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Movies/Babybus.Teacher.Touch/Info.plist">
+    <Files>
+      <File FileName="Movies/Babybus.Teacher.Touch/RELEASE-NOTES.txt" Line="1" Column="1" />
+      <File FileName="UITouchShared/Views/TableCell/MemoryIndexTableCell.cs" Line="1" Column="1" />
+      <File FileName="Movies/Babybus.Teacher.Touch/Info.plist" />
+      <File FileName="Movies/Babybus.Parent.Touch/Info.plist" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/jkm/Develop/GIT/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Net/RemoteService.cs" line="191" column="1" />
+      <Breakpoint file="/Users/jkm/Develop/GIT/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Net/RemoteService.cs" line="245" column="1" />
+      <Breakpoint file="/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/ViewModels/Setting/SettingPaymentViewModel.cs" line="217" column="26" />
+      <Breakpoint file="/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Utilities/WXApiDelegate.cs" line="32" column="1" />
+      <Breakpoint file="/Users/jkm/Develop/GIT/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Net/RemoteService.cs" line="96" column="1" />
+      <Catchpoint enabled="false" exceptionName="System.Exception" includeSubclasses="True" />
+      <Breakpoint file="/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/UITouchShared/Views/Communication/GrowMemory/MemoryIndexView.cs" line="86" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Movies/Babybus.Master.Touch/BabyBus.Master.Touch.csproj</String>
+  </DisabledProjects>
+</Properties>

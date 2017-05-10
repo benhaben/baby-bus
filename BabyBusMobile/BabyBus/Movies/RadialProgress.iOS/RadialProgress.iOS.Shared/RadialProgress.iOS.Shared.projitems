@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{92C94303-8C0B-4A4C-883C-80C97EE00FA7}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RadialProgress.iOS.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BezierPathGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BigRadialProgressLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgressLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgressView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgressViewStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SmallRadialProgressLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TinyRadialProgressLayer.cs" />
+  </ItemGroup>
+</Project>

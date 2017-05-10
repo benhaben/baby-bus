@@ -1,0 +1,25 @@
+# Enable automatic line ending management
+* text=auto
+
+# Define the files that are known to be 'text'
+ .gitattributes text
+ .gitignore 	text
+*.sln 			text
+*.csproj 		text
+*.config		text
+
+*.cs 			text
+*.resx			text
+
+*.axml 			text
+*.xml 			text
+*.plist			text
+
+# Define the files that are known to be 'binary'
+*.dll			binary
+
+*.png			binary
+*.jpg			binary
+
+*.ttf			binary
+*.otf			binary

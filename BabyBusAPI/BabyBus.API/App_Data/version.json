@@ -1,0 +1,25 @@
+﻿[
+    { "AppType": 1,
+        "AppName": "BabyBus家长版",
+        "ApkName": "babybus.parent.0.3.7.apk",
+        "VerName": "0.3.7",
+        "VerCode": 17,
+        "Description": "修复0.3.4的Bug，详见Bugs项目。"
+    },
+    {
+        "AppType": 2,
+        "AppName": "BabyBus教师版",
+        "ApkName": "babybus.teacher.0.3.7.apk",
+        "VerName": "0.3.7",
+        "VerCode": 17,
+        "Description": "修复0.3.4的Bug，详见Bugs项目。"
+    },
+    {
+        "AppType": 3,
+        "AppName": "BabyBus园长版",
+        "ApkName": "babybus.teacher.0.3.7.apk",
+        "VerName": "0.3.7",
+        "VerCode": 17,
+        "Description": "修复0.3.4的Bug，详见Bugs项目。"
+    },
+]

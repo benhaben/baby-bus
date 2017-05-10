@@ -1,0 +1,1193 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F50D6AA1A27530F007A3D9F /* PhotoStackLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F50D69F1A27530F007A3D9F /* PhotoStackLib.framework */; };
+		1F50D6B11A275310007A3D9F /* PhotoStackLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50D6B01A275310007A3D9F /* PhotoStackLibTests.m */; };
+		1F50D6B81A275388007A3D9F /* PhotoStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C16699B15DD2FA3007DBB17 /* PhotoStackView.m */; };
+		1F50D6B91A2753A5007A3D9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17A915DCB31F00A109F5 /* UIKit.framework */; };
+		1F50D6BA1A2753AF007A3D9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AB15DCB31F00A109F5 /* Foundation.framework */; };
+		1F50D6BB1A2753B7007A3D9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AD15DCB31F00A109F5 /* CoreGraphics.framework */; };
+		1F50D6BC1A2753C8007A3D9F /* PhotoStackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C16699A15DD2FA3007DBB17 /* PhotoStackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F50D6BD1A2753D7007A3D9F /* PhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669AC15DDE5A2007DBB17 /* PhotoBorder.png */; };
+		1F50D6BE1A2753D7007A3D9F /* PhotoBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669AD15DDE5A2007DBB17 /* PhotoBorder@2x.png */; };
+		1F58FB241A28462B00C71825 /* PhotoStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C16699B15DD2FA3007DBB17 /* PhotoStackView.m */; };
+		1F58FB261A28462B00C71825 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AD15DCB31F00A109F5 /* CoreGraphics.framework */; };
+		1F58FB271A28462B00C71825 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AB15DCB31F00A109F5 /* Foundation.framework */; };
+		1F58FB281A28462B00C71825 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17A915DCB31F00A109F5 /* UIKit.framework */; };
+		1F58FB2A1A28462B00C71825 /* PhotoStackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C16699A15DD2FA3007DBB17 /* PhotoStackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F58FB2C1A28462B00C71825 /* PhotoStackLib.h in Resources */ = {isa = PBXBuildFile; fileRef = 1F50D6A31A27530F007A3D9F /* PhotoStackLib.h */; };
+		1F58FB2D1A28462B00C71825 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F50D6A21A27530F007A3D9F /* Info.plist */; };
+		1F58FB2E1A28462B00C71825 /* PhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669AC15DDE5A2007DBB17 /* PhotoBorder.png */; };
+		1F58FB2F1A28462B00C71825 /* PhotoBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669AD15DDE5A2007DBB17 /* PhotoBorder@2x.png */; };
+		1F58FB441A2849DC00C71825 /* libPhotoStackStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F58FB391A2849DB00C71825 /* libPhotoStackStaticLib.a */; };
+		1F58FB501A284A1200C71825 /* PhotoStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C16699B15DD2FA3007DBB17 /* PhotoStackView.m */; };
+		1F58FB511A284A2400C71825 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17A915DCB31F00A109F5 /* UIKit.framework */; };
+		1F58FB521A284A3100C71825 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AB15DCB31F00A109F5 /* Foundation.framework */; };
+		1F58FB531A284A3900C71825 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AD15DCB31F00A109F5 /* CoreGraphics.framework */; };
+		1F5CE33F1A28027B0007D661 /* PhotoStackLib.h in Resources */ = {isa = PBXBuildFile; fileRef = 1F50D6A31A27530F007A3D9F /* PhotoStackLib.h */; };
+		1F5CE3401A28027B0007D661 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F50D6A21A27530F007A3D9F /* Info.plist */; };
+		6C16699C15DD2FA3007DBB17 /* PhotoStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C16699B15DD2FA3007DBB17 /* PhotoStackView.m */; };
+		6C1669A315DD378A007DBB17 /* PhotoStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1669A215DD3789007DBB17 /* PhotoStackViewController.m */; };
+		6C1669AE15DDE5A2007DBB17 /* PhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669AC15DDE5A2007DBB17 /* PhotoBorder.png */; };
+		6C1669AF15DDE5A2007DBB17 /* PhotoBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669AD15DDE5A2007DBB17 /* PhotoBorder@2x.png */; };
+		6C1669C615DF2868007DBB17 /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669C015DF2868007DBB17 /* photo1.jpg */; };
+		6C1669C715DF2868007DBB17 /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669C115DF2868007DBB17 /* photo2.jpg */; };
+		6C1669C815DF2868007DBB17 /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669C215DF2868007DBB17 /* photo3.jpg */; };
+		6C1669C915DF2868007DBB17 /* photo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669C315DF2868007DBB17 /* photo4.jpg */; };
+		6C1669CA15DF2868007DBB17 /* photo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669C415DF2868007DBB17 /* photo5.jpg */; };
+		6C1669CB15DF2868007DBB17 /* photo6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C1669C515DF2868007DBB17 /* photo6.jpg */; };
+		6CDE17AA15DCB31F00A109F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17A915DCB31F00A109F5 /* UIKit.framework */; };
+		6CDE17AC15DCB31F00A109F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AB15DCB31F00A109F5 /* Foundation.framework */; };
+		6CDE17AE15DCB31F00A109F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDE17AD15DCB31F00A109F5 /* CoreGraphics.framework */; };
+		6CDE17B415DCB31F00A109F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CDE17B215DCB31F00A109F5 /* InfoPlist.strings */; };
+		6CDE17B615DCB31F00A109F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDE17B515DCB31F00A109F5 /* main.m */; };
+		6CDE17BA15DCB31F00A109F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDE17B915DCB31F00A109F5 /* AppDelegate.m */; };
+		6CDE17BD15DCB31F00A109F5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CDE17BB15DCB31F00A109F5 /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F50D6AB1A27530F007A3D9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CDE179C15DCB31F00A109F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F50D69E1A27530F007A3D9F;
+			remoteInfo = PhotoStackLib;
+		};
+		1F58FB451A2849DC00C71825 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CDE179C15DCB31F00A109F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F58FB381A2849DB00C71825;
+			remoteInfo = PhotoStackStaticLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F58FB371A2849DB00C71825 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1F50D69F1A27530F007A3D9F /* PhotoStackLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoStackLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F50D6A21A27530F007A3D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F50D6A31A27530F007A3D9F /* PhotoStackLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoStackLib.h; sourceTree = "<group>"; };
+		1F50D6A91A27530F007A3D9F /* PhotoStackLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoStackLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F50D6AF1A275310007A3D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F50D6B01A275310007A3D9F /* PhotoStackLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoStackLibTests.m; sourceTree = "<group>"; };
+		1F58FB331A28462B00C71825 /* PhotoStackLib copy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PhotoStackLib copy.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F58FB341A28462B00C71825 /* PhotoStackLib copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PhotoStackLib copy-Info.plist"; path = "/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/PhotoStackLibBinding.iOS/PhotoStack/PhotoStackLib copy-Info.plist"; sourceTree = "<absolute>"; };
+		1F58FB391A2849DB00C71825 /* libPhotoStackStaticLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhotoStackStaticLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F58FB3B1A2849DB00C71825 /* PhotoStackStaticLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoStackStaticLib.h; sourceTree = "<group>"; };
+		1F58FB3D1A2849DB00C71825 /* PhotoStackStaticLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoStackStaticLib.m; sourceTree = "<group>"; };
+		1F58FB431A2849DB00C71825 /* PhotoStackStaticLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoStackStaticLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F58FB491A2849DC00C71825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C16699A15DD2FA3007DBB17 /* PhotoStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStackView.h; sourceTree = "<group>"; };
+		6C16699B15DD2FA3007DBB17 /* PhotoStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStackView.m; sourceTree = "<group>"; };
+		6C1669A115DD3789007DBB17 /* PhotoStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStackViewController.h; sourceTree = "<group>"; };
+		6C1669A215DD3789007DBB17 /* PhotoStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStackViewController.m; sourceTree = "<group>"; };
+		6C1669AC15DDE5A2007DBB17 /* PhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PhotoBorder.png; sourceTree = "<group>"; };
+		6C1669AD15DDE5A2007DBB17 /* PhotoBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PhotoBorder@2x.png"; sourceTree = "<group>"; };
+		6C1669C015DF2868007DBB17 /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
+		6C1669C115DF2868007DBB17 /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
+		6C1669C215DF2868007DBB17 /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo3.jpg; sourceTree = "<group>"; };
+		6C1669C315DF2868007DBB17 /* photo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo4.jpg; sourceTree = "<group>"; };
+		6C1669C415DF2868007DBB17 /* photo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo5.jpg; sourceTree = "<group>"; };
+		6C1669C515DF2868007DBB17 /* photo6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo6.jpg; sourceTree = "<group>"; };
+		6CDE17A515DCB31F00A109F5 /* PhotoStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CDE17A915DCB31F00A109F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6CDE17AB15DCB31F00A109F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6CDE17AD15DCB31F00A109F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6CDE17B115DCB31F00A109F5 /* PhotoStack-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoStack-Info.plist"; sourceTree = "<group>"; };
+		6CDE17B315DCB31F00A109F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6CDE17B515DCB31F00A109F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6CDE17B715DCB31F00A109F5 /* PhotoStack-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoStack-Prefix.pch"; sourceTree = "<group>"; };
+		6CDE17B815DCB31F00A109F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6CDE17B915DCB31F00A109F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6CDE17BC15DCB31F00A109F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F50D69B1A27530F007A3D9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F50D6BB1A2753B7007A3D9F /* CoreGraphics.framework in Frameworks */,
+				1F50D6BA1A2753AF007A3D9F /* Foundation.framework in Frameworks */,
+				1F50D6B91A2753A5007A3D9F /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F50D6A61A27530F007A3D9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F50D6AA1A27530F007A3D9F /* PhotoStackLib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB251A28462B00C71825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F58FB261A28462B00C71825 /* CoreGraphics.framework in Frameworks */,
+				1F58FB271A28462B00C71825 /* Foundation.framework in Frameworks */,
+				1F58FB281A28462B00C71825 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB361A2849DB00C71825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F58FB531A284A3900C71825 /* CoreGraphics.framework in Frameworks */,
+				1F58FB521A284A3100C71825 /* Foundation.framework in Frameworks */,
+				1F58FB511A284A2400C71825 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB401A2849DB00C71825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F58FB441A2849DC00C71825 /* libPhotoStackStaticLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CDE17A215DCB31F00A109F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CDE17AA15DCB31F00A109F5 /* UIKit.framework in Frameworks */,
+				6CDE17AC15DCB31F00A109F5 /* Foundation.framework in Frameworks */,
+				6CDE17AE15DCB31F00A109F5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F50D6A01A27530F007A3D9F /* PhotoStackLib */ = {
+			isa = PBXGroup;
+			children = (
+				1F50D6A31A27530F007A3D9F /* PhotoStackLib.h */,
+				1F50D6A11A27530F007A3D9F /* Supporting Files */,
+			);
+			path = PhotoStackLib;
+			sourceTree = "<group>";
+		};
+		1F50D6A11A27530F007A3D9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F50D6A21A27530F007A3D9F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F50D6AD1A275310007A3D9F /* PhotoStackLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F50D6B01A275310007A3D9F /* PhotoStackLibTests.m */,
+				1F50D6AE1A275310007A3D9F /* Supporting Files */,
+			);
+			path = PhotoStackLibTests;
+			sourceTree = "<group>";
+		};
+		1F50D6AE1A275310007A3D9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F50D6AF1A275310007A3D9F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F58FB3A1A2849DB00C71825 /* PhotoStackStaticLib */ = {
+			isa = PBXGroup;
+			children = (
+				1F58FB3B1A2849DB00C71825 /* PhotoStackStaticLib.h */,
+				1F58FB3D1A2849DB00C71825 /* PhotoStackStaticLib.m */,
+			);
+			path = PhotoStackStaticLib;
+			sourceTree = "<group>";
+		};
+		1F58FB471A2849DC00C71825 /* PhotoStackStaticLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F58FB481A2849DC00C71825 /* Supporting Files */,
+			);
+			path = PhotoStackStaticLibTests;
+			sourceTree = "<group>";
+		};
+		1F58FB481A2849DC00C71825 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F58FB491A2849DC00C71825 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6C16696315DCEDF1007DBB17 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				6C1669C015DF2868007DBB17 /* photo1.jpg */,
+				6C1669C115DF2868007DBB17 /* photo2.jpg */,
+				6C1669C215DF2868007DBB17 /* photo3.jpg */,
+				6C1669C315DF2868007DBB17 /* photo4.jpg */,
+				6C1669C415DF2868007DBB17 /* photo5.jpg */,
+				6C1669C515DF2868007DBB17 /* photo6.jpg */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		6CDE179A15DCB31F00A109F5 = {
+			isa = PBXGroup;
+			children = (
+				6CDE17AF15DCB31F00A109F5 /* PhotoStack */,
+				1F50D6A01A27530F007A3D9F /* PhotoStackLib */,
+				1F50D6AD1A275310007A3D9F /* PhotoStackLibTests */,
+				1F58FB3A1A2849DB00C71825 /* PhotoStackStaticLib */,
+				1F58FB471A2849DC00C71825 /* PhotoStackStaticLibTests */,
+				6CDE17A815DCB31F00A109F5 /* Frameworks */,
+				6CDE17A615DCB31F00A109F5 /* Products */,
+				1F58FB341A28462B00C71825 /* PhotoStackLib copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		6CDE17A615DCB31F00A109F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CDE17A515DCB31F00A109F5 /* PhotoStack.app */,
+				1F50D69F1A27530F007A3D9F /* PhotoStackLib.framework */,
+				1F50D6A91A27530F007A3D9F /* PhotoStackLibTests.xctest */,
+				1F58FB331A28462B00C71825 /* PhotoStackLib copy.framework */,
+				1F58FB391A2849DB00C71825 /* libPhotoStackStaticLib.a */,
+				1F58FB431A2849DB00C71825 /* PhotoStackStaticLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CDE17A815DCB31F00A109F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CDE17A915DCB31F00A109F5 /* UIKit.framework */,
+				6CDE17AB15DCB31F00A109F5 /* Foundation.framework */,
+				6CDE17AD15DCB31F00A109F5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CDE17AF15DCB31F00A109F5 /* PhotoStack */ = {
+			isa = PBXGroup;
+			children = (
+				6CEDEC8E15DFBD46005CC8AF /* Demo */,
+				6CDE17CE15DCB37D00A109F5 /* PhotoStack */,
+				6CDE17B015DCB31F00A109F5 /* Supporting Files */,
+			);
+			name = PhotoStack;
+			path = Deck;
+			sourceTree = "<group>";
+		};
+		6CDE17B015DCB31F00A109F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CDE17B115DCB31F00A109F5 /* PhotoStack-Info.plist */,
+				6CDE17B215DCB31F00A109F5 /* InfoPlist.strings */,
+				6CDE17B515DCB31F00A109F5 /* main.m */,
+				6CDE17B715DCB31F00A109F5 /* PhotoStack-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CDE17CE15DCB37D00A109F5 /* PhotoStack */ = {
+			isa = PBXGroup;
+			children = (
+				6C1669AC15DDE5A2007DBB17 /* PhotoBorder.png */,
+				6C1669AD15DDE5A2007DBB17 /* PhotoBorder@2x.png */,
+				6C16699A15DD2FA3007DBB17 /* PhotoStackView.h */,
+				6C16699B15DD2FA3007DBB17 /* PhotoStackView.m */,
+			);
+			name = PhotoStack;
+			sourceTree = "<group>";
+		};
+		6CEDEC8E15DFBD46005CC8AF /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				6C16696315DCEDF1007DBB17 /* Photos */,
+				6CDE17B815DCB31F00A109F5 /* AppDelegate.h */,
+				6CDE17B915DCB31F00A109F5 /* AppDelegate.m */,
+				6CDE17BB15DCB31F00A109F5 /* MainStoryboard.storyboard */,
+				6C1669A115DD3789007DBB17 /* PhotoStackViewController.h */,
+				6C1669A215DD3789007DBB17 /* PhotoStackViewController.m */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1F50D69C1A27530F007A3D9F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F50D6BC1A2753C8007A3D9F /* PhotoStackView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB291A28462B00C71825 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F58FB2A1A28462B00C71825 /* PhotoStackView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1F50D69E1A27530F007A3D9F /* PhotoStackLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F50D6B61A275310007A3D9F /* Build configuration list for PBXNativeTarget "PhotoStackLib" */;
+			buildPhases = (
+				1F50D69A1A27530F007A3D9F /* Sources */,
+				1F50D69B1A27530F007A3D9F /* Frameworks */,
+				1F50D69C1A27530F007A3D9F /* Headers */,
+				1F50D69D1A27530F007A3D9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoStackLib;
+			productName = PhotoStackLib;
+			productReference = 1F50D69F1A27530F007A3D9F /* PhotoStackLib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1F50D6A81A27530F007A3D9F /* PhotoStackLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F50D6B71A275310007A3D9F /* Build configuration list for PBXNativeTarget "PhotoStackLibTests" */;
+			buildPhases = (
+				1F50D6A51A27530F007A3D9F /* Sources */,
+				1F50D6A61A27530F007A3D9F /* Frameworks */,
+				1F50D6A71A27530F007A3D9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F50D6AC1A27530F007A3D9F /* PBXTargetDependency */,
+			);
+			name = PhotoStackLibTests;
+			productName = PhotoStackLibTests;
+			productReference = 1F50D6A91A27530F007A3D9F /* PhotoStackLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1F58FB221A28462B00C71825 /* PhotoStackLib copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F58FB301A28462B00C71825 /* Build configuration list for PBXNativeTarget "PhotoStackLib copy" */;
+			buildPhases = (
+				1F58FB231A28462B00C71825 /* Sources */,
+				1F58FB251A28462B00C71825 /* Frameworks */,
+				1F58FB291A28462B00C71825 /* Headers */,
+				1F58FB2B1A28462B00C71825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PhotoStackLib copy";
+			productName = PhotoStackLib;
+			productReference = 1F58FB331A28462B00C71825 /* PhotoStackLib copy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1F58FB381A2849DB00C71825 /* PhotoStackStaticLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F58FB4A1A2849DC00C71825 /* Build configuration list for PBXNativeTarget "PhotoStackStaticLib" */;
+			buildPhases = (
+				1F58FB351A2849DB00C71825 /* Sources */,
+				1F58FB361A2849DB00C71825 /* Frameworks */,
+				1F58FB371A2849DB00C71825 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoStackStaticLib;
+			productName = PhotoStackStaticLib;
+			productReference = 1F58FB391A2849DB00C71825 /* libPhotoStackStaticLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1F58FB421A2849DB00C71825 /* PhotoStackStaticLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F58FB4D1A2849DC00C71825 /* Build configuration list for PBXNativeTarget "PhotoStackStaticLibTests" */;
+			buildPhases = (
+				1F58FB3F1A2849DB00C71825 /* Sources */,
+				1F58FB401A2849DB00C71825 /* Frameworks */,
+				1F58FB411A2849DB00C71825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F58FB461A2849DC00C71825 /* PBXTargetDependency */,
+			);
+			name = PhotoStackStaticLibTests;
+			productName = PhotoStackStaticLibTests;
+			productReference = 1F58FB431A2849DB00C71825 /* PhotoStackStaticLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6CDE17A415DCB31F00A109F5 /* PhotoStack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CDE17C315DCB31F00A109F5 /* Build configuration list for PBXNativeTarget "PhotoStack" */;
+			buildPhases = (
+				6CDE17A115DCB31F00A109F5 /* Sources */,
+				6CDE17A215DCB31F00A109F5 /* Frameworks */,
+				6CDE17A315DCB31F00A109F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoStack;
+			productName = Deck;
+			productReference = 6CDE17A515DCB31F00A109F5 /* PhotoStack.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CDE179C15DCB31F00A109F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PhotoStack;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Tom Longo";
+				TargetAttributes = {
+					1F50D69E1A27530F007A3D9F = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1F50D6A81A27530F007A3D9F = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1F58FB381A2849DB00C71825 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1F58FB421A2849DB00C71825 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 6CDE179F15DCB31F00A109F5 /* Build configuration list for PBXProject "PhotoStack" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6CDE179A15DCB31F00A109F5;
+			productRefGroup = 6CDE17A615DCB31F00A109F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CDE17A415DCB31F00A109F5 /* PhotoStack */,
+				1F50D69E1A27530F007A3D9F /* PhotoStackLib */,
+				1F50D6A81A27530F007A3D9F /* PhotoStackLibTests */,
+				1F58FB221A28462B00C71825 /* PhotoStackLib copy */,
+				1F58FB381A2849DB00C71825 /* PhotoStackStaticLib */,
+				1F58FB421A2849DB00C71825 /* PhotoStackStaticLibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F50D69D1A27530F007A3D9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F5CE33F1A28027B0007D661 /* PhotoStackLib.h in Resources */,
+				1F5CE3401A28027B0007D661 /* Info.plist in Resources */,
+				1F50D6BD1A2753D7007A3D9F /* PhotoBorder.png in Resources */,
+				1F50D6BE1A2753D7007A3D9F /* PhotoBorder@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F50D6A71A27530F007A3D9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB2B1A28462B00C71825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F58FB2C1A28462B00C71825 /* PhotoStackLib.h in Resources */,
+				1F58FB2D1A28462B00C71825 /* Info.plist in Resources */,
+				1F58FB2E1A28462B00C71825 /* PhotoBorder.png in Resources */,
+				1F58FB2F1A28462B00C71825 /* PhotoBorder@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB411A2849DB00C71825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CDE17A315DCB31F00A109F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CDE17B415DCB31F00A109F5 /* InfoPlist.strings in Resources */,
+				6CDE17BD15DCB31F00A109F5 /* MainStoryboard.storyboard in Resources */,
+				6C1669AE15DDE5A2007DBB17 /* PhotoBorder.png in Resources */,
+				6C1669AF15DDE5A2007DBB17 /* PhotoBorder@2x.png in Resources */,
+				6C1669C615DF2868007DBB17 /* photo1.jpg in Resources */,
+				6C1669C715DF2868007DBB17 /* photo2.jpg in Resources */,
+				6C1669C815DF2868007DBB17 /* photo3.jpg in Resources */,
+				6C1669C915DF2868007DBB17 /* photo4.jpg in Resources */,
+				6C1669CA15DF2868007DBB17 /* photo5.jpg in Resources */,
+				6C1669CB15DF2868007DBB17 /* photo6.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F50D69A1A27530F007A3D9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F50D6B81A275388007A3D9F /* PhotoStackView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F50D6A51A27530F007A3D9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F50D6B11A275310007A3D9F /* PhotoStackLibTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB231A28462B00C71825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F58FB241A28462B00C71825 /* PhotoStackView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB351A2849DB00C71825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F58FB501A284A1200C71825 /* PhotoStackView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F58FB3F1A2849DB00C71825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CDE17A115DCB31F00A109F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CDE17B615DCB31F00A109F5 /* main.m in Sources */,
+				6CDE17BA15DCB31F00A109F5 /* AppDelegate.m in Sources */,
+				6C16699C15DD2FA3007DBB17 /* PhotoStackView.m in Sources */,
+				6C1669A315DD378A007DBB17 /* PhotoStackViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F50D6AC1A27530F007A3D9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F50D69E1A27530F007A3D9F /* PhotoStackLib */;
+			targetProxy = 1F50D6AB1A27530F007A3D9F /* PBXContainerItemProxy */;
+		};
+		1F58FB461A2849DC00C71825 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F58FB381A2849DB00C71825 /* PhotoStackStaticLib */;
+			targetProxy = 1F58FB451A2849DC00C71825 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6CDE17B215DCB31F00A109F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CDE17B315DCB31F00A109F5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6CDE17BB15DCB31F00A109F5 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CDE17BC15DCB31F00A109F5 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F50D6B21A275310007A3D9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ADDITIONAL_SDKS = iphonesimulator;
+				ARCHS = (
+					armv7,
+					armv6,
+					armv7s,
+					i386,
+				);
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yin Shen (ZK9G3BTR7T)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = PhotoStackLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s armv6 i386 (iphonesimulator)";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1F50D6B31A275310007A3D9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ADDITIONAL_SDKS = iphonesimulator;
+				ARCHS = (
+					armv7,
+					armv6,
+					armv7s,
+					i386,
+				);
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yin Shen (ZK9G3BTR7T)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = PhotoStackLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s armv6 i386 (iphonesimulator)";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1F50D6B41A275310007A3D9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = PhotoStackLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F50D6B51A275310007A3D9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = PhotoStackLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1F58FB311A28462B00C71825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+					armv7s,
+				);
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yin Shen (ZK9G3BTR7T)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PhotoStackLib copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "PhotoStackLib copy";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s armv6";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1F58FB321A28462B00C71825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv6,
+					armv7s,
+				);
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yin Shen (ZK9G3BTR7T)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PhotoStackLib copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "PhotoStackLib copy";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s armv6";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1F58FB4B1A2849DC00C71825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1F58FB4C1A2849DC00C71825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1F58FB4E1A2849DC00C71825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = PhotoStackStaticLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F58FB4F1A2849DC00C71825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = PhotoStackStaticLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6CDE17C115DCB31F00A109F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6CDE17C215DCB31F00A109F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6CDE17C415DCB31F00A109F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Deck/PhotoStack-Prefix.pch";
+				INFOPLIST_FILE = "Deck/PhotoStack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = PhotoStack;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6CDE17C515DCB31F00A109F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Deck/PhotoStack-Prefix.pch";
+				INFOPLIST_FILE = "Deck/PhotoStack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = PhotoStack;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F50D6B61A275310007A3D9F /* Build configuration list for PBXNativeTarget "PhotoStackLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F50D6B21A275310007A3D9F /* Debug */,
+				1F50D6B31A275310007A3D9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F50D6B71A275310007A3D9F /* Build configuration list for PBXNativeTarget "PhotoStackLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F50D6B41A275310007A3D9F /* Debug */,
+				1F50D6B51A275310007A3D9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F58FB301A28462B00C71825 /* Build configuration list for PBXNativeTarget "PhotoStackLib copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F58FB311A28462B00C71825 /* Debug */,
+				1F58FB321A28462B00C71825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F58FB4A1A2849DC00C71825 /* Build configuration list for PBXNativeTarget "PhotoStackStaticLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F58FB4B1A2849DC00C71825 /* Debug */,
+				1F58FB4C1A2849DC00C71825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1F58FB4D1A2849DC00C71825 /* Build configuration list for PBXNativeTarget "PhotoStackStaticLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F58FB4E1A2849DC00C71825 /* Debug */,
+				1F58FB4F1A2849DC00C71825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6CDE179F15DCB31F00A109F5 /* Build configuration list for PBXProject "PhotoStack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CDE17C115DCB31F00A109F5 /* Debug */,
+				6CDE17C215DCB31F00A109F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CDE17C315DCB31F00A109F5 /* Build configuration list for PBXNativeTarget "PhotoStack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CDE17C415DCB31F00A109F5 /* Debug */,
+				6CDE17C515DCB31F00A109F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CDE179C15DCB31F00A109F5 /* Project object */;
+}

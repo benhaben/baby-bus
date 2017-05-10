@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoolBeans.Pages.Main.SettingPage"
+             xmlns:controls="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs"
+             BackgroundImage="login_background.png">
+  <StackLayout Spacing="10"
+               Padding="10,10,10,10"
+               >
+    <Label Text="宝宝信息"
+           TextColor="Black"
+           BackgroundColor="White"
+           Font="30"/>
+    <!--<StackLayout BackgroundColor="White">
+      <Label Text="接收方式设置"
+           TextColor="Black"
+           />
+      <StackLayout Orientation="Horizontal">
+        <Label Text="新信息提示："
+           TextColor="Black"/>
+        <Switch IsToggled="true"
+         HorizontalOptions="EndAndExpand"></Switch>
+      </StackLayout>
+      <StackLayout Orientation="Horizontal">
+        <Label Text="是否接收短信："
+           TextColor="Black"/>
+        <Switch HorizontalOptions="EndAndExpand"></Switch>
+      </StackLayout>
+    </StackLayout>-->
+    <StackLayout BackgroundColor="White">
+      <Label Text="安全设置"
+           TextColor="Black"
+           />
+      <StackLayout Orientation="Horizontal">
+        <Label Text="用户名："
+           TextColor="Black"/>
+        <Label Text="15487458854"
+        TextColor="Black"/>
+      </StackLayout>
+      <Label Text="解除绑定："
+                 TextColor="Black"/>
+    </StackLayout>
+    <controls:ImageButton x:Name="btnRePwd" Text="修改用户密码" BackgroundColor="#3d509f" TextColor="#ffffff" HeightRequest="50" WidthRequest="175"
+    			Command="{Binding ShowRePasswordPageCommand}"/>
+    <controls:ImageButton Text="注销当前用户" BackgroundColor="#dc021e" TextColor="#ffffff" HeightRequest="50" WidthRequest="175"/>
+  </StackLayout>
+</ContentPage>

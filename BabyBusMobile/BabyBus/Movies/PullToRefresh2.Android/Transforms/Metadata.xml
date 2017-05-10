@@ -1,0 +1,50 @@
+﻿<metadata>
+	<!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+  <attr path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshBase.Mode']"
+        name="managedName">
+    PullToRefreshMode
+  </attr>
+
+  <attr path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshBase.State']"
+        name="managedName">
+    PullToRefreshState
+  </attr>
+  <attr
+     path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshScrollView']/method[@name='createRefreshableView']"
+     name="managedReturn"
+>Java.Lang.Object</attr>
+
+  <attr
+    path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshExpandableListView']/method[@name='createRefreshableView']"
+    name="managedReturn"
+>Java.Lang.Object</attr>
+
+  <attr
+    path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshGridView']/method[@name='createRefreshableView']"
+    name="managedReturn"
+>Java.Lang.Object</attr>
+	<attr
+    path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshHorizontalScrollView']/method[@name='createRefreshableView']"
+    name="managedReturn"
+>Java.Lang.Object</attr>
+
+  <attr
+    path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshListView']/method[@name='createRefreshableView']"
+    name="managedReturn"
+>Java.Lang.Object</attr>
+
+  <attr
+  path="/api/package[@name='com.handmark.pulltorefresh.library']/class[@name='PullToRefreshWebView']/method[@name='createRefreshableView']"
+  name="managedReturn"
+>Java.Lang.Object</attr>
+  <attr
+  path="/api/package[@name='com.handmark.pulltorefresh.library.internal']/class[@name='RotateLoadingLayout']/method[@name='onLoadingDrawableSet' and count(parameter)=1 and parameter[1][@type='android.graphics.drawable.Drawable']]"
+  name="visibility"
+>protected</attr>
+</metadata>

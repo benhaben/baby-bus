@@ -1,0 +1,419 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>宝贝体检测评表</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/physicalExamination.js"></script>
+
+    <script id="navKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="goUserHtml('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script id="children-userinfo-template" type=" text /x-handlebars-template">
+
+        <div class="thumbnail col-md-2" style="height: 160px; width: 150px;">
+
+            <center>
+                <img id="childImg" src="{{imagUrl}}" style="width: 150px; height: 150px; "/>
+            </center>
+        </div>
+        <div class="thumbnail col-md-2" style="height: 160px; width: 400px;">
+            <div style="margin:10px;margin-top:3%">
+                <p><b>宝贝Id</b> ： {{ChildId}}</p>
+                <p><b>宝贝姓名</b> ： {{ChildName}}</p>
+                <p><b>宝贝性别</b> ： {{Gender}}</p>
+                <p><b>所属幼儿园</b> ： {{KindergartenName}}</p>
+                <p><b>所属班级</b> ： {{ClassName}}</p>
+            </div>
+        </div>
+    </script>
+
+
+    <script  type="text/x-handlebars-template">
+        <div class="thumbnail col-md-2" style="height:200px; width:400px;">
+            <p><b>宝贝Id</b> ： {{ChildId}}</p>
+            <p><b>宝贝姓名</b> ： {{ChildName}}</p>
+            <p><b>宝贝性别</b> ： {{Gender}}</p>
+            <p><b>所属幼儿园</b> ： {{KindergartenName}}</p>
+            <p><b>所属班级</b> ： {{ClassName}}</p>
+        </div>
+    </script>
+
+    <style>
+        .date-picker-wp {
+            display: none;
+            position: absolute;
+            background: #f1f1f1;
+            left: 40px;
+            top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+            .date-picker-wp table {
+                border: 1px solid #ddd;
+            }
+
+            .date-picker-wp td {
+                background: #fafafa;
+                width: 30px;
+                height: 25px;
+                border: 1px solid #ccc;
+                font-size: 12px;
+                text-align: center;
+            }
+
+                .date-picker-wp td.noborder {
+                    border: none;
+                    background: none;
+                }
+
+                .date-picker-wp td a {
+                    color: #1c93c4;
+                    text-decoration: none;
+                }
+
+        .strong {
+            font-weight: bold;
+        }
+
+        .hand {
+            cursor: pointer;
+            color: #3879d9;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var DatePicker = function () {
+            var $ = function (i) { return document.getElementById(i) },
+			addEvent = function (o, e, f) { o.addEventListener ? o.addEventListener(e, f, false) : o.attachEvent('on' + e, function () { f.call(o) }) },
+			getPos = function (el) {
+			    for (var pos = { x: 0, y: 0 }; el; el = el.offsetParent) {
+			        pos.x += el.offsetLeft;
+			        pos.y += el.offsetTop;
+			    }
+			    return pos;
+			}
+            var init = function (n, config) {
+                window[n] = this;
+                Date.prototype._fd = function () { var d = new Date(this); d.setDate(1); return d.getDay() };
+                Date.prototype._fc = function () { var d1 = new Date(this), d2 = new Date(this); d1.setDate(1); d2.setDate(1); d2.setMonth(d2.getMonth() + 1); return (d2 - d1) / 86400000; };
+                this.n = n;
+                this.config = config;
+                this.D = new Date;
+                this.el = $(config.inputId);
+                this.el.title = this.n + 'DatePicker';
+                this.update();
+                this.bind();
+            }
+            init.prototype = {
+                update: function (y, m) {
+                    var con = [], week = ['日', '一', '二', '三', '四', '五', '六'], D = this.D, _this = this;
+                    fn = function (a, b) { return '<td title="' + _this.n + 'DatePicker" class="noborder hand" onclick="' + _this.n + '.update(' + a + ')">' + b + '</td>' },
+					_html = '<table cellpadding=0 cellspacing=2>';
+                    y && D.setYear(D.getFullYear() + y);
+                    m && D.setMonth(D.getMonth() + m);
+                    var year = D.getFullYear(), month = D.getMonth() + 1, date = D.getDate();
+                    for (var i = 0; i < week.length; i++) con.push('<td title="' + this.n + 'DatePicker" class="noborder">' + week[i] + '</td>');
+                    for (var i = 0; i < D._fd() ; i++) con.push('<td title="' + this.n + 'DatePicker" class="noborder"> </td>');
+                    for (var i = 0; i < D._fc() ; i++) con.push('<td class="hand" onclick="' + this.n + '.fillInput(' + year + ', ' + month + ', ' + (i + 1) + ')">' + (i + 1) + '</td>');
+                    var toend = con.length % 7;
+                    if (toend != 0) for (var i = 0; i < 7 - toend; i++) con.push('<td class="noborder"> </td>');
+                    _html += '<tr>' + fn("-1, null", "<<") + fn("null, -1", "<") + '<td title="' + this.n + 'DatePicker" colspan=3 class="strong">' + year + '-' + month + '-' + date + '</td>' + fn("null, 1", ">") + fn("1, null", ">>") + '</tr>';
+                    for (var i = 0; i < con.length; i++) _html += (i == 0 ? '<tr>' : i % 7 == 0 ? '</tr><tr>' : '') + con[i] + (i == con.length - 1 ? '</tr>' : '');
+                    !!this.box ? this.box.innerHTML = _html : this.createBox(_html);
+                },
+                fillInput: function (y, m, d) {
+                    var s = this.config.seprator || '/';
+                    this.el.value = y + s + m + s + d;
+                    this.box.style.display = 'none';
+                },
+                show: function () {
+                    var s = this.box.style, is = this.mask.style;
+                    s['left'] = is['left'] = getPos(this.el).x + 'px';
+                    s['top'] = is['top'] = getPos(this.el).y + this.el.offsetHeight + 'px';
+                    s['display'] = is['display'] = 'block';
+                    is['width'] = this.box.offsetWidth - 2 + 'px';
+                    is['height'] = this.box.offsetHeight - 2 + 'px';
+                },
+                hide: function () {
+                    this.box.style.display = 'none';
+                    this.mask.style.display = 'none';
+                },
+                bind: function () {
+                    var _this = this;
+                    addEvent(document, 'click', function (e) {
+                        e = e || window.event;
+                        var t = e.target || e.srcElement;
+                        if (t.title != _this.n + 'DatePicker') { _this.hide() } else { _this.show() }
+                    })
+                },
+                createBox: function (html) {
+                    var box = this.box = document.createElement('div'), mask = this.mask = document.createElement('iframe');
+                    box.className = this.config.className || 'datepicker';
+                    mask.src = 'javascript:false';
+                    mask.frameBorder = 0;
+                    box.style.cssText = 'position:absolute;display:none;z-index:9999';
+                    mask.style.cssText = 'position:absolute;display:none;z-index:9998';
+                    box.title = this.n + 'DatePicker';
+                    box.innerHTML = html;
+                    document.body.appendChild(box);
+                    document.body.appendChild(mask);
+                    return box;
+                }
+            }
+            return init;
+        }();
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            PhysicalExamination.GenertPhyMdicalInfo("two");
+            Utilities.GenertFeedback();
+            //UserInfo.GetChangeClass();
+
+            new DatePicker('demo', {
+                inputId: 'dateVal',
+                className: 'date-picker-wp',
+                seprator: '-'
+            });
+
+            initDate();
+        });
+    </script>
+
+
+    <script>
+        function goUserHtml(kinId, kinName) {
+
+            $.cookie("paraUserInfoKinId", kinId, { expires: 1, path: '/' });
+            $.cookie("paraUserInfoKinName", kinName, { expires: 1, path: '/' });
+            Utilities.Redirect("phyExaminationPlan.html");
+        }
+        function submit() {
+            PhysicalExamination.GenertSendPhyMedicalInfo();
+        }
+        function initDate() {
+            var year = $.cookie("paraAttendanceDayYear");
+            var month = $.cookie("paraAttendanceDayMonth");
+            var day = $.cookie("paraAttendanceDayDay");
+            if (year == null || month == null || day == null) {
+                var myDate = new Date();
+                year = myDate.getFullYear();
+                month = myDate.getMonth() + 1;
+                day = myDate.getDate();
+            }
+            var initDateVal = year + "-" + month + "-" + day;
+
+            $("#dateVal").val(initDateVal);
+
+            $("#yearVal").val(year);
+            $("#monthVal").val(month);
+            $("#dayVal").val(day);
+        }
+    </script>
+</head>
+
+<body id="bodyonline">
+
+    <!-- Header -->
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <div id="container">
+
+        <div id="content">
+            <div class="container">
+                <!--=== Page Header ===-->
+
+                <div id="sidebar" class="sidebar-fixed">
+                    <div id="sidebar-content">
+                        <!-- siderbar search -->
+                        <div class="sidebar-search">
+                            <div class="input-box">
+                                <a onclick="Utilities.Redirect('user.html')" style="text-decoration: none">
+                                    <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                                    &nbsp;
+                                    <b id="showKinNameInfo">幼儿园</b>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="navKindergartens"></div>
+                    </div>
+                    <div id="divider" class="resizeable"></div>
+                </div>
+
+                <div style=" max-width: 1000px;position:relative;top: 5px">
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="urlLinkSe">
+                                <i class=" icon-home"></i>
+                                <a href="phyExaminationPlan.html">体质检测计划</a>
+                                <a style="text-decoration:none"> > 宝贝体检测评表</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- annual bar chart -->
+
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3 id="childNameHeader">宝贝姓名</h3>
+                            </div>
+                        </div>
+
+                        <div class="modal-content">
+                            <div class="modal-header" id="delete_child_id">
+                                <h4 class="modal-title"><img style="border:0" src="images/childImg.jpg" width="25px" />&nbsp;宝贝信息</h4>
+                            </div>
+                            <div class="modal-body" id="childInfo2" style="height:200px;">
+
+                            </div>
+                        </div>
+                        <div class="modal-content" style="margin-top:20px;margin-bottom:20px">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><img style="border:0;width:25px" src="images/parentImg.jpg"/>&nbsp;宝贝体质测评表</h4>
+                                <button class=" btn btn- btn-primary" style="float:right;position:relative;bottom:30px" onclick="submit()">提交</button>
+                            </div>
+                            <div class="modal-body" id="parentInfo2" style="height:320px;">
+                                <div style="margin-left: 140px; vertical-align: middle">
+                                    <div style="float: left;">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 4px; font-weight:400">测试时间:&nbsp;&nbsp;</label>
+                                        <input type="text" id="dateVal" style="width: 54%; height: 30px"/>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 50px; vertical-align: middle">
+                                    <div style="float: left; margin-left: 15%">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 4px; font-weight: 400">身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高:&nbsp;</label>
+                                        <input type="text" id="childHeightId" name="0" style="width: 50%; height: 30px; margin-left: 1%" required/>&nbsp;&nbsp;cm
+                                    </div>
+                                    <div style="float: right; position: relative; right: 190px">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 4px; font-weight: 400">体&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重:</label>
+                                        <input type="text" id="childWeightId" style="width: 52.5%; height: 30px; margin-left: 10px"/>&nbsp;&nbsp;kg
+                                    </div>
+                                    
+                                </div>
+                                <div style="position: relative; top: 60px; vertical-align: middle;right:5px">
+                                    <div style="float: left; position: relative; right: 26.4%">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 5px; font-weight: 400">立定跳远:</label>
+                                        <input type="text" id="standingLongJumpid" name="3" style="width: 50%; height: 30px; margin-left: 5px"/>&nbsp;&nbsp;cm
+                                    </div>
+                                    <div style="float: left; margin-left: 52.2%; position: relative; bottom: 33px">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 5px; font-weight: 400">双脚连续跳:&nbsp;</label>
+                                        <input type="text" id="jumpWithBothFeetid" name="5" style="width: 52.5%; height: 30px; margin-left: 5px"/>&nbsp;&nbsp;s
+                                    </div>
+                                </div>
+                                <div style="margin-top: 170px; vertical-align: middle;margin-left:10%">
+                                    <div style="float: left; margin-left: 5%">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 5px; font-weight: 400">网球掷远:&nbsp;</label>
+                                        <input type="text" id="tennisThrowfarid" name="4" style="width: 51%; height: 30px; margin-left: 5px"/>&nbsp;&nbsp;m
+                                    </div>
+                                    <div style="float: left; margin-left: 13%">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 5px; font-weight: 400">走平衡木:&nbsp;</label>
+                                        <input type="text" id="walkTheBalanceBeamid" name="6" style="width: 57%; height: 30px; margin-left: 5px"/>&nbsp;&nbsp;s
+                                    </div>
+                                </div>
+                                <div style ="margin-top: 230px; vertical-align: middle; margin-left: 13%">
+                                    <div style="float: left; position: relative;">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 5px; font-weight: 400">座位体前屈:&nbsp;</label>
+                                        <input type="text" id="childSeatBodyFlexionid" name="1" style="width: 50%; height: 30px; margin-left: 5px"/>&nbsp;cm
+                                    </div>
+                                    <div style="float: left; margin-left: 11.8%">
+                                        <p style="float: left; color: #ff0000;margin-top:7px">*</p>
+                                        <label style="margin-top: 5px; font-weight: 400">10米折返跑:&nbsp;</label>
+                                        <input type="text" id="tenmShuttleRunid" name="2" style="width: 55%; height: 30px; margin-left: 5px"/>&nbsp;&nbsp;s
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

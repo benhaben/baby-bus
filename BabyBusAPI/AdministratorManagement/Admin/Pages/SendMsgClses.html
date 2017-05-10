@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>消息记录</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>s
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/message.js"></script>
+
+    <script id="SendMsgClsesHtml" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="thumbnail col-md-3" style="height: 195px; width: 200px; margin: 10px; left: 5%">
+            <a style="text-decoration: none;" id="{{classId}}" onclick="goSendMsgClsDetail('{{classId}}', '{{className}}')">
+                <div class="widget">
+                    <div class="widget-header">
+                        <div><center><h2>{{className}}</h2></center></div>
+                    </div>
+                </div>
+                <p><center id="SumCount{{classId}}">总信息 : {{sumCount}}</center></p>
+                
+                <center>
+                    <table id="msgInfoTable{{classId}}" width="180px">
+                        <tr>
+                            <td id="ClassHomework1{{classId}}" width="35%" align="right"><nobr>家庭作业 : </nobr></td>
+                            <td id="ClassHomework2{{classId}}" width="15%" style="border-right: 1px dashed pink; " align="center">{{ClassHomework}}</td>
+                            <td id="ClassCommon1{{classId}}" width="35%" align="right"><nobr>班级通知 : </nobr></td>
+                            <td  id="ClassCommon2{{classId}}" width="15%" align="center"> {{ClassCommon}}</td>
+                        </tr>
+                        <tr>
+                            <td id="GrowMemory1{{classId}}" align="right"><nobr>成长记忆 : </nobr></td>
+                            <td id="GrowMemory2{{classId}}" style="border-right: 1px dashed pink;" align="center">{{GrowMemory}}</td>
+                            <td id="QuestionTeacher1{{classId}}" align="right"><nobr>家园共育 : </nobr></td>
+                            <td id="QuestionTeacher2{{classId}}" style="border-right: 1px dashed pink;" align="center">{{questionTeacher}}</td>
+                        </tr>
+                        <tr>
+                            <td id="QuestionLeave1{{classId}}" align="right"><nobr>请假 : </nobr></td>
+                            <td id="QuestionLeave2{{classId}}" style="border-right: 1px dashed pink;" align="center">{{questionLeave}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </center>
+
+            </a>
+        </div>
+        {{/each}}
+    </script>
+
+    <script id="SendMsgKindergartenHtml" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="thumbnail col-md-3" style="height: 185px; width: 200px; margin: 10px; left: 5%">
+            <a style="text-decoration: none;" id="{{classId}}" onclick="goSendMsgClsDetail('{{classId}}', '{{className}}')">
+                <div class="widget">
+                    <div class="widget-header">
+                        <div><center><h2>{{className}}</h2></center></div>
+                    </div>
+                </div>
+                <p><center id="SumCount{{classId}}">总信息 : {{sumCount}}</center></p>
+
+                <center>
+                    <table id="msgInfoTable{{classId}}" width="180px">
+                        <tr>
+                            <td id="ClassHomework1{{classId}}" width="35%" align="right"><nobr>园区通知 : </nobr></td>
+                            <td id="ClassHomework2{{classId}}" width="15%" style="border-right: 1px dashed pink; " align="center">{{KindergartenAll}}</td>
+                            <td id="ClassCommon1{{classId}}" width="35%" align="right"><nobr>园务通知 : </nobr></td>
+                            <td id="ClassCommon2{{classId}}" width="15%" align="center"> {{KindergartenStaff}}</td>
+                        </tr>
+                        <tr>
+                            <td id="GrowMemory1{{classId}}" align="right"><nobr>园长提问 : </nobr></td>
+                            <td id="GrowMemory2{{classId}}" style="border-right: 1px dashed pink;" align="center">{{questionKindergarten}}</td>
+                            <td id="QuestionTeacher1{{classId}}" align="right"><nobr>食谱 : </nobr></td>
+                            <td id="QuestionTeacher2{{classId}}" style="border-right: 1px dashed pink;" align="center">{{recipe}}</td>
+                        </tr>
+                    </table>
+                </center>
+
+            </a>
+        </div>
+        {{/each}}
+    </script>
+
+    <script id="messageNavKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="changeKindgarten('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+
+            changeTab();
+            Message.GenerateKindergartenAtNavigationBar('two');
+            Utilities.GenertFeedback();
+        });
+
+    </script>
+
+    <script>
+        function goSendMsgClsDetail(classId,className) {
+            $.cookie("paraMsgClassId", classId, { expires: 1, path: '/' });
+            $.cookie("paraMsgClassName", className, { expires: 1, path: '/' });
+            $.cookie("paraMsgNoticeType", -1, { expires: 1, path: '/' });
+
+            Utilities.Redirect("SendMsgClsDetail.html");
+        }
+        function changeKindgarten(kindergartenId, kinName) {
+            $.cookie("paraMessageKinId", kindergartenId, { expires: 1, path: '/' });
+            $.cookie("paraMessageKinName", kinName, { expires: 1, path: '/' });
+            Utilities.Redirect("SendMessageRecords.html");
+        }
+        function changeTab() {
+
+            //添加班级之后，进行页面跳转，保留所选择的班级类型
+            /*if ($.cookie("addClassInfo_classType") != null) {
+                var paraClsTypeVal = $.cookie("addClassInfo_classType");
+                $("#classTypeVal").val(paraClsTypeVal);
+                $.cookie("addClassInfo_classType", null, { expires: 1, path: '/' });
+            } else {
+                $("#classTypeVal").val(0);
+            }*/
+
+            $("#classTypeVal").val(0);
+            //默认打开大班信息
+            var clsTypeVal = $("#classTypeVal").val();
+
+            for (var i = -1; i < 5 ; i++) {
+                if (i == clsTypeVal) {
+                    $("#Tab" + i).addClass("active");
+                } else {
+                    $("#Tab" + i).removeClass("active");
+                }
+            }
+        }//changeTab end
+        function getClassInfo(classType) {
+            $("#classTypeVal").val(classType);
+            Message.GetMsgInfoByClassType();
+        }
+    </script>
+
+    <style>
+
+    </style>
+
+</head>
+<body id="bodyonline">
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <div id="container">
+        <input type="hidden" id="classTypeVal" /><!--默认为大班-->
+        <div id="sidebar" class="sidebar-fixed">
+            <div id="sidebar-content">
+                <div class="sidebar-search">
+                    <div class="input-box">
+                        <a onclick="Utilities.Redirect('SendMessageRecords.html')" style="text-decoration: none">
+                            <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                            &nbsp;
+                            <b id="showKinNameInfo">幼儿园</b>
+                        </a>
+                    </div>
+                </div>
+                <div id="messageNavKindergartens"></div>
+            </div>
+            <div id="divider" class="resizeable"></div>
+        </div>
+
+        <div id="content">
+            <div class="container">
+                <div style=" max-width: 1000px;position:relative;top: 5px;">
+
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="urlLinkSe">
+                                <i class=" icon-home"></i>
+                                消息记录
+                                <a href="SendMsgClses.html"> > 各班消息</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <div class="widget-header">
+
+                            <div class="row">
+                                <div class="col-md-10" id="headerVal">
+                                    <h2 id='titileVal'>
+                                        <img id="monthImg" style="border:0" width="50px" />
+                                        <small id="time"></small><small>消息总汇</small>
+                                    </h2>
+                                    <label style="color:red"></label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="parentClassTypeTab">
+                        <ul class="nav nav-tabs" id="classTypeTab" style="display:none">
+                            <li id="Tab0"><a href="#" data-toggle="tab" id="first" onclick="getClassInfo('0')">大班</a></li>
+                            <li id="Tab1"><a href="#" data-toggle="tab" id="second" onclick="getClassInfo('1')">中班</a></li>
+                            <li id="Tab2"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('2')">小班</a></li>
+                            <li id="Tab3"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('3')">托班</a></li>
+                            <li id="Tab4"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('4')">其他</a></li>
+                            <li id="Tab-1"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('-1')">园区</a></li>
+                        </ul>
+
+                        <div class="tab-content" id="SendMsgClsesContent">
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

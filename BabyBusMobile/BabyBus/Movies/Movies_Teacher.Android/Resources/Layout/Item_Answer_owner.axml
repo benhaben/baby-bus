@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="10.0dip"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/creattime"
+            android:text="2015年5月12日"
+            android:textColor="@android:color/white"
+            android:background="@drawable/Round_Rectangle"
+            android:paddingTop="2dp"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textSize="10dp"
+            android:layout_margin="3dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/item_question_show"
+        android:gravity="bottom|right"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="12dp">
+            <TextView
+                android:textSize="16sp"
+                android:gravity="left"
+                android:textColor="@android:color/background_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_answer_content"
+                android:text="Content"
+                android:maxWidth="250dp"
+                android:background="@drawable/bubble_green" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginRight="10dp">
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/empty_contact"
+                android:id="@+id/user_head" />
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/round"
+                android:layout_marginTop="-55.5dp" />
+            <TextView
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_answer_name"
+                android:text="刘晓春老师" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

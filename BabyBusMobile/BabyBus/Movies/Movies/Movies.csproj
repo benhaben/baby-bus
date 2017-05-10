@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C47B9802-4D17-4BDA-A2D0-C6C555D1B496}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoolBeans</RootNamespace>
+    <AssemblyName>CoolBeans</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>d2b8d5f9</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Converters\SecondsToHoursValueConverter.cs" />
+    <Compile Include="Utilities\BabyBusContext.cs" />
+    <Compile Include="Utilities\CacheKey.cs" />
+    <Compile Include="Utilities\Color.cs" />
+    <Compile Include="Utilities\SmartFileImageSource.cs" />
+    <Compile Include="Utilities\TaskUtils.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="Manager\NoticeManager.cs" />
+    <Compile Include="Models\Account\City.cs" />
+    <Compile Include="Models\AnalysisData.cs" />
+    <Compile Include="Models\Account\Child.cs" />
+    <Compile Include="Models\ChildEx\ChildEx.cs" />
+    <Compile Include="Models\Account\KindergartenClass.cs" />
+    <Compile Include="Models\Communication\TextMessage.cs" />
+    <Compile Include="Models\GroupMemory\Article.cs" />
+    <Compile Include="Models\Account\Kindergarten.cs" />
+    <Compile Include="Models\Main\ChildAllInfo.cs" />
+    <Compile Include="Models\Main\ChildInfo.cs" />
+    <Compile Include="Models\Main\NoticeInfo.cs" />
+    <Compile Include="Models\PhysiqueHealth\MyPhysique.cs" />
+    <Compile Include="Models\SchoolOnLine\ClassNotice.cs" />
+    <Compile Include="Models\SchoolOnLine\Notice.cs" />
+    <Compile Include="Net\Communication\IQuestionService.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Net\Communication\QuestionService.cs" />
+    <Compile Include="Net\SchoolOnLine\INoticeService.cs" />
+    <Compile Include="Net\SchoolOnLine\NoticeService.cs" />
+    <Compile Include="Services\IEnvironmentService.cs" />
+    <Compile Include="Services\ISqlitePlatformService.cs" />
+    <Compile Include="SQLite\DataService.cs" />
+    <Compile Include="SQLite\IDataService.cs" />
+    <Compile Include="SQLite\OrmExample.cs" />
+    <Compile Include="ViewModels\Communication\PrtQuestionListViewModel.cs" />
+    <Compile Include="ViewModels\Communication\QuestionDetailViewModel.cs" />
+    <Compile Include="ViewModels\Communication\QuestionSendViewModel.cs" />
+    <Compile Include="ViewModels\Communication\TextMessageViewModel.cs" />
+    <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="ViewModels\NeedSelectImageViewModel.cs" />
+    <Compile Include="ViewModels\SchoolOnLine\ChildViewModel.cs" />
+    <Compile Include="ViewModels\SchoolOnLine\NoticeDetailViewModel.cs" />
+    <Compile Include="ViewModels\SchoolOnLine\NoticeListViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Models\TestRecorder.cs" />
+    <Compile Include="Models\Account\User.cs" />
+    <Compile Include="Net\Communication\ArticleService.cs" />
+    <Compile Include="Net\Communication\IArticleService.cs" />
+    <Compile Include="Net\Communication\IClassALlistService.cs" />
+    <Compile Include="Net\Communication\IKindergartenAListService.cs" />
+    <Compile Include="Net\Communication\IClassQListService.cs" />
+    <Compile Include="Net\Communication\IOwnQListService.cs" />
+    <Compile Include="Net\Communication\ClassALlistService.cs" />
+    <Compile Include="Net\Communication\ClassQListService.cs" />
+    <Compile Include="Net\Communication\KindergartenAListService.cs" />
+    <Compile Include="Net\Communication\OwnQListService.cs" />
+    <Compile Include="Net\Login\IChangePasswordService.cs" />
+    <Compile Include="Net\Login\IUserInfoService.cs" />
+    <Compile Include="Net\Login\UserInfoService.cs" />
+    <Compile Include="Net\Main\IGetChildInfoListService.cs" />
+    <Compile Include="Net\Main\IGetChildInfoService.cs" />
+    <Compile Include="Net\Main\IGetClassInfoService.cs" />
+    <Compile Include="Net\Main\IGetMessageService.cs" />
+    <Compile Include="Net\Login\ChangePasswordService.cs" />
+    <Compile Include="Net\Main\GetChildInfoListService.cs" />
+    <Compile Include="Net\Main\GetChildInfoService.cs" />
+    <Compile Include="Net\Main\GetClassInfoService.cs" />
+    <Compile Include="Net\Main\GetMessageService.cs" />
+    <Compile Include="Models\Communication\CommModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ApiResponser.cs" />
+    <Compile Include="Utilities\ApiResult.cs" />
+    <Compile Include="Net\ChildEx\ChildExService.cs" />
+    <Compile Include="Net\ChildEx\IChildExService.cs" />
+    <Compile Include="Net\Communication\ArticleDetailService.cs" />
+    <Compile Include="Net\Communication\IArticleDetailService.cs" />
+    <Compile Include="Net\GrowMemory\GrowMemoryService.cs" />
+    <Compile Include="Net\GrowMemory\IGrowMemoryService.cs" />
+    <Compile Include="Net\Login\ILoginService.cs" />
+    <Compile Include="Net\Login\LoginService.cs" />
+    <Compile Include="Utilities\RestHelper.cs" />
+    <Compile Include="Net\Main\IMainService.cs" />
+    <Compile Include="Net\Main\MainService.cs" />
+    <Compile Include="Net\PhysiqueHealth\HealthGuide.cs" />
+    <Compile Include="Net\PhysiqueHealth\IHealthGuide.cs" />
+    <Compile Include="Net\PhysiqueHealth\IMyPhysiqueSerive.cs" />
+    <Compile Include="Net\PhysiqueHealth\MyPhysiqueService.cs" />
+    <Compile Include="Services\IPhotoCompressService.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\Communication\ArticlePublishViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\ChildExDetailViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\ChildExMainViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\ChildExSubViewModel.cs" />
+    <Compile Include="ViewModels\ChildEx\TabbedPageDemoViewModel.cs" />
+    <Compile Include="ViewModels\Communication\ClassArtListViewModel.cs" />
+    <Compile Include="ViewModels\Communication\CommArticleDetailViewModel.cs" />
+    <Compile Include="ViewModels\Communication\CommArticleListViewModel.cs" />
+    <Compile Include="ViewModels\Communication\CommListViewModel.cs" />
+    <Compile Include="ViewModels\Communication\CommPrtViewModel.cs" />
+    <Compile Include="ViewModels\Communication\CommTabViewModel.cs" />
+    <Compile Include="ViewModels\Communication\CommTeacherViewModel.cs" />
+    <Compile Include="ViewModels\Communication\KindergartenArtListViewModel.cs" />
+    <Compile Include="ViewModels\GrowMemory\GrowMemoryDetailViewModel.cs" />
+    <Compile Include="ViewModels\GrowMemory\GrowMemoryViewModel.cs" />
+    <Compile Include="ViewModels\Main\MainPrtViewModel.cs" />
+    <Compile Include="ViewModels\Main\MainTeacherViewModel.cs" />
+    <Compile Include="ViewModels\Main\RePasswordViewModel.cs" />
+    <Compile Include="ViewModels\PhysiqueHealth\MyPhysiqueViewModel.cs" />
+    <Compile Include="ViewModels\Login\RegisterDetailViewModel.cs" />
+    <Compile Include="ViewModels\Login\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Login\LoginViewModel.cs" />
+    <Compile Include="ViewModels\GrowMemory\CarouselPageDemoViewModel.cs" />
+    <Compile Include="ViewModels\MainTabbedViewModel.cs" />
+    <Compile Include="ViewModels\Main\SettingViewModel.cs" />
+    <Compile Include="ViewModels\Main\MainHeadsViewModel.cs" />
+    <Compile Include="Models\Main\ClassInfo.cs" />
+    <Compile Include="ViewModels\SchoolOnLine\SendNoticeViewModel.cs" />
+    <Compile Include="ViewModels\SchoolOnLine\ChildrenViewModel.cs" />
+    <Compile Include="UIString.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\Readme.txt" />
+    <Content Include="SQLite\Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\MvvmCross\CrossCore\Cirrious.CrossCore\Cirrious.CrossCore.csproj">
+      <Project>{CFF6F25A-3C3B-44EE-A54C-2ED4AAFF3ADB}</Project>
+      <Name>Cirrious.CrossCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\MvvmCross\Cirrious\Cirrious.MvvmCross\Cirrious.MvvmCross.csproj">
+      <Project>{B6E27475-E7D0-448C-A5CC-5097DCA1E2DD}</Project>
+      <Name>Cirrious.MvvmCross</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\MvvmCross\Cirrious\Cirrious.MvvmCross.Binding\Cirrious.MvvmCross.Binding.csproj">
+      <Project>{64DCD397-9019-41E8-A928-E5F5C5DF185B}</Project>
+      <Name>Cirrious.MvvmCross.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\MvvmCross\Cirrious\Cirrious.MvvmCross.Localization\Cirrious.MvvmCross.Localization.csproj">
+      <Project>{D89351C1-D48F-4AD0-A0B9-353A93425AB7}</Project>
+      <Name>Cirrious.MvvmCross.Localization</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\..\packages\SQLite.Net-PCL.2.4.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>..\..\packages\SQLiteNetExtensions.1.2.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

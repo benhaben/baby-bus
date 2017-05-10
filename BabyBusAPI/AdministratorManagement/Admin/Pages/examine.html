@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>Home</title>
+
+	<!--=== CSS ===-->
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- jQuery UI -->
+	<!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+	<!--[if lt IE 9]>s
+		<link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+	<![endif]-->
+
+	<!-- Theme -->
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+	<![endif]-->
+
+	<!--=== JavaScript ===-->
+
+	<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="assets/js/libs/html5shiv.js"></script>
+	<![endif]-->
+
+	<!-- Smartphone Touch Events -->
+	<script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+	<!-- General -->
+	<script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+	<script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+		Utilities.DrawHeader();
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+
+        //depend Id, be careful
+	    //Utilities.GetExamineCount();
+		Utilities.GetExamineCountByFilter();
+		Utilities.GenertFeedback();
+	});
+	</script>
+
+</head>
+
+<body>
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+
+    <div id="content">
+        <div id="container">
+
+            <!--=== Page Header ===-->
+            <div class="widget invoice">
+               
+                <div class="row">
+                    <div class="col-md-10" id="headerVal">
+                        <h2 id='titileVal'>体检资料</h2>
+                    </div>
+
+                    <a href="#"><div class="col-md-2"><button class="btn btn-inverse" style="margin-top:15px; margin-left:15px;">导出数据</button></div></a>
+
+                </div>
+            </div>
+            <!-- /Page Header -->
+
+
+
+            <div class="widget-content">
+
+                <table id="ExamineTable" border="1">
+                    <tr>
+                        <td>编号</td>
+                        <td>姓名</td>
+                        <td>身高 (厘米)</td>
+                        <td>体重 (千克)</td>
+                        <td>肺活量 (毫升)</td>
+                        <td>握力 (千克)</td>
+                        <td>台阶指数</td>
+                        <td>纵跳 (厘米)</td>
+                        <td>反应速度 (秒)</td>
+                        <td>单脚站立 (秒)</td>
+                        <td>坐位体前屈 (厘米)</td>
+                        <td>仰卧起坐/俯卧撑 (次)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

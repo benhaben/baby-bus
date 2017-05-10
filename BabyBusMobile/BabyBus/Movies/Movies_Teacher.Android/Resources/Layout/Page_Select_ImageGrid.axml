@@ -1,0 +1,11 @@
+﻿using System;
+namespace BabyBus.Droid
+{
+	public class Page_Select_ImageGrid
+	{
+		public Page_Select_ImageGrid()
+		{
+		}
+	}
+}
+

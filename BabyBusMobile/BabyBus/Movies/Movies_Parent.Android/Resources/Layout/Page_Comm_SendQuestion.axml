@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="0dp"
+        android:layout_marginBottom="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/lightyellow"
+            android:gravity="center_vertical"
+            android:id="@+id/no_net_lable"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/icon_easyicon_net"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="世界上最远的距离就是没有网，检查设置"
+                android:textColor="@color/bb_black1" />
+        </LinearLayout>
+        <Button xmlns:tools="http://schemas.android.com/tools"
+            android:text="选择孩子"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_select_child"
+            tools:visibility="invisible" />
+        <TextView
+            android:textSize="14sp"
+            android:layout_margin="4dp"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Text SelectedText" />
+        <BabyBus.Droid.Control.SegmentedGroup
+            android:id="@+id/segmented2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/button21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="留言"
+                style="@style/RadioButton" />
+            <RadioButton
+                android:id="@+id/button22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="请假"
+                style="@style/RadioButton" />
+        </BabyBus.Droid.Control.SegmentedGroup>
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+        <EditText
+            android:id="@+id/question_content_text"
+            android:inputType="textMultiLine"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|top"
+            android:minLines="6"
+            android:hint="请输入内容！（最多200字）"
+            local:MvxBind="Text Content"
+            android:layout_marginTop="10dp"
+            android:maxLength="200" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="2.0dip"
+            android:layout_marginTop="2.0dip"
+            android:layout_marginRight="2.0dip"
+            android:layout_marginBottom="2.0dip"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/RadioGrop_SickLeave"
+                android:visibility="gone">
+                <RadioGroup
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/shape_bg"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginTop="2dip"
+                    android:layout_marginRight="2dip"
+                    android:isScrollContainer="true"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/radiogrop_leave_11">
+                    <RadioButton
+                        android:text="事假"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/RadioButton_CasualLeave"
+                        android:visibility="visible"
+                        android:checked="true" />
+                </RadioGroup>
+                <RadioGroup
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/shape_bg"
+                    android:layout_marginLeft="2.0dip"
+                    android:layout_marginTop="2.0dip"
+                    android:layout_marginRight="2.0dip"
+                    android:isScrollContainer="true"
+                    android:layout_gravity="center_vertical">
+                    <RadioGroup
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:id="@+id/radiogrop_leave_21">
+                        <RadioButton
+                            android:text="待确诊"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/RadioButton_SickLeave"
+                            android:visibility="visible"
+                            android:checked="false"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1" />
+                        <RadioButton
+                            android:text="流感"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/RadioButton_GrippeLeave"
+                            android:visibility="visible"
+                            android:checked="false"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1" />
+                        <RadioButton
+                            android:text="麻疹"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/RadioButton_MeaslesLeave"
+                            android:visibility="visible"
+                            android:checked="false"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1" />
+                    </RadioGroup>
+                    <RadioGroup
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:id="@+id/radiogrop_leave_22">
+                        <RadioButton
+                            android:text="腮腺炎"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/RadioButton_MumpsLeave"
+                            android:visibility="visible"
+                            android:checked="false"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1" />
+                        <RadioButton
+                            android:text="痢疾"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/RadioButton_DysenteryLeave"
+                            android:visibility="visible"
+                            android:checked="false"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1" />
+                        <RadioButton
+                            android:text="手足口"
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/RadioButton_HFMDLeave"
+                            android:visibility="visible"
+                            android:checked="false"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1" />
+                    </RadioGroup>
+                </RadioGroup>
+            </RadioGroup>
+            <LinearLayout
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_askdate">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="14sp"
+                        android:layout_margin="4dp"
+                        android:text="开始日期"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:textSize="14sp"
+                        android:layout_margin="4dp"
+                        android:text="2015年06月25日"
+                        android:id="@+id/date_begin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="14sp"
+                        android:layout_margin="4dp"
+                        android:text="结束日期"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:textSize="14sp"
+                        android:layout_margin="4dp"
+                        android:text="2015年06月25日"
+                        android:id="@+id/date_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:text="@string/comm_label_finish"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7.0dip"
+                android:id="@+id/button1"
+                local:MvxBind="Click SendCommand" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

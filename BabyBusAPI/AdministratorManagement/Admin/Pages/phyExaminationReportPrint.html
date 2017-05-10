@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>宝贝体质测评报告</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css" />
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/physicalExamination.js"></script>
+    <!--打印js-->
+    <script type="text/javascript" src="assets/js/jquery.PrintArea.js"></script>
+    <script type="text/javascript" src="assets/js/ECharts/echarts-all.js"></script>
+    <script id="navKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="goUserHtml('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    <script type="text/x-handlebars-template" id="phyExaminationReportHTML">
+        <div style="margin-left: 10%;margin-top:1%;">
+            <table width="100%" border="0">
+                <tr>
+                    <td style="font-size:17px">
+                        姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：&nbsp;{{ChildNames}}
+                    </td>
+                    <td>
+                        <p style="position: relative; left: 30%; font-weight: 400; font-size: 17px">
+                            性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：&nbsp;{{ChildGender}}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size:17px">
+                        年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：&nbsp;{{Age}}岁
+                    </td>
+                    <td>
+                        <p style="position: relative; left: 30%; font-weight: 400; font-size: 17px">
+                            检测编号：&nbsp;{{phyMedicalId}}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size:17px">
+                        测试日期：&nbsp;{{TestTime}}
+                    </td>
+                    <td>
+                        <p style="position: relative; left: 30%; font-weight: 400; font-size: 17px">
+                            单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：{{KindergartenName}}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table border="1" align="center" style="width:100%;height:950px;margin-top:3%">
+            <tr>
+                <td align="center" style="width: 25%; font-size: 17px">内容</td>
+                <td align="center" style="width: 25%; font-size: 17px">测试指标</td>
+                <td align="center" style="width: 25%; font-size: 17px">测试值</td>
+                <td align="center" style="width: 25%; font-size: 17px">评分</td>
+            </tr>
+            <tr>
+                <td align="center" rowspan="2" style="font-size: 17px">形态</td>
+                <td align="center" style="font-size: 17px">身高（厘米）</td>
+                <td align="center" style="font-size: 17px">{{Height}}</td>
+                <td align="center" style="font-size: 17px">{{HeightSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 17px">身高标准体重（千克）</td>
+                <td align="center" style="font-size: 17px">{{Weights}}</td>
+                <td align="center" style="font-size: 17px">{{WeightSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" rowspan="6" style="font-size: 17px">素质</td>
+                <td align="center" style="font-size: 17px">10米折返跑（秒）</td>
+                <td align="center" style="font-size: 17px">{{TenmRun}}</td>
+                <td align="center" style="font-size: 17px">{{TenmRunSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 17px">坐位体前屈（厘米）</td>
+                <td align="center" style="font-size: 17px">{{SitReach}}</td>
+                <td align="center" style="font-size: 17px">{{SitReachSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 17px">立定跳远（厘米）</td>
+                <td align="center" style="font-size: 17px">{{StandingLongJump}}</td>
+                <td align="center" style="font-size: 17px">{{StandingLongJumpSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 17px">双脚连续跳（秒）</td>
+                <td align="center" style="font-size: 17px">{{JumpBothFeet}}</td>
+                <td align="center" style="font-size: 17px">{{JumpBothFeetSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 17px">网求掷远（米）</td>
+                <td align="center" style="font-size: 17px">{{TennisThrowFar}}</td>
+                <td align="center" style="font-size: 17px">{{TennisThrowFarSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 17px">走平衡木（米）</td>
+                <td align="center" style="font-size: 17px">{{WalkTheBalance}}</td>
+                <td align="center" style="font-size: 17px">{{WalkTheBalanceSorce}}</td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 17px">综合评级</td>
+                <td align="center" style="font-size: 17px">{{Grade}}</td>
+                <td align="center" style="font-size: 17px">总分</td>
+                <td align="center" style="font-size: 17px">{{TotalScore}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" id="descriptionId{{ChildId}}" style="font-size: 17px;padding-left:5px;padding-right:5px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现对您的测试结果进行简评，与同龄人比，您的体质处于{{Grade}}水平，具体状况是：
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;身高{{heightDescription}}，{{weightDescription}}。
+                    {{sitDownDescrtiption}}
+                    {{powerDescription}}
+                    {{speedDescription}}{{balanceDescription}}
+                </td>
+                <td colspan="2" id="radarId{{ChildId}}" style="font-size: 17px"></td>
+            </tr>
+        </table>
+        <p style="float:right;position:relative;right:2%;top:20px;font-size:17px">检测站：陕西睿莱国民体质检测中心</p>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            PhysicalExamination.GenertPrintRecordeInf();
+        });
+    </script>
+
+    <script>
+
+        /*function printme() {
+            $("#printHidden1").css({ "display": "none" });
+            $("#recordsIdss").removeAttr("class");
+            $("#delete_child_id").removeAttr("class");
+       3
+            window.print();
+            //Utilities.Redirect("phyExaminationReport.html");
+            $("#printHidden1").css({ "display": "block" });
+            $("#recordsIdss").attr({ "class": "modal-content" });
+            $("#delete_child_id").attr({ "class": "modal-header" });
+        }
+        function back() {
+            Utilities.Redirect("phyExaminationReport.html");
+        }*/
+        function printss() {
+            $("#printId").css({ "display": "none" });
+            $("#printCencalId").css({ "display": "none" });
+            window.print();
+            Utilities.Redirect("phyExaminationReport.html");
+        }
+        function printCancelss() {
+            Utilities.Redirect("phyExaminationReport.html");
+        }
+    </script>
+</head>
+
+<body id="bodyonline">
+    <button class="btn" onclick="printss()" style="position: relative; left: 75%;top:75px" id="printId">打印</button>
+    <button class="btn" onclick="printCancelss()" style="position: relative; left: 75%;top:75px" id="printCencalId">返回</button>
+    <center>
+        <div style="width: 874px; position: relative; top: 60px">
+
+            <div class="tab-content" id="ssss">
+                <div id="recordsIdss" style="position: relative; bottom: 17px">
+
+                    <div class="modal-header" id="delete_child_id">
+                        <h4 class="modal-title" style="text-align: center; font-weight: 800; font-size: 30px">体&nbsp;制&nbsp;测&nbsp;评&nbsp;报&nbsp;告</h4>
+                    </div>
+                    <br />
+                    <div class="modal-body" id="childInfo2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>

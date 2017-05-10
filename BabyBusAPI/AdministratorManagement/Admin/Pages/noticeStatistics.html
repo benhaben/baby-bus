@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>消息统计</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>s
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/attendance.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/statistics.js"></script>
+
+    <script src="assets\js\ECharts\js\echarts.js"></script>
+
+
+
+    <script id="statisticsNavKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="changeKindgarten('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script id="statisticsMonth-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <button class="btn" id="month{{month}}" onclick="getMonth('{{month}}')">
+            {{month}}月<img src='images/noticeStatisticsImg2.png' id="monthImg{{month}}" width='20px'></img>
+        </button>
+        {{/each}}
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+
+            Statistics.GenerateNoticeStatisticsYearMonthInfo();
+            Statistics.GenerateKindergartenAtNavigationBar('one');
+            Utilities.GenertFeedback();
+
+        });
+
+        function getYear(e) {
+            $("#yearVal").val($("#" + e.id).text());
+
+            var tabIdArray = new Array();
+            tabIdArray[0] = 'firstTab';
+            tabIdArray[1] = 'secondTab';
+            tabIdArray[2] = 'thirdTab';
+
+            var tabId = e.id + "Tab";
+
+            for (var i = 0; i < tabIdArray.length ; i++) {
+                if (tabIdArray[i] == tabId) {
+                    $("#" + tabId).addClass("active");
+                } else {
+                    $("#" + tabIdArray[i]).removeClass("active");
+                }
+            }
+            Statistics.GetNoticeStatisticsInfo($.cookie("paraStatisticsKinId"), $.cookie("paraStatisticsKinName"));
+        }
+
+        function getMonth(e) {
+            
+            $("#monthVal").val(e);
+            for (var monthIndex = 1; monthIndex <= 12; monthIndex++) {
+                $("#monthImg" + monthIndex).attr("src", "images/noticeStatisticsImg2.png");
+            }
+            $("#monthImg" + e).attr("src", "images/noticeStatisticsCheck.png");
+            Statistics.GetNoticeStatisticsInfo($.cookie("paraStatisticsKinId"), $.cookie("paraStatisticsKinName"));
+        }
+
+        function changeKindgarten(kindergartenId, kinName) {
+            $.cookie("paraStatisticsKinId", kindergartenId, { expires: 1, path: '/' });
+            $.cookie("paraStatisticsKinName", kinName, { expires: 1, path: '/' });
+            Statistics.GetNoticeStatisticsInfo(kindergartenId, kinName);
+        }
+
+    </script>
+    <style>
+        a {
+            color: grey;
+        }
+
+            a:link {
+                text-decoration: none;
+            }
+
+            a:hover {
+                cursor: pointer;
+            }
+    </style>
+
+</head>
+
+<body id="bodyonline">
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+
+    <input type="hidden" id="yearVal" />
+    <input type="hidden" id="monthVal" />
+
+    <div id="container">
+        <div id="sidebar" class="sidebar-fixed">
+            <div id="sidebar-content">
+                <div class="sidebar-search">
+                    <div class="input-box">
+                        <a onclick="Utilities.Redirect('PrincipalAttendence.html')" style="text-decoration: none">
+                            <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                            &nbsp;
+                            <b id="showKinNameInfo">幼儿园</b>
+                        </a>
+                    </div>
+                </div>
+                <div id="statisticsNavKindergartens"></div>
+            </div>
+            <div id="divider" class="resizeable"></div>
+        </div>
+
+
+        <!-- /Sidebar -->
+        <div id="content">
+            <div class="container">
+                <div style=" max-width: 1000px;position:relative;top: 5px">
+
+                    <div class="widget">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-md-10" id="headerVal">
+                                    <h2 id='titileVal'><small id="headInfo">考勤概况</small></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="tabbable tabbable-custom tabbable-full-width">
+                        <ul class="nav nav-tabs">
+                            <li id="firstTab" class="active"><a href="#" data-toggle="tab" id="first" onclick="getYear(this)"></a></li>
+                            <li id="secondTab"><a href="#" data-toggle="tab" id="second" onclick="getYear(this)"></a></li>
+                            <li id="thirdTab"><a href="#" data-toggle="tab" id="third" onclick="getYear(this)"></a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="monthContent">
+                                <div style="margin-bottom:10px" id="showMonth">
+                                    
+                                </div>
+                                <div id="main" style="height:600px;border:1px solid #ccc;padding:20px;">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<NeedSelectImageContentPage
+xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="CoolBeans.Pages.SchoolOnLine.SendNoticePage"
+xmlns:controls="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs">
+	<StackLayout>
+		<Picker Title="请选择通知类型" HorizontalOptions="FillAndExpand" SelectedIndex="{Binding SelectedNoticeType}"
+				x:Name="noticeType"></Picker>
+		<Editor HeightRequest="200"
+				HorizontalOptions="FillAndExpand"
+				Text="{Binding Content}"
+				>
+		</Editor>
+		<StackLayout Orientation="Vertical" x:Name="mediaLayout" Padding="10">
+      <StackLayout Orientation="Horizontal" x:Name="imageLayout" Padding="10"></StackLayout>
+      <!--<Image Source="{Bingding TheImageSource}"></Image>-->
+			<!--<controls:ImageButton Image="plus.png" Text="配图"  HorizontalOptions="Start"/>-->
+		</StackLayout>
+		<StackLayout Padding="10">
+		<StackLayout Orientation="Horizontal">
+			<Label Text="@发送给" HorizontalOptions="StartAndExpand" HeightRequest="40" YAlign="Center"></Label>
+			<Label Text="全班(默认)" IsVisible="{Binding IsAllClass}" HorizontalOptions="EndAndExpand" HeightRequest="40" YAlign="Center"></Label>
+			<controls:ImageButton x:Name="btnSelectChildren" Text="选孩子" Command="{Binding ShowChildrenPageCommand}"  HeightRequest="50"/>
+		</StackLayout>
+      	<StackLayout Orientation="Horizontal">
+          <Label Text="{Binding SelectedText}"></Label>
+      </StackLayout>
+		</StackLayout>
+		<controls:ImageButton Text="发送" BackgroundColor="#3d509f" TextColor="#ffffff" HeightRequest="50" WidthRequest="175"
+                          Command="{Binding SubmitNoticeCommand}"/>
+	</StackLayout>
+</NeedSelectImageContentPage>

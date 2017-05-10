@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>添加宝贝信息</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <style>
+        .date-picker-wp {
+            display: none;
+            position: absolute;
+            background: #f1f1f1;
+            left: 40px;
+            top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+            .date-picker-wp table {
+                border: 1px solid #ddd;
+            }
+
+            .date-picker-wp td {
+                background: #fafafa;
+                width: 30px;
+                height: 25px;
+                border: 1px solid #ccc;
+                font-size: 12px;
+                text-align: center;
+            }
+
+                .date-picker-wp td.noborder {
+                    border: none;
+                    background: none;
+                }
+
+                .date-picker-wp td a {
+                    color: #1c93c4;
+                    text-decoration: none;
+                }
+
+        .strong {
+            font-weight: bold;
+        }
+
+        .hand {
+            cursor: pointer;
+            color: #3879d9;
+        }
+    </style>
+    <script type="text/javascript">
+        var DatePicker = function () {
+            var $ = function (i) { return document.getElementById(i) },
+			addEvent = function (o, e, f) { o.addEventListener ? o.addEventListener(e, f, false) : o.attachEvent('on' + e, function () { f.call(o) }) },
+			getPos = function (el) {
+			    for (var pos = { x: 0, y: 0 }; el; el = el.offsetParent) {
+			        pos.x += el.offsetLeft;
+			        pos.y += el.offsetTop;
+			    }
+			    return pos;
+			}
+            var init = function (n, config) {
+                window[n] = this;
+                Date.prototype._fd = function () { var d = new Date(this); d.setDate(1); return d.getDay() };
+                Date.prototype._fc = function () { var d1 = new Date(this), d2 = new Date(this); d1.setDate(1); d2.setDate(1); d2.setMonth(d2.getMonth() + 1); return (d2 - d1) / 86400000; };
+                this.n = n;
+                this.config = config;
+                this.D = new Date;
+                this.el = $(config.inputId);
+                this.el.title = this.n + 'DatePicker';
+                this.update();
+                this.bind();
+            }
+            init.prototype = {
+                update: function (y, m) {
+                    var con = [], week = ['日', '一', '二', '三', '四', '五', '六'], D = this.D, _this = this;
+                    fn = function (a, b) { return '<td title="' + _this.n + 'DatePicker" class="noborder hand" onclick="' + _this.n + '.update(' + a + ')">' + b + '</td>' },
+					_html = '<table cellpadding=0 cellspacing=2>';
+                    y && D.setYear(D.getFullYear() + y);
+                    m && D.setMonth(D.getMonth() + m);
+                    var year = D.getFullYear(), month = D.getMonth() + 1, date = D.getDate();
+                    for (var i = 0; i < week.length; i++) con.push('<td title="' + this.n + 'DatePicker" class="noborder">' + week[i] + '</td>');
+                    for (var i = 0; i < D._fd() ; i++) con.push('<td title="' + this.n + 'DatePicker" class="noborder"> </td>');
+                    for (var i = 0; i < D._fc() ; i++) con.push('<td class="hand" onclick="' + this.n + '.fillInput(' + year + ', ' + month + ', ' + (i + 1) + ')">' + (i + 1) + '</td>');
+                    var toend = con.length % 7;
+                    if (toend != 0) for (var i = 0; i < 7 - toend; i++) con.push('<td class="noborder"> </td>');
+                    _html += '<tr>' + fn("-1, null", "<<") + fn("null, -1", "<") + '<td title="' + this.n + 'DatePicker" colspan=3 class="strong">' + year + '-' + month + '-' + date + '</td>' + fn("null, 1", ">") + fn("1, null", ">>") + '</tr>';
+                    for (var i = 0; i < con.length; i++) _html += (i == 0 ? '<tr>' : i % 7 == 0 ? '</tr><tr>' : '') + con[i] + (i == con.length - 1 ? '</tr>' : '');
+                    !!this.box ? this.box.innerHTML = _html : this.createBox(_html);
+                },
+                fillInput: function (y, m, d) {
+                    var s = this.config.seprator || '/';
+                    this.el.value = y + s + m + s + d;
+                    this.box.style.display = 'none';
+                },
+                show: function () {
+                    var s = this.box.style, is = this.mask.style;
+                    s['left'] = is['left'] = getPos(this.el).x + 'px';
+                    s['top'] = is['top'] = getPos(this.el).y + this.el.offsetHeight + 'px';
+                    s['display'] = is['display'] = 'block';
+                    is['width'] = this.box.offsetWidth - 2 + 'px';
+                    is['height'] = this.box.offsetHeight - 2 + 'px';
+                },
+                hide: function () {
+                    this.box.style.display = 'none';
+                    this.mask.style.display = 'none';
+                },
+                bind: function () {
+                    var _this = this;
+                    addEvent(document, 'click', function (e) {
+                        e = e || window.event;
+                        var t = e.target || e.srcElement;
+                        if (t.title != _this.n + 'DatePicker') { _this.hide() } else { _this.show() }
+                    })
+                },
+                createBox: function (html) {
+                    var box = this.box = document.createElement('div'), mask = this.mask = document.createElement('iframe');
+                    box.className = this.config.className || 'datepicker';
+                    mask.src = 'javascript:false';
+                    mask.frameBorder = 0;
+                    box.style.cssText = 'position:absolute;display:none;z-index:9999';
+                    mask.style.cssText = 'position:absolute;display:none;z-index:9998';
+                    box.title = this.n + 'DatePicker';
+                    box.innerHTML = html;
+                    document.body.appendChild(box);
+                    document.body.appendChild(mask);
+                    return box;
+                }
+            }
+            return init;
+        }();
+    </script>
+    <script>
+        $(document).ready(function () {
+            Utilities.DrawHeader();
+            new DatePicker('demo', {
+                inputId: 'dateVal',
+                className: 'date-picker-wp',
+                seprator: '-'
+            })
+
+            UserInfo.GenerateCreateChildInfo();
+            Utilities.GenertFeedback();
+        })
+        function _creat() {
+            UserInfo.GetCreateInfo();
+        }
+        function goBack() {
+            Utilities.Redirect("user.html");
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+
+    <div id="container">
+        <div class="col-md-6">
+            <div class="widget box" style="position:relative;top:100px;left:50%">
+                <div class="widget-header">
+                    <h4><i class="icon-reorder"></i> 添加孩子信息</h4>
+                    <div class="pull-right">
+                        <input type="submit" value="保存" class="btn btn- btn-primary" id="edit_user_info" style="margin:2px;" onclick="_creat()" />
+                        <input type="submit" value="返回" class="btn btn- btn-primary" id="back" style="margin:2px;" onclick="goBack()" />
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <form id="edit_form_user_info" class="form-horizontal row-border" action="#" method="post">
+                        
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr>幼儿园：</nobr></label>
+                            <div class="col-md-8">
+                                <input id="kinName" type="text" class="form-control" disabled="disabled" style="width:200px" />
+                                <input id="kinId" name="kinId" type="hidden" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr>所在班级：</nobr></label>
+                            <div class="col-md-8">
+                                <input id="clsName" type="text" class="form-control" disabled="disabled" style="width:200px" />
+                                <input id="clsId" name="clsId" type="hidden" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>宝贝姓名：</nobr></label>
+                            <div class="col-md-10"><input id="childName" name="ChildName" type="text" class="form-control" style="width:200px"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>宝贝性别：</nobr></label>
+                            <div class="col-md-10">
+                                <input type="radio" id="render" name="render" value="2" checked="checked"/>女
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="render" name="render" value="1" />男
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>宝贝生日：</nobr></label>
+                            <div class="col-md-10"><input id="dateVal" style="height:25px" type="text" /></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

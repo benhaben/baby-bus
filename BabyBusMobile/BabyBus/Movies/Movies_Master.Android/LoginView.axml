@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/icon_logo512"
+            android:layout_margin="10dp" />
+        <TextView
+            android:text="@string/login_label_babybus_cn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textColor="@color/bb_green"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+        <TextView
+            android:text="@string/login_label_babybus_en"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/bb_green"
+            android:id="@+id/textView2"
+            android:textSize="15dp" />
+        <TextView
+            android:text="Text"
+            android:layout_width="150dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="@color/bb_green"
+            android:id="@+id/textView4" />
+        <TextView
+            android:text="@string/login_label_parent_version"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bb_green"
+            android:gravity="center"
+            android:id="@+id/textView3"
+            android:textSize="15dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="20.0dip"
+            android:layout_marginRight="10.0dip"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <EditText
+                    android:id="@+id/username_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    local:MvxBind="Text Username"
+                    android:layout_marginLeft="20.0dip"
+                    android:hint="请输入账号"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:maxLength="20" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_gender"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <EditText
+                    android:id="@+id/password_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    local:MvxBind="Text Password"
+                    android:layout_marginLeft="20.0dip"
+                    android:background="@null"
+                    android:hint="请输入密码"
+                    android:password="true"
+                    android:singleLine="true"
+                    android:inputType="textPassword"
+                    android:maxLength="20" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <Button
+                android:text="@string/login_label_signin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button1"
+                android:layout_weight="1"
+                local:MvxBind="Click LoginCommand"
+                android:background="@android:color/holo_green_dark"
+                android:textColor="@android:color/background_light" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/login_label_findpwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18dp"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/bb_green"
+                    android:gravity="clip_horizontal|left"
+                    android:layout_weight="3"
+                    local:MvxBind="Click FindPasswordCommand" />
+                <TextView
+                    android:text="@string/login_label_register"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18dp"
+                    android:gravity="right|clip_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    local:MvxBind="Click GotoRegisterCommand" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:textSize="18.0sp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/user_call"
+            android:textColor="@color/bb_green"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="客服电话: 4009922586" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_wx_button"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

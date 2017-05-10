@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BabyBus.Helpers;
+using Cirrious.CrossCore.Converters;
+
+namespace BabyBus.Converters {
+	public class DateTimeOffsetValueConverter : MvxValueConverter<DateTime,string> {
+		protected override string Convert(DateTime value, Type targetType, object parameter, CultureInfo culture) {
+			return Utils.DateTimeString(value);
+		}
+	}
+
+	public class IsHaveAnswersValueConverter : MvxValueConverter<bool,string> {
+		protected override string Convert(bool value, Type targetType, object parameter, CultureInfo culture) {
+			if (value) {
+				return "已经回答";
+			} else {
+				return "未回答";
+			}
+		}
+	}
+
+	public class IsAttenceValueConverter : MvxValueConverter<bool,string> {
+		protected override string Convert(bool value, Type targetType, object parameter, CultureInfo culture) {
+			if (value) {
+				return "已考勤";
+			} else {
+				return "未考勤";
+			}
+		}
+	}
+
+	public class StringToUriThumbValueConverter : MvxValueConverter<string,Uri> {
+		protected override Uri Convert(string value, Type targetType, object parameter, CultureInfo culture) {
+			if (!string.IsNullOrEmpty(value)) {
+				return new Uri(Constants.ThumbServerPath + value + Constants.ThumbRule);
+			} else {
+				return null;
+
+				//want to use fallback by throw an exception, but not work
+//                throw new Exception("Can not create a Uri, please use FallBack value when binding!");
+			}
+		}
+	}
+
+	public class GenderModel2IdValueConverter : MvxValueConverter<GenderModel,int> {
+		protected override int Convert(GenderModel value, Type targetType, object parameter, CultureInfo culture) {
+			return value.Id;
+		}
+		 public virtual GenderModel ConvertBack(int value, Type targetType, object parameter, CultureInfo culture)
+        {
+        	var genderModel = new GenderModel();
+        	genderModel.Id = value;
+            return genderModel;
+        }
+	}
+}

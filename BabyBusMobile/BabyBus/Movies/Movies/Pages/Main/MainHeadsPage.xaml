@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+xmlns:labs="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs"
+x:Class="CoolBeans.Pages.Main.MainHeadsPage">
+<StackLayout x:Name="stl">
+    <Label Text="本周使用情况汇总" BackgroundColor="Purple"
+			HorizontalOptions="FillAndExpand"/>
+	<StackLayout>
+		
+	</StackLayout>
+	<Label Text="注册用户数" BackgroundColor="Purple"
+			HorizontalOptions="FillAndExpand"/>
+  </StackLayout>
+</ContentPage>

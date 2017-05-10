@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@+id/item_select_photo"
+        android:title="选取照片" />
+  <item android:id="@+id/item_take_photo"
+        android:title="拍照片" />
+  <item android:id="@+id/item_crop_photo"
+        android:title="裁剪照片" />
+</menu>

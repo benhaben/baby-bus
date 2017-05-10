@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>多元智力</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/js/jqueryMobile/jquery.mobile.custom.structure.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/js/jqueryMobile/jquery.mobile.custom.theme.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if IE 8]>
+        <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- Page specific plugins -->
+    <!-- Charts -->
+    <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+    <!-- Forms -->
+    <script type="text/javascript" src="plugins/typeahead/typeahead.min.js"></script> <!-- AutoComplete -->
+    <script type="text/javascript" src="plugins/autosize/jquery.autosize.min.js"></script>
+    <script type="text/javascript" src="plugins/inputlimiter/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="plugins/uniform/jquery.uniform.min.js"></script> <!-- Styled radio and checkboxes -->
+    <script type="text/javascript" src="plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="plugins/select2/select2.min.js"></script> <!-- Styled select boxes -->
+    <script type="text/javascript" src="plugins/fileinput/fileinput.js"></script>
+    <script type="text/javascript" src="plugins/duallistbox/jquery.duallistbox.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+    <!-- Globalize -->
+    <script type="text/javascript" src="plugins/globalize/globalize.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.de-DE.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.ja-JP.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/testQuestion.js"></script>
+    <!-- Slim Progress Bars -->
+    <script type="text/javascript" src="plugins/nprogress/nprogress.js"></script>
+
+    <!-- Demo JS -->
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/demo/form_components.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/jqueryMobile/jquery.mobile.custom.min.js"></script>
+
+    <script type="text/x-handlebars-template" id="childIntelligenceTitlHtmlId">
+        <div>
+            {{#each this}}
+            <div style="position: relative; left: 10%; color: #33A1C9; font-size: 50px">
+                ●  {{QuestionContent}}
+            </div>
+            {{/each}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="childIntelligenceHtmlId">
+        {{#each this}}
+            <dd id="Intello{{ChildId}}" style="position:relative;left:3%;margin-top:0px;float:left" >
+                    <div style="width:100%;height:170px;float:left;margin-top:10px">
+                        <img src="{{ImageUrl}}" style="border: solid #b6ff00;  margin-top: 2%; width: 260px; height: 260px; position: relative; right: 10%" />
+                    </div>
+                    <div style="float:left;position:relative;left:30%;bottom:120px;">
+                        <p class="childName">{{ChildName}}
+                            <input type="hidden" id="score{{ChildId}}" value="0"/>
+                        </p>
+                        
+                        <div style="font-size:100px;width:200%">
+                            
+                            <img src='images/sorceFalse.png' id="scoreImg1{{ChildId}}" style="width:70px" onclick="updateChildScore('{{ChildId}}', '1')" />
+                            <img src='images/sorceFalse.png' id="scoreImg2{{ChildId}}" onclick="updateChildScore('{{ChildId}}', '2')" style="width: 70px;position: relative; right:2%;" />
+                            <img src='images/sorceFalse.png' id="scoreImg3{{ChildId}}" onclick="updateChildScore('{{ChildId}}', '3')" style="width: 70px;position: relative; right:4%;" />
+                            <img src='images/sorceFalse.png' id="scoreImg4{{ChildId}}" onclick="updateChildScore('{{ChildId}}', '4')" style="width: 70px;position: relative; right:6%;" />
+                            <img src='images/sorceFalse.png' id="scoreImg5{{ChildId}}" onclick="updateChildScore('{{ChildId}}', '5')" style="width: 70px;position: relative; right:8%;" />
+  
+                        </div>
+                    </div>
+            </dd>
+        {{/each}}
+    </script>
+        <!--<script type="text/x-handlebars-template" id="childIntelligenceHtmlId">
+            {{#each this}}
+                <td style="text-align:center" id="name{{ChildId}}"></td>
+                <dd id="childId{{ChildId}}">{{ChildName}}</dd>
+                <dd>
+                </dd>
+            {{/each}}
+        </script>-->
+
+        <style>
+            .IntelligenceSorceHeader {
+                background-color: #b0e0e6;
+                text-align: center;
+                font-size: 60px;
+                height: 100px;
+                color: #ffffff;
+                line-height: 100px;
+                font-weight: 200;
+            }
+            .childName{
+                font-size:50px;
+                position:relative;
+                bottom:20px;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                "use strict";
+                // Utilities.DrawHeader();
+                $("#drawHeader").text($.cookie("testQuestiongsName"))
+                App.init(); // Init layout and core plugins
+                Plugins.init(); // Init all plugins
+                FormComponents.init(); // Init all form-specific plugins
+                TestQuestion.GenertTeacherScoreIntelligenceQuestion();
+            });
+            function submit() {
+                TestQuestion.GenertTeacherIntelligenceSorce();
+            }
+            function updateChildScore(childId, score) {
+                //改变hidden 值
+                $("#score" + childId).val(score);
+                //alert($("#score" + childId).val());
+                //2改变btn图片<img src='images/sorceFalse.png' id="scoreImg1{{ChildId}}" width='50px'></img>
+                for (var index = 1; index <= score; index++) {
+                    $("#scoreImg" + index + childId).attr("src", "images/sorceTrue.png");
+                }
+                if (score < 5) {
+                    var minIndex2 = parseInt(score);
+                    minIndex2 += 1;
+                    for (var index2 = minIndex2; index2 <= 5; index2++) {
+                        $("#scoreImg" + index2 + childId).attr("src", "images/sorceFalse.png");
+                    }
+                }
+
+            }
+            function html() {
+                Utilities.Redirect("TeachTestQuestionDetail.html");
+            }
+        </script>
+
+
+
+</head>
+<body id="bodyonline" >
+    <a onclick="html()" style="text-decoration: none;height: 70px; width: 5%; float: left; color: #ffffff; position: relative; top: 10px; left: 5%">
+        <p style="font-size: 50px">
+            <
+        </p>
+    </a>
+    <header id="drawHeader" class="IntelligenceSorceHeader"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+    <div class="row">
+        <div style="height:30px;margin-top:4%" id="intelligenceQuestionTitleId">
+            <!--  <i class="icon-remove close" data-dismiss="alert"></i>-->
+        </div>
+        <div class="form-group" style="position:relative;left:15%;margin-top:6%">
+            <dl id="childTestQuestionId" style="float:left"></dl>
+        </div>
+        <button class="btn" style="background-color: #33A1C9; width: 50%; height: 100px; position: relative; left: 15%; margin-top: 50px; " onclick="submit()">
+            <b style="font-size: 60px;color:#ffffff">提交评分</b>
+        </button>
+       <!-- <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="widget box">
+                <div class="widget-header">
+                    <h4><i class="icon-reorder"></i> 多元智力测评</h4>
+                </div>
+                <div class="widget-content">
+                    <form class="form-horizontal row-border" action="#">
+
+                        <div class="form-group">
+                            <table style="width: 92%; position: relative; left: 4%; top: 7%" border="1" >
+                                <tr style="text-align:center;height:30px">
+                                    <td>宝贝姓名</td>
+                                    <td>评分</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+
+
+
+    </div>
+</body>
+</html>

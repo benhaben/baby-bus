@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>考勤</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>s
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/attendance.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+
+    <script id="PrincipalAttClsesHeaderHtml" type="text/x-handlebars-template">
+        <div class="widget">
+            <div class="widget-header">
+                
+                <div class="row">
+
+                    <div class="col-md-10" id="headerVal">
+                        <h2 id='titileVal'>
+                            <img src="{{image}}" style="border:0" width="50px" />
+                            <small>{{year}}年{{month}}月{{className}}宝贝出勤情况</small>
+                        </h2>
+                        <label id="xlsStatus" style="color:red"></label>
+                    </div>
+
+                    <a>
+                        <div class="col-md-2">
+                            <button class="btn btn-inverse" id="excelChild" onclick="excel()" style="margin-top:15px; margin-left:15px;">导出班级明细考勤</button>
+                        </div>
+                    </a>
+
+                </div>
+                
+            </div>
+        </div>
+    </script>
+
+    <script id="PrincipalAttClsesDetailHtml" type="text/x-handlebars-template">
+        <!--{{#each this}}-->
+        <a id="{{childId}}" ondblclick="goPrincipalClsStuDetail('{{childId}}')" style="position:relative;left:2%">
+            <div id="content{{childId}}" class="thumbnail col-md-3" style="height: 100px; width:100px; margin: 10px;">
+                <div class="widget">
+                    <div class="widget-header">
+                        <div>
+                            <center>
+                                <h3>{{childName}}</h3>
+                                <p style='font-size:small'>缺勤天数 : {{qqDays}}</p>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <!--{{/each}}-->
+    </script>
+
+    <script id="attendanceNavKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="changeKindgarten('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <!--表头-->
+    <script id="PrincipalAttClsStuDetailInfo1Html" type="text/x-handlebars-template">
+
+        <table id="cqTable" border="1" cellpadding="1" class="table table-hover table-striped table-bordered table-highlight-head">
+            <thead>
+                <tr id='headerTr'>
+                    <th align="center"><nobr><center>宝贝</center></nobr></th>
+                    <th align="center"><nobr><center>缺勤天数</center></nobr></th>
+                    <th align="center"><nobr><center>联系电话</center></nobr></th>
+                </tr>
+            </thead>
+
+            {{#each this}}
+
+            <tr id='valueTr{{childId}}' ondblclick="goPrincipalClsStuDetail('{{childId}}')">
+                <td>
+                    <a id="{{childId}}" style="position: relative; left: 2%; text-decoration: none;">
+                        <nobr>{{childName}}</nobr>
+                    </a>
+                </td>
+                <td>
+                    <a style="position: relative; left: 2%; text-decoration: none;">
+                        <nobr>
+                            <center><span id="QqCount{{childId}}">{{qqCount}}</span></center>
+                        </nobr>
+                    </a>
+                </td>
+                <td>
+                    <a style="position: relative; left: 2%; text-decoration: none;">
+                        <nobr>
+                            <span id="Phone{{childId}}">{{phone}}</span>
+                        </nobr>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+
+        
+
+    </script>
+
+    <script id="PrincipalAttClsStuDetailInfo2Html" type="text/x-handlebars-template">
+        {{#each this}}
+        <th><nobr><center>{{day}}日</center></nobr></th>
+        {{/each}}
+    </script>
+
+    <script id="PrincipalAttClsStuDetailInfo3Html" type="text/x-handlebars-template">
+        {{#each this}}
+        <td style="text-align:center;vertical-align:middle">
+            <nobr><span id="{{day}}cqInfo{{childId}}">{{cq}}</span></nobr>
+            <input type="hidden" value="{{cqStatus}}" id="{{day}}cqStatus{{childId}}" />
+        </td>
+        {{/each}}
+    </script>
+
+    <script id="PrincipalAttClsStuDetailInfo4Html" type="text/x-handlebars-template">
+        {{#each this}}
+        <td align="center">
+            <nobr><span id="{{day}}{{childId}}qqCount">{{qqCount}}</span></nobr>
+        </td>
+        {{/each}}
+    </script>
+
+    <script id="PrincipalAttClsStuDetailInfo5Html" type="text/x-handlebars-template">
+        {{#each this}}
+        <td>
+            <nobr><span id="{{day}}{{childId}}Phone">{{phone}}</span></nobr>
+        </td>
+        {{/each}}
+    </script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+		Utilities.DrawHeader();
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+
+		Attendance.GenerateKindergartenAtNavigationBar('three');
+		
+		Utilities.GenertFeedback();
+	});
+	</script>
+
+    <script>
+        function goPrincipalClsStuDetail(childId) {
+            $.cookie("paraChildId", childId, { expires: 1, path: '/' });
+            Utilities.Redirect("PrincipalClsStuDetail.html");
+        }
+        function excel() {
+            Attendance.GenerateExcelInfoForChild();
+        }
+        function changeKindgarten(kindergartenId, kinName) {
+            $.cookie("paraAttendanceKinId", kindergartenId, { expires: 1, path: '/' });
+            $.cookie("paraAttendanceKinName", kinName, { expires: 1, path: '/' });
+            Utilities.Redirect("PrincipalAttendence.html");
+        }
+    </script>
+
+	<style>
+		a {
+			color: grey;
+		}
+		a:link {
+			text-decoration: none;
+
+		}
+            a:hover {
+                cursor: pointer;
+            }
+	</style>
+</head>
+
+<body id="bodyonline">
+
+    <!-- Header -->
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <div id="container">
+        <div id="sidebar" class="sidebar-fixed">
+            <div id="sidebar-content">
+                <div class="sidebar-search">
+                    <div class="input-box">
+                        <a onclick="Utilities.Redirect('PrincipalAttendence.html')" style="text-decoration: none">
+                            <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                            &nbsp;
+                            <b id="showKinNameInfo">幼儿园</b>
+                        </a>
+                    </div>
+                </div>
+                <div id="attendanceNavKindergartens"></div>
+            </div>
+            <div id="divider" class="resizeable"></div>
+        </div>
+
+        <div id="content">
+            <div class="container">
+                <div id="clsDetailContent" style=" position:relative;top: 5px">
+                    
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="attLoction">
+
+                            </li>
+                        </ul>
+                    </div>
+
+
+ <!--begin-->
+                    
+ <!--end-->
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+   
+
+    </div>
+
+	<div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

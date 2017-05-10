@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>体质检测</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if IE 8]>
+        <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- Page specific plugins -->
+    <!-- Charts -->
+    <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+    <!-- Forms -->
+    <script type="text/javascript" src="plugins/typeahead/typeahead.min.js"></script> <!-- AutoComplete -->
+    <script type="text/javascript" src="plugins/autosize/jquery.autosize.min.js"></script>
+    <script type="text/javascript" src="plugins/inputlimiter/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="plugins/uniform/jquery.uniform.min.js"></script> <!-- Styled radio and checkboxes -->
+    <script type="text/javascript" src="plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="plugins/select2/select2.min.js"></script> <!-- Styled select boxes -->
+    <script type="text/javascript" src="plugins/fileinput/fileinput.js"></script>
+    <script type="text/javascript" src="plugins/duallistbox/jquery.duallistbox.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-inputmask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+    <!-- Globalize -->
+    <script type="text/javascript" src="plugins/globalize/globalize.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.de-DE.js"></script>
+    <script type="text/javascript" src="plugins/globalize/cultures/globalize.culture.ja-JP.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/testQuestion.js"></script>
+    <script type="text/javascript" src="assets/js/physicalExamination.js"></script>
+    <!-- Slim Progress Bars -->
+    <script type="text/javascript" src="plugins/nprogress/nprogress.js"></script>
+
+    <!-- Demo JS -->
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/demo/form_components.js"></script>
+
+    <script type="text/x-handlebars-template" id="weigherHeighTitleHtml">
+        <div class="panel panel-default" style="border:none">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="ageTypeId{{gender}}" style="display:block">
+                    {{typeName}}孩身高体重评分标准
+                    <i style="float:right;width:95%;height:40px;position:relative;left:2%;bottom:25px" onclick="displayDetail('{{gender}}')">
+                        <i id="types{{gender}}" style="float:right;position:relative;right:10px;top:10px">
+                            ▲
+                        </i>
+                    </i>
+                </h3>
+            </div>
+            <div style="display:block" id="display{{gender}}">
+                <table id="weigherHeighId{{gender}}" border="1" style="position:relative;left:2%;margin-top:10px;width:96%;margin-bottom:1px"></table>
+
+            </div>
+        </div>
+    </script>
+
+
+    <script type="text/x-handlebars-template" id="weigherHeighDataHtml">
+        <tr style="text-align:center;height:30px">
+            <td>性 别</td>
+            <td>身高下限</td>
+            <td>身高上限</td>
+            <td>瘦1分上限</td>
+            <td>瘦3分下限</td>
+            <td>瘦3分上限</td>
+            <td>正常5分下限</td>
+            <td>正常5分上限</td>
+            <td>胖3分下限</td>
+            <td>胖3分上限</td>
+            <td>胖1分下限</td>
+        </tr>
+        {{#each this}}
+            <tr style="text-align:center;height:30px">
+                <td>{{Gender}}</td>
+                <td>{{HeightOffline}}</td>
+                <td>{{HeightOnline}}</td>
+                <td>{{Thin1PintsOnLine}}</td>
+                <td>{{Thin3PointsOffLine}}</td>
+                <td>{{Thin3PointsOnLine}}</td>
+                <td>{{Normal5PointsOffLine}}</td>
+                <td>{{Normal5PointsOnLine}}</td>
+                <td>{{Fat3PointsLower}}</td>
+                <td>{{Fat3PointsOnLine}}</td>
+                <td>{{Fat1PointsLower}}</td>
+            </tr>
+        {{/each}}
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            PhysicalExamination.GenertPhysicalExaminationData();
+
+        });
+        function addData() {
+            $("#addWeigherHeighDataId").load();
+            var obox = document.getElementById("box1");
+            var oBox = document.getElementById("Mybox1");
+            obox.style.display = "block";
+            oBox.style.display = "block";
+        }
+        function submit() {
+            PhysicalExamination.GenertAddWeightForStandarHeighInfo();
+            
+        }
+        function calcen() {
+            var obox = document.getElementById("box1");
+            var oBox = document.getElementById("Mybox1");
+            obox.style.display = "none";
+            oBox.style.display = "none";
+        }
+        function onchangeDetail() {
+            PhysicalExamination.GenertPhysicalExaminationData();
+        }
+        function displayDetail(e) {
+            var ageId = document.getElementById("display" + e).style.display.valueOf();
+            if (ageId == "none") {
+                $("#display" + e).css({ display: "block" });
+                $("#types" + e).text("▲");
+            } else {
+                $("#display" + e).css({ "display": "none" });
+                $("#types" + e).text("▼");
+            }
+        }
+    </script>
+
+    <style>
+        #box1 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: .9;
+            z-index: 1000;
+            display: none;
+        }
+
+        #Mybox1 {
+            position: absolute;
+            top: 33%;
+            left: 18%;
+            width: 65%;
+            height: 23%;
+            background: #fff;
+            display: none;
+        }
+        .inputWeightData {
+            width: 98%;
+            height: 25px;
+            border: none;
+            text-align:center;
+        }
+    </style>
+
+
+</head>
+<body id="bodyonline">
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+    <div class="widget invoice">
+        <div class="widget-header">
+            <div class="pull-left">
+                <h2>身高体重标准参数录入</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="widget box">
+                <div class="widget-header">
+                    <h4><i class="icon-reorder"></i> 身高体重标准参数录入</h4>
+                    <button class="btn btn- btn-primary" id="edit_user_info" onclick="addData()" style="margin:2px;position:relative;left:70%">添加参数</button>
+                </div>
+                <div class="widget-content" style="position:relative;">
+                    
+                        <div class="alert alert-info fade in">
+                            <i class="icon-remove close" data-dismiss="alert"></i>
+                            您可以在此页面录入身高体重标准参数……
+                        </div>
+                        <div class="form-group">
+                            <label style="position:relative;left:2%;font-weight:400">性别：</label>
+                            <select id="selectTypeId" style="width:8%;position:relative;left:3%" onchange="onchangeDetail()">
+                                <option value="-1">全部</option>
+                                <option value="0">女</option>
+                                <option value="1">男</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div id="weigherHeighId" style="margin-bottom:1px">
+
+                            </div>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div id="box1">
+            <div id="Mybox1">
+                <div style="margin-top:2%">
+                    <table id="addWeigherHeighDataId" border="1" style="position:relative;left:4%;width:93%">
+                        <tr style="text-align:center;height:30px">
+                            <td>性 别</td>
+                            <td>身高下限</td>
+                            <td>身高上限</td>
+                            <td>瘦1分上限</td>
+                            <td>瘦3分下限</td>
+                            <td>瘦3分上限</td>
+                            <td>正常5分下限</td>
+                            <td>正常5分上限</td>
+                            <td>胖3分下限</td>
+                            <td>胖3分上限</td>
+                            <td>胖1分下限</td>
+                        </tr>
+                        <tr id="inputDetailInfoId">
+                           <td style="width:10%;text-align:center">
+                                <label style="float:right;position:relative;right:9px">
+                                    <input type="radio" id="genderid" name="genderid" value="0" checked="checked"/>女
+                                </label>
+                                <label style="float:left;position:relative;left:9px">
+                                    <input type="radio" id="genderid" name="genderid" value="1" />男
+                                </label>
+                            </td>
+                            <!-- <td style="width:8%">
+                                <select id="genderid">
+                                    <option value="1">男</option>
+                                    <option value="0">女</option>
+                                </select>
+                            </td>-->
+                            <td><input id="heigh1" type="text" class="inputWeightData" /></td>
+                            <td><input id="heigh2" type="text" class="inputWeightData" /></td>
+                            <td><input id="thin1onId" type="text" class="inputWeightData" /></td>
+                            <td><input id="thin3loffId" type="text" class="inputWeightData" /></td>
+                            <td><input id="thin3onId" type="text" class="inputWeightData" /></td>
+                            <td><input id="normal5offId" type="text" class="inputWeightData" /></td>
+                            <td><input id="normal5OnId" type="text" class="inputWeightData" /></td>
+                            <td><input id="fat3offId" type="text" class="inputWeightData" /></td>
+                            <td><input id="fat3OnId" type="text" class="inputWeightData" /></td>
+                            <td><input id="fat1OffId" type="text" class="inputWeightData" /></td>
+                        </tr>
+                    </table>
+                    <button class="btn btn- btn-primary" style="margin-top: 15px; float: right; position: relative; right: 13%; height: 32px" onclick="submit()">添 加</button>
+                    <button class="btn btn- btn-primary" style="margin-top: 15px; float:left;margin-left:90%;height:32px;position:relative;bottom:47px" onclick="calcen()">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

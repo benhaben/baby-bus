@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{CE5D3D96-5DA0-4738-AB87-9718568628E4}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>UITouchShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgress\BezierPathGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgress\BigRadialProgressLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgress\RadialProgressLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgress\RadialProgressView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgress\RadialProgressViewStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgress\SmallRadialProgressLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RadialProgress\TinyRadialProgressLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppDelegate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BabyBusBaseViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BubbleView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EasyLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MvxBabybusDialogViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\AnswerCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\ChildInfomationTableCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\MemoryIndexTableCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\ParentSettingTableCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\ParentSettingTableCell.designer.cs">
+      <DependentUpon>..\..\..\Movies\Babybus.Teacher.Touch\TableElement\ParentSettingTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\PhotoTableCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\PhotoTableCell.designer.cs">
+      <DependentUpon>..\..\..\Movies\Babybus.Teacher.Touch\TableElement\PhotoTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Setting\InfoView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Setting\RePasswordView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Setting\SettingView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Movies\Babybus.Parent.Touch\Views\WebContents\FeedBackView.cs">
+      <Link>Views\Setting\FeedBackView.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableElement\ButtonElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Login\LoginView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\CircleButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\LineTextField.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\ScrollAdvertise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\ChildInfomationElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\CityBindableRadioElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\CustomStringElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\CustomViewElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\GenderBindableRadioElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\IBindableElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\KindergartenBindableRadioElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\MemoryIndexViewElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\MvxBindableRadioElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\MvxRadioRootElementEnhanceBinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\NameCardPhotoElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\NoticeIndexViewElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\ParentSettingElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\PhotoElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\QuestionAnswerElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\RadioRootElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Attendance\AttendanceDetailView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Attendance\ChildInfoView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EnvironmentService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PictureService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrap\PictureChooserPluginBootstrap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrap\SqlitePluginBootstrap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DebugTrace.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\InsetsLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\InsetsTextField.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PhotoBrowser\MWImageCollecntionViewCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Reachability.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Setup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\NoticeIndexCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\QuestionAnswerCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MvxTouchColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\BindableSection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\Notice\NoticeDetailView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\Notice\SendNoticeView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\Question\SendQuestionView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\Question\QuestionDetailView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\Question\QuestionIndexView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\Notice\NoticeIndexView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\GrowMemory\MemoryIndexView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Attendance\CalendarView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Movies\FMCalendar\Factorymind.Components\CalendarDayView.cs">
+      <Link>Views\Calendar\CalendarDayView.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)..\Movies\FMCalendar\Factorymind.Components\FMCalendar.cs">
+      <Link>Views\Calendar\FMCalendar.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)..\Movies\FMCalendar\Factorymind.Components\MonthGridView.cs">
+      <Link>Views\Calendar\MonthGridView.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\RadioButtonView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\SelectDateView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\SelectBeginAndEndDateView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SelectChildrenView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\NoticeDetailHeaderView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\AdvertiseBarOfTeacher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\ButtonsView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\ButtonWithLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LearningMaterialsView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\BubbleAnswerCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\ParentModalityButtonView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MultipleIntelligence\MITestView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\MITestElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MultipleIntelligence\MIChildrenView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\TeacherModalityButtonView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\MITestCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\CourseIndexCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\ImageLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\CourseReviewIndexCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Controls\ButtonTabView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\ForumIndexCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MvxBabyBusBaseAutoLayoutViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MvxBabyBusBaseViewController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ViewExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TableCell\ForumCommentIndexCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\Notice\NoticeDetailHtmlView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BindableElements\PaymentElement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)RadialProgress\" />
+    <Folder Include="$(MSBuildThisFileDirectory)PhotoBrowser\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Setting\" />
+    <Folder Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Communication\Question\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Communication\GrowMemory\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Calendar\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\MultipleIntelligence\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)RadialProgress\RadialProgress.iOS.Shared.shproj" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWCaptionView.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWGridViewController.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWPhoto.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWPhotoBrowser.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWPhotoProtocol.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWTapDetectingImageView.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWTapDetectingView.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PhotoBrowser\NotYetTest\MWZoomingScrollView.cs" />
+    <None Include="$(MSBuildThisFileDirectory)Views\Login\RegisterViewOld.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="$(MSBuildThisFileDirectory)Views\TableCell\ParentSettingTableCell.xib" />
+    <InterfaceDefinition Include="$(MSBuildThisFileDirectory)Views\TableCell\PhotoTableCell.xib" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>宝贝资料</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+    <script id="navKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="goUserHtml('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script id="imagesHtml" type="text/x-handlebars-template">
+
+        <div class="thumbnail col-md-2" style="height:200px; width:200px;">
+
+            <center>
+                <img id="childImg" src="{{imagUrl}}" />
+            </center>
+
+        </div>
+
+    </script>
+    <script id="president-userinfo-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <p><b>园长姓名</b> ： {{RealName}}</p>
+        <p><b>园长联系方式</b> ： {{Phone}}</p>
+        {{#if @last}}
+        {{else}}
+        <hr />
+        {{/if}}
+        {{/each}}
+    </script>
+
+    <script id="parents-userinfo-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div>
+            <p>
+
+                <b><a id="editParent{{UserId}}" onclick="goEditParentHtml('{{UserId}}', '{{RealName}}', '{{Phone}}', '{{LoginName}}')" style="position:relative;display:none;float:right;right:25%">修改信息</a>家长姓名</b> ： {{RealName}}
+                <b><a style="position:relative;display:block;float:right;right:13%" onclick="resertPassword('{{UserId}}')">重置密码</a></b>
+                <b><a style="position:relative;display:block;float:right;right:1%" onclick="deleteParent('{{UserId}}', '{{RealName}}')">删除信息</a></b>
+
+            </p>
+            <p><b>家长联系方式</b> ： {{Phone}}</p>
+            {{#if @last}}
+            {{else}}
+            <hr />
+            {{/if}}
+
+        </div>
+        {{/each}}
+
+    </script>
+
+    <script id="teachers-userinfo-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <p><b>教师姓名</b> ： {{RealName}}</p>
+        <p><b>教师联系方式</b> ： {{Phone}}</p>
+        {{#if @last}}
+        {{else}}
+        <hr />
+        {{/if}}
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="delectChildId">
+        <button class="btn btn- btn-primary" id="delete{{ChildId}}" onclick="deleteChild('{{ChildName}}','{{ClassId}}','{{KindergartenId}}','{{ChildId}}')" style="float: right; display: none; position: relative; bottom: 30px">删除</button>
+    </script>
+
+
+    <script id="children-userinfo-template" type="text/x-handlebars-template">
+        <div class="thumbnail col-md-2" style="height:200px; width:400px;">
+            <p><b>宝贝Id</b> ： {{ChildId}}</p>
+            <p><b>宝贝姓名</b> ： {{ChildName}}</p>
+            <p><b>宝贝性别</b> ： {{Gender}}</p>
+            <p><b>所属幼儿园</b> ： {{KindergartenName}}</p>
+            <p><b>所属班级</b> ： {{ClassName}}</p>
+        </div>
+    </script>
+
+    <script id="selectTypeHtml" type="text/x-handlebars-template">
+        <label class="col-md-2 control-label">
+            <nobr><label style="color:red">* </label>修改的班级：</nobr>
+        </label>
+        <div class="col-md-10">
+
+            <select id="selectClassName" name="selectClassName" style="width:200px;height:30px">
+                <option value="-1">请选择班级</option>
+                {{#each this}}
+                <option id="{{ClassId}}" value="{{ClassId}}"> {{ClassName}} </option>
+                {{/each}}
+            </select>
+
+        </div>
+
+    </script>
+
+    <script id="selectKindergarHtml" type="text/x-handlebars-template">
+        <div class="col-md-10" id="kinderRolA">
+            <select id="selectKinderName" name="selectKinderName" style="width:200px;height:30px;display:block" onchange="onChangeKinder()">
+                <option value="-1">请选择幼儿园</option>
+                {{#each this}}
+                <option id="Option{{KindergartenId}}" value="{{KindergartenId}}">{{KindergartenName}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+
+            UserInfo.GenerateKindergartenAtNavigationBar("two");
+            Utilities.GenertFeedback();
+            //UserInfo.GetChangeClass();
+        });
+    </script>
+
+
+    <script>
+        function goUserHtml(kinId, kinName) {
+
+            $.cookie("paraUserInfoKinId", kinId, { expires: 1, path: '/' });
+            $.cookie("paraUserInfoKinName", kinName, { expires: 1, path: '/' });
+            Utilities.Redirect("user.html");
+        }
+        function submit() {
+            UserInfo.GetUpdateInfo();
+        }
+        function createUser() {
+            UserInfo.GetCreateUserInfo();
+        }
+        function checkLoginName() {
+            UserInfo.GetCheckInfo();
+        }
+        function goEditParentHtml(parentId, realName, phoneParent, loginNames) {
+            $.cookie("editParentId", parentId, { expires: 1, path: '/' });
+            $.cookie("editParentRealName", realName, { expires: 1, path: '/' });
+            $.cookie("editParentPhone", phoneParent, { expires: 1, path: '/' });
+            $.cookie("editParentLoginName", loginNames, { expires: 1, path: '/' });
+            Utilities.Redirect("updateParentUser.html");
+        }
+        function onChangeKinder() {
+            //$("#selectKinderName").val();
+            var options = $("#selectKinderName option:selected");
+            UserInfo.ChangeKinAndChangeClassInfo(options.val());
+        }
+        function deleteChild(childNames, classId, kinderId, childId) {
+            $.cookie("deleteChildClassId", classId, { expires: 1, path: '/' });
+            $.cookie("deleteKindId", kinderId, { expires: 1, path: '/' });
+            $.cookie("deleteChildId", childId, { expires: 1, path: '/' });
+            var name = childNames;
+            var isTrue = confirm("确定要删除宝贝 【" + name + "】 的信息吗？");
+            if (isTrue) {
+                UserInfo.GetDeleteChild();
+            }
+        };
+        function resertPassword(UsId) {
+            UserInfo.ResetChildParentPwd(UsId);
+        }
+        function deleteParent(parentId, parentName) {
+            if (parentId == null) {
+                alert("数据信息有误!");
+                Utilities.Redirect("user_info.html");
+                return;
+            }
+            var isGo = confirm("是否确认删除【" + parentName + "】 家长信息?");
+            if (isGo) {
+                UserInfo.deleteParent(parentId);
+            }
+        }
+    </script>
+</head>
+
+<body id="bodyonline">
+
+    <!-- Header -->
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <div id="container">
+
+        <div id="content">
+            <div class="container">
+                <!--=== Page Header ===-->
+
+                <div id="sidebar" class="sidebar-fixed">
+                    <div id="sidebar-content">
+                        <!-- siderbar search -->
+                        <div class="sidebar-search">
+                            <div class="input-box">
+                                <a onclick="Utilities.Redirect('user.html')" style="text-decoration: none">
+                                    <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                                    &nbsp;
+                                    <b id="showKinNameInfo">幼儿园</b>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="navKindergartens"></div>
+                    </div>
+                    <div id="divider" class="resizeable"></div>
+                </div>
+
+                <div style=" max-width: 1000px;position:relative;top: 5px">
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="urlLinkSe">
+                                <i class=" icon-home"></i>
+                                宝贝资料
+                                <a href="user.html"> > 班级信息</a>
+                                <a> > 宝贝信息</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- annual bar chart -->
+
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3 id="childNameHeader">宝贝姓名</h3>
+                            </div>
+                        </div>
+
+                        <div class="modal-content">
+                            <div class="modal-header" id="delete_child_id">
+                                <h4 class="modal-title"><img style="border:0" src="images/childImg.jpg" width="25px" />&nbsp;宝贝信息</h4>
+                            </div>
+                            <div class="modal-body" id="childInfo2" style="height:240px;">
+
+                            </div>
+                        </div>
+
+                        <div class="modal-content" style="margin-top:20px">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><img style="border:0" src="images/presidentImg.jpg" width="25px" />&nbsp; 园长信息</h4>
+                            </div>
+                            <div class="modal-body" id="presidentInfo">
+
+                            </div>
+                        </div>
+
+                        <div class="modal-content" style="margin-top:20px">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><img style="border:0" src="images/parentImg.jpg" width="25px" />&nbsp;宝贝家长信息</h4>
+                            </div>
+                            <div class="modal-body" id="parentInfo2">
+
+                            </div>
+                        </div>
+                        <div class="modal-content" style="margin-top: 20px;margin-bottom:10px; ">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><img style="border:0" src="images/teacherImg.jpg" width="25px" />&nbsp;宝贝教师信息</h4>
+                            </div>
+                            <div class="modal-body" id="childTeacherInfo">
+
+                            </div>
+                        </div>
+
+                        <div class="modal-content" id="editeChild" style="margin-top:20px;margin-bottom:10px;display:none">
+                            <div class="modal-header">
+                                <h4 class="modal-title">
+                                    修改宝贝信息
+                                    <button class="btn btn- btn-primary" id="edit_user_info" onclick="submit()" style="margin:2px;position:relative;left:80%">保存</button>
+                                </h4>
+
+                            </div>
+                            <div class="modal-body">
+                                <form id="edit_form_user_info" class="form-horizontal row-border" action="#">
+                                    <div class="form-group" id="kinderDisplayRole">
+                                        <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>幼儿园：</nobr></label>
+                                        <div class="col-md-8" id="kindergarRolP" style="display:none">
+                                            <input id="kinName" type="text" class="form-control" disabled="disabled" style="width:200px" onchange="changeCls()" />
+                                            <input id="kinId" name="kinId" type="hidden" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>宝贝姓名：</nobr></label>
+                                        <div class="col-md-10"><input id="childName" name="childName" type="text" style="width:200px;" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>宝贝性别：</nobr></label>
+                                        <div class="col-md-10" id="sax">
+                                            <input type="radio" id="render" name="render" value="2" />女
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" id="render" name="render" value="1" />男
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="selectClsInfo">
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="modal-content" id="createUsers" style="margin-top: 20px; margin-bottom: 10px; display: none">
+                            <div class="modal-header">
+                                <h4 class="modal-title">
+                                    添加家长信息
+                                    <button class="btn btn- btn-primary" id="create_user_info" onclick="createUser()" style="margin:2px;position:relative;left:80%">保存</button>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal row-border" action="#">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><nobr><label style="color:red">* </label>家长姓名：</nobr></label>
+                                        <div class="col-md-10"><input id="realName" name="realName" type="text" style="width:200px;" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group" style="position: relative; height: 80px; left: 1%">
+                                        <div class="form-group" style="height: 80px">
+                                            <label class="col-md-2 control-label"><nobr><label style="color: red">* </label>用户名：</nobr></label>
+                                            <div class="col-md-10">
+                                                <input id="loginName" name="loginName" type="text" onblur="checkLoginName()" style="width: 200px;" class="form-control" />
+                                            </div>
+                                            <label id="checkInformation" style="float: left; position: relative; left: 18%; font-weight: 100; text-align: center"></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="position: relative; height: 80px; left:4%">
+                                        <div class="form-group" style="height: 80px">
+                                            <div class="col-md-10">
+                                                <label class="col-md-2 control-label"><nobr><label style="color: red">* </label>联系方式：&nbsp;&nbsp;&nbsp;&nbsp;</nobr></label>
+                                                <input id="phoneParentsVal" name="phoneParentsVal" type="text" style="width: 200px;" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

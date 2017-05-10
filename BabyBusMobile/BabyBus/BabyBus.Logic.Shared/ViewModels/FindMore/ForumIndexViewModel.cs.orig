@@ -1,0 +1,315 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Diagnostics;
+using Cirrious.MvvmCross.ViewModels;
+using Cirrious.CrossCore;
+
+namespace BabyBus.Logic.Shared
+{
+	public class ForumIndexViewModel :BaseListViewModel
+	{
+		public ForumIndexViewModel()
+		{
+			_service = Mvx.Resolve<IRemoteService>();
+			_eCCoulumnType = ECColumnType.Forum;
+			CategoryId = 0;
+		}
+		private static bool _IsFirst = true;
+		public ForumIndexViewModel(int categoryId)
+			: this()
+		{
+			CategoryId = categoryId;
+		}
+
+		private IRemoteService _service;
+<<<<<<< HEAD
+		public int CategoryId;
+=======
+
+		public int CategoryId{ get; set; }
+
+>>>>>>> d27653dcc55ea10b799cb5d665013fbd88a5e383
+		private Object _idLock = new Object();
+
+		public event EventHandler<List<ECPostInfo>> DataRefreshed;
+		public event EventHandler<List<ECPostInfo>> DataLoadedMore;
+
+<<<<<<< HEAD
+		private List<ECPostInfo> infoList = new List<ECPostInfo>();
+
+		public List<ECPostInfo>  InfoList {
+			get { 
+				return infoList;
+			}
+			set { 
+				infoList = value;
+			}
+
+		}
+		private List<ECCategory> categoryList;
+		public List<ECCategory> CategoryList{ 
+			get{ 
+				return categoryList ?? new List<ECCategory>();
+			} 
+			set{ 
+				categoryList = value;
+			} }
+=======
+		public List<ECCategory> CategoryList{ get; set; }
+>>>>>>> d27653dcc55ea10b799cb5d665013fbd88a5e383
+
+		private ECColumnType _eCCoulumnType { get; set; }
+
+		private long _maxId = 0;
+		//在多线程环境中
+		public long MaxId {
+			get {
+				return Interlocked.Read(ref _maxId);
+			}
+			set {
+				Interlocked.Exchange(ref _maxId, value);
+			}
+		}
+
+		//当前最小的id
+		private long _minId = 0;
+
+		public long MinId {
+			get {
+				return Interlocked.Read(ref _minId);
+			}
+			set {
+				//better to use Interlocked.Increment(), but this way is OK
+				Interlocked.Exchange(ref _minId, value);
+			}
+		}
+
+		//是否已经拿到最久以前发送的notice, 0 is false, 1 is true
+		private bool _isEnd = false;
+
+		//使用await以后基本上是在ui线程做修改操作，不会有同步问题，以防万一还是加上好
+		public bool IsEnd {
+			get {
+				return _isEnd;
+			}
+			set {
+				_isEnd = value;
+				//                Interlocked.Exchange(ref _isEnd, value);
+			}
+		}
+
+		public void Init(ECColumnType eCCoulumType)
+		{
+			_eCCoulumnType = eCCoulumType;
+		}
+
+		private AutoResetEvent _autoevent = new AutoResetEvent(false);
+
+		public override void InitData()
+		{
+			base.InitData();
+<<<<<<< HEAD
+			if (_IsFirst) {
+				try {
+					ViewModelStatus = new ViewModelStatus(UIConstants.LOADING, true, MessageType.Information, TipsType.DialogProgress);
+
+					Task task = Task.Factory.StartNew(() => {
+						CategoryList = _service.GetECCategoryList(ECColumnType.Forum).Result;
+					});
+					task.Wait();
+					ViewModelStatus = new ViewModelStatus(UIConstants.LOAD_SUCCESS, false, MessageType.Success, TipsType.Undisplay);
+				} catch (Exception ex) {
+					ViewModelStatus = new ViewModelStatus(UIConstants.WEB_EXCEPTION, false, MessageType.Error, TipsType.DialogDisappearAuto);
+				}
+				_IsFirst = false;
+			}
+			//infoList = LoadInfoFromLocalDB(0);
+			MinId = 0;
+			MaxId = 0;
+=======
+
+//			var infoList = LoadInfoFromLocalDB(0);
+			var infoList = new List<ECPostInfo>();
+>>>>>>> d27653dcc55ea10b799cb5d665013fbd88a5e383
+			if (infoList.Count == 0) {
+				Task task = Task.Factory.StartNew(() => {
+					if (CategoryList == null) {
+						try {
+							CategoryList = _service.GetECCategoryList(ECColumnType.Forum).Result;
+							if (CategoryList.Count > 0)
+								CategoryId = CategoryList.First().Id;
+						
+						} catch (Exception ex) {
+							ViewModelStatus = new ViewModelStatus(ex.Message, false, MessageType.Error, TipsType.DialogDisappearAuto);
+						}
+					}
+
+					infoList = LoadNewECPostInfoCore().Result;
+					ListObject = infoList;
+				});
+				task.Wait();
+			} else {
+				lock (_idLock) {
+					MaxId = infoList.FirstOrDefault().PostInfoId;
+					MinId = infoList.LastOrDefault().PostInfoId;
+					ListObject = infoList;
+				}
+				//设置完_maxId再给锁，不然view那边的LoadNewNotices可能先执行
+				_autoevent.Set();
+			}
+		}
+
+		async Task<List<ECPostInfo>> LoadNewECPostInfoCore()
+		{
+
+			try {
+				ViewModelStatus = new ViewModelStatus(UIConstants.LOADING, true, MessageType.Information, TipsType.DialogProgress);
+<<<<<<< HEAD
+
+				var list = await _service.GetNewECPostInfo(new ECColumnType[]{_eCCoulumnType}, 0, new []{ CategoryId });
+=======
+				List<ECPostInfo> list;
+				if (CategoryId == 0)
+					list = await _service.GetNewECPostInfo(new ECColumnType[]{ ECColumnType.Forum }, MaxId, null);
+				else
+					list = await _service.GetNewECPostInfo(new ECColumnType[]{ ECColumnType.Forum }, MaxId, new []{ CategoryId });
+>>>>>>> d27653dcc55ea10b799cb5d665013fbd88a5e383
+
+				ViewModelStatus = new ViewModelStatus(UIConstants.LOAD_SUCCESS, false, MessageType.Success, TipsType.Undisplay);
+				if (list.Count > 0) {
+					lock (_idLock) {
+
+						BabyBusContext.InsertAll(list);
+						MaxId = list.First().PostInfoId;
+						if (MinId == 0)
+							MinId = list.Last().PostInfoId;
+					}
+				}
+				return list;
+
+			} catch (Exception ex) {
+				ViewModelStatus = new ViewModelStatus(UIConstants.WEB_EXCEPTION, false, MessageType.Error, TipsType.DialogDisappearAuto);
+				return null;
+			} finally {
+				_autoevent.Set();
+			}
+
+		}
+
+		private async Task<List<ECPostInfo>> LoadNewECPostInfo()
+		{
+			//先给锁，不然LoadNewNotices会死锁
+			_autoevent.WaitOne();
+			return await LoadNewECPostInfoCore();
+		}
+
+		private List<ECPostInfo> LoadMoreECPostInfoFromLocalDB()
+		{
+
+			List<ECPostInfo> list;
+
+			//Local DB
+			list = LoadInfoFromLocalDB(MinId);
+			if (list.Count > 0) {
+				lock (_idLock) {
+					var addlist = list;
+					//Notices.AddRange(addlist);
+					MinId = list.Last().PostInfoId;
+					return addlist;
+				}
+			} else {
+				return new List<ECPostInfo>();
+			}
+		}
+
+		private async Task<List<ECPostInfo>> LoadMoreECPostInfo()
+		{
+			if (IsEnd)
+				return new List<ECPostInfo>();
+
+			//ViewModelStatus = new ViewModelStatus("正在加载历史数据...", true, MessageType.Information, TipsType.DialogProgress);
+
+			try {
+				var localDBList = LoadMoreECPostInfoFromLocalDB();
+				if (localDBList.Count == 0) {
+					//API
+					var ec = new ECColumnType[] {
+						_eCCoulumnType
+					};
+					var postInfo = await _service.GetOldECPostInfo(ec, MinId, new int[]{ CategoryId });
+					// ViewModelStatus = new ViewModelStatus("加载历史数据成功", false, MessageType.Success, TipsType.DialogDisappearAuto);
+
+					if (postInfo.Count > 0) {
+						lock (_idLock) {
+							BabyBusContext.InsertAll(postInfo);
+							MinId = postInfo.Last().PostInfoId;
+							//refresh all
+							return postInfo;
+						}
+					} else {
+						IsEnd = true;
+					}
+				} else {
+					//  ViewModelStatus = new ViewModelStatus("加载历史数据成功", false, MessageType.Success, TipsType.DialogDisappearAuto);
+					return localDBList;
+				}
+			} catch (Exception ex) {
+				Debug.WriteLine(ex.Message);
+				ViewModelStatus = new ViewModelStatus("加载历史数据失败", false, MessageType.Error, TipsType.DialogDisappearAuto);
+			} finally {
+			}
+			return new List<ECPostInfo>();
+		}
+
+		private List<ECPostInfo> LoadInfoFromLocalDB(long minId)
+		{
+			List<ECPostInfo> list = new List<ECPostInfo>();
+			list = BabyBusContext.ECForumInfoList.Where(x => x.PostInfoId < MinId)
+					.OrderByDescending(x => x.CreateDate)
+					.Take(Constants.PAGESIZE).ToList();
+			return list;
+		}
+
+		#region Command
+
+		private IMvxCommand refreshCommand;
+
+		public IMvxCommand RefreshCommand {
+			get {
+				refreshCommand = refreshCommand ?? new MvxAsyncronizeCommand(async() => {
+					var addList = await LoadNewECPostInfo();
+					if (DataRefreshed != null) {
+						DataRefreshed(this, addList);
+					}
+				});
+				return refreshCommand;
+			}
+		}
+
+		private IMvxCommand loadMoreCommand;
+
+		public IMvxCommand LoadMoreCommand {
+			get {
+				loadMoreCommand = loadMoreCommand ?? new MvxAsyncronizeCommand(async () => {
+					var addList = await LoadMoreECPostInfo();
+					if (DataLoadedMore != null) {
+						DataLoadedMore(this, addList);
+					}
+
+				});
+				return loadMoreCommand;
+			}
+		}
+
+		public void ShowForumDetailViewModel(long noticeId)
+		{
+			ShowViewModel<ForumDetailViewModel>(new {id = noticeId});
+		}
+
+		#endregion
+	}
+}
+

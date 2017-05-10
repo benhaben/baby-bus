@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@android:id/tabcontent"
+        android:layout_weight="1"
+        android:layout_marginBottom="50dp">
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:isScrollContainer="true">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+                    <TextView
+                        android:textColor="@color/bb_black1"
+                        android:textSize="25sp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="近年春游好去处"
+                        local:MvxBind="Text PostInfoTiTle" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:textSize="18sp"
+                            android:textColor="@color/bb_gray1"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Realname"
+                            android:layout_marginLeft="10dp"
+                            local:MvxBind="Text RealName" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|right"
+                            android:layout_gravity="right"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/icon_lg_message"
+                                android:layout_marginRight="5dp" />
+                            <TextView
+                                android:textSize="16sp"
+                                android:textColor="@color/bb_gray1"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="5条评论"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                local:MvxBind="Text Comment" />
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/icon_lg_praise"
+                                android:layout_marginRight="5dp" />
+                            <TextView
+                                android:textSize="16sp"
+                                android:textColor="@color/bb_gray1"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="4个赞"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                local:MvxBind="Text Praise" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp">
+                    <WebView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/webview" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+                <LinearLayout
+                    android:id="@+id/more_review"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    local:MvxBind="Click ShowCommentListCommand">
+                    <TextView
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="用户评价：(100)"
+                        local:MvxBind="Text UserComment" />
+                    <ImageView
+                        android:layout_width="12.0dip"
+                        android:layout_height="12.0dip"
+                        android:src="@drawable/icon_load_into" />
+                </LinearLayout>
+                <View
+                    android:background="@drawable/shape_line"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px" />
+                <ListView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/review_list"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@color/bb_gray3"
+                    android:background="@color/white"
+                    android:dividerHeight="1dp"
+                    android:fadingEdge="none"
+                    android:fastScrollEnabled="false"
+                    android:footerDividersEnabled="false"
+                    android:headerDividersEnabled="false"
+                    android:smoothScrollbar="true" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="30px"
+        android:minHeight="30px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_send_answer"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:background="@color/white"
+        android:focusableInTouchMode="true">
+        <Button
+            android:text="赞一下"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="14sp"
+            android:drawableLeft="@drawable/icon_praise"
+            android:id="@+id/sendpraise" />
+        <Button
+            android:text="已赞"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:drawableLeft="@drawable/icon_praised"
+            android:id="@+id/sendpraised"
+            android:visibility="gone" />
+        <Button
+            android:text="写评论"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            local:MvxBind="Click SendCommentCommand"
+            android:layout_weight="1"
+            android:textSize="14sp" />
+    </LinearLayout>
+</RelativeLayout>

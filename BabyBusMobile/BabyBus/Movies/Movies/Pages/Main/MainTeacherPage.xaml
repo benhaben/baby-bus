@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="CoolBeans.Pages.Main.MainTeacherPage"
+					   BackgroundImage="login_background.png">
+  <StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text="春天花花幼儿园"
+        TextColor="White"
+        HorizontalOptions="Start"/>
+      <Label Text="小二班"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+    </StackLayout>
+	<Label Text="班级情况"
+			TextColor="White"
+			Font="Large"/>
+	<StackLayout Orientation="Horizontal">
+		<Label Text="在园"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+			<Label Text="{Binding ClassInfo.Online}"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+			<Label Text="请假"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+			<Label Text="{Binding ClassInfo.Leave}"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+			<Label Text="未注册"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+			<Label Text="{Binding ClassInfo.UnRegister}"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+	</StackLayout>
+	<Label Text="已注册孩童" BackgroundColor="Purple" 
+	        HorizontalOptions="FillAndExpand"/>
+	 <StackLayout>
+	 </StackLayout>
+  </StackLayout>
+</ContentPage>

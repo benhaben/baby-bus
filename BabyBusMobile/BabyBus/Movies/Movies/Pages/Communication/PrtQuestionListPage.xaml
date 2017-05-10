@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:controls="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs"
+					   x:Class="CoolBeans.Pages.Communication.PrtQuestionListPage">
+	<StackLayout>
+		<controls:ImageButton Text="家园联系" BackgroundColor="#3d509f" TextColor="#ffffff" HeightRequest="50" WidthRequest="175"
+    			Command="{Binding ShowQuestionSendPageCommand}"/>
+		<Label Text="问答列表"/>
+		<ListView x:Name="listView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                            	<StackLayout>
+                               		<Label Text="{Binding DisplayDate}"/>
+                               		<Label Text="{Binding DisplayTime}"/>
+                                </StackLayout>
+                                <StackLayout>
+                               		<Label Text="{Binding Content}"/>
+                               		<Label Text="{Binding ReplyCount}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    <controls:ImageButton Text="刷新" BackgroundColor="Green" TextColor="#ffffff" HeightRequest="50" WidthRequest="175"
+    			Command="{Binding RefreshCommand}"/>
+	</StackLayout>
+</ContentPage>

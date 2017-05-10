@@ -1,0 +1,6 @@
+<metadata>
+    <remove-node path="/api/package[@name='uk.co.senab.photoview']/interface[@name='IPhotoView']/field[@name='DEFAULT_MAX_SCALE']" />
+    <remove-node path="/api/package[@name='uk.co.senab.photoview']/interface[@name='IPhotoView']/field[@name='DEFAULT_MID_SCALE']" />
+    <remove-node path="/api/package[@name='uk.co.senab.photoview']/interface[@name='IPhotoView']/field[@name='DEFAULT_MIN_SCALE']" />
+    <remove-node path="/api/package[@name='uk.co.senab.photoview']/interface[@name='IPhotoView']/field[@name='DEFAULT_ZOOM_DURATION']" />  
+</metadata>

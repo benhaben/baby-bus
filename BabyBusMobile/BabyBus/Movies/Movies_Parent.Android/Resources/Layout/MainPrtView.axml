@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@android:id/tabcontent"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:paddingBottom="50dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@android:id/tabcontent"
+            android:orientation="vertical"
+            android:background="@color/bb_gray3">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+                <TabWidget
+                    android:layout_width="fill_parent"
+                    android:paddingTop="5dp"
+                    android:showDividers="none"
+                    android:layout_height="45dp"
+                    android:id="@android:id/tabs" />
+            </LinearLayout>
+        <!--            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="首页"
+                    android:layout_weight="1"
+                    android:textColor="@color/bb_gray1" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="校讯"
+                    android:textColor="@color/bb_gray1"
+                    android:layout_weight="1" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/bb_gray1"
+                    android:textSize="13sp"
+                    android:text="体智"
+                    android:layout_weight="1" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bb_gray1"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="发现"
+                    android:layout_weight="1" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bb_gray1"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="我"
+                    android:layout_weight="1" />
+            </LinearLayout>-->
+        </LinearLayout>
+    </RelativeLayout>
+</TabHost>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="1dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/head_image"
+        android:src="@drawable/Child_headImage" />
+    <TextView
+        android:text="ChildName"
+        android:id="@+id/child_name"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical|center_horizontal" />
+    <TextView
+        android:text="已读"
+        android:id="@+id/label_readed"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@android:color/background_light" />
+    <TextView
+        android:text="未读"
+        android:id="@+id/label_unread"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_orange_dark" />
+    <ImageView
+        android:src="@android:drawable/ic_dialog_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_icon_massage"
+        android:minHeight="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="center" />
+    <ImageView
+        android:src="@android:drawable/sym_action_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_icon_phone"
+        android:minHeight="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="center" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -1193,3 +1193,4 @@
+ BabyBus/packages/
+ BabyBus/Movies/Babybus.Droid.ViewPageIndicator/obj/
+ BabyBus/Movies/AndHUD/obj/
++BabyBus/

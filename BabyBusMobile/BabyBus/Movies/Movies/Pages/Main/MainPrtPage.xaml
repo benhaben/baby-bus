@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="CoolBeans.Pages.Main.MainPrtPage"
+					   xmlns:labs="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs"
+             BackgroundImage="login_background.png">
+  <!--  <ToolbarItems>
+    <ToolbarItem Name="设置"
+                 Command="{Binding ShowSettingPageCommand}">
+                 </ToolbarItem>
+  </ToolbarItems>-->
+  <StackLayout x:Name="stl">
+<!--    <labs:CalendarView HorizontalOptions="CenterAndExpand"
+					VerticalOptions="Center"/>-->
+    <StackLayout Orientation="Horizontal"  Padding="20,20,20,20"
+					 HorizontalOptions="FillAndExpand" BackgroundColor="Aqua">
+      <Image Source="http://cdn1.xamarin.com/webimages/images/dev-center/home/support-icon.png"
+				HorizontalOptions="Start"/>
+	 <StackLayout>
+		<Label Text="{Binding Name}" HorizontalOptions="StartAndExpand"
+             TextColor="White"
+					VerticalOptions="End"/>
+      <Label Text="{Binding KGName}"
+        TextColor="White"
+        HorizontalOptions="Start"/>
+      <Label Text="{Binding ClassName}"
+			TextColor="White"
+			HorizontalOptions="StartAndExpand"/>
+    </StackLayout>
+	  <Label Text="{Binding Age}" TextColor="White" Font="Large"/>
+      
+    </StackLayout>
+   
+    <StackLayout  Padding="20,20,20,20"
+					 HorizontalOptions="FillAndExpand"
+					 BackgroundColor="Maroon">
+	  <Label Text="班主任老师" 
+			Font="Large"
+			/>
+      <StackLayout Orientation="Horizontal">
+        <Image Source="http://cdn1.xamarin.com/webimages/images/dev-center/home/support-icon.png"
+				HorizontalOptions="Start"/>
+				 <StackLayout>
+				 <Label Text="{Binding TeacherName}"/>
+				 <Label Text="资深教师"/>
+				 </StackLayout>
+      </StackLayout>
+    </StackLayout>
+    <StackLayout Padding="20,20,20,20">
+      <Label Text="最新通知"
+				   TextColor="Yellow"
+				   HorizontalOptions="Start"/>
+      <StackLayout HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               BackgroundColor="Olive"
+               MinimumHeightRequest="300">
+        <ListView x:Name="list">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <ViewCell.View>
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}"
+                           HorizontalOptions="Fill">
+                    </Label>
+                    <Label Text="{Binding Content}"
+                           HorizontalOptions="Fill">
+                    </Label>
+                  </StackLayout>
+                </ViewCell.View>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

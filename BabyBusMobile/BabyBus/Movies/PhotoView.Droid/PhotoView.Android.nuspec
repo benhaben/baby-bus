@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>PhotoView.Android</id>
+        <version>1.0.0</version>
+        <authors>Yufei Huang</authors>
+        <licenseUrl>https://github.com/yufeih/PhotoView.Android/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/yufeih/PhotoView.Android</projectUrl>
+        <iconUrl>https://github.com/chrisbanes/PhotoView/blob/master/header_graphic.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Monodroid binding library for https://github.com/chrisbanes/PhotoView </description>
+        <tags>Xamarin, Android, Photoview</tags>
+    </metadata>
+</package>

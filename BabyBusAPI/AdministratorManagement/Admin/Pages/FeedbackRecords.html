@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>反馈信息</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>s
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/message.js"></script>
+    <script type="text/javascript" src="assets/js/payRecord.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/feedBackRecord.js"></script>
+
+
+    <script id="feedbackDetailType" type="text/x-handlebars-template">
+        <div id="feed{{typeNo}}">
+            <h1>{{HandleType}}</h1>
+        </div>
+    </script>
+
+    <script id="feedbackDetailInfoId" type="text/x-handlebars-template">
+        <div id="{{FeedbackId}}" >
+            <div class="teacher">
+                <label style="width:100%">
+                    <input type="checkbox" name="name" value="{{FeedbackId}}" id="checkbox{{FeedbackId}}" style="float:left;position:relative;top:0px;left:2%" />
+                    <i class="name">
+                        {{Index}}.    {{Content}}
+                    </i>
+                    <i>
+                        {{handleType}}
+                    </i>
+                    <i class="time" style="float:right">
+                        <span>{{userName}} / {{year}}年{{month}}月{{day}}日</span>
+                    </i>
+                </label>
+            </div>
+
+        </div>
+    </script>
+
+    <!---->
+    <script id="selectFbTypeHtml" type="text/x-handlebars-template">
+        <p class="name">
+            处理状态：
+            <select name="selectOptionTypeId" id="selectOptionTypeId" onchange="onChangeType(this)">
+                <option value="-1"> 全部 </option>
+                {{#each this}}
+                <option value="{{statusNo}}"> {{statusName}} </option>
+                {{/each}}
+            </select>
+        </p>
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            //header
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            FeedBackRecord.GenertmentFeedBackInfo();
+
+        });
+
+        function HandledId() {
+            FeedBackRecord.GenertHandled();
+        }
+
+        function lodingHandle() {
+            FeedBackRecord.GendertLodingHandle();
+        }
+
+        function onChangeType(e) {
+            var options = $("#" + e.id + " option:selected");
+            var typeNo = options.val();
+            FeedBackRecord.GenentSelectInfo(typeNo);
+        }
+
+    </script>
+
+    <style>
+        a {
+            color: grey;
+        }
+
+            a:link {
+                text-decoration: none;
+            }
+    </style>
+
+</head>
+<body id="bodyonline">
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div class="row" style="position:relative;top:60px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="widget box">
+                <div class="widget-header">
+                    <h4><i class="icon-reorder"></i> 反馈信息</h4>
+                    <button class="btn btn- btn-primary" style="margin: 2px; position: relative; left: 80%" onclick="HandledId()">处理完成</button>
+                    <button class="btn btn- btn-primary" style="margin: 2px; position: relative; left: 60%" onclick="lodingHandle()">处理中</button>
+                </div>
+                <div style="float:left;position:relative;left:5px;top:10px">
+                    <p class="name" id="selectionFeedBackId">
+                        
+                    </p>
+                </div>
+                <div id="fbDetailInfoId" class="cantact02" style="margin-bottom:30px;position:relative;top:20px">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

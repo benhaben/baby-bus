@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1.0">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:paddingBottom="10.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/lightyellow"
+            android:gravity="center_vertical"
+            android:id="@+id/no_net_lable"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/icon_easyicon_net"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="世界上最远的距离就是没有网，检查设置"
+                android:textColor="@color/bb_black1" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            local:IsVisiable="Parent"
+            android:layout_marginRight="10.0dip">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:padding="10.0dip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <!--                     <ImageView
+                        android:paddingTop="4.0dip"
+                        android:src="@drawable/teacher_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" /> -->
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:text="意见提交"
+                        android:layout_weight="1.0" />
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@color/lightskyblue"
+                        android:id="@+id/feedback_detail"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginRight="10dp"
+                        android:text="请简要描述问题和意见！" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:padding="10.0dip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <!--                     <ImageView
+                        android:paddingTop="4.0dip"
+                        android:src="@drawable/teacher_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" /> -->
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:text="反馈电话"
+                        android:layout_weight="1.0" />
+                    <TextView
+                        android:textSize="18sp"
+                        android:id="@+id/feedback_phone"
+                        android:textColor="@color/lightskyblue"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginRight="10dp"
+                        android:text="4009922586" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,27 @@
+# 以后再写脚本吧，现在没必要
+
+from subprocess import call
+
+projectName = "hotoStack.xcodeproj"
+targetName = "PhotoStackStaticLib"
+outputFolder = "~/Desktop/"
+
+buildIphonesimulator = """
+xcodebuild -project %s -target %s -sdk iphonesimulator -configuration Release clean build
+cp ./build/Release-iphonesimulator/libPhotoStackStaticLib.a ~/Desktop/libPhotoStackStaticLib-i386.a"""
+call(["ls", "-l"])
+"%s is not a good password for %s" % (pwd, uid) 
+call(["ls", "-l"])
+
+xcodebuild -project PhotoStack.xcodeproj -target PhotoStackStaticLib -sdk iphonesimulator -configuration Release clean build
+cp ./build/Release-iphonesimulator/libPhotoStackStaticLib.a ~/Desktop/libPhotoStackStaticLib-i386.a
+
+xcodebuild -project PhotoStack.xcodeproj -target PhotoStackStaticLib -sdk iphoneos -arch armv7 -configuration Release clean build
+cp ./build/Release-iphoneos/libPhotoStackStaticLib.a ~/Desktop/libPhotoStackStaticLib-armv7.a
+
+xcodebuild -project PhotoStack.xcodeproj -target PhotoStackStaticLib -sdk iphoneos -arch armv7s -configuration Release clean build
+cp ./build/Release-iphoneos/libPhotoStackStaticLib.a ~/Desktop/libPhotoStackStaticLib-armv7s.a
+
+xcodebuild -project PhotoStack.xcodeproj -target PhotoStackStaticLib -sdk iphoneos -arch arm64 -configuration Release clean build
+cp ./build/Release-iphoneos/libPhotoStackStaticLib.a ~/Desktop/libPhotoStackStaticLib-arm64.a
+

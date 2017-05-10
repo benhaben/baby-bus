@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>园长信息</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/kindergarten.js"></script>
+
+    <script id="navPresidentKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="changeKindergarten('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script id="presidentInfo-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <!--园长信息-->
+        <div class="modal-content" style="margin-top: 20px;margin-bottom:10px; ">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <img style="border:0" src="images/presidentImg.jpg" width="25px" /> 
+                    {{num}}.  园长
+                    <button class="btn" onclick="deletePresident('{{UserId}}', '{{RealName}}')" style="position: relative; left: 5%;">删除</button>
+                </h4>
+            </div>
+            <div class="modal-body" id="presidentInfo">
+                <p><b>园长姓名</b> ： {{RealName}}</p>
+                <p><b>园长联系方式</b> ： {{Phone}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            "use strict";
+
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+
+            //depend Id, be careful
+            Kindergarten.GenerateKindergartenAtNavigationBar("one");
+            //UserInfo.GetChangeClass();
+            Utilities.GenertFeedback();
+        });
+        function changeKindergarten(kindergartenId, kinName) {
+            $.cookie("paraPresidentInfoKinId", kindergartenId, { expires: 1, path: '/' });
+            $.cookie("paraPresidentInfoKinName", kinName, { expires: 1, path: '/' });
+            $("#showKinNameInfo").text(kinName);
+            Kindergarten.GetPresidentInfo(kindergartenId, kinName);
+        }
+        function goCreateKindergartenHtml() {
+            Utilities.Redirect("createKindergarten.html");
+        }
+        function _createPresident() {
+            Utilities.Redirect("createPresident.html");
+        }
+        function deletePresident(presidentId, presidentName) {
+            if (presidentId == null) {
+                alert("数据信息有误!");
+                Utilities.Redirect("presidentInfo.html");
+                return;
+            }
+            var kinName = $("#kinName").text();
+            var isGo = confirm("是否确认删除 " + kinName + " 的【" + presidentName + "】 园长?");
+            if (isGo) {
+                Kindergarten.deletePresident(presidentId);
+            }
+        }
+        function editKindergattenHtml() {
+            Utilities.Redirect("editKindergarten.html");
+        }
+
+        function deleteKindergarten() {
+            var kinName = $("#kinName").text();
+            var kinId = $("#kinId").val();
+            if (kinId == null) {
+                alert("数据信息有误!");
+                Utilities.Redirect("presidentInfo.html");
+                return;
+            }
+            var isGo = confirm("是否确认删除幼儿园 【" + kinName + "】 ?");
+            if (isGo) {
+                $.cookie("paraPresidentInfoKinId", null, { expires: 1, path: '/' });
+                $.cookie("paraPresidentInfoKinName", null, { expires: 1, path: '/' });
+                Kindergarten.deleteKindergarten(kinId);
+            }
+        }
+    </script>
+</head>
+<body id="bodyonline">
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <div id="container">
+        <div id="sidebar" class="sidebar-fixed">
+            <div id="sidebar-content">
+                <!-- siderbar search -->
+                <div class="sidebar-search">
+                    <div class="input-box">
+                        <a style="text-decoration: none">
+                            <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                            &nbsp;
+                            <b id="showKinNameInfo">幼儿园</b>
+                        </a>
+                    </div>
+                </div>
+                <div id="navPresidentKindergartens"></div>
+            </div>
+            <div id="divider" class="resizeable"></div>
+        </div>
+
+
+        <!-- /Sidebar -->
+        <div id="content">
+            <div class="container">
+                <div style=" max-width: 1000px;position:relative;top: 5px" >
+
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="urlLinkSe">
+                                <i class=" icon-home"></i>
+                                园长信息
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget invoice">
+                        <div class="widget-header">
+                            <div class="pull-left">
+                                <h2>园长信息</h2>
+                                <h2>
+                                    <small id="kinName">幼儿园</small>
+                                    <input type="hidden" id="kinId" />
+                                </h2>
+                            </div>
+                            <div>
+                                <button class="btn" onclick="_createPresident()" style="position:relative;left:45%;top:67px;">
+                                    添加园长信息
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn" onclick="goCreateKindergartenHtml()" style="position:relative;left:58%;top:35px;">
+                                    添加幼儿园
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn" onclick="editKindergattenHtml()" style="position:relative;left:70%;top:3px;">
+                                    修改幼儿园信息
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn" onclick="deleteKindergarten()" style="position:relative;left:33%;top:-29px;">
+                                    删除幼儿园
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="presidentInfoContent">
+                        <!--园长信息-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

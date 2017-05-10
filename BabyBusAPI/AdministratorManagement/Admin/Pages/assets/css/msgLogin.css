@@ -1,0 +1,100 @@
+﻿@charset "utf-8";
+/*CSS����*/
+*{
+	font-size:100%; 
+	font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;
+	margin:0; 
+	padding:0;
+	}
+img{ 
+	border:none;
+	}
+a{ 
+	text-decoration:none;
+	}
+li{ 
+	list-style:none;
+	}
+h1,h2,h3,h4,h5,h6{ 
+	font-weight:normal;
+	}
+html {
+    -webkit-text-size-adjust: none;
+	}
+/*body*/
+body{ 
+	width:100%; 
+	margin:0 auto;
+	}
+/*container*/
+.container{
+	font-size:50%; 
+	}
+.logo{
+  margin:0 auto;
+  width:40%;
+  padding:0;
+  margin-top:15%;
+  }
+.logo img{
+    max-width:100%;
+	height: auto;
+    width: auto\9; /* ie8 */
+	width:expression(document.body.clientWidth > 780? "780px": "auto" );
+	margin:0 auto;
+	}
+.textBox{ 
+	width:40%; 
+	margin:0 auto; 
+	border-bottom:4px #ACCE22 solid;
+	}
+.textBox .chBox{ 
+	text-align:center;
+	font-size:3.5em; 
+	font-weight:bold; 
+	color:#ACCE22; 
+	}
+.textBox .enBox{ 
+	text-align:center; 
+	font-size:1.5em; 
+	font-family:"Arial"; 
+	color:#ACCE22; 
+	padding-bottom:6px; 
+	}
+.parents{ 
+	text-align:center;  
+	font-size:1.5em; 
+	color:#ACCE22; 
+	padding-top:6px; 
+	}
+.inputBox{ 
+	width:90%; 
+	margin:0 auto;
+	margin-top:15px;
+	}
+.firstIn{ 
+	width:100%;
+	padding-top:10px;
+	padding-bottom:10px;
+	border:1px #e0e0e0 solid;
+	border-bottom:none; 
+	font-size:2.5em; 
+	
+	}
+.secondIn{ 
+	width:100%; 
+	padding-top:10px;
+	padding-bottom:10px; 
+	border:1px #e0e0e0 solid; 
+	font-size:2.5em;
+	}
+.thirdIn{ 
+	width:100%; 
+	padding-top:10px;
+	padding-bottom:10px;
+	border:1px #e0e0e0 solid; 
+	margin-top:14px; 
+	font-size:2.5em; 
+	margin-bottom:60px;
+	}
+

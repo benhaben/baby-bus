@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/login_user_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="20.0dip"
+        android:layout_marginRight="10.0dip"
+        android:text="找回密码"
+        local:MvxBind="Text Information" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="7.0dip"
+        android:layout_marginRight="10.0dip"
+        android:isScrollContainer="true">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/setting_info_childname"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <EditText
+                android:id="@+id/username_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                local:MvxBind="Text Phone"
+                android:hint="@string/register_label_username"
+                android:layout_marginLeft="20.0dip"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="phone"
+                android:maxLength="20" />
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="-125dp"
+                android:background="@drawable/bg_rectangle_green"
+                android:paddingLeft="2dp"
+                android:text="获取验证码"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/background_light"
+                android:id="@+id/button_getindentifycode" />
+        </LinearLayout>
+        <View
+            android:background="@drawable/shape_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/text_identifycode"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_label_identifycode"
+                android:layout_marginLeft="20.0dip"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="number"
+                android:maxLength="6"
+                local:MvxBind="Text IdentifyCode" />
+        </LinearLayout>
+        <View
+            android:background="@drawable/shape_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/password_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_label_pwd"
+                local:MvxBind="Text Password"
+                android:layout_marginLeft="20.0dip"
+                android:password="true"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:maxLength="20" />
+        </LinearLayout>
+        <View
+            android:background="@drawable/shape_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/repassword_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_label_confirmpwd"
+                local:MvxBind="Text ConfirmedPassword"
+                android:layout_marginLeft="20.0dip"
+                android:password="true"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:maxLength="20" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="7.0dip"
+        android:layout_marginRight="10.0dip"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <Button
+            android:id="@+id/button_findpassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="重置密码"
+            android:visibility="gone"
+            local:MvxBind="Click SubmitCommand" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signin_button"
+            android:text="@string/register_label_register" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="确认验证码"
+            android:id="@+id/textview_checkIdentifyCode"
+            android:gravity="center" />
+    </LinearLayout>
+</LinearLayout>

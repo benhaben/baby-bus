@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:padding="10px">
+    <MvxSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/noticeType"
+        android:textSize="30dp"
+        local:MvxBind="ItemsSource NoticeTypeItems"
+        android:layout_marginBottom="10dp" />
+    <EditText
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/noticeContent"
+        local:MvxBind="Text Content"
+        android:layout_marginBottom="10dp"
+        android:gravity="top" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageLayout"
+        android:layout_marginBottom="10dp">
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnImage" />
+    </LinearLayout>
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/relativeLayout1"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:text="发送给"
+            android:minHeight="25px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/textView1" />
+        <TextView
+            android:text="全班（默认）"
+            android:minHeight="25px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/textView2"
+            local:MvxBind="Visibility IsAllClass, Converter=SelectToVisibility"
+            android:layout_toLeftOf="@+id/button1" />
+        <Button
+            android:text="选孩子"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1"
+            android:layout_alignParentRight="true"
+            local:MvxBind="Click ShowChildrenPageCommand" />
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+        <TextView
+            android:minHeight="25px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            local:MvxBind="Text SelectedText"
+            android:id="@+id/textView3" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <Button
+            android:text="发送"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnsend"
+            android:background="@color/springgreen" />
+    </LinearLayout>
+</LinearLayout>

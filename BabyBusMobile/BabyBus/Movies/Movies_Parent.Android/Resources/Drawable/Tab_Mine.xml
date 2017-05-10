@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- selected state Tab_MultipleIntelligence_2-->
+  <item android:drawable="@drawable/Tab_Mine_2"
+        android:state_selected="true"
+        android:state_pressed="false" />
+  <!-- unselected state (default) -->
+  <item android:drawable="@drawable/Tab_Mine_1" />
+</selector>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="3dp">
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@android:id/tabcontent"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:paddingBottom="55dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@android:id/tabcontent"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <TabWidget
+                    android:layout_width="fill_parent"
+                    android:paddingTop="5dp"
+                    android:layout_height="40dp"
+                    android:showDividers="none"
+                    android:id="@android:id/tabs" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="巴士首页"
+                    android:layout_weight="1"
+                    android:textColor="@color/bb_gray1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="信息通知"
+                    android:layout_weight="1"
+                    android:textColor="@color/bb_gray1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="家园共育"
+                    android:layout_weight="1"
+                    android:textColor="@color/bb_gray1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="我的信息"
+                    android:layout_weight="1"
+                    android:textColor="@color/bb_gray1" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</TabHost>

@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>付费记录</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>s
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/message.js"></script>
+    <script type="text/javascript" src="assets/js/payRecord.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+    <script type="text/x-handlebars-template" id="paymentRecordChildInfo-tem">
+        {{#each this}}
+        <div id="content{{childId}}" class="thumbnail col-md-3" style="height: 55px; width:120px; margin: 10px;">
+            <label class="grad" style="cursor: pointer">
+                <input type="checkbox" name="name" value="{{ChildId}}" style="float:left;" id="checkBoxs{{ChildId}}" />
+                <div class="widget">
+                    <div class="ribbon-wrapper ribbon-top-right">
+                        <div class="ribbon red" style="width:100px;padding:1px;position:relative;left:30px;" id="pay{{ChildId}}"><i style="position:relative;right:15px" id="payChildTypeId{{ChildId}}">未付费</i></div>
+                    </div>
+                    <div>
+                        <center>
+                            <h3>
+                                {{ChildName}}
+                            </h3>
+                        </center>
+                    </div>
+                </div>
+            </label>
+        </div>
+        {{/each}}
+    </script>
+
+    <script id="statisticsNavPayRecords-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="changeKindgarten('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            //header
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+
+            PayRecord.GeneratePayRecordsNavigationBar("two");
+
+            //PayRecord.GenerateEditPayChildsType();
+            Utilities.GenertFeedback();
+
+        });
+
+        function changeKindgarten(kindergartenId, kinName) {
+            $.cookie("paraPayRecordsKinId", kindergartenId, { expires: 1, path: '/' });
+            $.cookie("paraPayRecordsKinName", kinName, { expires: 1, path: '/' });
+            Utilities.Redirect("PaymentRecordMonth.html");
+        }
+        function submitData() {
+            PayRecord.GenerateSubmit();
+        }
+        function allChoice() {
+            $("input[name = 'name']").prop("checked", true);
+        }
+        function allNoChoice() {
+            $("input[name = 'name']").prop("checked", false);
+        }
+    </script>
+    <style>
+        a {
+            color: grey;
+        }
+
+            a:link {
+                text-decoration: none;
+            }
+
+        .grad {
+            cursor: -webkit-grab;
+            cursor: -moz-grab;
+        }
+    </style>
+</head>
+
+<body id="bodyonline">
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <input type="hidden" id="yearVal" />
+    <div id="container">
+        <div id="sidebar" class="sidebar-fixed">
+            <div id="sidebar-content">
+                <div class="sidebar-search">
+                    <div class="input-box">
+                        <a onclick="Utilities.Redirect('SendMessageRecords.html')" style="text-decoration: none">
+                            <img style="border:0;width:35px" src="images/kinImg1.gif" />
+                            &nbsp;
+                            <b id="showKinNameInfo">幼儿园</b>
+                        </a>
+                    </div>
+                </div>
+                <div id="payRecordsNavKindergartens"></div>
+            </div>
+            <div id="divider" class="resizeable"></div>
+        </div>
+
+        <div id="content">
+            <div class="container">
+                <div style=" max-width: 1000px;position:relative;top: 5px">
+
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="urlLinkSe">
+                                <i class=" icon-home"></i>
+                                付费记录
+                                <a href="PaymentRecordMonth.html"> > 班级付费汇总</a>
+                                <a> > 付费详情</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2>付费记录</h2>
+                    <div class="widget">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h2 id='titileVal'><small id="time" style="position:relative;bottom:10px">付费记录</small></h2>
+                                </div>
+                                <button class="btn" style="float:right;position:relative; top:27px;right:13.5%" onclick="allNoChoice()">全不选</button>
+                                <button class="btn" style="float:right;position:relative; top:27px;right:1%" onclick="allChoice()">全选</button>
+                                <button class="btn" style="float:right;position:relative; bottom:5px;right:1.5%" onclick="submitData()">缴费</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabbable tabbable-custom tabbable-full-width">
+                        <div class="alert alert-info fade in">
+                            <i class="icon-remove close" data-dismiss="alert"></i>
+                            选中为已付费，未选中为未付费。
+                        </div>
+                        <form class="form-horizontal row-border" action="#" method="post" id="editPayTypeId" style="position:relative;"></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

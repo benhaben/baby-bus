@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>教师信息</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+    <script id="navKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="goUserHtml('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+
+    <script id="showEditTeacherInfoHtml" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="modal-content" style="margin-top: 20px;margin-bottom:10px; ">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <img style="border:0" src="images/teacherImg.jpg" width="25px" />
+                    {{num}}.
+                    教师信息
+                    <button class="btn" onclick="goupdateTeacherHtml('{{UserId}}')" style="position:relative;left:5%;">修改教师信息</button>
+                    <button class="btn btn- btn-primary" id="{{UserId}}" onclick="deleteTeacher('{{RealName}}','{{ClassId}}','{{KindergartenId}}','{{UserId}}')" style="float:right;position:relative">删除</button>
+                </h4>
+
+            </div>
+            <div class="modal-body" id="showEditTeacherInfo">
+                <p>
+                    <b>教师姓名</b> ： {{RealName}}
+                </p>
+                <p><b>教师联系方式</b> ： {{LoginName}}</p>
+            </div>
+        </div>
+
+        {{/each}}
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+
+            UserInfo.GenerateKindergartenAtNavigationBar("three");
+            Utilities.GenertFeedback();
+
+        });
+    </script>
+
+
+    <script>
+        function goUserHtml(kinId, kinName) {
+
+            $.cookie("paraUserInfoKinId", kinId, { expires: 1, path: '/' });
+            $.cookie("paraUserInfoKinName", kinName, { expires: 1, path: '/' });
+
+            Utilities.Redirect("user.html");
+        }
+        function goupdateTeacherHtml(teacherId) {
+
+            $.cookie("paraUpdateTeacherId", teacherId, { expires: 1, path: '/' });
+            Utilities.Redirect("updateTeacher.html");
+        }
+        function deleteTeacher(realNames, classId, kinderId, userId) {
+            $.cookie("deleteClassId", classId, { expires: 1, path: '/' });
+            $.cookie("deleteKindId", kinderId, { expires: 1, path: '/' });
+            $.cookie("deleteUserId", userId, { expires: 1, path: '/' });
+            var realName = realNames;
+            var isTrue = confirm("您确定删除教师 【" + realName + "】 的信息吗？");
+            if (isTrue) {
+                UserInfo.GetDeleteTeacher();
+            }
+        };
+    </script>
+</head>
+
+<body id="bodyonline">
+
+    <!-- Header -->
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+
+    <div id="container">
+
+        <div id="content">
+            <div class="container">
+                <!--=== Page Header ===-->
+
+
+                <div id="sidebar" class="sidebar-fixed">
+                    <div id="sidebar-content">
+                        <div class="sidebar-search">
+                            <div class="input-box">
+                                <a onclick="Utilities.Redirect('user.html')" style="text-decoration: none">
+                                    <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                                    &nbsp;
+                                    <b id="showKinNameInfo">幼儿园</b>
+                                </a>
+                            </div>
+                        </div>
+                        <!--=== Navigation ===-->
+                        <div id="navKindergartens"></div>
+
+                        <!-- /Navigation -->
+                    </div>
+                    <div id="divider" class="resizeable"></div>
+                </div>
+
+                <div style=" max-width: 1000px;position:relative;top: 5px">
+
+                    <div class="widget invoice">
+                        <div class="widget-header">
+                            <div class="pull-left">
+                                <h2 id="editTeacherInfoKinName">幼儿园名称</h2>
+                                <input type="hidden" id="kinId" />
+                                <h2>
+                                    <small id="classNameHeader">班级名称</small>
+                                </h2>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="showEditTeacherInfo">
+                        <!-- annual bar chart -->
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

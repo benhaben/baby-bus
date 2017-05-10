@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>宝贝资料</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+
+    <script id="navKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="_kinderId('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+<script id="class-template" type="text/x-handlebars-template">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="display:block">
+                    <label style="cursor:pointer;" onclick="noneClass('{{classId}}')">
+                        <img style="border:0;width:25px" src="images/classImg.jpg" />
+                        &nbsp;{{className}}
+                    </label>
+                    <button class="btn" onclick="goCreateTeacherHtml('{{classId}}', '{{className}}')" style="position: relative; left: 1%;">添加教师</button>
+                    <button class="btn" onclick="goCreatStuHtml('{{classId}}', '{{className}}')" style="position: relative; left: 1%;">添加宝贝</button>
+                    <button class="btn" onclick="goShowEditClassInfoHtml('{{classId}}', '{{className}}', '{{classType}}')" style="position: relative; left: 1%">修改班级信息</button>
+                    <button class="btn" onclick="goShowEditTeacherInfoHtml('{{classId}}', '{{className}}')" style="position: relative; left: 1%">教师信息</button>
+                    <button class="btn" id="changeGraduateBtn{{classId}}" onclick="changeGraduate('{{classId}}', '{{className}}')" style="position: relative; left: 1%;">已毕业</button>
+                    <button class="btn" onclick="deleteClass('{{classId}}', '{{className}}')" style="position: relative; left: 1%">删除班级</button>
+                    <i style="float:right;width:35%;height:40px;position:relative;left:2%;bottom:5px;cursor:pointer" onclick="noneClass('{{classId}}')">
+                        <i id="types{{classId}}" style="float:right;position:relative;right:10px;top:10px">
+                            <a style="text-decoration: none;">▼</a>
+                        </i>
+                    </i>
+                </h3>
+               
+            </div>
+
+            <div id="collapse{{classId}}" class="panel-collapse collapse in" style="height: auto;">
+                <div id="childContent{{classId}}" style="display:none;position:relative;left : 2%">
+
+                </div>
+            </div>
+
+        </div>
+    </script>
+
+    <!--classType = -1-->
+<script id="deleteClass-template" type="text/x-handlebars-template">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                
+                    <h3 class="panel-title" style="display: block">
+                        <label style="cursor:pointer;" onclick="noneClass('{{classId}}')">
+                            <img style="border:0;width:25px" src="images/classImg.jpg" />
+                            &nbsp;{{className}}
+                        </label>
+                            <i style="float:right;width:80%;height:36px;position:relative;left:2%;bottom:5px;cursor:pointer" onclick="noneClass('{{classId}}')">
+                                <i id="types{{classId}}" style="float:right;position:relative;right:10px;top:10px">
+                                    <a style="text-decoration: none;">▼</a>
+                                </i>
+                            </i>
+</h3>
+                
+            </div>
+
+            <div id="collapse{{classId}}" class="panel-collapse collapse in" style="height: auto;">
+                <div id="childContent{{classId}}" style="display:none;position:relative;left : 2%">
+
+                </div>
+            </div>
+
+        </div>
+    </script>
+
+
+    <script id="childs-template" type="text/x-handlebars-template">
+        <!--
+        <button class="btn" onclick="goUserInfoHtml('{{childId}}', '{{childName}}', '{{kinId}}', '{{classId}}')" style="margin-bottom:4px !important" id="btn{{childId}}">
+            {{childIndex}}.<b>{{childName}}</b>
+            家长姓名:{{partenName}}
+            家长联系方式:{{partenPhone}}
+        </button>
+        -->
+
+        <a style="float: left;padding-right: 10px; padding-bottom: 15px; text-decoration: none;" onclick="goUserInfoHtml('{{childId}}', '{{childName}}', '{{kinId}}', '{{classId}}')" id="btn{{childId}}">
+            <div class="modal-content" style="margin-top: 5px; height: 110px; ">
+                <div class="widget">
+                    <div class="widget-header" style="width: 150px;height:20px">
+                        <div class="modal-header" style="height:40px">
+                            <center style="font-weight:bold;position:relative;bottom:5px">
+                                {{childIndex}}.{{childName}}
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="ribbon-wrapper ribbon-top-left">
+                    <div class="ribbon red" style="width:85px;padding:0.1px" id="pay{{childId}}">{{payType}}</div>
+                </div>
+                <div style="position:relative;top:5px">
+                    <p><center>家长：{{partenName}}</center></p>
+                    <p><center>联系方式：{{partenPhone}}</center></p>
+                </div>
+            </div>
+        </a>
+
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            "use strict";
+
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+
+            //确定当前的tab是哪一个
+            changeTab();
+            //depend Id, be careful
+            UserInfo.GenerateKindergartenAtNavigationBar("one");
+            
+            Utilities.GenertFeedback();
+            //UserInfo.GetChangeClass();
+
+        });
+       
+        function _kinderId(kindergartenId, kinName) {
+
+            //默认打开大班信息
+            $("#classTypeVal").val(0);
+            changeTab();
+            $.cookie("paraUserInfoKinId", kindergartenId, { expires: 1, path: '/' });
+            $.cookie("paraUserInfoKinName", kinName, { expires: 1, path: '/' });
+            $("#showKinNameInfo").text(kinName);
+            UserInfo.GetClassAndChildInfo(kindergartenId, kinName);
+        }
+        function changeTab() {
+
+            //添加班级之后，进行页面跳转，保留所选择的班级类型
+            if ($.cookie("addClassInfo_classType") != null) {
+                var paraClsTypeVal = $.cookie("addClassInfo_classType");
+                $("#classTypeVal").val(paraClsTypeVal);
+                $.cookie("addClassInfo_classType", null, { expires: 1, path: '/' });
+            } else {
+                $("#classTypeVal").val(0);
+            }
+            
+            //默认打开大班信息
+            var clsTypeVal = $("#classTypeVal").val();
+            
+            for (var i = -1; i < 5 ; i++) {
+                if (i == clsTypeVal) {
+                    $("#Tab" + i).addClass("active");
+                } else {
+                    $("#Tab" + i).removeClass("active");
+                }
+            }
+        }//changeTab end
+
+        function goUserInfoHtml(childId, childName, kinId, clsId) {
+            $.cookie("paraUserInfoClsId", clsId, { expires: 1, path: '/' });
+            $.cookie("paraUserInfoChildId", childId, { expires: 1, path: '/' });
+            Utilities.Redirect("user_Info.html");
+        }
+        //添加宝贝
+        function goCreatStuHtml(clasId, clsName) {
+            $.cookie("paraAddChildClsId", clasId, { expires: 1, path: '/' });
+            $.cookie("paraAddChildClsName", clsName, { expires: 1, path: '/' });
+            Utilities.Redirect("creatStu.html");
+        }
+        //添加教师
+        function goCreateTeacherHtml(clasId, clsName) {
+            $.cookie("paraAddTeacherClsId", clasId, { expires: 1, path: '/' });
+            $.cookie("paraAddTeacherClsName", clsName, { expires: 1, path: '/' });
+            Utilities.Redirect("createTeacher.html");
+        }
+        function _updateTeacherUsers() {
+            Utilities.Redirect("updateTeacher.html");
+        }
+        function goShowEditTeacherInfoHtml(teacherId, teacherName) {
+            $.cookie("paraShowTeacherInfoClsId", teacherId, { expires: 1, path: '/' });
+            $.cookie("paraShowTeacherInfoClsName", teacherName, { expires: 1, path: '/' });
+            Utilities.Redirect("showEditTeacherInfo.html");
+        }
+        function _createClasses() {
+            Utilities.Redirect("createClass.html");
+        }
+        function goShowEditClassInfoHtml(clsId, clsName, clsType) {
+            $.cookie("paraShowInfoClsId", clsId, { expires: 1, path: '/' });
+            $.cookie("paraShowInfoClsName", clsName, { expires: 1, path: '/' });
+            $.cookie("paraShowInfoClsType", clsType, { expires: 1, path: '/' });
+            Utilities.Redirect("editClassesData.html");
+        }
+        function deleteClass(classId, className) {
+            if (classId == null) {
+                alert("数据信息有误!");
+                Utilities.Redirect("user.html");
+                return;
+            }
+            var isGo = confirm("是否确认删除班级 【" + className + "】?");
+            if (isGo) {
+                UserInfo.deleteClass(classId);
+            }
+        }
+
+        
+        function changeGraduate(classId, className) {
+            if (classId == null) {
+                alert("数据信息有误!");
+                Utilities.Redirect("user.html");
+                return;
+            }
+            var isGo = confirm("是否确认班级 【" + className + "】 已毕业?");
+            if (isGo) {
+                UserInfo.classGraduate(classId);
+            }
+        }
+
+        function noneClass(id) {
+            var clsIdVal = document.getElementById("childContent" + id).style.display.valueOf();
+            if (clsIdVal == "none") {
+                UserInfo.GenerateOneDisCls(id);
+            } else {
+                $("#childContent" + id).css({ "display": "none" });
+                $("#types" + id).html("<a style='text-decoration: none;'>▼</a>");
+            }
+        }
+        function openCls(type) {
+            UserInfo.GenerateDisCls(type);
+        }
+        function getClassInfo(classType) {
+            $("#classTypeVal").val(classType);
+            UserInfo.GetClassAndChildInfoByClassType();
+        }
+    </script>
+</head>
+<body id="bodyonline">
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+    <input type="hidden" id="classTypeVal"/><!--默认为大班-->
+    <div id="container">
+        <div id="sidebar" class="sidebar-fixed">
+            <div id="sidebar-content">
+                <!-- siderbar search -->
+                <div class="sidebar-search">
+                    <div class="input-box">
+                        <a onclick="Utilities.Redirect('user.html')" style="text-decoration: none">
+                            <img style="border:0;" src="images/kinImg1.gif" width="35px" />
+                            &nbsp;
+                            <b id="showKinNameInfo">幼儿园</b>
+                        </a>
+                    </div>
+                </div>
+                <div id="navKindergartens"></div>
+            </div>
+            <div id="divider" class="resizeable"></div>
+        </div>
+
+        <!-- /Sidebar -->
+        <div id="content">
+            <div class="container">
+                <div style=" max-width: 1010px;position:relative;top: 5px">
+
+
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="urlLinkSe">
+                                <i class=" icon-home"></i>
+                                宝贝资料
+                                <a href="user.html"> > 班级信息</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget invoice">
+                        <div class="widget-header">
+                            <div class="pull-left">
+                                <h2>宝贝列表</h2>
+                                <h2>
+                                    <small id="kinName">幼儿园</small>
+                                    <input type="hidden" id="kinId" />
+                                </h2>
+                            </div>
+                            <div id="createClassesBtn" style="display:none;position:relative;right:30px">
+                                <button class="btn" onclick="_createClasses()" style="position:relative;left:60%;top:65px">
+                                    添加班级信息
+                                </button>
+                                <button class="btn" style="position:relative;left:60%;top:65px" onclick="openCls('one')">
+                                    全部展开
+                                </button>
+                                <button class="btn" style="position: relative; left: 60%; top: 65px" onclick="openCls('two')">
+                                    全部收起
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="parentClassTypeTab">
+                        <ul class="nav nav-tabs" id="classTypeTab" style="display:none">
+                            <li id="Tab0"><a href="#" data-toggle="tab" id="first" onclick="getClassInfo('0')">大班</a></li>
+                            <li id="Tab1"><a href="#" data-toggle="tab" id="second" onclick="getClassInfo('1')">中班</a></li>
+                            <li id="Tab2"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('2')">小班</a></li>
+                            <li id="Tab3"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('3')">托班</a></li>
+                            <li id="Tab4"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('4')">其他</a></li>
+                            <li id="Tab-1"><a href="#" data-toggle="tab" id="third" onclick="getClassInfo('-1')">毕业/删除班</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="monthContent" style="position:relative;">
+                                <!--班级和宝贝信息-->
+                                <div class="tab-pane" id="tab_1_2">
+                                    <div class="widget">
+                                        <div class="widget-content">
+                                            <div class="panel-group" id="allClassContent">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--班级和宝贝信息END-->
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

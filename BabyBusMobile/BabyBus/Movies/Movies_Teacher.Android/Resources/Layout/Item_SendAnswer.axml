@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_answer"
+    android:gravity="bottom"
+    android:layout_gravity="bottom"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical"
+ 3  android:focusable="true"  
+ 4  android:focusableInTouchMode="true" >
+
+
+    <Button
+        android:text="发送"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_question_answer"
+        android:textSize="14sp"
+        android:layout_marginRight="20dp" />
+
+         <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/editText1" />
+</LinearLayout>

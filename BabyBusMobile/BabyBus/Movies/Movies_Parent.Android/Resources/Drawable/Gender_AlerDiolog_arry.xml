@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+  <string-array name="hobby">        
+     <item>男孩</item>            
+     <item>女孩</item>                
+  </string-array>
+</resources>

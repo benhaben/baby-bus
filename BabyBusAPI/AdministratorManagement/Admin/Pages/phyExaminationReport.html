@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>宝贝体质测评报告</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/userInfo.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/physicalExamination.js"></script>
+    <!--打印js-->
+    <script type="text/javascript" src="assets/js/jquery.PrintArea.js"></script>
+    <script type="text/javascript" src="assets/js/ECharts/echarts-all.js"></script>
+    <script id="navKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="goUserHtml('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+<script type="text/x-handlebars-template" id="phyExaminationReportHTML">
+        <div style="margin-left: 10%">
+            <table style="width: 86%; height: 90%;" border="0">
+                <tr>
+                    <td>
+                        <label style="float:left;position:relative;font-weight:400">
+                            姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：&nbsp;{{ChildNames}}
+                        </label>
+                    </td>
+                    <td>
+                        <label style="float:left;position:relative;left:50%;font-weight:400">
+                            性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：&nbsp;{{ChildGender}}
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="float:left;position:relative;left:0%;font-weight:400">
+                            年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：&nbsp;{{Age}}岁
+                        </label>
+                    </td>
+                    <td>
+                        <label style="float:left;position:relative;left:50%;font-weight:400">
+                            检测编号：&nbsp;{{phyMedicalId}}
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="float:left;position:relative;left:0%;font-weight:400">
+                            测试日期：&nbsp;{{TestTime}}
+                        </label>
+                    </td>
+                    <td>
+                        <label style="float:left;position:relative;left:50%;font-weight:400">
+                            单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：{{KindergartenName}}
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table style="position: relative; left: 6%; width: 86%; height:90%; border: 1px solid ; text-align: center" border="1">
+            <tr>
+                <td style="width:25%">内容</td>
+                <td style="width:25%">测试指标</td>
+                <td style="width:25%">测试值</td>
+                <td style="width:25%">评分</td>
+            </tr>
+            <tr>
+                <td rowspan="2">形态</td>
+                <td>身高（厘米）</td>
+                <td>{{Height}}</td>
+                <td>{{HeightSorce}}</td>
+            </tr>
+            <tr>
+                <td>身高标准体重（千克）</td>
+                <td>{{Weights}}</td>
+                <td>{{WeightSorce}}</td>
+            </tr>
+            <tr>
+                <td rowspan="6">素质</td>
+                <td>10米折返跑（秒）</td>
+                <td>{{TenmRun}}</td>
+                <td>{{TenmRunSorce}}</td>
+            </tr>
+            <tr>
+                <td>坐位体前屈（厘米）</td>
+                <td>{{SitReach}}</td>
+                <td>{{SitReachSorce}}</td>
+            </tr>
+            <tr>
+                <td>立定跳远（厘米）</td>
+                <td>{{StandingLongJump}}</td>
+                <td>{{StandingLongJumpSorce}}</td>
+            </tr>
+            <tr>
+                <td>双脚连续跳（秒）</td>
+                <td>{{JumpBothFeet}}</td>
+                <td>{{JumpBothFeetSorce}}</td>
+            </tr>
+            <tr>
+                <td>网求掷远（米）</td>
+                <td>{{TennisThrowFar}}</td>
+                <td>{{TennisThrowFarSorce}}</td>
+            </tr>
+            <tr>
+                <td>走平衡木（米）</td>
+                <td>{{WalkTheBalance}}</td>
+                <td>{{WalkTheBalanceSorce}}</td>
+            </tr>
+            <tr>
+                <td>综合评级</td>
+                <td>{{Grade}}</td>
+                <td>总分</td>
+                <td>{{TotalScore}}</td>
+            </tr>
+            <tr style="height:50px">
+                <td  colspan="2" id="descriptionId{{ChildId}}" style="text-align:left;font-size:15px">
+                    祝贺您完成了所有指标的测试，现对您的测试结果进行简评，与同龄人比，您的体质处于{{Grade}}水平，具体状况是：
+                    <br />
+                    <br />
+                    身高{{heightDescription}}，{{weightDescription}}。
+                    <br />
+                    <br />
+                    {{sitDownDescrtiption}}
+                    <br />
+                    <br />
+                    {{powerDescription}}
+                    <br />
+                    <br />
+                    {{speedDescription}}{{balanceDescription}}
+                </td>
+                <td  colspan="2" id="radarId{{ChildId}}"></td>
+            </tr>
+        </table>
+        <p style="float:right;position:relative;right:10%;top:5px">检测站：陕西睿莱国民体质检测中心</p>
+    </script>
+
+    
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            PhysicalExamination.GenertPhyMdicalInfo("three");
+            Utilities.GenertFeedback();
+            
+        });
+    </script>
+
+
+    <script>
+        function goUserHtml(kinId, kinName) {
+
+            $.cookie("phyUserInfoKinId", kinId, { expires: 1, path: '/' });
+            $.cookie("phyUserInfoKinName", kinName, { expires: 1, path: '/' });
+            Utilities.Redirect("phyExaminationPlan.html");
+        }
+        function printme() {
+            //window.print();
+            Utilities.Redirect("phyExaminationReportPrint.html");
+        }
+    </script>
+</head>
+
+<body id="bodyonline">
+    <div id="my_hidden">
+        <!-- Header -->
+        <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+        <div id="box">
+            <div id="Mybox"><img src="images/loading.gif" /></div>
+        </div>
+
+        <div id="container">
+
+            <div id="content">
+                <div class="container">
+                    <!--=== Page Header ===-->
+
+                    <div id="sidebar" class="sidebar-fixed">
+                        <div id="sidebar-content">
+                            <!-- siderbar search -->
+                            <div class="sidebar-search">
+                                <div class="input-box">
+                                    <a onclick="Utilities.Redirect('user.html')" style="text-decoration: none;">
+                                        <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                                        &nbsp;
+                                        <b id="showKinNameInfo">幼儿园</b>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navKindergartens"></div>
+                        </div>
+                        <div id="divider" class="resizeable"></div>
+                    </div>
+                    <div style=" max-width: 1000px;position:relative;top: 5px">
+                        <div style="position: relative; top: 5px" id="printHidden1">
+                            <ul>
+                                <li style="list-style-type: none" id="urlLinkSe">
+                                    <i class=" icon-home"></i>
+                                    <a href="phyExaminationPlan.html">体质检测计划</a>
+                                    <a href="phyExaminationReport.html"> > 体质测评报告</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="printHidden2">
+                            <input class="btn" style="float:right" type="button" value="打印预览体质测评报告" onclick="javascript:printme()" />
+                        </div>
+                        <br />
+                        <div class="tab-content" id="ssss">
+                            <!-- annual bar chart -->
+                            
+                            <div class="modal-content" style="text-align: center;margin-top:40px" id="recordsIdss">
+                                <div class="modal-header" id="delete_child_id">
+                                    <h4 class="modal-title" style="text-align: center;">体&nbsp;制&nbsp;测&nbsp;评&nbsp;报&nbsp;告</h4>
+                                </div>
+                                <div class="modal-body" id="childInfo2" style="height:745px;margin-bottom:30px">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+        </div>
+    </div>
+
+</body>
+</html>

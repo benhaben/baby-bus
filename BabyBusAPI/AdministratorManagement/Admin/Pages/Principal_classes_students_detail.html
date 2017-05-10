@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>幼儿信息</title>
+
+	<!--=== CSS ===-->
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- jQuery UI -->
+	<!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+	<![endif]-->
+
+	<!-- Theme -->
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+	<![endif]-->
+
+	<!--=== JavaScript ===-->
+
+	<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="assets/js/libs/html5shiv.js"></script>
+	<![endif]-->
+
+	<!-- Smartphone Touch Events -->
+	<script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+	<!-- General -->
+	<script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+	<script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+
+		Utilities.GetStudentDetailInfo();
+		Utilities.GenertFeedback();
+
+	});
+	</script>
+	
+</head>
+
+<body>
+
+	<!-- Header -->
+	<header class="header navbar navbar-fixed-top" role="banner">
+		<!-- Top Navigation Bar -->
+		<div class="container">
+			
+			<!-- Logo -->
+			<a class="navbar-brand" href="Principal.html">
+				<i class="icon-home"></i>
+				<strong>Hello</strong>World
+			</a>
+			<!-- /logo -->
+			
+			
+			<!-- Top Left Menu -->
+			<ul class="nav navbar-nav navbar-left hidden-xs hidden-sm">				
+				<li>
+					<a href="Principal_attendence.html">
+						考勤概况
+					</a>
+				</li>
+				<li>
+					<a href="Principal_classes.html">
+						班级资料
+					</a>
+				</li>																				
+			</ul>
+			<!-- /Top Left Menu -->
+
+			<!-- Top Right Menu -->
+			<ul class="nav navbar-nav navbar-right">
+				<!-- User Login Dropdown -->
+				<li class="dropdown user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-male"></i>
+						<span class="username">园长</span>
+						<i class="icon-caret-down small"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="index.html"><i class="icon-user"></i>管理员</a></li>
+						<li><a href="teacher.html"><i class="icon-user"></i>教师</a></li>
+						<li><a href="parents.html"><i class="icon-user"></i>家长</a></li>
+						<li><a href="Principal.html"><i class="icon-user"></i>园长</a></li>
+					</ul>
+				</li>
+				<!-- /user login dropdown -->
+			</ul>
+
+			<!--search bar -->			
+			<div class="col-sm-3 col-md-3 pull-right">
+		        <form class="navbar-form" role="search">
+		        <div class="input-group">
+		            <input type="text" class="form-control" placeholder="" name="srch-term" id="srch-term">
+		            <div class="input-group-btn">
+		                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+		            </div>
+		        </div>
+		        </form>
+        	</div>
+        	<!--/search bar -->
+			<!-- /Top Right Menu -->
+		</div>
+		<!-- /top navigation bar -->
+	</header> <!-- /.header -->
+
+	<div id="container">
+		<div id="sidebar" class="sidebar-fixed">
+			<div id="sidebar-content">
+
+                <!-- siderbar search -->
+                <form class="sidebar-search">
+					<div class="input-box">
+						<button type="submit" class="submit">
+							<i class="icon-search"></i>
+						</button>
+						<span>
+							<input type="text" placeholder="Search...">
+						</span>						
+					</div>					
+				</form>
+                <!-- /siderbar search -->
+
+				<!--=== Left Navigation Bar ===-->
+				<ul id="nav">					
+	                <li class="open">
+						<a href="javascript:void(0);">							
+						2014级小1班
+					    <i class="arrow icon-angle-left"></i></a>
+					    <ul class="sub-menu" style="display: block;">
+							<li class="current">
+								<a href="Principal_classes_students.html">
+								<i class="icon-angle-right"></i>
+								学生资料
+								</a>
+							</li>
+							<li>
+								<a href="Principal_classes_attendance.html">
+								<i class="icon-angle-right"></i>
+								考勤数据
+								</a>
+							</li>
+							<li>
+								<a href="Principal_classes_homeworks.html">
+								<i class="icon-angle-right"></i>
+								通知和作业
+								</a>
+							</li>							
+						</ul>
+					</li>
+					<li>
+						<a href="#">						
+							某某班
+						</a>
+					</li>
+					<li>
+						<a href="#">						
+							某某班
+						</a>
+					</li>
+					<li>
+						<a href="#">						
+							某某班
+						</a>
+					</li>
+				</ul>
+				<!-- /Left Navigation Bar -->
+			</div>
+
+				<!-- Sidebar -->
+				<div id="divider" class="resizeable"></div>
+				<!-- /Sidebar -->
+		</div>		
+
+
+        <!--content begin-->
+		<div id="content">
+			<div class="container">
+
+			     <!--=== Page Header ===-->
+                <div class="page-header">
+                    <h1 id="kindergartenName"></h1>   
+                </div>				
+			    <!-- /Page Header -->
+
+				<!--=== Page Content ===-->
+				<div class="widget">
+					<div class="widget-header">
+						<div class="row">				
+							<div class="col-md-11"><h2 id="childName"></h2></div>						
+						</div>
+					</div>								
+				</div>				
+				<!-- Tabs-->
+				
+
+
+
+                <div class="row">
+
+                    <div class="thumbnail col-md-2" style="height:200px; width:200px; margin:10px">
+                        <div class="widget">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9" style="margin:10px">
+                        <div class="profile-info">
+
+
+                            <dl class="dl-horizontal">
+                                <dt>用户名</dt>
+                                <dd id="loginNameVal"></dd>
+                                <dt>幼儿姓名</dt>
+                                <dd id="childName2"></dd>
+                                <dt>性别</dt>
+                                <dd id="genderVal"></dd>
+                                <dt>所属班级</dt>
+                                <dd id="classNameVal"></dd>
+                                <dt>家长姓名</dt>
+                                <dd id="realNameVal"></dd>
+                                <dt>联系方式</dt>
+                                <dd>xxx-xxxx-xxxx</dd>
+                                <dt>家庭住址</dt>
+                                <dd>xxx</dd>
+                                <dt>备注</dt>
+                                <dd></dd>
+                            </dl>
+
+                        </div>
+                    </div>
+                </div>
+
+
+				<div class="widget">
+					<div class="widget-header">
+						<div class="row">				
+							<div class="col-md-10"><h3>出勤记录 <small>下方显示该幼儿的所有出勤记录，右方按钮可保存改数据</small></h3></div>															
+							<a href="kindergarden_add.html">
+								<div class="col-md-2"><button class="btn btn-inverse" style="margin-top:15px;margin-left:32px;">保存数据</button></div>
+							</a>
+                            <table border="1" id="attendenceDetialInfo">
+                            </table>
+						</div>
+					</div>								
+				</div>
+
+			<!-- /.container -->		
+			</div>
+		</div>
+
+        <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+        </div>
+</body>
+</html>
+
+

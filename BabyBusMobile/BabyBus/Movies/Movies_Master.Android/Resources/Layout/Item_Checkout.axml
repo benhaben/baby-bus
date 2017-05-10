@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp">
+    <ImageView
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_margin="1dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/head_image"
+        android:src="@drawable/baby_icon" />
+    <TextView
+        android:text="ChildName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:id="@+id/child_name"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1.0" />
+    <TextView
+        android:text="Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkout_status"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp" />
+</LinearLayout>

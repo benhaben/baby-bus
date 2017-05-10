@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>作业和通知</title>
+
+	<!--=== CSS ===-->
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- jQuery UI -->
+	<!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+	<![endif]-->
+
+	<!-- Theme -->
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+	<![endif]-->
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+	<!--=== JavaScript ===-->
+
+	<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="assets/js/libs/html5shiv.js"></script>
+	<![endif]-->
+
+	<!-- Smartphone Touch Events -->
+	<script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+	<!-- General -->
+	<script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+	<script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+		Utilities.GenertFeedback();
+		Utilities.GenertFeedback();
+
+	});
+	</script>
+</head>
+
+<body>
+
+	<!-- Header -->
+	<header class="header navbar navbar-fixed-top" role="banner">
+		<!-- Top Navigation Bar -->
+		<div class="container">
+			
+			<!-- Logo -->
+			<a class="navbar-brand" href="teacher.html">
+				<i class="icon-home"></i>
+				<strong>Hello</strong>World
+			</a>
+			<!-- /logo -->
+			
+			<!-- Top Left Menu -->
+			<ul class="nav navbar-nav navbar-left hidden-xs hidden-sm">
+				<li>
+					<a href="teacher.html">
+						作业和通知
+					</a>
+				</li>
+				<li>
+					<a href="teacher_students.html">
+						管理班级成员
+					</a>
+				</li>						
+			</ul>
+			<!-- /Top Left Menu -->
+
+			<!-- Top Right Menu -->
+			<ul class="nav navbar-nav navbar-right">
+				<!-- User Login Dropdown -->
+				<li class="dropdown user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-male"></i>
+						<span class="username">教师</span>
+						<i class="icon-caret-down small"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="statistics.html"><i class="icon-user"></i> 管理员</a></li>
+						<li><a href="teacher.html"><i class="icon-user"></i> 教师</a></li>
+						<li><a href="parents.html"><i class="icon-user"></i> 家长</a></li>
+					</ul>
+				</li>
+				<!-- /user login dropdown -->
+			</ul>
+			<!-- /Top Right Menu -->
+		</div>
+		<!-- /top navigation bar -->
+	</header> <!-- /.header -->
+
+	<div id="container">
+					
+		<div class="container">
+
+			<!--=== Page Header ===-->
+            <div class="widget invoice">
+				<div class="widget-header">
+					<div class="pull-left">
+						<h2>添加新幼儿</h2>
+					</div>						
+				</div>
+			</div>					
+	    	<!-- /Page Header -->		
+			<!--=== Page Content ===-->
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-md-2 control-label">姓名:</label>
+					<div class="col-md-6"><input type="text" name="regular" title="" class="form-control bs-focus-tooltip"></div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-2 control-label">班级:</label>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-4">
+								<select class="form-control" name="select">
+									<option value="opt1">小1班</option>
+									<option value="opt2">小2班</option>
+									<option value="opt3">小3班</option>
+								</select>
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label">性别</label>
+					<div class="col-md-6">
+						<label class="radio-inline">
+							<div class="radio"><span><input type="radio" class="uniform" name="optionsRadios2" value="option1"></span></div>
+							男
+						</label>
+						<label class="radio-inline">
+							<div class="radio"><span class="checked"><input type="radio" class="uniform" name="optionsRadios2" value="option2" checked=""></span></div>
+							女
+						</label>				
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label">家长姓名:</label>
+					<div class="col-md-6"><input type="text" name="regular" title="" class="form-control bs-focus-tooltip"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label">家庭住址:</label>
+					<div class="col-md-6"><input type="text" name="regular" title="" class="form-control bs-focus-tooltip"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label">电话号码:</label>
+					<div class="col-md-6"><input type="text" name="regular" title="" class="form-control bs-focus-tooltip"></div>
+				</div>		
+				<div class="col-sm-offset-7 col-sm-10" style="padding:10px">
+          			<button type="submit" class="btn btn-success">提交</button>
+        		</div>
+			</form>			
+			<!-- /Page Content -->
+
+		</div>
+			<!-- /.container -->
+	</div>	
+
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>

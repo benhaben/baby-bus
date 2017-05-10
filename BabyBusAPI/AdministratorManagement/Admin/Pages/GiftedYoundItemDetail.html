@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>优幼小报记录</title>
+
+    <!--=== CSS ===-->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+    <!--[if lt IE 9]>s
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+    <![endif]-->
+    <!-- Theme -->
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/msgLogin.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--=== JavaScript ===-->
+
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+    <script type="text/javascript" src="assets/js/message.js"></script>
+    <script type="text/javascript" src="assets/js/handlebars-v2.0.0.js"></script>
+
+    <script id="SendMsgDetailDetailHtml" type="text/x-handlebars-template">
+
+        <div class="box">
+            <div class="teacher">
+                <p class="name">{{userName}}</p>
+                <p class="time">
+                    <span>{{year}}年{{month}}月{{day}}日</span>
+                </p>
+            </div>
+
+            <h2 style="font-weight:bolder;font-size:20px">{{title}}</h2>
+
+            <ol><li>&nbsp;&nbsp;&nbsp;&nbsp;{{content}}</li></ol>
+            <div class="picBox" id="imgInfos">
+            </div>
+        </div>
+    </script>
+
+    <script id="SendMsgDetailImgHtml" type="text/x-handlebars-template">
+        {{#each this}}
+        <img src="{{imgurl}}" />
+        {{/each}}
+    </script>
+
+    <script id="messageNavKindergartens-template" type="text/x-handlebars-template">
+        <ul id="nav">
+            {{#each this}}
+            <li key={{KindergartenId}} id="{{KindergartenId}}">
+                <a onclick="changeKindgarten('{{KindergartenId}}', '{{KindergartenName}}')">
+                    {{KindergartenId}}   {{KindergartenName}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            Utilities.DrawHeader();
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+            Message.GetGigtedYungDetail("two");
+            Utilities.GenertFeedback();
+
+        });
+    </script>
+
+    <script>
+        function changeKindgarten(kindergartenId, kinName) {
+            $.cookie("giftedYoungKinId", kindergartenId, { expires: 1, path: '/' });
+            $.cookie("giftedYoungKinName", kinName, { expires: 1, path: '/' });
+            Utilities.Redirect("SendGiftedYoungDetail.html");
+        }
+    </script>
+
+    <style>
+        a {
+            color: grey;
+        }
+
+            a:link {
+                text-decoration: none;
+            }
+
+            a:hover {
+                cursor: pointer;
+            }
+    </style>
+</head>
+
+<body id="bodyonline">
+
+    <!-- Header -->
+
+    <header id="drawHeader" class="header navbar navbar-fixed-top" role="banner"></header>
+    <div id="box">
+        <div id="Mybox"><img src="images/loading.gif" /></div>
+    </div>
+
+    <div id="container">
+        <div id="sidebar" class="sidebar-fixed">
+            <div id="sidebar-content">
+                <div class="sidebar-search">
+                    <div class="input-box">
+                        <a onclick="Utilities.Redirect('SendMessageRecords.html')" style="text-decoration: none">
+                            <img style="border:0" src="images/kinImg1.gif" width="35px" />
+                            &nbsp;
+                            <b id="showKinNameInfo">幼儿园</b>
+                        </a>
+                    </div>
+                </div>
+                <div id="messageNavKindergartens"></div>
+            </div>
+            <div id="divider" class="resizeable"></div>
+        </div>
+
+        <div id="content">
+            <div class="container">
+                <div id="SendMsgClsDetailContent" style=" max-width: 1000px;position:relative;top: 5px">
+                    <div style="position: relative; top: 5px">
+                        <ul>
+                            <li style="list-style-type:none" id="urlLinkSe">
+                                <i class=" icon-home"></i>
+                                <a href="SendGiftedYoungDetail.html">优幼小报记录</a>
+                                <a> > 优幼小报记录内容</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <div class="widget-header">
+
+                            <div class="row">
+                                <div class="col-md-10" id="headerVal">
+                                    <h2 id='titileVal'>
+                                        <img id="noticeTypeImg" style="border:0" width="40px" />
+                                        <small id="time"></small>
+                                    </h2>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--messageInfo  begin-->
+
+                    <div class="cantact02" id="SendMsgDetailDetailContent">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+
+</body>
+</html>

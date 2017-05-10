@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1.0">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:paddingBottom="10.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="60.0dip">
+                <LinearLayout
+                    android:id="@+id/setting_showinfo"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10.0dip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    local:MvxBind="Click ShowInfoCommand">
+                    <ImageView
+                        android:paddingTop="4dp"
+                        android:src="@drawable/baby_icon"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_weight="1.0">
+                        <TextView
+                            android:textSize="18.0sp"
+                            android:gravity="center_vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            local:IsVisiable="Parent"
+                            local:MvxBind="Text ChildName" />
+                        <TextView
+                            android:textSize="18.0sp"
+                            android:gravity="center_vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            local:IsVisiable="KgOrClass"
+                            local:MvxBind="Text RealName" />
+                        <TextView
+                            android:textSize="14.0sp"
+                            android:gravity="center_vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            local:MvxBind="Text Phone, Converter=TestValueConverter"
+                            android:layout_marginTop="4.0dip" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="12.0dip"
+                        android:layout_height="12.0dip"
+                        android:layout_marginRight="10.0dip"
+                        android:src="@drawable/into_icon" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_height="50.0dip"
+                android:layout_width="fill_parent">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="牛逼闪闪幼儿园"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:MvxBind="Text KindergartenName"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:text="大二班"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    local:MvxBind="Text ClassName" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+        <!-- <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                local:MvxBind="Click ShowCheckoutCommand">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="新入班幼儿"
+                    android:layout_weight="1.0" />
+                <ImageView
+                    android:layout_width="12.0dip"
+                    android:layout_height="12.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:src="@drawable/into_icon" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                local:MvxBind="Click ShowChildrenCommand">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="查看本班幼儿列表"
+                    android:layout_weight="1.0" />
+                <ImageView
+                    android:layout_width="12.0dip"
+                    android:layout_height="12.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:src="@drawable/into_icon" />
+            </LinearLayout> -->
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/user_feedback"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_mine_feedback"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="用户反馈"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:id="@+id/user_call"
+                    android:textColor="@color/bb_blue"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4009922586" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/clear_cache"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_mine_rec"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="清除缓存"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="19.02MB"
+                    local:MvxBind="Text CacheSizeText"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/ll_update_version"
+                android:layout_width="fill_parent"
+                local:MvxBind="Click UpdateApkCommand"
+                android:layout_height="50.0dip">
+                <ImageView
+                    android:paddingTop="4dp"
+                    android:src="@drawable/icon_mine_update"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="查看更新"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textSize="18.0sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:id="@+id/mine_label_version"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <Button
+                android:text="@string/mine_label_logout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_logout" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

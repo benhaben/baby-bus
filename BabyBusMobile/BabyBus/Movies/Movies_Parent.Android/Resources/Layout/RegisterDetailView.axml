@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:id="@+id/config_hidden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:isScrollContainer="true">
+        <!-- <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_code" />
+                <EditText
+                    android:id="@+id/username_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入密保卡卡号"
+                    android:layout_marginLeft="10.0dip"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:inputType="text" />
+            </LinearLayout> -->
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_city" />
+                <MvxSpinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:MvxItemTemplate="@layout/item_spinner"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    local:MvxBind="ItemsSource Cities;SelectedItem City" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_kindergarden" />
+                <MvxSpinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:MvxItemTemplate="@layout/item_spinner"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    local:MvxBind="ItemsSource Kindergartens;SelectedItem Kindergarten" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_class" />
+                <MvxSpinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:MvxItemTemplate="@layout/item_spinner"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    local:MvxBind="ItemsSource KindergartenClasses;SelectedItem KindergartenClass" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_childname" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入宝宝姓名"
+                    android:layout_marginLeft="10.0dip"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    local:MvxBind="Text ChildName, Converter=StringTrim"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:maxLength="6" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_parentname" />
+                <EditText
+                    android:id="@+id/username_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入家长称谓"
+                    android:layout_marginLeft="10.0dip"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    local:MvxBind="Text ParentName"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:maxLength="10" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_gender" />
+                <MvxSpinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:MvxItemTemplate="@layout/item_gender"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    local:MvxBind="ItemsSource Genders; SelectedItem Gender" />
+            </LinearLayout>
+            <View
+                android:background="@drawable/shape_line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/setting_info_childname"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/register_label_birthday" />
+                <TextView
+                    android:id="@+id/edit_birthday"
+                    android:textSize="18.0sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10.0dip"
+                    android:gravity="right"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10.0dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="60.0dip">
+                <TextView
+                    android:textSize="18.0sp"
+                    android:textColor="#ff545454"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="@string/mine_label_headimage"
+                    android:layout_weight="1.0" />
+                <ImageView
+                    android:id="@+id/image_baby"
+                    android:paddingTop="4.0dip"
+                    android:src="@drawable/baby_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="7.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginBottom="10.0dip"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <Button
+                android:text="@string/common_label_finish"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7.0dip"
+                android:id="@+id/button1"
+                local:MvxBind="Click RegisterCommand" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

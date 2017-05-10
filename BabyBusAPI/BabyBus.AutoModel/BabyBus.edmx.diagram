@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fae45e3984ea40a0bdd85736e1797dd9" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="BabyBus_Model.AnalysisKindergarten" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.AnalysisParent" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Answer" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.CardPassword" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Checkout" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Child" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Favorite" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Kindergarten" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Notice" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.NoticeChildRelation" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.NoticeReaded" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.ParentChildRelation" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Question" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.Role" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.WeChatInfo" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.NoticeSummary" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.TeacherInUseSummary" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BabyBus_Model.ChildParentInformationViewWithId" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.ChildTeacherInformationViewWithId" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Admin" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.AttendanceDetail" Width="1.5" PointX="13.375" PointY="8.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.AttendanceMaster" Width="1.5" PointX="13.375" PointY="11.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.AttendancePlan" Width="1.5" PointX="9.375" PointY="14.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Stats_ImageBug" Width="1.5" PointX="11.75" PointY="14.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Stats_PageReportDetail" Width="1.5" PointX="13.75" PointY="14.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Stats_PageReportMaster" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Stats_UserReport" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.SelectUserInformationView" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.SelectUserInformationViewWithId" Width="1.5" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_Child" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_Class" Width="1.5" PointX="15.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_Teacher" Width="1.5" PointX="15.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_UserReport" Width="1.5" PointX="15.75" PointY="14.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Stats_DailyUserReport" Width="1.5" PointX="9.375" PointY="17.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Stats_DailyUserReportByClass" Width="1.5" PointX="11.375" PointY="17.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Stats_DailyUserReportByKindergarten" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_Day15Notice" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_Day7Notice" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_TotalNotice" Width="1.5" PointX="4.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_Stats_PageReportDetail" Width="1.5" PointX="18.375" PointY="5.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UV_Stats_PageReportMaster" Width="1.5" PointX="18.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.UserKindergartenRealation" Width="1.5" PointX="13.375" PointY="19.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.ChildPay" Width="1.5" PointX="15.375" PointY="19.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Feedback" Width="1.5" PointX="18.375" PointY="13.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.AdvertisementSet" Width="1.5" PointX="18.375" PointY="17.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.IntelligenceQuestion" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.GenderNormGroupAgeType" Width="1.5" PointX="20.375" PointY="14.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.GenderNorm" Width="1.5" PointX="20.375" PointY="4.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.IntelligenceAssessment" Width="1.5" PointX="20.375" PointY="9.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.HeightForStandardWeight" Width="1.5" PointX="7.375" PointY="21.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.IndividualIndexDistribution" Width="1.5" PointX="20.375" PointY="17.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.AskForLeave" Width="1.5" PointX="17.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Comment" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Knowledge__PhysiqueHealth" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.MI_AssessIndex" Width="1.5" PointX="2.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.MI_Modality" Width="1.5" PointX="22.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.MI_TestDetail" Width="1.5" PointX="4.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.MI_TestMaster" Width="1.5" PointX="22.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.MI_TestQuestion" Width="1.5" PointX="22.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.PayOrder" Width="1.5" PointX="11.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.User" Width="1.5" PointX="22.375" PointY="14.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.Class" Width="1.5" PointX="22.375" PointY="18.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.PhysicalExaminationPlane" Width="1.5" PointX="22.375" PointY="21.75" />
+        <EntityTypeShape EntityType="BabyBus_Model.PhysicalExaminationResult" Width="1.5" PointX="14.375" PointY="23.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

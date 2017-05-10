@@ -1,0 +1,215 @@
+Melon - Changelog
+=================
+
+#### File Status Flags
+
+M modified - File has been modified
+A added    - File has been added
+D deleted  - File has been deleted
+
+#### Notes
+
+If you don't want to diff the files on your own, I can provide you with the differences as patchfile. Just write me an Email in this case or open a new thread in my support forum (<http://support.stammtec.de>) with the file(s) you want to know the differences.
+
+v2.0.0 - 22 April 2014:
+--------------------------
+
+ Features:
+
+   - Updated to Bootstrap 3.1.1
+   - Added ribbons
+
+ Bugfixes:
+
+   - Fixed z-index issue from DatePicker
+   - Form Wizard: It does not validate the form anymore, if clicked index from step buttons is lower than active index
+   - Allow clearing select-box in a DataTable with ColumnFilter
+   - Prevent toggling disabled checkbox if the 'toggle all checkbox' was clicked
+   - Multiple Textareas with Character Counter are now possible on the same page
+   - Styling for a Bootstrap 3 List-Group Inside a Boxed Widget With "no-padding"
+   - Dual Lists weren't submitting their value (thanks syscover!)
+   - Printed Pages from Firefox have no borders anymore
+   - Google Street View and zoom in/ out buttons are now displaying correctly in Google Maps Widgets
+   - Fixed border from search at DataTables in Internet Explorer 9
+
+### Updated Files:
+
+M       _less/general/dropdowns.less
+M       _less/general/general_ui.less
+M       _less/general/invoice.less
+M       _less/general/modals.less
+M       _less/general/navbar.less
+M       _less/general/tables.less
+M       _less/plugins/datatables.less
+M       _less/plugins/jquery-ui.less
+
+M       form_components.html
+M       ui_general.html
+
+M       assets/css/main.css
+M       assets/css/plugins/datatables.css
+M       assets/css/plugins/jquery-ui.css
+M       assets/js/app.js
+M       assets/js/demo/form_validation.js
+M       assets/js/demo/form_wizard.js
+M       assets/js/demo/ui_general.js
+M       assets/js/plugins.form-components.js
+M       assets/js/plugins.js
+
+A       bootstrap/css/bootstrap-theme.css
+A       bootstrap/css/bootstrap-theme.css.map
+A       bootstrap/css/bootstrap-theme.min.css
+M       bootstrap/css/bootstrap.css
+A       bootstrap/css/bootstrap.css.map
+M       bootstrap/css/bootstrap.min.css
+M       bootstrap/fonts/glyphicons-halflings-regular.eot
+M       bootstrap/fonts/glyphicons-halflings-regular.svg
+M       bootstrap/fonts/glyphicons-halflings-regular.ttf
+M       bootstrap/fonts/glyphicons-halflings-regular.woff
+M       bootstrap/js/bootstrap.js
+M       bootstrap/js/bootstrap.min.js
+
+M       plugins/duallistbox/jquery.duallistbox.js
+
+
+v1.2.0 (11 November 2013)
+--------------------------
+
+Features:
+
+  - New: Form Wizard
+  - New: 404 Error Page
+  - New: Bootstrap Switch ("iOS checkboxes")
+  - DataTables are now supporting the ColumnFilter-plugin with the use of data-columnFilter='{}'-attribute
+  - Improved checkable DataTables with pagination: Master toggle is now switching into the correct state when pagination was used
+  - DataTables can now be extended with a function which you can set with data-dataTable-function="" (thanks karlfalconer!)
+  - Adding support for .table-vertical-align
+  - Header Top Left Menu is now responsive and can be shown on phones
+
+Bugfixes:
+
+  - Fixed sidebar with left whitespace after resizing the window when the sidebar was resized
+  - Widget-header toolbar-buttons were sometimes 1px too high in Firefox
+  - Input-icons at login are now hiding correctly when switching to registering-tab
+  - Bootbox does not have double scrollbars anymore
+  - Fixed jQuery Validation resetForm()-function
+  - TableTools and ColVis can now be used together
+  - Tabs inside tabs are now possible
+  - Typing on focus at select2-boxes is now working in Chrome
+  - Improved validation on vertical forms
+
+### Updated Files:
+
+A       404.html
+
+A       _less/error.less
+M       _less/general/tables.less
+M       _less/general/tabs.less
+M       _less/general/widgets.less
+M       _less/login.less
+A       _less/plugins/bootstrap-switch.less
+A       _less/plugins/bootstrap-wizard.less
+M       _less/plugins/select2.less
+M       _less/responsive/responsive-navbar.less
+
+
+A       assets/css/error.css
+M       assets/css/login.css
+M       assets/css/main.css
+M       assets/css/plugins.css
+A       assets/css/plugins/bootstrap-switch.css
+A       assets/css/plugins/bootstrap-wizard.css
+M       assets/css/plugins/select2.css
+M       assets/css/responsive.css
+
+A       assets/img/ajax-loading-input.gif
+
+M       assets/js/app.js
+A       assets/js/demo/form_wizard.js
+M       assets/js/login.js
+M       assets/js/plugins.form-components.js
+M       assets/js/plugins.js
+
+M       plugins/bootbox/bootbox.js
+M       plugins/bootbox/bootbox.min.js
+A       plugins/bootstrap-switch/bootstrap-switch.js
+A       plugins/bootstrap-switch/bootstrap-switch.min.js
+A       plugins/bootstrap-wizard/jquery.bootstrap.wizard.js
+A       plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js
+A       plugins/datatables/columnfilter/jquery.dataTables.columnFilter.js
+M       plugins/event.swipe/jquery.event.move.js
+
+M       Few HTML-files, just to load new plugins, e.g. the form wizard plugin. Markup was not touched.
+
+
+v1.1.0 (15 September 2013)
+--------------------------
+
+- Features:
+
+  - Login has now built-in validation
+  - Full featured Google Maps Widgets
+  - Zoomable Charts with Overview
+  - "Display Length" from DataTables can now configured via `data-display-length="10"`-attribute directly in HTML
+  - Added "Horizontal Scrolling"-example and possibility for `data-horizontal-width="150%"`-attribute
+  - Added `data-dataTable="{}"`-attribute for DataTables to set something like an ajax-source directly in HTML
+  - Added Horizontal Scrolling example for DataTables
+  - Removed Underscore.js and switched to Lo-Dash (resulting in faster page load)
+  - Multiple Project Switcher are now possible
+  - Added Slim Progress Bars (like on YouTube) for Ajax-Requests or similiar (using <http://ricostacruz.com/nprogress/>)
+
+- Bugfixes:
+
+  - Removed accents in filenames
+      - /assets/img/icons/iconsweets/is2(white|dark)/exposé.png to expose.png
+  - Added if-clause in app.js for $.cookie
+  - Fixed displaying white space instead of sidebar on Android-tablets (only landscape) with Chrome
+  - Headers from DataTables on resize are now aligning correctly
+  - Selects are now styling correctly with an ajax-source in DataTables
+  - Fixed checkboxes toggle in Horizontal Scrolling DataTables
+  - Fixed some IE8-issues
+
+### Updated Files:
+
+M       _less/general/general_ui.less
+M       _less/general/layout.less
+M       _less/general/navbar.less
+M       _less/general/widgets.less
+M       _less/login.less
+M       _less/plugins/datatables.less
+A       _less/plugins/nprogress.less
+
+M       assets/css/login.css
+M       assets/css/main.css
+M       assets/css/plugins.css
+M       assets/css/plugins/datatables.css
+A       assets/css/plugins/nprogress.css
+
+A       assets/img/icons/iconsweets/is2/dark/expose.png
+D       "assets/img/icons/iconsweets/is2/dark/expos\303\251.png"
+A       assets/img/icons/iconsweets/is2/white/expose.png
+D       "assets/img/icons/iconsweets/is2/white/expos\303\251.png"
+
+M       assets/js/app.js
+
+A       assets/js/demo/charts/chart_selection_zooming.js
+A       assets/js/demo/google_maps.js
+M       assets/js/demo/ui_general.js
+
+A       assets/js/libs/lodash.compat.min.js
+D       assets/js/libs/underscore.js
+D       assets/js/libs/underscore.min.js
+
+M       assets/js/login.js
+M       assets/js/plugins.form-components.js
+M       assets/js/plugins.js
+
+A       plugins/gmaps/*
+A       plugins/nprogress/*
+
+M       All HTML-files, general markup was not touched, don't worry :-)
+
+v1.0.0 (1 September 2013)
+-------------------------
+
+- Initial Release

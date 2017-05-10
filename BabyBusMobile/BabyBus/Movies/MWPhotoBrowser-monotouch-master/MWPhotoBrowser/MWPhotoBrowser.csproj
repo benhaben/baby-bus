@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{DF573A26-B2E1-4683-83AC-0D6BDCF765A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MWPhotoBrowser</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>MWPhotoBrowser</AssemblyName>
+    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+    <ReleaseVersion>0.0.3</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="MWPhotoBrowser.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libMWPhotoBrowser.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libMWPhotoBrowser.linkwith.cs">
+      <DependentUpon>libMWPhotoBrowser.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Localizable.strings" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageError.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageError%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageError%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedOff.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedOff%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedOff%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedOn.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedOn%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedOn%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedSmallOff.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedSmallOff%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedSmallOff%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedSmallOn.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedSmallOn%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\ImageSelectedSmallOn%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\PlayButtonOverlayLarge.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\PlayButtonOverlayLarge%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\PlayButtonOverlayLarge%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\PlayButtonOverlayLargeTap.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\PlayButtonOverlayLargeTap%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\PlayButtonOverlayLargeTap%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemArrowLeft.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemArrowLeft%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemArrowLeft%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemArrowRight.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemArrowRight%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemArrowRight%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemGrid.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemGrid%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\UIBarButtonItemGrid%403x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\VideoOverlay.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\VideoOverlay%402x.png" />
+    <BundleResource Include="MWPhotoBrowser.bundle\VideoOverlay%403x.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircleButtonBinding.iOS", "CircleButtonBinding.iOS\CircleButtonBinding.iOS.csproj", "{5482376C-4119-49DA-B1D3-577ADBB1BEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircleButtonBinding", "CircleButtonBinding\CircleButtonBinding.csproj", "{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Debug|iPhone.Build.0 = Debug|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Release|iPhone.ActiveCfg = Release|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Release|iPhone.Build.0 = Release|iPhone
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{5482376C-4119-49DA-B1D3-577ADBB1BEAA}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Release|iPhone.Build.0 = Release|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{BA7298B2-BDF5-43E0-9CBB-ADD819B09232}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CircleButtonBinding.iOS\CircleButtonBinding.iOS.csproj
+	EndGlobalSection
+EndGlobal

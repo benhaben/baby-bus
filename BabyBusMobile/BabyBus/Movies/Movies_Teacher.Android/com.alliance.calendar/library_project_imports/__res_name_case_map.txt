@@ -1,0 +1,13 @@
+Layout/day_gridcell.axml;layout/day_gridcell.xml
+Layout/Alliance_Calendar_Main.axml;layout/alliance_calendar_main.xml
+Values/Strings.xml;values/strings.xml
+Drawable/daynamecell_drawable.xml;drawable/daynamecell_drawable.xml
+Anim/cal_fade_in.xml;anim/cal_fade_in.xml
+Anim/cal_slide_down.xml;anim/cal_slide_down.xml
+Anim/cal_slide_up.xml;anim/cal_slide_up.xml
+Values/attrs.xml;values/attrs.xml
+Values/colors.xml;values/colors.xml
+Values/styles.xml;values/styles.xml
+Drawable/default_highlight_selector.xml;drawable/default_highlight_selector.xml
+Drawable/default_cell_selector.xml;drawable/default_cell_selector.xml
+Drawable/default_dim_selector.xml;drawable/default_dim_selector.xml

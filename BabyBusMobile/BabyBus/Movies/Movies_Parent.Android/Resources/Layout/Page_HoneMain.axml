@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical"
+    android:background="@color/bb_gray3">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/lightyellow"
+            android:gravity="center_vertical"
+            android:id="@+id/no_net_lable"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/icon_easyicon_net"
+                android:layout_marginLeft="10dp"
+                local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="世界上最远的距离就是没有网，检查设置"
+                android:textColor="@color/bb_black1" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/parent_gm"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="0dp"
+            android:layout_height="150dp">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <babybus.droid.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:padding="2dp"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/parent_classnotice"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:padding="10dp"
+            android:background="@drawable/home_image">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:gravity="left|top"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/city"
+                    android:text="陕西省"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/background_light"
+                    local:MvxBind="Text DisplayCity" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/kindergarten"
+                    android:text="西安第一幼儿园"
+                    android:textSize="14dp"
+                    android:textColor="@android:color/background_light"
+                    local:MvxBind="Text DisplayKindergarten" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/baby_head"
+                    android:src="@drawable/Child_headImage"
+                    local:MvxBind="Bitmap Bytes,Converter=InMemoryImage" />
+                <ImageView
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_marginTop="-92.5dp"
+                    android:maxWidth="95dp"
+                    android:maxHeight="95dp"
+                    android:src="@drawable/image_round_head_index" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/child_mane"
+                    android:text="张大千"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/background_light"
+                    local:MvxBind="Text DisplayChildName" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/city"
+                    android:text="豆芽班"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/background_light"
+                    local:MvxBind="Text DisplayClassName" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/kindergarten"
+                    android:text="班主任：张三丰"
+                    android:textSize="14dp"
+                    android:textColor="@android:color/background_light"
+                    local:MvxBind="Text DisplayTeacherName" />
+            </LinearLayout>
+        </LinearLayout>
+        <GridView
+            android:id="@+id/parent_grid"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:columnWidth="115dp"
+            android:cacheColorHint="@android:color/darker_gray"
+            android:numColumns="3"
+            android:paddingTop="10dp"
+            android:verticalSpacing="0dp"
+            android:stretchMode="columnWidth"
+            android:gravity="bottom"
+            android:layout_marginTop="4dp"
+            android:background="@color/white" />
+    </LinearLayout>
+</ScrollView>

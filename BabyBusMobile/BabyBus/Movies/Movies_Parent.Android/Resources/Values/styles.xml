@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="RadioButton">
+    <item name="android:textColor">@drawable/button_text_color</item>
+    <item name="android:minHeight">33dp</item>
+    <item name="android:minWidth">70dp</item>
+    <item name="android:gravity">center</item>
+    <item name="android:button">@null</item>
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">5dp</item>
+  </style>
+  <style name="button_text" >
+    <item name="android:layout_width" >fill_parent</item>
+    <item name="android:layout_height" >wrap_content</item>
+    <item name="android:textColor" >#ffffff</item>
+    <item name="android:gravity" >center</item>
+    <item name="android:layout_margin" >3dp</item>
+    <item name="android:textSize" >30dp</item>
+    <item name="android:textStyle" >bold</item>
+    <item name="android:shadowColor" >#000000</item>
+    <item name="android:shadowDx" >1</item>
+    <item name="android:shadowDy" >1</item>
+    <item name="android:shadowRadius" >2</item>
+  </style>
+  <style name="birtyday_text">
+      <item name="android:textSize">14dp</item>
+      <item name="android:gravity">left|bottom</item>
+  </style>
+  <style name="CustomWindowTitleBackground">
+    <item name="android:background">@color/bb_green</item>
+  </style>
+  <style name="CustomTheme" parent="@style/AppTheme">
+  	<item name="android:windowActionBar">false</item>
+    <item name="android:windowTitleSize">45dp</item>
+    <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+<!--    <item name="android:actionBarStyle">@style/ActionBarStyle</item>-->
+  </style>
+  <dimen name="radio_button_default_textsize">14dp</dimen>
+  <dimen name="radio_button_conner_radius">5dp</dimen>
+
+<style name="roomRatingBar" parent="@android:style/Widget.RatingBar">
+  
+<item name="android:progressDrawable">@drawable/food_rating_smallbar_full</item> 
+  
+<item name="android:minHeight">48dp</item> 
+  
+<item name="android:maxHeight">48dp</item> 
+  
+</style>
+
+<style name="recommendationRatingBar" parent="@android:style/Widget.RatingBar">
+  
+<item name="android:progressDrawable">@drawable/food_rating_smallbar_full</item> 
+  
+<item name="android:minHeight">15dp</item> 
+  
+<item name="android:maxHeight">15dp</item> 
+  
+</style>
+<style name="MyDialogStyle" >
+	<item name="android:windowBackground">@color/transparent</item>
+	<item name="android:windowNoTitle">true</item> 
+	<item name="android:windowIsTranslucent">true</item> 
+	<item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
+	<item name="android:windowAnimationStyle">@style/FeelyouWindowAnimTheme</item>  
+</style>
+<style name="FeelyouWindowAnimTheme" parent="@android:style/Animation.Activity">
+<!--	<item name="android:activityOpenExitAnimation">@drawable/anim_out_from_top</item>-->
+    <item name="android:activityOpenEnterAnimation">@drawable/anim_in_from_bottom</item>
+    <item name="android:activityCloseEnterAnimation">@drawable/anim_out_from_bottom</item>
+    <item name="android:activityCloseExitAnimation">@drawable/anim_out_from_bottom</item>
+</style>
+</resources>

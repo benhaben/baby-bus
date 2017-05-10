@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{E833400A-C422-4944-BD4B-266A4CA62270}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>BabyBus.Droid</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Adapters\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Broadcasts\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Fragments\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utils\Image\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Common\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Common\Album\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Communication\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Member\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\AnswerListAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\GalleryAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\GrowMemoryGridAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\ImageGridAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\ImageSlideAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\NoticeIndexAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\PhotoPagerAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\QuestionIndexAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Adapters\SelectedImageGridAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Broadcasts\DownloadCompleteReceiver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fragments\ImageSlideFragment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fragments\PhotoFragment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fragments\PhotoOptionFragment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EnvironmentService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PictureService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ConnectionChangeReceiver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\NetContectStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\ObjectWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Utils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Image\BitmapCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Image\ImageCallback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Image\ImageRevition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ActivityBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FragmentViewBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ICustomTitleBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ICustomTitleBarWithBack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedViewBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ViewBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ViewExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Common\ImageGridView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Common\Album\AlbumHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Common\Album\ImageCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Common\Album\ImageItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\NoticeDetailView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\NoticeIndexView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\MemoryDetailView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\MemoryIndexView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\QuestionDetailView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\QuestionIndexView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Member\RePasswordView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Image\SampleScrollListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Content\ContentDetailView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Member\ListViewHeightBasedOnChildren.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\SimpleerAlertDialog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fragments\PasscoTargt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fragments\GifImageView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Communication\NoticeHtmlView.cs" />
+  </ItemGroup>
+</Project>

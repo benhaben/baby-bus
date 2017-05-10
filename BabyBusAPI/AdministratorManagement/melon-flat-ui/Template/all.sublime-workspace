@@ -1,0 +1,1381 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"if",
+				"ife	if … else"
+			],
+			[
+				"ac",
+				"action"
+			],
+			[
+				"cont",
+				"content"
+			],
+			[
+				"pro",
+				"project"
+			],
+			[
+				"Desc",
+				"description"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ui_general.html",
+			"settings":
+			{
+				"buffer_size": 47391,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tables_responsive.html",
+			"settings":
+			{
+				"buffer_size": 29910,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "emmet\n\n",
+			"settings":
+			{
+				"buffer_size": 7,
+				"line_ending": "Unix",
+				"name": "emmet"
+			}
+		},
+		{
+			"file": "/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/custom.js",
+			"settings":
+			{
+				"buffer_size": 1590,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Documentation/template/js/plugins.js",
+			"settings":
+			{
+				"buffer_size": 733,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/**\nCore script to handle the entire layout and base functions\n**/\nvar App = function() {\n\n	\"use strict\";\n\n	// IE mode\n	var isIE8 = false;\n	var isIE9 = false;\n	var isIE10 = false;\n	var responsiveHandlers = [];\n	var layoutColorCodes = {\n		'blue':   '#54728c',\n		'red':    '#e25856',\n		'green':  '#94B86E',\n		'purple': '#852b99',\n		'grey':   '#555555',\n		'yellow': '#ffb848'\n	};\n	var sidebarWidth = '250px';\n\n	//* BEGIN:CORE HANDLERS *//\n	// this function handles responsive layout on screen size resize or mobile device rotate.\n	var handleResponsive = function() {\n		var isIE8 = ( navigator.userAgent.match(/msie [8]/i) );\n		var isIE9 = ( navigator.userAgent.match(/msie [9]/i) );\n		var isIE10 = !! navigator.userAgent.match(/MSIE 10/);\n\n		if (isIE10) {\n			$('html').addClass('ie10'); // detect IE10 version\n		}\n\n		$('.navbar li.nav-toggle').click(function() {\n			$('body').toggleClass('nav-open');\n		});\n\n		/**\n		 * Sidebar-Toggle-Button\n		 */\n\n		$('.toggle-sidebar').click(function(e) {\n			e.preventDefault();\n\n			// Reset manual divider-resize\n			$('#sidebar').css('width', '');\n			$('#sidebar > #divider').css('margin-left', '');\n			$('#content').css('margin-left', '');\n\n			// Toggle class\n			$('#container').toggleClass('sidebar-closed');\n		});\n\n		/**\n		 * Top-Left-Menu-Toggle-Button\n		 */\n\n		$('.toggle-top-left-menu').click(function(e) {\n			e.preventDefault();\n\n			// Toggle visibility\n			$('.navbar-left.navbar-left-responsive').slideToggle(200);\n		});\n\n		var handleElements = function() {\n			// First visible childs add .first\n			$('.crumbs .crumb-buttons > li').removeClass('first');\n			$('.crumbs .crumb-buttons > li:visible:first').addClass('first');\n\n			// Remove phone-navigation\n			if ($('body').hasClass('nav-open')) {\n				$('body').toggleClass('nav-open');\n			}\n\n			// Set default visibility state\n			$('.navbar-left.navbar-left-responsive').removeAttr('style');\n\n			// Add additional scrollbars\n			handleScrollbars();\n\n			// Handle project switcher width\n			handleProjectSwitcherWidth();\n		}\n\n		// handles responsive breakpoints.\n		$(window).setBreakpoints({\n			breakpoints: [320, 480, 768, 979, 1200]\n		});\n\n		$(window).bind('exitBreakpoint320', function() {\n			handleElements();\n		});\n		$(window).bind('enterBreakpoint320', function() {\n			handleElements();\n\n			resetResizeableSidebar();\n		});\n\n		$(window).bind('exitBreakpoint480', function() {\n			handleElements();\n		});\n		$(window).bind('enterBreakpoint480', function() {\n			handleElements();\n\n			resetResizeableSidebar();\n		});\n\n		$(window).bind('exitBreakpoint768', function() {\n			handleElements();\n		});\n		$(window).bind('enterBreakpoint768', function() {\n			handleElements();\n\n			resetResizeableSidebar();\n		});\n\n		$(window).bind('exitBreakpoint979', function() {\n			handleElements();\n		});\n		$(window).bind('enterBreakpoint979', function() {\n			handleElements();\n		});\n\n		$(window).bind('exitBreakpoint1200', function() {\n			handleElements();\n		});\n		$(window).bind('enterBreakpoint1200', function() {\n			handleElements();\n		});\n	}\n\n	var calculateHeight = function() {\n		$('body').height('100%');\n\n		var $header         = $('.header');\n		var header_height   = $header.outerHeight();\n\n		var document_height = $(document).height();\n		var window_height   = $(window).height();\n\n		var doc_win_diff    = document_height - window_height;\n\n		if (doc_win_diff <= header_height) {\n			var new_height  = document_height - doc_win_diff;\n		} else {\n			var new_height  = document_height;\n		}\n\n		new_height = new_height - header_height;\n\n		var document_height = $(document).height();\n\n		$('body').height(new_height);\n	}\n\n	var handleLayout = function() {\n		calculateHeight();\n\n		// For margin to top, if header is fixed\n		if ($('.header').hasClass('navbar-fixed-top')) {\n			$('#container').addClass('fixed-header');\n		}\n	}\n\n	var handleResizeEvents = function() {\n		var resizeLayout = debounce(_resizeEvents, 30);\n		$(window).resize(resizeLayout);\n	}\n\n	// Executed only every 30ms\n	var _resizeEvents = function() {\n		calculateHeight();\n\n		// Realign headers from DataTables (otherwise header will have an offset)\n		// Only affects horizontal scrolling DataTables\n		if ($.fn.dataTable) {\n			var tables = $.fn.dataTable.fnTables(true);\n			$(tables).each(function() {\n				if (typeof $(this).data('horizontalWidth') != 'undefined') {\n					$(this).dataTable().fnAdjustColumnSizing();\n				}\n			});\n		}\n	}\n\n	/**\n	 * Creates and returns a new debounced version of the passed\n	 * function which will postpone its execution until after wait\n	 * milliseconds have elapsed since the last time it was invoked.\n	 *\n	 * Source: http://underscorejs.org/\n	 */\n	var debounce = function(func, wait, immediate) {\n		var timeout, args, context, timestamp, result;\n		return function() {\n			context = this;\n			args = arguments;\n			timestamp = new Date();\n			var later = function() {\n				var last = (new Date()) - timestamp;\n				if (last < wait) {\n					timeout = setTimeout(later, wait - last);\n				} else {\n					timeout = null;\n					if (!immediate) result = func.apply(context, args);\n				}\n			};\n			var callNow = immediate && !timeout;\n			if (!timeout) {\n				timeout = setTimeout(later, wait);\n			}\n			if (callNow) result = func.apply(context, args);\n			return result;\n		};\n	};\n\n	/**\n	 * Swipe Events\n	 */\n	var handleSwipeEvents = function() {\n		// Enable feature only on small widths\n		if ($(window).width() <= 767) {\n\n			$('body').on('movestart', function(e) {\n				// If the movestart is heading off in an upwards or downwards\n				// direction, prevent it so that the browser scrolls normally.\n				if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {\n					e.preventDefault();\n				}\n\n				// Prevents showing sidebar while scrolling through projects\n				var $parentClass = $(e.target).parents('#project-switcher');\n\n				if ($parentClass.length) {\n					e.preventDefault();\n				}\n			}).on('swipeleft', function(e) {\n				// Hide sidebar on swipeleft\n				$('body').toggleClass('nav-open');\n			}).on('swiperight', function(e) {\n				// Show sidebar on swiperight\n				$('body').toggleClass('nav-open');\n			});\n\n		}\n	}\n\n	var handleSidebarMenu = function() {\n		var arrow_class_open   = 'icon-angle-down',\n			arrow_class_closed = 'icon-angle-left';\n\n		$('li:has(ul)', '#sidebar-content ul').each(function() {\n			if ($(this).hasClass('current') || $(this).hasClass('open-default')) {\n				$('>a', this).append(\"<i class='arrow \" + arrow_class_open + \"'></i>\");\n			} else {\n				$('>a', this).append(\"<i class='arrow \" + arrow_class_closed + \"'></i>\");\n			}\n		});\n\n		if ($('#sidebar').hasClass('sidebar-fixed')) {\n			$('#sidebar-content').append('<div class=\"fill-nav-space\"></div>');\n		}\n\n		$('#sidebar-content ul > li > a').on('click', function (e) {\n\n			if ($(this).next().hasClass('sub-menu') == false) {\n				return;\n			}\n\n			// Toggle on small devices instead of accordion\n			if ($(window).width() > 767) {\n				var parent = $(this).parent().parent();\n\n				parent.children('li.open').children('a').children('i.arrow').removeClass(arrow_class_open).addClass(arrow_class_closed);\n				parent.children('li.open').children('.sub-menu').slideUp(200);\n				parent.children('li.open-default').children('.sub-menu').slideUp(200);\n				parent.children('li.open').removeClass('open').removeClass('open-default');\n			}\n\n			var sub = $(this).next();\n			if (sub.is(\":visible\")) {\n				$('i.arrow', $(this)).removeClass(arrow_class_open).addClass(arrow_class_closed);\n				$(this).parent().removeClass('open');\n				sub.slideUp(200, function() {\n					$(this).parent().removeClass('open-fixed').removeClass('open-default');\n					calculateHeight();\n				});\n			} else {\n				$('i.arrow', $(this)).removeClass(arrow_class_closed).addClass(arrow_class_open);\n				$(this).parent().addClass('open');\n				sub.slideDown(200, function() {\n					calculateHeight();\n				});\n			}\n\n			e.preventDefault();\n		});\n\n		var _handleResizeable = function() {\n			$('#divider.resizeable').mousedown(function(e){\n				e.preventDefault();\n\n				var divider_width = $('#divider').width();\n				$(document).mousemove(function(e){\n					var sidebar_width = e.pageX+divider_width;\n					if (sidebar_width <= 300 && sidebar_width >= (divider_width * 2 - 3)) {\n						if (sidebar_width >= 240 && sidebar_width <= 260) {\n							$('#sidebar').css(\"width\", 250);\n							$('#sidebar-content').css(\"width\", 250);\n							$('#content').css(\"margin-left\", 250);\n							$('#divider').css(\"margin-left\", 250);\n						} else {\n							$('#sidebar').css(\"width\",sidebar_width);\n							$('#sidebar-content').css(\"width\", sidebar_width);\n							$('#content').css(\"margin-left\",sidebar_width);\n							$('#divider').css(\"margin-left\",sidebar_width);\n						}\n\n					}\n\n				})\n			});\n			$(document).mouseup(function(e){\n				$(document).unbind('mousemove');\n			});\n		}\n\n		_handleResizeable();\n	}\n\n	/**\n	 * Removes the CSS-styles added with jQuery while resizing the sidebar\n	 */\n	var resetResizeableSidebar = function() {\n		$('#sidebar').css(\"width\", \"\");\n		$('#sidebar-content').css(\"width\", \"\");\n		$('#content').css(\"margin-left\", \"\");\n		$('#divider').css(\"margin-left\", \"\");\n	}\n\n	var handleScrollbars = function() {\n		var android_chrome = /android.*chrom(e|ium)/.test(navigator.userAgent.toLowerCase());\n\n		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) && android_chrome == false) {\n			$('#sidebar').css('overflow-y', 'auto');\n		} else {\n			if ($('#sidebar').hasClass('sidebar-fixed') || $(window).width() <= 767) {\n\n				// Since Chrome on Android has problems with scrolling only in sidebar,\n				// this is a workaround for this\n				//\n				// Awaiting update from Google\n\n				if (android_chrome && !$('#sidebar').hasClass('sidebar-fixed-responsive')) {\n					var wheelStepInt = 100;\n					$('#sidebar').attr('style', 'position: absolute !important;');\n\n					// Fix for really high tablet resolutions\n					if ($(window).width() > 979) {\n						$('#sidebar').css('margin-top', '-52px');\n					}\n\n					// Only hide sidebar on phones\n					if ($(window).width() <= 767) {\n						$('#sidebar').css('margin-left', '-250px').css('margin-top', '-52px');\n					}\n				} else {\n					var wheelStepInt = 7;\n\n					$('#sidebar-content').slimscroll({\n						'height': '100%',\n						wheelStep: wheelStepInt\n					});\n				}\n			}\n		}\n	}\n\n	var handleThemeSwitcher = function() {\n		// Add/ Removes theme-* to/ from body\n		function _changeTheme(theme) {\n			// Remove theme-*\n			$('body').removeClass(function (index, css) {\n				return (css.match (/\\btheme-\\S+/g) || []).join(' ');\n			});\n\n			// Select theme\n			$('body').addClass('theme-' + theme);\n\n			// Store it for page refresh\n			$.cookie('theme', theme, { path: '/' });\n\n			// Button styles\n			if (theme == 'dark') {\n				_toggleBtnInverse('add');\n			} else {\n				_toggleBtnInverse('remove');\n			}\n		}\n\n		// Add/ Removes .btn-inverse to/ from switcher\n		function _toggleBtnInverse(state) {\n			$('#theme-switcher .btn').each(function() {\n				if (state == 'add') {\n					$(this).addClass('btn-inverse');\n				} else {\n					$(this).removeClass('btn-inverse');\n				}\n			});\n		}\n\n		if ($.cookie) {\n			// Handles click-event on switcher\n			$('#theme-switcher label').click(function() {\n				var self = $(this).find('input');\n				var theme = self.data('theme');\n\n				_changeTheme(theme);\n			});\n\n			// Checks, if cookie exists\n			// (If user actually changed the theme via switcher)\n			if ($.cookie('theme')) {\n				var cookie_theme = $.cookie('theme');\n				_changeTheme(cookie_theme);\n\n				// To select the right switch\n				$('#theme-switcher input').each(function() {\n					var self = $(this);\n					var theme = self.data('theme');\n\n					if (theme == cookie_theme) {\n						self.parent().addClass('active');\n					} else {\n						self.parent().removeClass('active');\n					}\n				});\n\n				// Button styles\n				if (cookie_theme == 'dark') {\n					_toggleBtnInverse('add');\n				} else {\n					_toggleBtnInverse('remove');\n				}\n			}\n		}\n	}\n\n	var handleWidgets = function() {\n		$('.widget .toolbar .widget-collapse').click(function() {\n			var widget         = $(this).parents(\".widget\");\n			var widget_content = widget.children(\".widget-content\");\n			var widget_chart   = widget.children(\".widget-chart\");\n			var divider        = widget.children(\".divider\");\n\n			if (widget.hasClass('widget-closed')) {\n				// Open Widget\n				$(this).children('i').removeClass('icon-angle-up').addClass('icon-angle-down');\n				widget_content.slideDown(200, function() {\n					widget.removeClass('widget-closed');\n				});\n				widget_chart.slideDown(200);\n				divider.slideDown(200);\n			} else {\n				// Close Widget\n				$(this).children('i').removeClass('icon-angle-down').addClass('icon-angle-up');\n				widget_content.slideUp(200, function() {\n					widget.addClass('widget-closed');\n				});\n				widget_chart.slideUp(200);\n				divider.slideUp(200);\n			}\n		});\n	}\n\n	var handleCheckableTables = function() {\n		$( '.table-checkable thead th.checkbox-column :checkbox' ).on('change', function() {\n			var checked = $( this ).prop( 'checked' );\n\n			var data_horizontalWidth = $(this).parents('table.table-checkable').data('horizontalWidth');\n			if (typeof data_horizontalWidth != 'undefined') {\n				var $checkable_table_body = $( this ).parents('.dataTables_scroll').find('.dataTables_scrollBody tbody');\n			} else {\n				var $checkable_table_body = $( this ).parents('table').children('tbody');\n			}\n\n			$checkable_table_body.each(function(i, tbody) {\n				$(tbody).find('.checkbox-column').each(function(j, cb) {\n					// Only toggle it if checkbox is not disabled\n					var cb_self = $( ':checkbox:not(:disabled)', $(cb) ).prop( \"checked\", checked ).trigger('change');\n\n					if (cb_self.hasClass('uniform')) {\n						$.uniform.update(cb_self);\n					}\n				});\n			});\n		});\n		$( '.table-checkable tbody tr td.checkbox-column :checkbox' ).on('change', function() {\n			var checked = $( this ).prop( 'checked' );\n			$( this ).closest('tr').toggleClass( 'checked', checked );\n		});\n\n		// Feature to toggle header checkbox on pagination (if necessary)\n		$('.datatable.table-checkable').bind('draw', function() {\n			var checkboxes_count         = $('tbody tr td.checkbox-column :checkbox', this).length;\n			var checkboxes_checked_count = $('tbody tr td.checkbox-column :checkbox:checked', this).length;\n\n			var $toggle_all_checkbox     = $('thead th.checkbox-column :checkbox', this);\n			var checked                  = false;\n\n			if (checkboxes_count == checkboxes_checked_count && checkboxes_count != 0) {\n				checked = true;\n			} else {\n				checked = false;\n			}\n\n			$toggle_all_checkbox.prop( \"checked\", checked );\n\n			if ($toggle_all_checkbox.hasClass('uniform')) {\n				$.uniform.update($toggle_all_checkbox);\n			}\n		});\n	}\n\n	var handleTabs = function() {\n		// function to fix left/right tab contents\n		var fixTabHeight = function(tab) {\n			$(tab).each(function() {\n				var content = $($($(this).attr(\"href\")));\n				var tab = $(this).parent().parent();\n				if (tab.height() > content.height()) {\n					content.css('min-height', tab.height());\n				}\n			});\n		}\n\n		// fix tab content on tab click\n		$('body').on('click', '.nav.nav-tabs.tabs-left a[data-toggle=\"tab\"], .nav.nav-tabs.tabs-right a[data-toggle=\"tab\"]', function(){\n			fixTabHeight($(this));\n		});\n\n		// fix tab contents for left/right tabs\n		fixTabHeight('.nav.nav-tabs.tabs-left > li.active > a[data-toggle=\"tab\"], .nav.nav-tabs.tabs-right > li.active > a[data-toggle=\"tab\"]');\n\n		// activate tab if tab id provided in the URL\n		if (location.hash) {\n			var tabid = location.hash.substr(1);\n			$('a[href=\"#'+tabid+'\"]').click();\n		}\n	}\n\n	var handleScrollers = function() {\n		$('.scroller').each(function () {\n			$(this).slimScroll({\n					size: '7px',\n					opacity: '0.2',\n					position: 'right',\n					height: $(this).attr('data-height'),\n					alwaysVisible: ($(this).attr('data-always-visible') == '1' ? true : false),\n					railVisible: ($(this).attr('data-rail-visible') == '1' ? true : false),\n					disableFadeOut: true\n				});\n		});\n	}\n\n	var handleProjectSwitcher = function() {\n		handleProjectSwitcherWidth();\n\n		$('.project-switcher-btn').click(function (e) {\n			e.preventDefault();\n\n			_hideVisibleProjectSwitcher(this);\n\n			$(this).parent().toggleClass('open');\n\n			// Define default project switcher\n			var data_projectSwitcher = _getProjectSwitcherID(this);\n\n			$(data_projectSwitcher).slideToggle(200, function() {\n				$(this).toggleClass('open');\n			});\n		});\n\n		// Hide project switcher on click elsewhere the element\n		$('body').click(function(e) {\n			var classes = e.target.className.split(' ');\n\n			if ($.inArray('project-switcher', classes) == -1 && $.inArray('project-switcher-btn', classes) == -1\n				&& $(e.target).parents().index($('.project-switcher')) == -1 && $(e.target).parents('.project-switcher-btn').length == 0) {\n\n				_hideVisibleProjectSwitcher();\n\n			}\n		});\n\n		/*\n		 * Horizontal scrollbars\n		 */\n\n		$('.project-switcher #frame').each(function () {\n			$(this).slimScrollHorizontal({\n				width: '100%',\n				alwaysVisible: true,\n				color: '#fff',\n				opacity: '0.2',\n				size: '5px'\n			});\n		});\n\n		var _hideVisibleProjectSwitcher = function(el) {\n			$('.project-switcher').each(function () {\n				var $projectswitcher = $(this);\n\n				// Only slide up visible project switcher\n				if ($projectswitcher.is(':visible')) {\n					var data_projectSwitcher = _getProjectSwitcherID(el);\n\n					if (data_projectSwitcher != ('#' + $projectswitcher.attr('id'))) {\n						$(this).slideUp(200, function() {\n							$(this).toggleClass('open');\n\n							// Remove all clicked states from toggle buttons\n							$('.project-switcher-btn').each(function () {\n								// Define default project switcher\n								var data_projectSwitcher = _getProjectSwitcherID(this);\n\n								if (data_projectSwitcher == ('#' + $projectswitcher.attr('id'))) {\n									$(this).parent().removeClass('open');\n								}\n							});\n						});\n					}\n				}\n			});\n		}\n\n		var _getProjectSwitcherID = function(el) {\n			// Define default project switcher\n			var data_projectSwitcher = $(el).data('projectSwitcher');\n			if (typeof data_projectSwitcher == 'undefined') {\n				data_projectSwitcher = '#project-switcher';\n			}\n\n			return data_projectSwitcher;\n		}\n	}\n\n	/**\n	 * Calculates project switcher width\n	 */\n	var handleProjectSwitcherWidth = function() {\n		$('.project-switcher').each(function () {\n			// To fix the hidden-width()-bug\n			var $projectswitcher = $(this);\n			$projectswitcher.css('position', 'absolute').css('margin-top', '-1000px').show();\n\n			// Iterate through each li\n			var total_width = 0;\n			$('ul li', this).each(function() {\n				total_width += $(this).outerWidth(true) + 15;\n			});\n\n			// And finally hide it again\n			$projectswitcher.css('position', 'relative').css('margin-top', '0').hide();\n\n			$('ul', this).width(total_width);\n		});\n	}\n\n	//* END:CORE HANDLERS *//\n\n	return {\n\n		//main function to initiate template pages\n		init: function() {\n			//core handlers\n			handleResponsive(); // Checks for IE-version, click-handler for sidebar-toggle-button, Breakpoints\n			handleLayout(); // Calls calculateHeight()\n			handleResizeEvents(); // Calls _resizeEvents() every 30ms on resizing\n			handleSwipeEvents(); // Enables feature to swipe to the left or right on mobile phones to open the sidebar\n			handleSidebarMenu(); // Handles navigation\n			handleScrollbars(); // Adds styled scrollbars for sidebar on desktops\n			handleThemeSwitcher(); // Bright/ Dark Switcher\n			handleWidgets(); // Handle collapse and expand from widgets\n			handleCheckableTables(); // Checks all checkboxes in a table if master checkbox was toggled\n			handleTabs(); // Fixes tab height\n			handleScrollers(); // Initializes slimscroll for scrollable widgets\n			handleProjectSwitcher(); // Adds functionality for project switcher at the header\n		},\n\n		getLayoutColorCode: function(name) {\n			if (layoutColorCodes[name]) {\n				return layoutColorCodes[name];\n			} else {\n				return '';\n			}\n		},\n\n		// Wrapper function to block elements (indicate loading)\n		blockUI: function (el, centerY) {\n			var el = $(el);\n			el.block({\n				message: '<img src=\"./assets/img/ajax-loading.gif\" alt=\"\">',\n				centerY: centerY != undefined ? centerY : true,\n				css: {\n					top: '10%',\n					border: 'none',\n					padding: '2px',\n					backgroundColor: 'none'\n				},\n				overlayCSS: {\n					backgroundColor: '#000',\n					opacity: 0.05,\n					cursor: 'wait'\n				}\n			});\n		},\n\n		// Wrapper function to unblock elements (finish loading)\n		unblockUI: function (el) {\n			$(el).unblock({\n				onUnblock: function () {\n					$(el).removeAttr(\"style\");\n				}\n			});\n		}\n\n	};\n\n}();",
+			"file": "assets/js/app.js",
+			"file_size": 20484,
+			"file_write_time": 1443157884000000,
+			"settings":
+			{
+				"buffer_size": 20484,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ut",
+				"ConvertToUTF8: Reload with Encoding"
+			],
+			[
+				"utg",
+				"ConvertToUTF8: Reload with Encoding"
+			],
+			[
+				"utf",
+				"ConvertToUTF8: Reload with Encoding"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"in ta l l",
+				"Package Control: Install Package"
+			],
+			[
+				"C#",
+				"Set Syntax: C#"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"encode",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"utf8",
+				"ConvertToUTF8: Reload with Encoding"
+			],
+			[
+				"UTF",
+				"ConvertToUTF8: Reload with Encoding"
+			],
+			[
+				"UTF8",
+				"ConvertToUTF8: Reload with Encoding"
+			],
+			[
+				"ut f",
+				"ConvertToUTF8: Reload with Encoding"
+			],
+			[
+				"objc",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"make",
+				"Set Syntax: Makefile"
+			],
+			[
+				"o b",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"Snippet: ",
+				"Snippet: mvxp"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Alig",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pa c",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/yinshen/Downloads/111.txt",
+		"/Users/yinshen/Downloads/jQuery-File-Upload-9.11.2/basic-plus.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/ui_general.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/form_components.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/form_validation.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/demo/form_validation.js",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/custom.js",
+		"/Users/yinshen/projects/marionette-gentle-introduction/index.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Controllers/SendMessageRecordsController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Controllers/DelPresidentInfoController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/tables_responsive.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/app.js",
+		"/Users/yinshen/Downloads/Bootstrap-Image-Gallery-3.1.3/js/demo.js",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/assets/js/app.js",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/ViewModels/Login/LoginViewModel.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Net/IRemoteService.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Net/ConvertExtensions.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/SendGiftedYoungTab.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/message.js",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/SendNotice.html",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/utilities.js",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Controllers/PresidentInfoController.cs",
+		"/Users/yinshen/Documents/IdentifyingCode.sql",
+		"/Users/yinshen/Documents/Tencent Files/405062429/AppWebCache/270/qinfo.clt.qq.com/qinfo_v3/js/setting.ad80f.js",
+		"/Volumes/C/projects/BabyBusAPI/BabyBus.AutoModel/UV_Child.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Net/Login/ILoginService.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Models/Account/User.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Client/BabyBus.Client.csproj",
+		"/Users/yinshen/Documents/BabyBus.Client/LoginService.cs",
+		"/Users/yinshen/projects/ServiceStack/tests/ServiceStack.WebHost.IntegrationTests/Tests/AuthTestsBase.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Attendance/AttMasterController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Attendance/AttDetailController.cs",
+		"/Users/yinshen/projects/ServiceStack/release-notes.md",
+		"/Users/yinshen/projects/HelloMobile/src/Client.WinStore.Pcl/MainPage.xaml.cs",
+		"/Users/yinshen/projects/ServiceStack/tests/PclTest.Ios10/PclTest.Ios10ViewController.cs",
+		"/Users/yinshen/projects/ServiceStack/tests/PclTest.Ios/PclTest_IosViewController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/HelloMobile/src/Shared.Client/SharedGateway.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/HelloMobile/src/Client.iOS.Pcl/Client_iOSViewController.designer.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/HelloMobile/src/Shared.Client/packages.config",
+		"/Users/yinshen/projects/ServiceStack/tests/ServiceStack.WebHost.Endpoints.Tests/AutoQueryTests.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Common/ChildSummaryV2Controller.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Model/Entities/Attendance/AskForLeave.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/General/Attendance/AttendanceMasterService.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Models/Enum/AttenceType.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Attendance/ChildMonthAttController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Models/PageReportModel.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Model/Entities/Stats/Enum/PageReportType.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Models/AttendanceModel.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/Movies/Net/Attendance/AttendanceService.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Models/QuestionModel.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Communication/QuestionController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Communication/NoticeController.cs",
+		"/Users/yinshen/Documents/dbo_Kindergarten.sql",
+		"/Volumes/C/projects/BabyBusServiceStackApi/BabyBusSSApi/BabyBusSSApi/BabyBusSSApi.ServiceModel/Enumeration/QuestionType.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Models/NoticeModel.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Models/Enums/NoticeType.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/General/Login/AdminService.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/General/FAQ/AnswerService.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Communication/AnswerController.cs",
+		"/Users/yinshen/Documents/1",
+		"/Volumes/C/projects/BabyBusServiceStackApi/BabyBusSSApi/BabyBusSSApi/cn.jpush.api/JPushClient.cs",
+		"/Volumes/C/projects/BabyBusAPI/AdministratorManagement/Controllers/NoticeController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Communication/NoticeReadController.cs",
+		"/Volumes/C/projects/BabyBusAPI/BabyBus.Model/Entities/Article/Notice.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Communication/CommentController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Models/Account/GenderModel.cs",
+		"/Users/yinshen/projects/ServiceStack.UseCases/WebApi.ProductsExample/ProductsService.cs",
+		"/Users/yinshen/projects/ServiceStack.UseCases/packages/ServiceStack.Api.Swagger.4.0.30/src/SwaggerApiService.cs",
+		"/Users/yinshen/projects/EmailContacts/src/EmailContacts.ServiceInterface/ContactsServices.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/clean.bat",
+		"/Users/yinshen/Downloads/sqlite_expert_6686-1.com/license3.key",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Models/NoticeReadModel.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Controllers/Communication/ReadListController.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Models/ChildModel.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.API/Web.config",
+		"/Users/yinshen/projects/ASP/HttpBenchmarks/src/BenchmarksAnalyzer/Global.asax.cs",
+		"/Users/yinshen/projects/ServiceStack.Examples/src/RedisStackOverflow/RedisStackOverflow.ServiceInterface/ResetService.cs",
+		"/Users/yinshen/projects/ServiceStack.UseCases/Reusability/Global.asax.cs",
+		"/Users/yinshen/projects/ServiceStack.UseCases/Logging.Elmah/Global.asax.cs",
+		"/Users/yinshen/projects/ServiceStack.UseCases/CustomAuthenticationMvc/Controllers/AccountController.cs",
+		"/Users/yinshen/Downloads/Stock2/app/src/main/java/laofan/stock/WebContentActivity.java",
+		"/Users/yinshen/projects/ServiceStack/tests/ServiceStack.Common.Tests/OAuth/OAuthUserSessionTestsBase.cs",
+		"/Users/yinshen/projects/ServiceStack/tests/CheckMvc/CheckWebGlobalNamespace.dtos.cs",
+		"/Users/yinshen/projects/ServiceStack/tests/Check.ServiceModel/Rockstar.cs",
+		"/Users/yinshen/projects/ServiceStack/src/ServiceStack.Interfaces/IQuery.cs",
+		"/Users/yinshen/projects/ServiceStack/docs/2014/release-notes.md",
+		"/Users/yinshen/projects/EmailContacts/src/EmailContacts/Web.config",
+		"/Users/yinshen/projects/ASP/TestSST4/TestSST4/transform_all.bat",
+		"/Users/yinshen/projects/ServiceStack.UseCases/CustomAuthenticationMvc/App_Start/AppHost.cs",
+		"/Users/yinshen/projects/ServiceStack.UseCases/Mvc5/Web.Debug.config",
+		"/Users/yinshen/projects/ServiceStack.UseCases/CustomAuthenticationMvc/bin/CustomAuthenticationMvc.dll.config",
+		"/Users/yinshen/projects/ServiceStack.UseCases/Reusability/Web.config",
+		"/Users/yinshen/projects/EmailContacts/src/EmailContacts/Global.asax.cs",
+		"/Users/yinshen/projects/ASP/TestSST4/TestSST4/Web.config",
+		"/Users/yinshen/Downloads/csharp-client/src/main/csharp/IO/Swagger/Api/EstimatesApi.cs",
+		"/Users/yinshen/projects/EmailContacts/README.md",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/UITouchShared/Views/Controls/RadioButtonView.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/.git/MERGE_MSG",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/Movies_Parent.Android/Views/Communication/SendQuestionView.cs",
+		"/Users/yinshen/Library/MobileDevice/Provisioning Profiles/fb288327-67ef-488f-ac1e-54252416f793.mobileprovision",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Utilities/ImageSendHelper.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/BabyBus.Service/Constant.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Constants.cs",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/Movies/Models/Account/CityModel.cs",
+		"/Users/yinshen/Documents/Knowledge_ PhysiqueHealth.json",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/.git/rebase-merge/git-rebase-todo",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/.git/COMMIT_EDITMSG",
+		"/Users/yinshen/Downloads/builtin_news/lib/config.php",
+		"/Users/yinshen/Downloads/xamarin_uninstall.sh",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/MWPhotoBrowser-monotouch-master/MWPhotoBrowser.sln",
+		"/Users/yinshen/projects/babybus/BabyBusDB/BabyBusDB/Data/CreateKgCl.sql",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/ELCImagePickerControllerBinding.iOS/ELCImagePickerControllerBinding/ELCImagePickerControllerBinding.csproj",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/MWPhotoBrowser-monotouch-master/MWPhotoBrowser/MWPhotoBrowser.csproj",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/ImageCropperBinding.iOS/ImageCropperBinding.iOS/ImageCropperBinding.iOS.csproj",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/JPushBinding.iOS/JPush/JPushBinding.iOS.csproj",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/ImageEffectsBinding.iOS/ImageEffects.csproj",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/CircleButtonBinding.iOS/CircleButtonBinding/CircleButtonBinding.iOS.csproj",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/MWPhotoBrowser-monotouch-master/MWPhotoBrowser-objc/MWPhotoBrowser/build.sh",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/BTProgressHUD.iOS/ComponentStoreAssets/build.sh",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies/ELCImagePickerControllerBinding.iOS/ELCImagePickerController/build.sh",
+		"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/代码分析/CreateIntent.dgml",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Core/Services/AuthenticationService.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Core/Handlers/AuthenticationHandler.cs",
+		"/Users/yinshen/Downloads/jpush-unity3d-plugin-master/Plugins/JPushBinding.cs",
+		"/Users/yinshen/Downloads/jpush-unity3d-plugin-master/Examples/PluginsDemo.cs",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/css/msgLogin.css",
+		"/Volumes/C/projects/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/utilities.js",
+		"/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/login.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/yinshen/projects/",
+			"/Users/yinshen/projects/ServiceStack/tests",
+			"/Users/yinshen/projects/ServiceStack/tests/ServiceStack.WebHost.Endpoints.Tests/UseCases",
+			"/Users/yinshen/projects/ServiceStack",
+			"/Users/yinshen/projects/ServiceStack.Examples",
+			"/Users/yinshen/projects/ServiceStack.UseCases",
+			"/Users/yinshen/projects/babybus/BabyBusAPI",
+			"/Users/yinshen/projects/ServiceStack.Examples",
+			"/Users/yinshen/projects/ServiceStack.UseCases",
+			"/Users/yinshen/projects/ServiceStack.Examples",
+			"/Users/yinshen/projects/ServiceStack.UseCases",
+			"/Users/yinshen/projects/ServiceStack",
+			"/Volumes/C/projects",
+			"/Users/yinshen/projects/ASP",
+			"/Users/yinshen/projects/ServiceStack.Examples",
+			"/Users/yinshen/projects/ServiceStack.UseCases",
+			"/Users/yinshen/projects/ASP",
+			"/Users/yinshen/projects/ServiceStack.Examples",
+			"/Users/yinshen/projects/ServiceStack.UseCases",
+			"/Users/yinshen/projects/ASP",
+			"/Users/yinshen/projects/ServiceStack.Examples",
+			"/Users/yinshen/projects/ServiceStack.UseCases",
+			"/Users/yinshen/projects/ServiceStack.Examples",
+			"/Users/yinshen/projects/ServiceStack.UseCases",
+			"/Users/yinshen/projects",
+			"/Users/yinshen/projects/babybus/BabyBusMobile",
+			"/Users/yinshen/projects/babybus/BabyBusMobile/BabyBus/Movies",
+			"/Users/yinshen/projects/,<open folders>",
+			"/Users/yinshen/projects/",
+			"/Users/yinshen/projects/babybus/",
+			"/Users/yinshen/projects/babybus/,-*.txt,-*.xml,-*.s,-*.java,-*.m",
+			"/Users/yinshen/projects/,-*.txt,-*.xml,-*.s,-*.java,-*.m",
+			"/Users/yinshen/projects/,-*.txt,-*.xml,-*.s,-*.java",
+			"/Users/yinshen/projects/,-*.txt,-*.xml,-*.s",
+			"/Users/yinshen/projects/",
+			"/Users/yinshen/projects/NPlus1DaysOfMvvmCross",
+			"/Users/yinshen/projects/NPlus1DaysOfMvvmCross/N-25-Tabbed/Tabbed.Touch/Images",
+			"/Users/yinshen/projects/,-*.dll,-*.s,-*.xml,-*.m,-*.txt,-*.java,-*.h,-*.LinkFileList,-*.pbxproj",
+			"/Users/yinshen/projects/,-*.dll,-*.s,-*.xml,-*.m,-*.txt,-*.java,-*.h,-*.LinkFileList",
+			"/Users/yinshen/projects/,-*.dll,-*.s,-*.xml,-*.m,-*.txt,-*.java,-*.h",
+			"/Users/yinshen/projects/,-*.dll,-*.s,-*.xml,-*.m,-*.txt,-*.java",
+			"/Users/yinshen/projects/,-*.dll,-*.s,-*.xml,-*.m",
+			"/Users/yinshen/projects/,-*.dll,-*.s,-*.xml",
+			"/Users/yinshen/projects/,-*.dll,-*.s",
+			"/Users/yinshen/projects/,-*.d l l",
+			"/Users/yinshen/projects/",
+			"/Users/yinshen/projects/NPlus1DaysOfMvvmCross/",
+			"/Users/yinshen/projects",
+			"/Users/yinshen/projects/NPlus1DaysOfMvvmCross/N-00-FirstDemo/"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"$(document)",
+			"$('document')",
+			"dataTables_paginate",
+			"dataTables_paginate paging_bootstrap",
+			"process",
+			"radio",
+			"female",
+			"validate",
+			"sparkline",
+			"validat",
+			"va li",
+			"project-switcher",
+			"jsoncallback",
+			"widget",
+			"classGraduate",
+			"loadJSON",
+			"doUploadImage",
+			"Message",
+			"pickadate",
+			"date",
+			"Default datepicker",
+			"Default datepicker:",
+			"break",
+			"Currency",
+			"<ul",
+			"<ul>",
+			"<ul",
+			"ul",
+			"row",
+			"row=",
+			"row =",
+			"row",
+			"dow",
+			"bootstrap-wysihtml5.css",
+			"wysi",
+			"wysiwyg",
+			"wysihtml5",
+			"bootstrap-wysihtml5.css",
+			"wysihtml5",
+			"WYSIWYG",
+			"上传",
+			"上传图",
+			"上传图片[2/9]",
+			"noty",
+			"notification",
+			"no ti f i",
+			"Usual input field:",
+			"Inline Radio Buttons:",
+			"<div class=\"form-group\">\n										<label class=\"col-md-2 control-label\">Inline Radio Buttons: </label>\n										<div class=\"col-md-10\">\n											<label class=\"radio-inline\">\n												<input type=\"radio\" name=\"optionsRadios2\" value=\"option1\">\n												Option 1\n											</label>\n											<label class=\"radio-inline\">\n												<input type=\"radio\" name=\"optionsRadios2\" value=\"option2\" checked=\"\">\n												Option 2\n											</label>\n											<label class=\"radio-inline\">\n												<input type=\"radio\" name=\"optionsRadios2\" value=\"option3\" disabled=\"\">\n												Option 3\n											</label>\n										</div>\n									</div>",
+			"myModal1",
+			"#myModal1",
+			"CheckedTrue",
+			"comma-delimited",
+			"UploadAdvertisement",
+			"SubmitCheckPic",
+			"UploadAdvertisement",
+			"UploadPic",
+			"uploadAdv",
+			"IsAttence",
+			"AttenceHint",
+			"new Authenticate",
+			"JsonServiceClient",
+			"iServiceClient",
+			"_loginService",
+			"UV_Child",
+			"client",
+			"gateway",
+			"SharedGateway",
+			"shared",
+			"Rockstar",
+			"QueryRockstarAlbums",
+			"IFilterRockstars",
+			"QueryCustomRockstarsFilter",
+			"QueryBase",
+			"http://115.28.88.175:8099/api/notices/classes?ClassId=112&&&&Skip=0&Take=1&&OrderByDesc=CreateTime&&format=json&authsecret=Whosyourdady!",
+			"http://115.28.88.175:8099/api/notices/103?&format=json&authsecret=Whosyourdady!",
+			"http://115.28.88.175:8099/api/caches/notices/103?&format=json&authsecret=Whosyourdady!",
+			"api",
+			"rcsip1",
+			"caches",
+			"rcsip",
+			"rcsip1",
+			"http://115.28.88.175:8099/api/children?classid=112&authsecret=Whosyourdady!",
+			"庄子",
+			"optimize",
+			"optimise",
+			"WorkAttendance",
+			"masterId",
+			"IsSelect",
+			"Status",
+			"Date",
+			"date",
+			"_attService",
+			"CreateQuestion",
+			"options",
+			"CreatePersonalMessage",
+			"type",
+			"CreateQuestion",
+			"model.Children",
+			"CreatePersonalMessage",
+			"ReadList",
+			"GetAllNotice",
+			"IReturn",
+			"autoquery",
+			"expire",
+			"int?",
+			"JSInterface",
+			"javascriptInterface",
+			"CredentialsAuthProvider",
+			"Register{",
+			"new Register",
+			"CredentialsAuthProvider",
+			"BasicAuthProvider",
+			"CredentialsAuthProvider",
+			"LogFactory",
+			"InitSchema",
+			"IAuthRepository",
+			"Log",
+			"ServiceStack.Logging.Log4Net",
+			"ICacheClient",
+			"connectionStrings",
+			"AppSettings",
+			"SmtpConfig",
+			"sqlserver",
+			"slqserver",
+			"MemoryCacheClient",
+			"OrmLiteAuthRepository",
+			"CustomUserSession"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ui_general.html",
+					"settings":
+					{
+						"buffer_size": 47391,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								194,
+								194
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tables_responsive.html",
+					"settings":
+					{
+						"buffer_size": 29910,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4022,
+								4022
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1805.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"settings":
+					{
+						"buffer_size": 7,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "emmet",
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/custom.js",
+					"settings":
+					{
+						"buffer_size": 1590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"is_preview": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 713.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/yinshen/projects/babybus/BabyBusAPI/AdministratorManagement/Admin/Documentation/template/js/plugins.js",
+					"settings":
+					{
+						"buffer_size": 733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"is_preview": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "assets/js/app.js",
+					"settings":
+					{
+						"buffer_size": 20484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18795,
+								19685
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13749.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"app.js",
+				"BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/assets/js/app.js"
+			],
+			[
+				"plugin",
+				"BabyBusAPI/AdministratorManagement/Admin/Documentation/template/js/plugins.js"
+			],
+			[
+				"custom.js",
+				"BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/custom.js"
+			],
+			[
+				"tables_responsive",
+				"BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/tables_responsive.html"
+			],
+			[
+				"ui_g",
+				"BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/ui_general.html"
+			],
+			[
+				"form_validation",
+				"BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/demo/form_validation.js"
+			],
+			[
+				"form_components",
+				"BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/form_components.html"
+			],
+			[
+				"delpresidentinfo",
+				"BabyBusAPI/AdministratorManagement/Controllers/DelPresidentInfoController.cs"
+			],
+			[
+				"sendmessagerecords",
+				"BabyBusAPI/AdministratorManagement/Controllers/SendMessageRecordsController.cs"
+			],
+			[
+				"presidentinfo",
+				"BabyBusAPI/AdministratorManagement/Controllers/PresidentInfoController.cs"
+			],
+			[
+				"utilities.js",
+				"BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/utilities.js"
+			],
+			[
+				"sendnotice",
+				"BabyBusAPI/AdministratorManagement/Admin/Pages/SendNotice.html"
+			],
+			[
+				"message.js",
+				"BabyBusAPI/AdministratorManagement/Admin/Pages/assets/js/message.js"
+			],
+			[
+				"",
+				"BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/ui_general.html"
+			],
+			[
+				"sendgiftedyoungtab",
+				"BabyBusAPI/AdministratorManagement/Admin/Pages/SendGiftedYoungTab.html"
+			],
+			[
+				"form_components.html",
+				"BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/form_components.html"
+			],
+			[
+				"ui_general.html",
+				"BabyBusAPI/AdministratorManagement/melon-flat-ui/Template/ui_general.html"
+			],
+			[
+				"uv_child",
+				"projects/BabyBusAPI/BabyBus.AutoModel/UV_Child.cs"
+			],
+			[
+				"childsu",
+				"BabyBusAPI/BabyBus.API/Controllers/Common/ChildSummaryV2Controller.cs"
+			],
+			[
+				"pagereportmodel",
+				"BabyBusAPI/BabyBus.Service/Models/PageReportModel.cs"
+			],
+			[
+				"pagereporttype",
+				"BabyBusAPI/BabyBus.Model/Entities/Stats/Enum/PageReportType.cs"
+			],
+			[
+				"attendancemodel",
+				"BabyBusAPI/BabyBus.Service/Models/AttendanceModel.cs"
+			],
+			[
+				"attencetype",
+				"BabyBusAPI/BabyBus.Service/Models/Enum/AttenceType.cs"
+			],
+			[
+				"attend",
+				"BabyBusAPI/BabyBus.Service/General/Attendance/AttendanceMasterService.cs"
+			],
+			[
+				"attendanceser",
+				"BabyBusMobile/BabyBus/Movies/Movies/Net/Attendance/AttendanceService.cs"
+			],
+			[
+				"atten",
+				"BabyBusAPI/BabyBus.Service/Models/AttendanceModel.cs"
+			],
+			[
+				"answercon",
+				"BabyBusAPI/BabyBus.API/Controllers/Communication/AnswerController.cs"
+			],
+			[
+				"anserser",
+				"BabyBusAPI/BabyBus.Service/General/FAQ/AnswerService.cs"
+			],
+			[
+				"anser",
+				"BabyBusAPI/BabyBus.Service/General/Login/AdminService.cs"
+			],
+			[
+				"noticet",
+				"BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Models/Enums/NoticeType.cs"
+			],
+			[
+				"noticemodel",
+				"BabyBusAPI/BabyBus.Service/Models/NoticeModel.cs"
+			],
+			[
+				"questiontype",
+				"projects/BabyBusServiceStackApi/BabyBusSSApi/BabyBusSSApi/BabyBusSSApi.ServiceModel/Enumeration/QuestionType.cs"
+			],
+			[
+				"noticecontor",
+				"BabyBusAPI/BabyBus.API/Controllers/Communication/NoticeController.cs"
+			],
+			[
+				"questionmodel",
+				"BabyBusAPI/BabyBus.Service/Models/QuestionModel.cs"
+			],
+			[
+				"askforleave",
+				"BabyBusAPI/BabyBus.Model/Entities/Attendance/AskForLeave.cs"
+			],
+			[
+				"questioncon",
+				"BabyBusAPI/BabyBus.API/Controllers/Communication/QuestionController.cs"
+			],
+			[
+				"question",
+				"BabyBusAPI/BabyBus.Service/Models/QuestionModel.cs"
+			],
+			[
+				"gender",
+				"BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Models/Account/GenderModel.cs"
+			],
+			[
+				"notice",
+				"projects/BabyBusAPI/BabyBus.Model/Entities/Article/Notice.cs"
+			],
+			[
+				"webconfig",
+				"BabyBusAPI/BabyBus.API/Web.config"
+			],
+			[
+				"childmodel",
+				"BabyBusAPI/BabyBus.Service/Models/ChildModel.cs"
+			],
+			[
+				"noticeread",
+				"BabyBusAPI/BabyBus.API/Controllers/Communication/NoticeReadController.cs"
+			],
+			[
+				"noticereadmodel",
+				"BabyBusAPI/BabyBus.Service/Models/NoticeReadModel.cs"
+			],
+			[
+				"radiobuto",
+				"BabyBusMobile/BabyBus/UITouchShared/Views/Controls/RadioButtonView.cs"
+			],
+			[
+				"sendquestionview",
+				"BabyBusMobile/BabyBus/Movies/Movies_Parent.Android/Views/Communication/SendQuestionView.cs"
+			],
+			[
+				"imagesendhelper",
+				"BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Utilities/ImageSendHelper.cs"
+			],
+			[
+				"cons",
+				"BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Constants.cs"
+			],
+			[
+				"con",
+				"BabyBusAPI/BabyBus.Service/Constant.cs"
+			],
+			[
+				"circlebuttonbinding.ios",
+				"BabyBusMobile/BabyBus/Movies/CircleButtonBinding.iOS/CircleButtonBinding/CircleButtonBinding.iOS.csproj"
+			],
+			[
+				"imageeffects",
+				"BabyBusMobile/BabyBus/Movies/ImageEffectsBinding.iOS/ImageEffects.csproj"
+			],
+			[
+				"jpushbinding.ios",
+				"BabyBusMobile/BabyBus/Movies/JPushBinding.iOS/JPush/JPushBinding.iOS.csproj"
+			],
+			[
+				"imagecropperbinding.ios.csproj",
+				"BabyBusMobile/BabyBus/Movies/ImageCropperBinding.iOS/ImageCropperBinding.iOS/ImageCropperBinding.iOS.csproj"
+			],
+			[
+				"mwphotobrowser.csproj",
+				"BabyBusMobile/BabyBus/Movies/MWPhotoBrowser-monotouch-master/MWPhotoBrowser/MWPhotoBrowser.csproj"
+			],
+			[
+				"createc",
+				"BabyBusDB/BabyBusDB/Data/CreateKgCl.sql"
+			],
+			[
+				"createk",
+				"BabyBusDB/BabyBusDB/Data/CreateKgCl.sql"
+			],
+			[
+				"create",
+				"BabyBusMobile/BabyBus/代码分析/CreateIntent.dgml"
+			],
+			[
+				"build",
+				"BabyBusMobile/BabyBus/Movies/ELCImagePickerControllerBinding.iOS/ELCImagePickerController/build.sh"
+			],
+			[
+				"mwphoto",
+				"BabyBusMobile/BabyBus/Movies/MWPhotoBrowser-monotouch-master/MWPhotoBrowser.sln"
+			],
+			[
+				"sendn",
+				"AdministratorManagement/Admin/Pages/SendNotice.html"
+			],
+			[
+				"log",
+				"AdministratorManagement/Admin/Pages/login.html"
+			],
+			[
+				"utili",
+				"AdministratorManagement/Admin/Pages/assets/js/utilities.js"
+			],
+			[
+				"login",
+				"AdministratorManagement/Admin/Pages/login.html"
+			],
+			[
+				"login.js",
+				"AdministratorManagement/Admin/Pages/assets/js/login.js"
+			],
+			[
+				"noticeservice",
+				"BabyBus.Service/General/Communication/NoticeService.cs"
+			],
+			[
+				"user.html",
+				"babybus/BabyBusAPI/AdministratorManagement/Admin/Pages/user.html"
+			],
+			[
+				"childsummaryinfo",
+				"babybus/BabyBusMobile/BabyBus/BabyBus.Logic.Shared/Models/Main/ChildSummaryInfo.cs"
+			],
+			[
+				"sendnoticeview.cs",
+				"babybus/BabyBusMobile/BabyBus/Movies/Babybus.Teacher.Touch/Views/Communication/SendNotice/SendNoticeView.cs"
+			],
+			[
+				"sendnoticeview",
+				"babybus/BabyBusMobile/BabyBus/UITouchShared/NewSendNoticeView.cs"
+			],
+			[
+				"appdelegate",
+				"xamarin example/CellAccessoryTable 2/AppDelegate.cs"
+			],
+			[
+				"teacherhome",
+				"babybus/BabyBusMobile/BabyBus/Movies/Babybus.Teacher.Touch/Views/Communication/TeacherHomeView.cs"
+			],
+			[
+				"apservice",
+				"binding/JPushBinding/JPushBinding/lib/APService.h"
+			],
+			[
+				"pack",
+				"MvvmCross-Tutorials-master/ApiExamples/ApiExamples.Droid/packages.config"
+			],
+			[
+				"child.cs",
+				"BabyBusMobile/BabyBus/Movies/Movies/Models/Account/Child.cs"
+			],
+			[
+				"registerdetalviewm",
+				"BabyBusMobile/BabyBus/Movies/Movies/ViewModels/Login/RegisterDetailViewModel.cs"
+			],
+			[
+				"takephotoview",
+				"BabyBusMobile/BabyBus/Movies/Movies.iOS/BindableElements/TakePhotoView.cs"
+			],
+			[
+				"dialog",
+				"MvvmCross-Tutorials-master/DialogExamples/DialogExamples.sln"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/yinshen/projects/projects.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 251.0,
+	"status_bar_visible": true
+}

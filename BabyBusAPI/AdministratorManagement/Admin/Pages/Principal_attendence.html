@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>考勤</title>
+
+	<!--=== CSS ===-->
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- jQuery UI -->
+	<!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+	<!--[if lt IE 9]>s
+		<link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+	<![endif]-->
+
+	<!-- Theme -->
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+	<![endif]-->
+
+	<!--=== JavaScript ===-->
+
+	<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="assets/js/libs/html5shiv.js"></script>
+	<![endif]-->
+
+	<!-- Smartphone Touch Events -->
+	<script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+	<script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+
+	<!-- General -->
+	<script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+	<script type="text/javascript" src="plugins/respond/respond.min.js"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+	<script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+    <script type="text/javascript" src="assets/js/utilities.js"></script>
+
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+ 
+		
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+
+		var date = new Date();
+		var year = parseInt(date.getFullYear());
+		$("#first").text(year);
+		var second = year - 1;
+		$("#second").text(second);
+		var third = second - 1;
+		$("#third").text(third);
+        
+	    $("#yearVal").val(year);
+		Utilities.GetAttendanceCountByFilter();
+	    //$("#yearVal").val($("#first").val());
+		Utilities.GenertFeedback();
+	});
+    
+	function send(month) {
+	    var url = "Principal _attendance_classes.html";
+	    var year = $("#yearVal").val();
+	    var kindergartenIdVal = 37;
+	    
+	    window.open(encodeURI(url + "?year=" + year + "&month=" + month + "&kindergartenId=" + kindergartenIdVal));
+
+	    //encodeURI编码
+	}
+
+	function getYear(e) {
+	    $("#yearVal").val($("#" + e.id).text());
+	    
+
+	    var tabIdArray = new Array();
+	    tabIdArray[0] = 'firstTab';
+	    tabIdArray[1] = 'secondTab';
+	    tabIdArray[2] = 'thirdTab';
+
+	    var tabId = e.id + "Tab";
+
+	    for (var i = 0; i < tabIdArray.length ; i++) {
+	        if (tabIdArray[i] == tabId) {
+	            $("#" + tabId).addClass("active");
+	        } else {
+	            $("#" + tabIdArray[i]).removeClass("active");
+	        }
+	    }
+	    Utilities.GetAttendanceCountByFilter();
+	}
+	</script>
+	<style>
+		a {
+			color: grey;
+		}
+		a:link {
+			text-decoration: none;
+
+		}
+		
+	</style>
+</head>
+
+<body>
+
+	<!-- Header -->
+	
+	<header class="header navbar navbar-fixed-top" role="banner">
+		<!-- Top Navigation Bar -->
+		<div class="container">
+			
+			<!-- Logo -->
+			<a class="navbar-brand" href="Principal.html">
+				<i class="icon-home"></i>
+				<strong>Hello</strong>World
+			</a>
+			<!-- /logo -->
+			
+			
+			<!-- Top Left Menu -->
+			<ul class="nav navbar-nav navbar-left hidden-xs hidden-sm">				
+				<li>
+					<a href="Principal_attendence.html">
+						考勤概况
+					</a>
+				</li>
+				<li>
+					<a href="Principal_classes.html">
+						班级资料
+					</a>
+				</li>	
+                <li>
+                    <a href="Principal_attendance_classes_detail.html">
+                        第三个页面(TestLink)
+                    </a>
+                </li>																			
+			</ul>
+			<!-- /Top Left Menu -->
+
+			<!-- Top Right Menu -->
+			<ul class="nav navbar-nav navbar-right">
+				<!-- User Login Dropdown -->
+				<li class="dropdown user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-male"></i>
+						<span class="username">园长</span>
+						<i class="icon-caret-down small"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="index.html"><i class="icon-user"></i>管理员</a></li>
+						<li><a href="teacher.html"><i class="icon-user"></i>教师</a></li>
+						<li><a href="parents.html"><i class="icon-user"></i>家长</a></li>
+						<li><a href="Principal.html"><i class="icon-user"></i>园长</a></li>
+					</ul>
+				</li>
+				<!-- /user login dropdown -->
+			</ul>
+
+			<!--search bar -->			
+			<div class="col-sm-3 col-md-3 pull-right">
+		        <form class="navbar-form" role="search">
+		        <div class="input-group">
+		            <input type="text" class="form-control" placeholder="" name="srch-term" id="srch-term">
+		            <div class="input-group-btn">
+		                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+		            </div>
+		        </div>
+		        </form>
+        	</div>
+        	<!--/search bar -->
+			<!-- /Top Right Menu -->
+		</div>
+		<!-- /top navigation bar -->
+	</header> <!-- /.header -->
+
+	<div id="container" style="margin-top :1px">
+        <input type="hidden" id="yearVal" />
+
+        <div style="margin: 100px auto 0 auto; max-width: 900px;">
+            <div class="widget">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="col-md-10"><h2>考勤概况</h2></div>
+                        <a href="#"><div class="col-md-2"><button class="btn btn-inverse" style="margin-top: 15px; margin-left: 15px; VISIBILITY: hidden">保存数据</button></div></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabbable tabbable-custom tabbable-full-width">
+                <ul class="nav nav-tabs">
+                    <li id="firstTab" class="active"><a href="#2015" data-toggle="tab" id="first" onclick="getYear(this)">2015</a></li>
+                    <li id="secondTab"><a href="#2014" data-toggle="tab" id="second" onclick="getYear(this)">2014</a></li>
+                    <li id="thirdTab"><a href="#2013" data-toggle="tab" id="third" onclick="getYear(this)">2013</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <a onclick="send('1')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">     
+                                        <div><center><h2>1月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="1"></center></p>
+                                <p><center id="plan1"></center></p>
+                                <p><center id="yAttendance1"></center></p>
+                                <p><center id="sAttendance1"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('2')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>2月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="2"></center></p>
+                                <p><center id="plan2"></center></p>
+                                <p><center id="yAttendance2"></center></p>
+                                <p><center id="sAttendance2"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('3')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>3月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="3"></center></p>
+                                <p><center id="plan3"></center></p>
+                                <p><center id="yAttendance3"></center></p>
+                                <p><center id="sAttendance3"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('4')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>4月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="4"></center></p>
+                                <p><center id="plan4"></center></p>
+                                <p><center id="yAttendance4"></center></p>
+                                <p><center id="sAttendance4"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('5')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>5月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="5"></center></p>
+                                <p><center id="plan5"></center></p>
+                                <p><center id="yAttendance5"></center></p>
+                                <p><center id="sAttendance5"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('6')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>6月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="6"></center></p>
+                                <p><center id="plan6"></center></p>
+                                <p><center id="yAttendance6"></center></p>
+                                <p><center id="sAttendance6"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('7')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>7月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="7"></center></p>
+                                <p><center id="plan7"></center></p>
+                                <p><center id="yAttendance7"></center></p>
+                                <p><center id="sAttendance7"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('8')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>8月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="8"></center></p>
+                                <p><center id="plan8"></center></p>
+                                <p><center id="yAttendance8"></center></p>
+                                <p><center id="sAttendance8"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('9')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>9月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="9"></center></p>
+                                <p><center id="plan9"></center></p>
+                                <p><center id="yAttendance9"></center></p>
+                                <p><center id="sAttendance9"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('10')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>10月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="10"></center></p>
+                                <p><center id="plan10"></center></p>
+                                <p><center id="yAttendance10"></center></p>
+                                <p><center id="sAttendance10"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('11')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>11月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="11"></center></p>
+                                <p><center id="plan11"></center></p>
+                                <p><center id="yAttendance11"></center></p>
+                                <p><center id="sAttendance11"></center></p>
+                            </div>
+                        </a>
+
+                        <a onclick="send('12')" target="_blank">
+                            <div class="thumbnail col-md-3" style="height:200px; width:200px; margin:10px">
+                                <div class="widget">
+                                    <div class="widget-header">
+                                        <div><center><h2>12月</h2></center></div>
+                                    </div>
+                                </div>
+                                <p><center id="12"></center></p>
+                                <p><center id="plan12"></center></p>
+                                <p><center id="yAttendance12"></center></p>
+                                <p><center id="sAttendance12"></center></p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>	
+
+
+        </div> 
+           
+    </div>
+    <div id="feedBackIdInfoId" style="position:fixed;bottom:10px;right:0;left:0;">
+
+    </div>
+</body>
+</html>

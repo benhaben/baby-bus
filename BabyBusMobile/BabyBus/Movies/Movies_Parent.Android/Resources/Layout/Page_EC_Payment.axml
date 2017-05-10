@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/lightyellow"
+            android:gravity="center_vertical"
+            android:id="@+id/no_net_lable"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/icon_easyicon_net"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="世界上最远的距离就是没有网，检查设置"
+                android:textColor="@color/bb_black1" />
+        </LinearLayout>
+        <TextView
+            android:text=" 该项增值服务包含以下内容，如果需要请点击付款。您也可以通过线下方式进行付款。"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textSize="16sp"
+            android:background="@android:color/holo_orange_light"
+            android:layout_margin="10dp"
+            android:padding="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical|right"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="12.0dip"
+            android:layout_marginRight="12.0dip"
+            android:isScrollContainer="true"
+            android:background="@drawable/shape_bg">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:isScrollContainer="true"
+                android:background="@drawable/shape_bg"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/payment_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:text="陕西老枪科技有限公司"
+                    android:layout_marginRight="10dp"
+                    android:textSize="18dp"
+                    local:MvxBind="Text DisplayTitle" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:isScrollContainer="true"
+                android:background="@drawable/shape_bg"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="付费金额："
+                    android:paddingLeft="20dp"
+                    android:textSize="18dp" />
+                <TextView
+                    android:id="@+id/payment_fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:text="100元"
+                    local:MvxBind="Text DisplayFeePay"
+                    android:layout_marginRight="10dp"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="12.0dip"
+            android:isScrollContainer="true"
+            android:background="@drawable/shape_bg">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:gravity="left|center_vertical"
+                android:text="课程/活动说明："
+                android:textSize="16dp"
+                android:textColor="@color/bb_black1" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:gravity="start"
+                android:text="暂无"
+                android:textSize="16dp"
+                android:textColor="@color/bb_black1"
+                local:MvxBind="Text Abstract"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="4" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:gravity="start"
+                android:text="……"
+                android:textSize="18dp"
+                android:textColor="@color/bb_black1" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_horizontal|left"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="2.0dip"
+            android:layout_marginRight="12.0dip"
+            android:isScrollContainer="true"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/bt_alpay">
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/icon_alpay"
+                android:layout_margin="5dp"
+                android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal|left"
+                android:layout_weight="4">
+                <TextView
+                    android:text="支付宝"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginTop="5.0dip" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="推荐支付宝用户使用"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="5.0dip" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="15dp"
+                android:gravity="center_vertical|right"
+                android:layout_weight="2">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/paytype"
+                    android:id="@+id/icon_alpay_select" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_paytype_unselected"
+                    android:id="@+id/icon_alpay_unselect"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_horizontal|left"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="12.0dip"
+            android:layout_marginRight="12.0dip"
+            android:isScrollContainer="true"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/bt_wxpay">
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/icon_WXpay"
+                android:layout_margin="5dp"
+                android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal|left"
+                android:layout_weight="3">
+                <TextView
+                    android:text="微信支付"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginTop="5.0dip" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="推荐已开通微信支付用户使用"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="5.0dip" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="15dp"
+                android:gravity="center_vertical|right"
+                android:layout_weight="2">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/paytype"
+                    android:id="@+id/icon_wxpay_select"
+                    android:visibility="gone" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_paytype_unselected"
+                    android:id="@+id/icon_wxpay_unselect" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:text="确认支付"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:id="@+id/btn_pay"
+            android:gravity="center"
+            android:background="@drawable/corners_bg"
+            android:textColor="@android:color/background_light" />
+    </LinearLayout>
+</ScrollView>

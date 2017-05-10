@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Click Me!</string>
+    <string name="app_name">MobileCRM</string>
+    <!-- Login -->
+  <string name="login_label_babybus_cn">贝贝巴士</string>
+  <string name="login_label_babybus_en">Baby Bus</string>
+  <string name="login_label_parent_version">家长版</string>
+  <string name="login_label_teacher_version">教师版</string>
+  <string name="login_label_master_version">管理版</string>
+  <string name="login_label_username">帐号</string>  
+    <string name="login_label_password">密码</string>  
+    <string name="login_label_signin">登　录</string>  
+    <string name="login_label_findpwd">找回密码</string>
+    <string name="login_label_register">快速注册</string>
+    <string name="login_status_logging_in">登录中...</string>  
+    <string name="login_username_hint">手机号</string>  
+    <string name="login_register_link">没有帐号？ <a href="#" mce_href="#">注册</a></string>  
+    <string name="register_label_username">请输入手机号</string>
+    <string name="register_label_pwd">请输入密码</string>
+    <string name="register_label_confirmpwd">请再次输入密码</string>
+    <string name="register_label_identifycode">请输入验证码</string>
+    <string name="register_label_register">注 册</string> 
+    <string name="register_label_code">密保卡</string> 
+    <string name="register_label_city">城 市</string>
+    <string name="register_label_kindergarden">幼儿园</string>
+    <string name="register_label_class">班 级</string>
+    <string name="register_label_childname">宝宝姓名</string>
+    <string name="register_label_parentname">家长称谓</string>
+    <string name="register_label_teachername">老师称谓</string>
+    <string name="register_label_gender">性 别</string>
+    <string name="register_label_birthday">生 日</string>
+    <string name="register_label_childimage">宝宝头像</string>
+    <string name="register_label_bindingInfo">绑定信息</string>
+    <string name="register_label_babyInfo">宝宝信息</string>
+    <string name="regester_lable_onlinepryment">在线支付</string>
+    <!-- 通用 -->
+    <string name="common_label_finish">完 成</string>
+    <string name="common_label_sooner">刚刚</string>
+    <string name="common_label_enter">确认</string>
+    <string name="common_label_return">返回</string>
+    <string name="common_label_cancel">取消</string>
+    <!-- 我的 -->
+    <string name="mine_label_logout">退出当前账户</string>
+    <string name="mine_label_headimage">头像</string>
+    <string name="mine_label_save">保存</string>
+    <string name="mine_label_cancel">取消</string>
+    <string name="mine_label_update">更新</string>
+    <string name="mine_label_neverupdate">不再提示</string>
+    <string name="mine_label_repwd">修改密码</string>
+    <string name="mine_label_oldpwd">请输入密码</string>
+    <string name="mine_info_pwdnotsame">两次新密码不一致。</string>
+    <string name="mine_info_minlength">密码的最小长度为6</string>
+    <string name="mine_info_haveyourepwd">是否修改密码？</string>
+    <string name="register_label_newpwd">请输入新密码</string>
+    <string name="mine_info_logout">退出</string>
+    <string name="mine_confirm_logout">确定退出吗?</string>
+    <string name="mine_info_clearcache">清理缓存</string>
+    <string name="mine_comfirm_clearcache">确定清理缓存吗？</string>
+    <string name="mine_label_setting">设置</string>
+    <string name="mine_info_unbirth">您家的宝宝还未出生哦</string>
+    <string name="mine_label_attendance">孩子考勤</string>
+    <string name="mine_label_childgender">孩子性别</string>
+    <string name="mine_title_children">本班幼儿列表</string>
+    <!-- 发通知 -->
+    <string name="comm_label_sendwho">发送给:</string>
+    <string name="comm_label_wholeclass">全班</string>
+    <string name="comm_label_whochose">选择</string>
+    <string name="comm_label_finish">发送</string>
+  <string name="comm_label_sendnotice">发送班级通知</string>
+  <string name="comm_label_sendhomework">发送班级作业</string>
+  <string name="comm_label_kindergartenall">园区通知</string>
+  <string name="comm_label_kindergartenstaff">园务通知</string>
+  <string name="comm_label_kindergartenrecipe">宝宝食谱</string>
+  <string name="comm_label_sendphoto">成长记忆</string>
+  <string name="comm_label_notice">班级通知</string>
+  <string name="comm_label_attendance">考勤</string>
+  <string name="comm_label_homework">家庭作业</string>
+  <string name="comm_label_photo">成长记忆</string>
+  <string name="comm_label_question">留言</string>
+  <string name="comm_label_askforleave">请假</string>
+  <string name="comm_label_qjly">请假留言</string>
+  <string name="comm_label_grly">家庭访问</string>
+  <string name="comm_label_mastermail">园长信箱</string>
+  <string name="comm_label_pasonalsend">家庭访问</string>
+  <string name="comm_label_abortreturn">您要放弃编辑并返回吗？</string>
+  <string name="comm_label_sakleave">请假说明</string>
+  <string name="comm_label_tomaster">园长信箱</string>
+  <string name="comm_label_normal">留言信息</string>
+  <string name="comm_label_pasonalmessage">家庭访问</string>
+  <string name="ybtabloid">优贝小报</string>
+ 
+  <!--Home Page-->
+  <string name="home_label_appupdate">软件更新</string>
+  <string name="home_label_appupdatedesc">发现新版本{0}，是否要更新？\n{1}</string>
+  <string name="home_label_downloadstatus">请在任务栏查看下载状态</string>
+  <string name="home_menu_sendnotice">发通知</string>
+  <string name="home_menu_sendhomework">留作业</string>
+  <string name="home_menu_sendphoto">传照片</string>
+  <string name="home_menu_attence">考勤</string>
+  <string name="home_menu_homeworkmessage">作业信息</string>
+  <string name="home_menu_classnotice">班级通知</string>
+  <string name="home_menu_growmemory">成长记忆</string>
+  <string name="home_menu_classattence">班级考勤</string>
+  <string name="home_menu_parenteducation">家园共育</string>
+  <string name="home_menu_Personal_send">家庭访问</string>
+  <string name="home_menu_kgnotice">园区通知</string>
+  <string name="home_menu_stuffnotice">内部管理</string>
+  <string name="home_menu_kgattence">查阅考勤</string>
+  <string name="home_title_phsical">体质健康</string>
+  <string name="home_title_feedback">意见反馈</string>
+  <string name="home_title_learning">家长学堂</string>
+  <string name="home_title_discovery">发现</string>
+  <!--Attendance-->
+  <string name="att_title_teacherAttendance">孩子考勤</string>
+  <string name="att_title_unAttenceChildren">缺席幼儿</string>
+  <string name="att_title_selectDate">选择日期</string>
+  <!--Discovery-->
+  <string name="ec_title_courseDetail">课程详情</string>
+  <string name="ec_title_activityDetail">活动详情</string>
+  <string name="ec_title_review">点评</string>
+  <string name="notice_detial">详情</string>
+
+  <string name="send">发送</string>
+  <string name="check">检查一下</string>	
+
+  <string name="concel">取消</string>	
+  <string name="confirm">确定</string>
+</resources>

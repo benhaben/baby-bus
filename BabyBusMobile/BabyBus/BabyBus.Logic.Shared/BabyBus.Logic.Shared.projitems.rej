@@ -1,0 +1,14 @@
+
+     <Compile Include="$(MSBuildThisFileDirectory)Utilities\StatsUtils.cs" />
+     <Compile Include="$(MSBuildThisFileDirectory)Converters\Converters.cs" />
+     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseListViewModel.cs" />
+
+     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Communication\SendFeedbackViewModel.cs" />
+     <Compile Include="$(MSBuildThisFileDirectory)Net\Communication\FeedbackService.cs" />
+     <Compile Include="$(MSBuildThisFileDirectory)Models\Communication\FeedbackModel.cs" />
+
+   <Compile Include="$(MSBuildThisFileDirectory)Message\RedirectMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FeedBack.cs" />
+   </ItemGroup>
+   <ItemGroup>
+     <None Include="$(MSBuildThisFileDirectory)packages.config" />
